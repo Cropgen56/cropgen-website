@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes moveBg {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateY(-10px) scale(1.02);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(10px) scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-10px) scale(1.02);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+}
+
+.animate-moveBg {
+  animation: moveBg 5s linear infinite;
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
