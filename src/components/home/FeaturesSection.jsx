@@ -40,7 +40,7 @@ const FeaturesSection = () => {
           {/* Right Content (Infinite Animation) */}
           <div className="p-2 text-white flex justify-center items-center">
             <motion.div
-              animate={{ scale: [1, 1.05, 1] }} // Scale up & down effect
+              animate={{ scale: [1, 1.05, 1] }}
               transition={{
                 duration: 3,
                 repeat: Infinity,

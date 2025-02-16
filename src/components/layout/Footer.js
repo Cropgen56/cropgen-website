@@ -114,10 +114,10 @@ export default function Footer() {
             © Copyright CropGen. All Rights Reserved
           </p>
           <div className="flex justify-center md:justify-start space-x-4 mt-2 md:mt-0">
-            <a href="#" className="hover:text-white">
+            <a href="/terms-conditions" className="hover:text-white">
               Terms of Service
             </a>
-            <a href="#" className="hover:text-white">
+            <a href="/privacy-policy" className="hover:text-white">
               Privacy Policy
             </a>
           </div>

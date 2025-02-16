@@ -1,7 +1,19 @@
+import HeroSection from "@/components/about/HeroSection";
+import MissionSection from "@/components/about/MissonSection";
+import OurStorySection from "@/components/about/OurStorySection";
+import OurTeamSection from "@/components/about/OurTeamSection";
+import SubscribeSection from "@/components/about/SubsribeSection";
+import TestimonialSection from "@/components/about/TestimonilSection";
+
 export default function About() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-5xl font-bold text-gray-900">About</h1>
+    <div>
+      <HeroSection />
+      <MissionSection />
+      <OurStorySection />
+      <OurTeamSection />
+      <TestimonialSection />
+      <SubscribeSection />
     </div>
   );
 }
