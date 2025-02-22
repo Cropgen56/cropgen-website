@@ -23,7 +23,7 @@ const HeroSection = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/image/about/hero-image.webp"
+            src="/assets/image/about/hero.webp"
             alt="Farming Field with Sprinklers"
             layout="fill"
             objectFit="cover"
@@ -37,7 +37,7 @@ const HeroSection = () => {
           className="relative z-10 text-white p-6 md:p-2 lg:p-4 w-full max-w-lg 
   mr-auto md:ml-12 lg:ml-10 text-left rounded-lg"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             About
             <br />
             <span className="mt-6 inline-block">CropGen</span>

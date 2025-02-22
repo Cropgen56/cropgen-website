@@ -23,22 +23,31 @@ export default function Footer() {
               <h3 className="text-xl font-semibold">Resources</h3>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a
+                    href="/crop-monitoring"
+                    className="text-gray-300 hover:text-white"
+                  >
                     Crop Monitoring
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a
+                    href="/agri-business"
+                    className="text-gray-300 hover:text-white"
+                  >
                     Agre Business
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a
+                    href="/sustainability"
+                    className="text-gray-300 hover:text-white"
+                  >
                     Sustainability
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="/blog" className="text-gray-300 hover:text-white">
                     Blog
                   </a>
                 </li>
@@ -50,7 +59,7 @@ export default function Footer() {
               <h3 className="text-xl font-semibold">Company</h3>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="/about" className="text-gray-300 hover:text-white">
                     About Us
                   </a>
                 </li>

@@ -107,8 +107,8 @@ const TermsConditions = () => {
             <strong className="text-[#2AB673]">legal@cropgenapp.com</strong>
           </p>
         </section>
+        <PromoSection />
       </div>
-      <PromoSection />
     </>
   );
 };

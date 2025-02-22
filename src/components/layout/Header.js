@@ -25,7 +25,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* ✅ Logo with SEO-Friendly h1 */}
-        <h1 className="text-[#075A53] text-xl font-semibold flex items-center gap-2">
+        <h1 className="text-[#075A53] text-xl font-semibold flex items-center gap-2 cursor-pointer">
           <Link href="/" aria-label="CropGen Home">
             <Image
               src="/assets/image/logo.png"
@@ -35,7 +35,7 @@ export default function Navbar() {
               priority={false} // Lazy load
             />
           </Link>
-          <span>CropGen</span>
+          <Link href="/">CropGen</Link>
         </h1>
 
         {/* ✅ Desktop Menu with <ul> for better SEO */}

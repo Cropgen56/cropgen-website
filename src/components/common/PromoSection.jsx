@@ -1,29 +1,21 @@
-"use client";
+import React from "react";
 
-const PromoSection = () => {
+export default function PromoSection() {
   return (
-    <section
-      className="relative container mx-auto rounded-2xl px-6 sm:px-8 md:px-12 py-16 md:py-24 
-      flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 my-6
-      bg-[url('/assets/image/comman/background.webp')] bg-cover bg-center"
-    >
-      <div className="text-center lg:text-left max-w-2xl">
-        <h2 className="text-[#2AB673] text-sm sm:text-3xl md:text-3xl font-bold leading-tight">
-          Start Monitoring Your Farm <br className="hidden sm:block" /> Easily
-          Now
+    <div className="mx-auto sm:w-[1200px]  h-[120px] sm:h-[400px] bg-[url('/assets/image/comman/background.webp')] bg-cover sm:bg-contain bg-no-repeat bg-center mt-2">
+      <div className="relative w-[60%] sm:w-[70%]   h-full flex justify-center flex-col items-cente p-4 sm:p-20  ">
+        <h2 className="text-[12px] sm:text-3xl font-bold text-[#2AB673]">
+          Start Monitoring your Farm <br /> Easily Now
         </h2>
-        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <button className="bg-[#2AB673] text-white px-1 sm:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold rounded-lg hover:bg-green-700 transition">
+        <div className="mt-4 flex justify-between sm:w-1/2">
+          <button className="bg-[#2AB673] text-white px-2 sm:px-6 py-1 sm:py-3 rounded-md text-[10px] sm:font-semibold hover:bg-[#2AB673] transition-all">
             Start Free Trial
           </button>
-          <button className="bg-[#2AB673] text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold rounded-lg hover:bg-green-700 transition">
-            Choose Plan
+          <button className="bg-[#2AB673] text-white px-2 sm:px-6 py-1 sm:py-3 rounded-md text-[10px] sm:font-semibold hover:bg-[#2AB673] transition-all">
+            Choose Plane
           </button>
         </div>
       </div>
-      4{" "}
-    </section>
+    </div>
   );
-};
-
-export default PromoSection;
+}

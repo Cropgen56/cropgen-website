@@ -43,14 +43,16 @@ const MissionSection = () => {
   return (
     <section className="px-4 md:px-8 lg:px-12 py-8 bg-white">
       {/* Stats Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-3 md:grid-cols-3 gap-6 text-center mb-8 max-w-4xl mx-auto">
         {stats.map((stat, index) => (
           <div key={stat.id} className="flex flex-col items-center">
             <div className="flex items-center justify-between">
               <Image src={stat.icon} width={60} height={60} alt="icon" />{" "}
-              <p className="text-3xl font-bold ">{counts[index]}+</p>
+              <p className="text-xl font-bold ">{counts[index]}+</p>
             </div>
-            <p className="text-gray-700 font-medium pt-1 w-1/2">{stat.text}</p>
+            <p className="text-black text-sm sm:font-semibold pt-1 w-1/2">
+              {stat.text}
+            </p>
           </div>
         ))}
       </div>
