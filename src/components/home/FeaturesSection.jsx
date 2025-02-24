@@ -48,7 +48,7 @@ const FeaturesSection = () => {
               }}
             >
               <Image
-                src="/assets/image/features.png"
+                src="/assets/image/home/features.png"
                 height={500}
                 width={500}
                 alt="CropGen feature image"

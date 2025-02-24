@@ -28,7 +28,7 @@ export default function AgricultureTechSection() {
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
           <Image
-            src="/assets/image/technology.png"
+            src="/assets/image/home/technology.png"
             width={1000}
             height={1000}
             alt="agriculture technology image"

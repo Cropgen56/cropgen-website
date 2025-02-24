@@ -1,7 +1,22 @@
+import Body from "@/components/agri-business/Body";
+import BusinessSolution from "@/components/agri-business/BusinessSolution";
+import HeroSection from "@/components/agri-business/HeroSection";
+import Subscrib from "@/components/common/Subscrib";
+
 export default function About() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-5xl font-bold text-gray-900">Agri Business</h1>
+    <div>
+      <HeroSection />
+      <Body />
+      <BusinessSolution />
+      <Subscrib
+        text={
+          <>
+            Start Your Farming Journey with <br />
+            Cropgen’s Agribusiness
+          </>
+        }
+      />
     </div>
   );
 }

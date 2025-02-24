@@ -47,7 +47,7 @@ const reviews = [
 
 export default function UserReviewsSection() {
   const scrollRef = useRef(null);
-  const [selected, setSelected] = useState(reviews[0].id); // Default to first card
+  const [selected, setSelected] = useState(reviews[0].id);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -93,7 +93,7 @@ export default function UserReviewsSection() {
             className="bg-[#E4FFF1] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
           >
             <Image
-              src="/assets/image/left-arrow.png"
+              src="/assets/image/home/left-arrow.png"
               width={20}
               height={20}
               alt="Left arrow"
@@ -105,7 +105,7 @@ export default function UserReviewsSection() {
             className="bg-[#28C878] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
           >
             <Image
-              src="/assets/image/right-arrow.png"
+              src="/assets/image/home/right-arrow.png"
               width={20}
               height={20}
               alt="Right arrow"
@@ -139,7 +139,7 @@ export default function UserReviewsSection() {
               </p>
               <div className="flex items-center mt-4">
                 <Image
-                  src="/assets/image/user.png"
+                  src="/assets/image/home/user.png"
                   width={50}
                   height={50}
                   alt={review.name}

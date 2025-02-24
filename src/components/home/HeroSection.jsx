@@ -6,10 +6,10 @@ import Head from "next/head";
 
 const HeroSection = () => {
   const features = [
-    { src: "/assets/image/crop-monitoring.png", label: "Crop Monitoring" },
-    { src: "/assets/image/agri-business.png", label: "Agribusinesses" },
-    { src: "/assets/image/api-integration.png", label: "API Integration" },
-    { src: "/assets/image/farm.png", label: "Farmers & Stakeholders" },
+    { src: "/assets/image/home/crop-monitoring.png", label: "Crop Monitoring" },
+    { src: "/assets/image/home/agri-business.png", label: "Agribusinesses" },
+    { src: "/assets/image/home/api-integration.png", label: "API Integration" },
+    { src: "/assets/image/home/farm.png", label: "Farmers & Stakeholders" },
   ];
 
   return (
@@ -89,7 +89,7 @@ const HeroSection = () => {
           className="relative lg:w-1/2 flex justify-start items-center mt-8 lg:mt-0 px-6 md:px-0"
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 bg-[url('/assets/image/line.png')] hidden sm:block bg-cover bg-center bg-no-repeat opacity-100 h-[100%] w-[100%] z-[1] animate-[moveBg_10s_linear_infinite]" />
+          <div className="absolute inset-0 bg-[url('/assets/image/home/line.png')] hidden sm:block bg-cover bg-center bg-no-repeat opacity-100 h-[100%] w-[100%] z-[1] animate-[moveBg_10s_linear_infinite]" />
 
           {/* Content Wrapper */}
           <div className="relative w-full max-w-md md:max-w-lg lg:max-w-xl z-10 flex justify-start">
@@ -99,7 +99,7 @@ const HeroSection = () => {
               transition={{ duration: 1 }}
             >
               <Image
-                src="/assets/image/dashboard.png"
+                src="/assets/image/home/dashboard.png"
                 alt="Crop Monitoring Dashboard"
                 width={1000}
                 height={1000}
@@ -114,7 +114,7 @@ const HeroSection = () => {
               className="absolute top-14 right-0 sm:top-20 sm:right-[-20px] w-1/3 md:w-1/3"
             >
               <Image
-                src="/assets/image/doughnut.png"
+                src="/assets/image/home/doughnut.png"
                 alt="Agricultural Data Chart"
                 width={200}
                 height={120}
@@ -128,7 +128,7 @@ const HeroSection = () => {
               className="absolute bottom-0 right-0 sm:bottom-[10px] sm:right-[30px] w-1/2 md:w-1/2"
             >
               <Image
-                src="/assets/image/soil-chart.png"
+                src="/assets/image/home/soil-chart.png"
                 alt="Soil Analysis Graph"
                 width={300}
                 height={300}

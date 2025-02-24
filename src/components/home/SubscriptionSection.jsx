@@ -8,7 +8,7 @@ export default function SubscriptionSection() {
       <div
         className="max-w-5xl w-full rounded-2xl shadow-lg flex flex-col md:flex-row items-center p-6 gap-6 relative overflow-hidden"
         style={{
-          backgroundImage: "url('/assets/image/line.png')",
+          backgroundImage: "url('/assets/image/home/line.png')",
           backgroundSize: "cover",
         }}
       >
@@ -32,7 +32,7 @@ export default function SubscriptionSection() {
         {/* Right Image */}
         <div className="w-full md:w-1/2 flex justify-end">
           <Image
-            src="/assets/image/dashboard.png"
+            src="/assets/image/home/dashboard.png"
             alt="Subscription Illustration"
             width={400}
             height={200}

@@ -57,7 +57,7 @@ const ValuesSection = () => {
           >
             <div className="float-end">
               <Image
-                src="/assets/image/weather-card.png"
+                src="/assets/image/home/weather-card.png"
                 alt="Report"
                 width={150}
                 height={100}
@@ -65,7 +65,7 @@ const ValuesSection = () => {
               />
             </div>
             <Image
-              src="/assets/image/insights.png"
+              src="/assets/image/home/insights.png"
               alt="Report"
               width={400}
               height={400}
@@ -76,7 +76,7 @@ const ValuesSection = () => {
             transition={{ repeat: Infinity, duration: 3 }}
           >
             <Image
-              src="/assets/image/report-cards.png"
+              src="/assets/image/home/report-cards.png"
               alt="Report"
               width={600}
               height={600}

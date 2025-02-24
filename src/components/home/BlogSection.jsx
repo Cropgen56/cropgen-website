@@ -10,19 +10,19 @@ const blogPosts = [
     date: "12 Jun",
     title: "Maximize Yield with Precision:",
     description: "How Crop Monitoring Can Boost Your Bottom Line",
-    image: "/assets/image/blog-image1.png",
+    image: "/assets/image/home/blog-image1.png",
   },
   {
     id: 2,
     title: "Early Detection, Early Action:",
     description: "Using Crop Monitoring to Identify and Combat Crop Threats",
-    image: "/assets/image/blog-image2.png",
+    image: "/assets/image/home/blog-image2.png",
   },
   {
     id: 3,
     title: "Data-driven Decisions:",
     description: "How Crop Monitoring Promotes Environmental Responsibility",
-    image: "/assets/image/blog-image3.png",
+    image: "/assets/image/home/blog-image3.png",
   },
 ];
 
@@ -112,7 +112,7 @@ export default function BlogCarousel() {
           className="bg-[#E4FFF1] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600"
         >
           <Image
-            src="/assets/image/left-arrow.png"
+            src="/assets/image/home/left-arrow.png"
             width={20}
             height={20}
             alt="Left arrow"
@@ -123,7 +123,7 @@ export default function BlogCarousel() {
           className="bg-[#28C878] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600"
         >
           <Image
-            src="/assets/image/right-arrow.png"
+            src="/assets/image/home/right-arrow.png"
             width={20}
             height={20}
             alt="Right arrow"

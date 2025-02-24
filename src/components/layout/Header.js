@@ -28,7 +28,7 @@ export default function Navbar() {
         <h1 className="text-[#075A53] text-xl font-semibold flex items-center gap-2 cursor-pointer">
           <Link href="/" aria-label="CropGen Home">
             <Image
-              src="/assets/image/logo.png"
+              src="/assets/image/home/logo.png"
               width={50}
               height={50}
               alt="CropGen Logo"

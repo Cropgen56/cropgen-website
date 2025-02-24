@@ -40,7 +40,7 @@ const AboutSection = () => {
             className="relative z-10"
           >
             <Image
-              src="/assets/image/index-image.png"
+              src="/assets/image/home/index-image.png"
               alt="NDVI"
               width={400}
               height={400}
@@ -55,7 +55,7 @@ const AboutSection = () => {
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           >
             <Image
-              src="/assets/image/about.png"
+              src="/assets/image/home/about.png"
               width={120}
               height={120}
               alt="Dotted Background"
@@ -79,7 +79,7 @@ const AboutSection = () => {
           className="relative flex justify-center items-start p-0 m-0"
         >
           <Image
-            src="/assets/image/monitoring.png"
+            src="/assets/image/home/monitoring.png"
             alt="Monitoring"
             width={500}
             height={500}
