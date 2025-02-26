@@ -1,3 +1,4 @@
+"use client";
 import Body from "@/components/agri-business/Body";
 import BusinessSolution from "@/components/agri-business/BusinessSolution";
 import HeroSection from "@/components/agri-business/HeroSection";

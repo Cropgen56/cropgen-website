@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 
@@ -6,13 +7,13 @@ export default function Su() {
     <div className="px-2 sm:px-10">
       <div className="relative w-full md:w-1/2">
         {" "}
-        <Image
+        {/* <Image
           src="/assets/image/sustainability/sustainability-text.webp"
           alt="Crop Health Analytics"
           width={500}
           height={300}
           className="absolute z-0 opacity-80 sm:ms-40"
-        />
+        /> */}
         <h2 className="relative text-2xl sm:text-4xl font-bold leading-tight text-start mt-4 sm:mt-10 z-10">
           <span className="text-[#2AB673]">Sustainability </span> at <br />{" "}
           CropGen

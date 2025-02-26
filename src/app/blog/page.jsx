@@ -1,3 +1,4 @@
+"use client";
 import BlogGrid from "@/components/blog/BlogGrid";
 import HeroSection from "@/components/blog/HeroSection";
 import SubscriptionBanner from "@/components/blog/SubscriptionBanner";

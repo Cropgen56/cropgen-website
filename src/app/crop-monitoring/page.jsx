@@ -1,3 +1,4 @@
+"use client";
 import CropMonitoringFeatures from "@/components/crop-monitoring/Features";
 import HeroSection from "@/components/crop-monitoring/HeroSection";
 

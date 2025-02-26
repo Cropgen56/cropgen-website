@@ -1,3 +1,4 @@
+"use client";
 import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
@@ -35,7 +36,7 @@ export default function Footer() {
                     href="/agri-business"
                     className="text-gray-300 hover:text-white"
                   >
-                    Agre Business
+                    Agri Business
                   </a>
                 </li>
                 <li>

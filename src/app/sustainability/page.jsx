@@ -1,3 +1,4 @@
+"use client";
 import Subscrib from "@/components/common/Subscrib";
 import HeroSection from "@/components/sustainability/HeroSection";
 import Sustainability from "@/components/sustainability/Sustainability";
