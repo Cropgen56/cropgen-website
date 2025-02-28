@@ -12,7 +12,7 @@ export default function Subscrib({ text }) {
       return;
     }
 
-    setIsClicked(true); // Change button color on click
+    setIsClicked(true);
 
     try {
       const response = await fetch("/api/subscribe", {

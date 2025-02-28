@@ -44,8 +44,8 @@ export async function POST(req) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject: "New Subscriber Alert 🚀",
-      text: `You have a new subscriber: ${email}`,
+      subject: "New Subscription Notification",
+      text: `A new user has subscribed to your mailing list.\n\nSubscriber Email: ${email}\n\nPlease ensure they receive relevant updates and communications.`,
     });
 
     return NextResponse.json(

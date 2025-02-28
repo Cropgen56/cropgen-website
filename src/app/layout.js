@@ -1,4 +1,5 @@
 import { Footer, Header } from "@/components";
+import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import "./globals.css";
 
@@ -78,7 +79,9 @@ export default function RootLayout({ children }) {
         </Script>
 
         <Header />
-        <main className="pt-16">{children}</main>
+        <main className="pt-16">
+          {children} <Analytics />
+        </main>
         <Footer />
       </body>
     </html>
