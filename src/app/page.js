@@ -14,7 +14,7 @@ export default function Home() {
       <AboutSection />
       <ValuesSection />
       <FeaturesSection />
-      <UserReviewsSection />
+      {/* <UserReviewsSection /> */}
       <AgricultureTechSection />
       <BlogCarousel />
       <Subscrib
