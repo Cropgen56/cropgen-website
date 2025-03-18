@@ -10,7 +10,7 @@ export default function CropMonitoringFeatures() {
         <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#2AB673] sm:mb-8">
           Crop Monitoring Features
         </h2>
-        {/* Crop Health Analysis */}
+        {/* Crop Health Analysis componetnt */}
         <div className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse

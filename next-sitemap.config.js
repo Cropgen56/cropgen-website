@@ -3,3 +3,5 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 5000,
 };
+
+// integrate the sitemap
