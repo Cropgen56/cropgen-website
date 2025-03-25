@@ -19,27 +19,43 @@ const PrivacyPolicy = () => {
             important to us, and this Privacy Policy outlines how we collect,
             use, and protect your data when you use our platform.
           </p>
-
           {/* Information We Collect */}
-          <h2 className="text-xl font-bold mt-6">Information We Collect</h2>
+          <h2 className="text-xl font-bold mt-6">Data Collection & Usage</h2>
           <p className="mt-2 text-sm">
             We collect the following types of information:
           </p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
-              <strong>Personal Information:</strong> Name, email, phone number,
-              billing details, and other contact information.
+              <strong>Personal Information:</strong> Name, email address, phone
+              number, billing details, and other contact information.
             </li>
             <li className="text-sm">
-              <strong>Usage Data:</strong> IP addresses, device details, and
-              browsing behavior.
+              <strong>Location Data:</strong> Geospatial location and
+              farm-specific coordinates.
             </li>
             <li className="text-sm">
-              <strong>Geospatial & Agricultural Data:</strong> Farm locations,
-              crop details, satellite imagery, and other agronomic insights.
+              <strong>Device Information:</strong> IP address, device type, OS
+              version, and browser details.
+            </li>
+            <li className="text-sm">
+              <strong>Agricultural Data:</strong> Crop types, farming practices,
+              satellite imagery, and other agronomic insights.
             </li>
           </ul>
-
+          {/* Purpose of Data Collection */}
+          <h2 className="text-xl font-bold mt-6">Purpose of Data Collection</h2>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">User registration and authentication.</li>
+            <li className="text-sm">
+              Providing personalized agricultural insights and recommendations.
+            </li>
+            <li className="text-sm">
+              Analytics to enhance global service delivery and app performance.
+            </li>
+            <li className="text-sm">
+              Secure transaction processing and billing management.
+            </li>
+          </ul>
           {/* How We Use Your Data */}
           <h2 className="text-xl font-bold mt-6">How We Use Your Data</h2>
           <p className="mt-2 text-sm">Your data is used to:</p>
@@ -57,7 +73,6 @@ const PrivacyPolicy = () => {
               Communicate updates, promotions, or technical support.
             </li>
           </ul>
-
           {/* Data Security */}
           <h2 className="text-xl font-bold mt-6">Data Security & Protection</h2>
           <p className="mt-2 text-sm">
@@ -66,7 +81,14 @@ const PrivacyPolicy = () => {
             data. However, no online transmission is 100% secure, and we
             encourage users to take necessary precautions.
           </p>
-
+          <li>We employ rigorous security measures including: </li>{" "}
+          <li>Advanced encryption standards. </li>
+          <li>Secure global cloud storage solutions.</li>{" "}
+          <li>Continuous monitoring and proactive threat detection.</li>{" "}
+          <li>
+            Despite stringent security measures, no digital platform can
+            guarantee absolute security.
+          </li>
           {/* Third-Party Sharing */}
           <h2 className="text-xl font-bold mt-6">
             Sharing & Third-Party Involvement
@@ -86,34 +108,91 @@ const PrivacyPolicy = () => {
               Research institutions working on sustainable farming solutions.
             </li>
           </ul>
-
-          {/* International Data Transfers */}
+          {/* Data Sharing & Third-Party Services */}
           <h2 className="text-xl font-bold mt-6">
-            International Data Transfers
+            Data Sharing & Third-Party Services
           </h2>
           <p className="mt-2 text-sm">
-            Since we provide SaaS-based solutions globally, your data may be
-            processed outside of India in compliance with international data
-            protection laws.
+            We may share your data with trusted third parties, including:
           </p>
-
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              Analytics services (e.g., Google Analytics, Firebase).
+            </li>
+            <li className="text-sm">Payment processing providers.</li>
+            <li className="text-sm">
+              Research institutions globally for agricultural innovation and
+              sustainability.
+            </li>
+          </ul>
+          {/* Third-Party SDKs and Integrations */}
+          <h2 className="text-xl font-bold mt-6">
+            Third-Party SDKs and Integrations Used
+          </h2>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              <strong>Firebase:</strong> Used for analytics, crash reporting,
+              and user engagement.
+            </li>
+            <li className="text-sm">
+              <strong>Google Maps API:</strong> Used for geolocation services.
+            </li>
+          </ul>
+          <p className="mt-2 text-sm">
+            We ensure all third-party services adhere to global data protection
+            standards and handle your information responsibly.
+          </p>
           {/* Rights & Choices */}
-          <h2 className="text-xl font-bold mt-6">Your Rights & Choices</h2>
+          <h2 className="text-xl font-bold mt-6">Your Rights & Control</h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
               <strong>Access & Correction:</strong> You can request access to
-              your data and update inaccuracies.
+              your data and update inaccuracies within your account settings.
             </li>
             <li className="text-sm">
               <strong>Data Deletion:</strong> You can request to delete your
-              personal information from our system.
+              personal information from our system by contacting{" "}
+              <strong className="text-[#2AB673]">support@cropgenapp.com</strong>
+              .
             </li>
             <li className="text-sm">
               <strong>Opt-out:</strong> You can opt out of marketing
-              communications at any time.
+              communications and personalized advertising at any time.
             </li>
           </ul>
-
+          {/* Children's Privacy */}
+          <h2 className="text-xl font-bold mt-6">Children’s Privacy</h2>
+          <p className="mt-2 text-sm">
+            CropGen does not target users under the age of 13. We do not
+            knowingly collect data from children under this age.
+          </p>
+          {/* Contact Information */}
+          <h2 className="text-xl font-bold mt-6">Contact Information</h2>
+          <p className="mt-2 text-sm">
+            For privacy concerns, queries, or data requests, contact us at:
+            <strong className="text-[#2AB673]">support@cropgenapp.com</strong>
+          </p>
+          {/* Compliance */}
+          <h2 className="text-xl font-bold mt-6">Compliance</h2>
+          <p className="mt-2 text-sm">
+            Our data handling practices comply with Google Play Developer
+            Policy, GDPR, and other applicable global data protection
+            regulations.
+          </p>
+          {/* Hosting */}
+          <h2 className="text-xl font-bold mt-6">Hosting</h2>
+          <p className="mt-2 text-sm">
+            This privacy policy is hosted and accessible globally on our
+            official website:
+            <a
+              href="https://www.cropgenapp.com/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#2AB673] underline"
+            >
+              www.cropgenapp.com/privacy-policy
+            </a>
+          </p>
           {/* Contact */}
           <h2 className="text-xl font-bold mt-6">Contact Us</h2>
           <p className="mt-2 text-sm">
