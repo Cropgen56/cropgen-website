@@ -12,10 +12,9 @@ const TermsConditions = () => {
           {/* 1. Acceptance of Terms */}
           <h2 className="text-lg font-bold mt-6">1. Acceptance of Terms</h2>
           <p className="mt-2 text-sm">
-            By accessing CropGen and using our AI-powered remote sensing
-            services, you agree to abide by these{" "}
-            <strong>Terms and Conditions</strong>. If you do not agree, please
-            refrain from using our platform.
+            By using the CropGen web and mobile applications, you agree to these
+            Terms & Conditions. If you disagree, please refrain from using our
+            services.
           </p>
 
           {/* 2. Services Offered */}
@@ -36,13 +35,11 @@ const TermsConditions = () => {
           <p className="mt-2 text-sm">By using CropGen, you agree to:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
-              Provide accurate farm data for analysis.
+              Provide accurate and truthful information.
             </li>
+            <li className="text-sm">Use insights responsibly and ethically.</li>
             <li className="text-sm">
-              Not misuse AI-based insights for unlawful activities.
-            </li>
-            <li className="text-sm">
-              Follow applicable regulations in your region.
+              Comply with applicable local and international laws.
             </li>
           </ul>
 
@@ -50,12 +47,12 @@ const TermsConditions = () => {
           <h2 className="text-lg font-bold mt-6">4. Subscription & Payment</h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
-              Free & Premium Plan: Users may opt for monthly or yearly
-              subscriptions.
+              Subscription Plans: CropGen offers monthly and yearly subscription
+              plans.
             </li>
             <li className="text-sm">
-              Refund Policy: No refunds on the service unless stated in custom
-              pricing.
+              Payments are securely processed with no refunds unless explicitly
+              stated in individual service agreements.
             </li>
           </ul>
 
@@ -64,10 +61,9 @@ const TermsConditions = () => {
             5. Intellectual Property Rights
           </h2>
           <p className="mt-2 text-sm">
-            All content, AI models, and satellite insights on CropGen are
-            protected under intellectual property laws. You may not copy,
-            redistribute, or modify any part of our service without prior
-            approval.
+            All AI models, algorithms, content, and satellite-generated insights
+            remain the exclusive intellectual property of CropGen. Unauthorized
+            copying, redistribution, or modification is prohibited.
           </p>
 
           {/* 6. Limitation of Liability */}
@@ -75,35 +71,36 @@ const TermsConditions = () => {
           <p className="mt-2 text-sm">CropGen is not liable for:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
-              Incorrect insights due to AI-generated risks.
+              Losses due to inaccuracies in AI-driven insights.
             </li>
             <li className="text-sm">
-              Damages or losses from agricultural decisions.
+              Damage arising from agricultural decisions based on provided
+              analytics.
             </li>
             <li className="text-sm">
-              Third-party software failures affecting our services.
+              Third-party service interruptions or malfunctions.
             </li>
           </ul>
 
           {/* 7. Modifications to Terms */}
-          <h2 className="text-lg font-bold mt-6">7. Modifications to Terms</h2>
+          <h2 className="text-lg font-bold mt-6">7. Changes to Terms</h2>
           <p className="mt-2 text-sm">
-            We reserve the right to modify these Terms & Conditions at any time.
-            Users will be notified of significant changes via email or platform
-            alerts.
+            We may modify these Terms at any time. Users will receive
+            notifications through app alerts or email updates. Continued use
+            after any change signifies acceptance.
           </p>
 
           {/* 8. Governing Law */}
           <h2 className="text-lg font-bold mt-6">8. Governing Law</h2>
           <p className="mt-2 text-sm">
-            These terms are governed by Indian laws, with disputes subject to
-            the jurisdiction of Indian courts.
+            These Terms shall be governed by Indian law, with disputes subject
+            to the jurisdiction of Indian courts
           </p>
 
           {/* 9. Contact Information */}
           <h2 className="text-lg font-bold mt-6">9. Contact Information</h2>
           <p className="mt-2 text-sm">
-            For any legal concerns or clarifications, reach out at{" "}
+            For legal inquiries or clarifications, please contact:
             <strong className="text-[#2AB673]">legal@cropgenapp.com</strong>
           </p>
         </section>

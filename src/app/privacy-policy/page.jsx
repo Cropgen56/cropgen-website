@@ -13,11 +13,13 @@ const PrivacyPolicy = () => {
           {/* Introduction */}
           <h2 className="text-xl font-bold">Introduction</h2>
           <p className="mt-2 text-sm">
-            <strong>Welcome to CropGen!</strong> We are an AI-powered remote
-            sensing company registered in India, delivering SaaS-based
-            agricultural solutions to customers worldwide. Your privacy is
-            important to us, and this Privacy Policy outlines how we collect,
-            use, and protect your data when you use our platform.
+            <strong>Welcome to CropGen! </strong>
+            CropGen ("we," "our," or "us") respects your privacy and is
+            committed to protecting it through our compliance with this policy.
+            This Privacy Policy describes the types of information we collect
+            from you when you use our CropGen web and mobile applications
+            ("App") and outlines our practices for collecting, using,
+            maintaining, protecting, and disclosing that information globally.
           </p>
           {/* Information We Collect */}
           <h2 className="text-xl font-bold mt-6">Data Collection & Usage</h2>
@@ -178,20 +180,6 @@ const PrivacyPolicy = () => {
             Our data handling practices comply with Google Play Developer
             Policy, GDPR, and other applicable global data protection
             regulations.
-          </p>
-          {/* Hosting */}
-          <h2 className="text-xl font-bold mt-6">Hosting</h2>
-          <p className="mt-2 text-sm">
-            This privacy policy is hosted and accessible globally on our
-            official website:
-            <a
-              href="https://www.cropgenapp.com/privacy-policy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#2AB673] underline"
-            >
-              www.cropgenapp.com/privacy-policy
-            </a>
           </p>
           {/* Contact */}
           <h2 className="text-xl font-bold mt-6">Contact Us</h2>
