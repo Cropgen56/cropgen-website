@@ -57,6 +57,21 @@ export default function RootLayout({ children }) {
         {/* Canonical URL */}
         <link rel="canonical" href={siteUrl} />
 
+        {/* Zoho chat boat  */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.$zoho = window.$zoho || {};
+              $zoho.salesiq = $zoho.salesiq || { ready: function() {} };
+            `,
+          }}
+        />
+        <script
+          id="zsiqscript"
+          src="https://salesiq.zohopublic.in/widget?wc=siqb1dfcc250d87c7426b1842b94264cfe74d2fbb646c7b17079870b4b6c6f77628"
+          defer
+        />
+
         {/* Structured Data (JSON-LD) */}
         <script
           type="application/ld+json"
