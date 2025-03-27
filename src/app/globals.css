@@ -39,3 +39,14 @@
     display: none;
   }
 }
+
+/* Increase Zoho SalesIQ Chat Bot Icon Size */
+#zsiq_float {
+  width: 80px !important;
+  height: 80px !important;
+}
+
+#zsiq_float img {
+  width: 80px !important;
+  height: 80px !important;
+}
