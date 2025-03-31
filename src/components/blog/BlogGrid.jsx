@@ -4,79 +4,23 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
 
-const blogPosts = [
-  {
-    id: 1,
-    title:
-      "Maximize Yield with Precision: How Crop Monitoring Can Boost Your Bottom Line",
-    date: "02/02/24",
-    author: "Admin",
-    comments: 10,
-    image: "/assets/image/blog/top-post.webp",
-  },
-  {
-    id: 2,
-    title:
-      "Maximize Yield with Precision: How Crop Monitoring Can Boost Your Bottom Line",
-    date: "02/02/24",
-    author: "Admin",
-    comments: 10,
-    image: "/assets/image/blog/top-post.webp",
-  },
-  {
-    id: 3,
-    title:
-      "Maximize Yield with Precision: How Crop Monitoring Can Boost Your Bottom Line",
-    date: "02/02/24",
-    author: "Admin",
-    comments: 10,
-    image: "/assets/image/blog/top-post.webp",
-  },
-  {
-    id: 4,
-    title:
-      "Maximize Yield with Precision: How Crop Monitoring Can Boost Your Bottom Line",
-    date: "02/02/24",
-    author: "Admin",
-    comments: 10,
-    image: "/assets/image/blog/top-post.webp",
-  },
-  {
-    id: 5,
-    title:
-      "Maximize Yield with Precision: How Crop Monitoring Can Boost Your Bottom Line",
-    date: "02/02/24",
-    author: "Admin",
-    comments: 10,
-    image: "/assets/image/blog/top-post.webp",
-  },
-  {
-    id: 6,
-    title:
-      "Maximize Yield with Precision: How Crop Monitoring Can Boost Your Bottom Line",
-    date: "02/02/24",
-    author: "Admin",
-    comments: 10,
-    image: "/assets/image/blog/top-post.webp",
-  },
-  {
-    id: 7,
-    title:
-      "Maximize Yield with Precision: How Crop Monitoring Can Boost Your Bottom Line",
-    date: "02/02/24",
-    author: "Admin",
-    comments: 10,
-    image: "/assets/image/blog/top-post.webp",
-  },
-];
+// format the date
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+};
 
-const BlogGrid = () => {
+const BlogGrid = ({ blogs = [] }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
   // Filter posts based on search term
-  const filteredPosts = blogPosts.filter((post) =>
+  const filteredPosts = blogs.filter((post) =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -88,6 +32,7 @@ const BlogGrid = () => {
     startIndex + postsPerPage
   );
 
+  console.log(blogs);
   return (
     <div className="max-w-6xl mx-auto px-4 py-5 sm:mt-[5rem]">
       {/* Header with Search */}
@@ -122,27 +67,31 @@ const BlogGrid = () => {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <p className="text-gray-500 text-sm">{post.date}</p>
-              <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
+              <p className="text-gray-500 text-sm">
+                {formatDate(post?.createdAt)}
+              </p>
+              <h3 className="text-lg font-semibold mt-2">{post?.title}</h3>
               <div className="flex items-center justify-between">
                 <div className="flex justify-around w-full mt-4">
-                  <p className="text-gray-600 text-sm flex items-center justify-around w-1/3">
+                  <p className="text-gray-600 text-sm flex items-center w-1/3">
                     <Image
                       src="/assets/image/blog/profile-icon.webp"
                       alt="profile icon"
                       width={20}
                       height={20}
                     />
-                    {post.author}
+
+                    <p className="px-2"> {post?.author}</p>
                   </p>
-                  <p className="text-gray-600 text-sm flex items-center justify-around w-1/2">
+                  <p className="text-gray-600 text-sm flex items-center w-1/2">
                     <Image
                       src="/assets/image/blog/message-icon.webp"
                       alt="comment icon"
                       width={20}
                       height={20}
                     />
-                    {post.comments} Comments
+                    {post?.comments}
+                    <p className="px-2"> Comments</p>
                   </p>
                 </div>
                 <button className="mt-4 w-1/3 bg-[#28C878] text-white py-2 text-sm rounded-lg hover:bg-[#28C878]">
