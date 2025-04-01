@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const API_URL = "https://server.cropgenapp.com/v1/api/blog/list";
+// const API_URL = "http://localhost:8080/v1/api/blog/list";
 
 export default function About() {
   const [blogs, setBlogs] = useState([]);
@@ -32,9 +33,6 @@ export default function About() {
 
     fetchBlogs();
   }, []);
-
-  // if (loading) return <p>Loading blogs...</p>;
-  // if (error) return <p>Error: {error}</p>;
 
   return (
     <div>

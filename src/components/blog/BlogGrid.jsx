@@ -1,23 +1,15 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
-
-// format the date
-const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
-};
 
 const BlogGrid = ({ blogs = [] }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
+  const router = useRouter();
 
   // Filter posts based on search term
   const filteredPosts = blogs.filter((post) =>
@@ -32,10 +24,16 @@ const BlogGrid = ({ blogs = [] }) => {
     startIndex + postsPerPage
   );
 
-  console.log(blogs);
+  const handleReadMore = (post) => {
+    const slug = encodeURIComponent(
+      post.title.replace(/\s+/g, "-").toLowerCase()
+    );
+    // Send title and author as query parameters
+    router.push(`/blog/${slug}?id=${encodeURIComponent(post?._id)}`);
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-5 sm:mt-[5rem]">
-      {/* Header with Search */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold">Category</h2>
         <div className="relative">
@@ -52,7 +50,6 @@ const BlogGrid = ({ blogs = [] }) => {
         </div>
       </div>
 
-      {/* Blog Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentPosts.map((post) => (
           <div
@@ -68,7 +65,7 @@ const BlogGrid = ({ blogs = [] }) => {
             />
             <div className="p-4">
               <p className="text-gray-500 text-sm">
-                {formatDate(post?.createdAt)}
+                {new Date(post?.createdAt).toLocaleDateString()}
               </p>
               <h3 className="text-lg font-semibold mt-2">{post?.title}</h3>
               <div className="flex items-center justify-between">
@@ -80,7 +77,6 @@ const BlogGrid = ({ blogs = [] }) => {
                       width={20}
                       height={20}
                     />
-
                     <p className="px-2"> {post?.author}</p>
                   </p>
                   <p className="text-gray-600 text-sm flex items-center w-1/2">
@@ -94,7 +90,14 @@ const BlogGrid = ({ blogs = [] }) => {
                     <p className="px-2"> Comments</p>
                   </p>
                 </div>
-                <button className="mt-4 w-1/3 bg-[#28C878] text-white py-2 text-sm rounded-lg hover:bg-[#28C878]">
+
+                <button
+                  onClick={() => {
+                    console.log(post);
+                    handleReadMore(post);
+                  }}
+                  className="mt-4 w-1/1 bg-[#28C878] text-white py-1 px-1 text-sm rounded-lg hover:bg-[#28C878]"
+                >
                   Read More
                 </button>
               </div>
@@ -103,7 +106,6 @@ const BlogGrid = ({ blogs = [] }) => {
         ))}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center mt-6 space-x-4">
           <button

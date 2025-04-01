@@ -20,7 +20,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-2xl text-white text-left sm:p-6">
         <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-tight">
           Sustainability <br />
-          <span className="sm:mt-6 inline-block">at Cropgen</span>
+          <span className="sm:mt-6 inline-block">at CropGen</span>
         </h1>
         <p className="mt-4 text-xs sm:text-lg md:text-xl">
           Our Commitment to Sustainable Agriculture

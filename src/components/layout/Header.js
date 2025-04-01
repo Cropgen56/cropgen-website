@@ -59,6 +59,16 @@ export default function Navbar() {
 
         {/* ✅ Contact Button - Desktop */}
         <div className="hidden md:block">
+          <Link
+            href="https://app.cropgenapp.com/login"
+            target="_blank"
+            className="me-2"
+          >
+            <button className="px-4 py-2 font-semibold rounded-full bg-[#075A53] text-white transition">
+              Get Started
+            </button>
+          </Link>
+
           <Link href="/contact">
             <button className="px-4 py-2 font-semibold rounded-full bg-[#075A53] text-white transition">
               Contact us
