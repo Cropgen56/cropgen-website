@@ -6,6 +6,8 @@ import axios from "axios";
 const API_URL = "https://server.cropgenapp.com/v1/api/blog/details";
 // const API_URL = "http://localhost:8080/v1/api/blog/details";
 
+// make some canges
+let i;
 export default function BlogDetail() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
