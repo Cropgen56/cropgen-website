@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 import { connectToDB } from "@/app/lib/db";
 import Subscriber from "@/app/models/Subscribe";
 
-// ✅ Handle POST request
+// Handle POST request
 export async function POST(req) {
   try {
     const { email } = await req.json();
@@ -32,7 +32,7 @@ export async function POST(req) {
     const newSubscriber = new Subscriber({ email });
     await newSubscriber.save();
 
-    // ✅ Send Email Notification to Your Account
+    // Send Email Notification to Your Account
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
