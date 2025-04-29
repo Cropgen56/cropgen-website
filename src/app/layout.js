@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata = {
-  title: "CropGen - Smart Farm Management",
+  title: "AI Satellite Crop Monitoring & Precision Farming Advisory",
   description:
     "CropGen is an advanced farm management system integrating satellite data for better agricultural decision-making.",
   icons: {
@@ -18,10 +18,10 @@ export default function RootLayout({ children }) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "CropGen - Smart Farm Management",
+    name: "AI Satellite Crop Monitoring & Precision Farming Advisory",
     url: siteUrl,
     description:
-      "CropGen is an advanced farm management system integrating satellite data for better agricultural decision-making.",
+      "CropGen is India's first LLM-based crop monitoring system using satellite imagery and AI to enable smarter farming decision and real-time crop advisory.",
     image: "/logo.png",
   };
 

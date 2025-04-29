@@ -16,10 +16,10 @@ const HeroSection = () => {
     <main>
       {/* ✅ SEO Meta Tags */}
       <Head>
-        <title>AI-Powered Crop Monitoring | CropGen</title>
+        <title>AI Satellite Crop Monitoring & Precision Farming Advisory</title>
         <meta
           name="description"
-          content="CropGen uses AI and remote sensing for real-time crop monitoring, agribusiness solutions, and API integrations. Get precise agricultural insights today!"
+          content="CropGen is India's first LLM-based crop monitoring system using satellite imagery and AI to enable smarter farming decision and real-time crop advisory."
         />
         <meta name="robots" content="index, follow" />
       </Head>
@@ -34,15 +34,15 @@ const HeroSection = () => {
         >
           {/* ✅ SEO-Optimized H1 */}
           <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-            First LLM-Based <br />
-            <span>Crop Monitoring System</span> with Remote Sensing Technology
+            AI- Powered Satellite <br />
+            <span>Crop Monitoring & </span> Advisory System for Precision
+            Agriculture
           </h1>
 
           <p className="text-gray-700 text-sm md:text-base">
-            The power of AI and remote sensing to drive precision agriculture.
-            Designed for farmers, agronomists, agri-business, and researchers,
-            CropGen delivers real-time, data-driven insights for smarter
-            decision-making and sustainable growth.
+            CropGen uses AI , remote sensing and satellite crop monitoring to
+            deliver real-time , precision agriculture solution for Indian
+            farmers, agribusinesses , and researchers.
           </p>
 
           <motion.button
@@ -100,7 +100,7 @@ const HeroSection = () => {
             >
               <Image
                 src="/assets/image/home/dashboard.png"
-                alt="Crop Monitoring Dashboard"
+                alt="Dashboard of satellite crop monitoring and AI-based advisory"
                 width={1000}
                 height={1000}
                 className="w-full h-full"

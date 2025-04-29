@@ -24,7 +24,7 @@ export default function Navbar() {
       aria-label="Main Navigation"
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* ✅ Logo with SEO-Friendly h1 */}
+        {/*  Logo with SEO-Friendly h1 */}
         <h1 className="text-[#075A53] text-xl font-semibold flex items-center gap-2 cursor-pointer">
           <Link href="/" aria-label="CropGen Home">
             <Image
@@ -38,7 +38,7 @@ export default function Navbar() {
           <Link href="/">CropGen</Link>
         </h1>
 
-        {/* ✅ Desktop Menu with <ul> for better SEO */}
+        {/* Desktop Menu with <ul> for better SEO */}
         <ul className="hidden md:flex space-x-6">
           {navLinks.map((link) => (
             <li key={link.path}>
@@ -57,7 +57,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* ✅ Contact Button - Desktop */}
+        {/*  Contact Button - Desktop */}
         <div className="hidden md:block">
           <Link
             href="https://app.cropgenapp.com/login"
@@ -76,7 +76,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* ✅ Hamburger Menu - Mobile */}
+        {/* Hamburger Menu - Mobile */}
         <button
           className="md:hidden text-gray-700"
           onClick={() => setIsOpen(true)}
@@ -86,7 +86,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* ✅ Mobile Sidebar */}
+      {/*  Mobile Sidebar */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -112,7 +112,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* ✅ Sidebar Links with <ul> for SEO */}
+        {/*  Sidebar Links with <ul> for SEO */}
         <ul className="flex flex-col p-5 space-y-4">
           {navLinks.map((link) => (
             <li key={link.path}>
@@ -131,7 +131,7 @@ export default function Navbar() {
             </li>
           ))}
 
-          {/* ✅ Contact Button - Mobile */}
+          {/* Contact Button - Mobile */}
           <li>
             <Link href="/contact">
               <button className="mt-4 bg-[#265A48] text-white px-4 py-2 rounded-full hover:bg-[#1E4A3A] transition">
