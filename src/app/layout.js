@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href={siteUrl} />
 
         {/* Zoho chat boat  */}
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               window.$zoho = window.$zoho || {};
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
           id="zsiqscript"
           src="https://salesiq.zohopublic.in/widget?wc=siqb1dfcc250d87c7426b1842b94264cfe74d2fbb646c7b17079870b4b6c6f77628"
           defer
-        />
+        /> */}
 
         {/* Structured Data (JSON-LD) */}
         <script
@@ -92,6 +92,15 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-602SZE71SM');
           `}
         </Script>
+        {/* <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat --> */}
+        <script
+          src="https://static.elfsight.com/platform/platform.js"
+          async
+        ></script>
+        <div
+          class="elfsight-app-23d7a14f-0f17-4372-a233-60d65c1b78b2"
+          data-elfsight-app-lazy
+        ></div>
 
         <Header />
         <main className="pt-16">
