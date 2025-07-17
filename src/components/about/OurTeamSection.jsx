@@ -4,27 +4,33 @@ import Image from "next/image";
 const teamMembers = [
   {
     id: 1,
-    name: "Name",
-    designation: "Designation",
-    image: "/assets/image/about/team-member.webp",
+    name: "Mahesh Gote",
+    designation: "Founder",
+    image: "/assets/image/about/maheshgote.jpeg",
   },
   {
     id: 2,
-    name: "Name",
-    designation: "Designation",
-    image: "/assets/image/about/team-member.webp",
+    name: "Abhishek Sumatkar",
+    designation: "Agronomist",
+    image: "/assets/image/about/abhisheksumatkar.png",
   },
   {
     id: 3,
-    name: "Name",
-    designation: "Designation",
-    image: "/assets/image/about/team-member.webp",
+    name: "Vishal Maske",
+    designation: "Full Stack Developer",
+    image: "/assets/image/about/vishalmaske.png",
   },
+  // {
+  //   id: 4,
+  //   name: "Name",
+  //   designation: "Designation",
+  //   image: "/assets/image/about/adeshborkute.png",
+  // },
   {
-    id: 4,
-    name: "Name",
-    designation: "Designation",
-    image: "/assets/image/about/team-member.webp",
+    id: 5,
+    name: "Market Research Intern",
+    designation: "Janhavi Magar",
+    image: "/assets/image/about/janhvimagar.png",
   },
 ];
 
@@ -47,7 +53,7 @@ const OurTeamSection = () => {
                 alt={member.name}
                 width={200}
                 height={200}
-                className="w-full h-auto object-cover"
+                className="w-full h-100 object-cover"
               />
             </div>
             <div className="p-4 text-start">
