@@ -20,12 +20,12 @@ const teamMembers = [
     designation: "Full Stack Developer",
     image: "/assets/image/about/vishalmaske.png",
   },
-  // {
-  //   id: 4,
-  //   name: "Name",
-  //   designation: "Designation",
-  //   image: "/assets/image/about/adeshborkute.png",
-  // },
+  {
+    id: 4,
+    name: "Adesh Borkute",
+    designation: "UI / UX Designer",
+    image: "/assets/image/about/adeshborkute.png",
+  },
   {
     id: 5,
     name: "Market Research Intern",
