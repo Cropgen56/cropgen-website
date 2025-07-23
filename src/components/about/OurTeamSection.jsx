@@ -29,7 +29,7 @@ const teamMembers = [
   {
     id: 5,
     name: "Market Research Intern",
-    designation: "Vishal Pillai",
+    designation: "Janvi Magar",
     image: "/assets/image/about/janhvimagar.png",
   },
   {
