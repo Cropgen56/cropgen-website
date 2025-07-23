@@ -28,9 +28,21 @@ const teamMembers = [
   },
   {
     id: 5,
-    name: "Market Research Intern",
-    designation: "Janhavi Magar",
+    name: "Market Research Intern",
+    designation: "Vishal Pillai",
     image: "/assets/image/about/janhvimagar.png",
+  },
+  {
+    id: 6,
+    name: "Frontend Developer",
+    designation: "Vishal Pillai",
+    image: "/assets/image/about/vishal-pillai.png",
+  },
+  {
+    id: 7,
+    name: "Frontend Developer",
+    designation: "Garima Rawat",
+    image: "/assets/image/about/garima-rawat.png",
   },
 ];
 

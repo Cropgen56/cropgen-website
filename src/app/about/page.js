@@ -13,7 +13,7 @@ export default function About() {
       <MissionSection />
       <OurStorySection />
       <OurTeamSection />
-      <TestimonialSection />
+      {/* <TestimonialSection /> */}
       <SubscribeSection />
     </div>
   );
