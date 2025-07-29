@@ -11,6 +11,18 @@ const BlogGrid = ({ blogs = [] }) => {
   const postsPerPage = 6;
   const router = useRouter();
 
+  // Function to extract image URL from content
+  const getImageFromContent = (content) => {
+    try {
+      const imgRegex = /<img[^>]+src="([^">]+)"/;
+      const match = content.match(imgRegex);
+      return match ? match[1] : "/assets/image/blog/default-image.jpg";
+    } catch (error) {
+      console.error("Error extracting image from content:", error);
+      return "/assets/image/blog/default-image.jpg";
+    }
+  };
+
   // Filter posts based on search term
   const filteredPosts = blogs.filter((post) =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -28,7 +40,6 @@ const BlogGrid = ({ blogs = [] }) => {
     const slug = encodeURIComponent(
       post.title.replace(/\s+/g, "-").toLowerCase()
     );
-    // Send title and author as query parameters
     router.push(`/blog/${slug}?id=${encodeURIComponent(post?._id)}`);
   };
 
@@ -53,11 +64,11 @@ const BlogGrid = ({ blogs = [] }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentPosts.map((post) => (
           <div
-            key={post.id}
+            key={post._id}
             className="bg-white shadow-lg rounded-lg overflow-hidden"
           >
             <Image
-              src={post.image}
+              src={getImageFromContent(post.content)}
               alt={post.title}
               width={500}
               height={300}
@@ -70,33 +81,33 @@ const BlogGrid = ({ blogs = [] }) => {
               <h3 className="text-lg font-semibold mt-2">{post?.title}</h3>
               <div className="flex items-center justify-between">
                 <div className="flex justify-around w-full mt-4">
-                  <p className="text-gray-600 text-sm flex items-center w-1/3">
-                    <Image
-                      src="/assets/image/blog/profile-icon.webp"
-                      alt="profile icon"
-                      width={20}
-                      height={20}
-                    />
-                    <p className="px-2"> {post?.author}</p>
-                  </p>
-                  <p className="text-gray-600 text-sm flex items-center w-1/2">
-                    <Image
-                      src="/assets/image/blog/message-icon.webp"
-                      alt="comment icon"
-                      width={20}
-                      height={20}
-                    />
-                    {post?.comments}
-                    <p className="px-2"> Comments</p>
-                  </p>
+                  {post.author && (
+                    <p className="text-gray-600 text-sm flex items-center w-1/3">
+                      <Image
+                        src="/assets/image/blog/profile-icon.webp"
+                        alt="profile icon"
+                        width={20}
+                        height={20}
+                      />
+                      <p className="px-2">{post.author}</p>
+                    </p>
+                  )}
+                  {post.comments && (
+                    <p className="text-gray-600 text-sm flex items-center w-1/2">
+                      <Image
+                        src="/assets/image/blog/message-icon.webp"
+                        alt="comment icon"
+                        width={20}
+                        height={20}
+                      />
+                      {post.comments}
+                      <p className="px-2">Comments</p>
+                    </p>
+                  )}
                 </div>
-
                 <button
-                  onClick={() => {
-                    console.log(post);
-                    handleReadMore(post);
-                  }}
-                  className="mt-4 w-1/1 bg-[#28C878] text-white py-1 px-1 text-sm rounded-lg hover:bg-[#28C878]"
+                  onClick={() => handleReadMore(post)}
+                  className="mt-4 w-1/3 bg-[#28C878] text-white py-1 px-1 text-sm rounded-lg hover:bg-[#28C878]"
                 >
                   Read More
                 </button>

@@ -1,10 +1,14 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
 
-const API_URL = "https://server.cropgenapp.com/v1/api/blog/list";
-// const API_URL = "http://localhost:8080/v1/api/blog/list";
+// Use environment variable for API URL (set in .env.local or .env)
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:7070/v1/api";
+const API_KEY =
+  process.env.NEXT_PUBLIC_API_KEY || "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";
 
 // Format the date
 const formatDate = (dateString) => {
@@ -25,6 +29,18 @@ const extractDateAndMonth = (createdAt) => {
   };
 };
 
+// Extract image URL from content
+const getImageFromContent = (content) => {
+  try {
+    const imgRegex = /<img[^>]+src="([^">]+)"/;
+    const match = content.match(imgRegex);
+    return match ? match[1] : "/assets/image/blog/default-image.jpg"; // Fallback image
+  } catch (error) {
+    console.error("Error extracting image from content:", error);
+    return "/assets/image/blog/default-image.jpg";
+  }
+};
+
 export default function HeroSection() {
   const [blogs, setBlogs] = useState([]);
   const [lastPostDate, setLastPostDate] = useState("");
@@ -35,13 +51,14 @@ export default function HeroSection() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(API_URL, {
+        const response = await axios.get(`${API_URL}/blog`, {
           headers: {
-            "x-api-key": "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",
+            "x-api-key": API_KEY,
           },
         });
 
-        const fetchedBlogs = response.data.blogs;
+        // Handle the { success, count, data } structure
+        const fetchedBlogs = response.data.data || [];
         setBlogs(fetchedBlogs);
 
         if (fetchedBlogs.length > 0) {
@@ -52,6 +69,7 @@ export default function HeroSection() {
         }
       } catch (err) {
         setError("Failed to load blogs. Please try again.");
+        console.error("API error:", err);
       } finally {
         setLoading(false);
       }
@@ -91,18 +109,22 @@ export default function HeroSection() {
           <div className="bg-white shadow-2xl rounded-lg p-4 sm:p-6 flex flex-col sm:flex-row items-start relative">
             {/* Left Side - Image with Badge */}
             <div className="relative w-full sm:w-1/2">
-              {blogs.length > 0 ? (
+              {loading ? (
+                <div className="w-full h-[300px] bg-gray-300 rounded-lg animate-pulse"></div>
+              ) : blogs.length > 0 ? (
                 <Image
-                  src={blogs[blogs.length - 1]?.image}
-                  alt="Top Post Image"
+                  src={getImageFromContent(blogs[blogs.length - 1].content)}
+                  alt={blogs[blogs.length - 1].title}
                   width={500}
                   height={300}
                   className="w-full h-auto rounded-lg shadow-md"
                 />
               ) : (
-                <div className="w-full h-[200px] bg-gray-300 rounded-lg animate-pulse"></div>
+                <div className="w-full h-[300px] bg-gray-300 rounded-lg flex items-center justify-center text-gray-500">
+                  No blogs available
+                </div>
               )}
-              {blogs.length > 0 && (
+              {blogs.length > 0 && !loading && (
                 <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-green-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-md">
                   {lastPostDate} <br /> {lastPostMonth}
                 </div>
@@ -119,10 +141,12 @@ export default function HeroSection() {
                 <p className="text-gray-500">Loading blogs...</p>
               ) : error ? (
                 <p className="text-red-500">{error}</p>
+              ) : blogs.length === 0 ? (
+                <p className="text-gray-500">No blogs available</p>
               ) : (
                 <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-4">
                   {blogs.slice(0, 4).map((blog) => (
-                    <div key={blog.id} className="pb-1 sm:pb-2">
+                    <div key={blog._id} className="pb-1 sm:pb-2">
                       <p className="text-[#000] text-xs sm:text-sm">
                         DATE: {formatDate(blog?.createdAt)}
                       </p>

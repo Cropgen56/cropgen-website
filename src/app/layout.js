@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-        {/* ✅ Google Analytics (Fixed) */}
+        {/*  Google Analytics (Fixed) */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-602SZE71SM"
@@ -92,15 +92,25 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-602SZE71SM');
           `}
         </Script>
-        {/* <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat --> */}
-        <script
-          src="https://static.elfsight.com/platform/platform.js"
-          async
-        ></script>
-        <div
-          class="elfsight-app-23d7a14f-0f17-4372-a233-60d65c1b78b2"
-          data-elfsight-app-lazy
-        ></div>
+
+        <a
+          href="https://wa.me/919665935570"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-5 right-5 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-all duration-300"
+          aria-label="Chat on WhatsApp"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M20.52 3.48A11.88 11.88 0 0012 0C5.373 0 0 5.373 0 12c0 2.093.54 4.074 1.56 5.85L0 24l6.3-1.53A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12a11.88 11.88 0 00-3.48-8.52zM12 22.14c-1.818 0-3.591-.492-5.13-1.425l-.366-.213-3.75.912.996-3.648-.237-.375C2.49 15.171 2.04 13.615 2.04 12c0-5.49 4.47-9.96 9.96-9.96 2.663 0 5.166 1.038 7.041 2.919A9.92 9.92 0 0121.96 12c0 5.49-4.47 10.14-9.96 10.14z" />
+            <path d="M17.04 14.4l-2.4-.675c-.33-.09-.687-.018-.945.183l-.66.51a8.107 8.107 0 01-3.555-3.555l.51-.66a1.14 1.14 0 00.183-.945L9.6 6.96A1.14 1.14 0 008.52 6h-.96a2.4 2.4 0 00-2.4 2.4c0 .6.09 1.17.255 1.71.54 1.725 1.665 3.33 3.225 4.59 1.56 1.26 3.27 2.01 5.01 2.19a2.4 2.4 0 002.49-2.49v-.96a1.14 1.14 0 00-.6-.99z" />
+          </svg>
+        </a>
 
         <Header />
         <main className="pt-16">
