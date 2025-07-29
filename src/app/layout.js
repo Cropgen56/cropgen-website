@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-        {/* ✅ Google Analytics (Fixed) */}
+        {/*  Google Analytics (Fixed) */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-602SZE71SM"
@@ -92,6 +92,7 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-602SZE71SM');
           `}
         </Script>
+
         <a
           href="https://wa.me/919665935570"
           target="_blank"
