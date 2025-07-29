@@ -7,7 +7,6 @@ import Image from "next/image";
 import Head from "next/head";
 import axios from "axios";
 import DOMPurify from "dompurify";
-import dynamic from "next/dynamic";
 
 // Environment variables
 const API_URL =
