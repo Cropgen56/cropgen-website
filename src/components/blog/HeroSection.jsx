@@ -1,12 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
-import axios from "axios";
 
-const API_URL = "https://server.cropgenapp.com/v1/api/blog/list";
-// const API_URL = "http://localhost:8080/v1/api/blog/list";
-
-// Format the date
+// Format the date (e.g., "28/07/2025")
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   return date.toLocaleDateString("en-GB", {
@@ -16,7 +12,7 @@ const formatDate = (dateString) => {
   });
 };
 
-// Extract day and month
+// Extract day and month (e.g., { date: "28", month: "Jul" })
 const extractDateAndMonth = (createdAt) => {
   const dateObj = new Date(createdAt);
   return {
@@ -25,40 +21,32 @@ const extractDateAndMonth = (createdAt) => {
   };
 };
 
-export default function HeroSection() {
-  const [blogs, setBlogs] = useState([]);
-  const [lastPostDate, setLastPostDate] = useState("");
-  const [lastPostMonth, setLastPostMonth] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+// Function to extract image URL from content
+const extractImageUrl = (content) => {
+  if (typeof content === "string" && content.trim() !== "") {
+    const match = content.match(/<img[^>]+src="([^">]+)"/i);
+    return match ? match[1] : null;
+  }
+  return null;
+};
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get(API_URL, {
-          headers: {
-            "x-api-key": "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",
-          },
-        });
+export default function HeroSection({ blogs = [] }) {
+  const blogArray = blogs.map((blog) => ({
+    id: blog._id,
+    title: blog.title || "Untitled Blog",
+    content: blog.content || "",
+    createdAt: blog.createdAt || new Date().toISOString(),
+    image: extractImageUrl(blog.content),
+  }));
 
-        const fetchedBlogs = response.data.blogs;
-        setBlogs(fetchedBlogs);
-
-        if (fetchedBlogs.length > 0) {
-          const lastPost = fetchedBlogs[fetchedBlogs.length - 1];
-          const { date, month } = extractDateAndMonth(lastPost.createdAt);
-          setLastPostDate(date);
-          setLastPostMonth(month);
-        }
-      } catch (err) {
-        setError("Failed to load blogs. Please try again.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
+  let lastPostDate = "";
+  let lastPostMonth = "";
+  if (blogArray.length > 0) {
+    const lastPost = blogArray[blogArray.length - 1];
+    const { date, month } = extractDateAndMonth(lastPost.createdAt);
+    lastPostDate = date;
+    lastPostMonth = month;
+  }
 
   return (
     <div className="h-[800px]">
@@ -91,18 +79,22 @@ export default function HeroSection() {
           <div className="bg-white shadow-2xl rounded-lg p-4 sm:p-6 flex flex-col sm:flex-row items-start relative">
             {/* Left Side - Image with Badge */}
             <div className="relative w-full sm:w-1/2">
-              {blogs.length > 0 ? (
+              {blogArray.length > 0 && blogArray[blogArray.length - 1].image ? (
                 <Image
-                  src={blogs[blogs.length - 1]?.image}
+                  src={blogArray[blogArray.length - 1].image}
                   alt="Top Post Image"
                   width={500}
                   height={300}
                   className="w-full h-auto rounded-lg shadow-md"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "block";
+                  }}
                 />
               ) : (
-                <div className="w-full h-[200px] bg-gray-300 rounded-lg animate-pulse"></div>
+                <div className="w-full h-[200px] bg-gray-300 rounded-lg"></div>
               )}
-              {blogs.length > 0 && (
+              {blogArray.length > 0 && (
                 <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-green-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-md">
                   {lastPostDate} <br /> {lastPostMonth}
                 </div>
@@ -114,25 +106,18 @@ export default function HeroSection() {
               <h2 className="text-xl sm:text-2xl font-bold text-[#2AB673]">
                 Top Posts
               </h2>
-
-              {loading ? (
-                <p className="text-gray-500">Loading blogs...</p>
-              ) : error ? (
-                <p className="text-red-500">{error}</p>
-              ) : (
-                <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-4">
-                  {blogs.slice(0, 4).map((blog) => (
-                    <div key={blog.id} className="pb-1 sm:pb-2">
-                      <p className="text-[#000] text-xs sm:text-sm">
-                        DATE: {formatDate(blog?.createdAt)}
-                      </p>
-                      <p className="text-[#000] text-xs sm:text-sm font-semibold hover:text-green-600 transition duration-300 cursor-pointer">
-                        {blog.title}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-4">
+                {blogArray?.slice(0, 4).map((blog) => (
+                  <div key={blog.id} className="pb-1 sm:pb-2">
+                    <p className="text-[#000] text-xs sm:text-sm">
+                      DATE: {formatDate(blog.createdAt)}
+                    </p>
+                    <p className="text-[#000] text-xs sm:text-sm font-semibold hover:text-green-600 transition duration-300 cursor-pointer">
+                      {blog.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

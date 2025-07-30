@@ -5,7 +5,27 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
 
-const BlogGrid = ({ blogs = [] }) => {
+// Helper function to extract image URL from content
+const extractImageUrl = (content) => {
+  if (typeof content === "string" && content.trim() !== "") {
+    const match = content.match(/<img[^>]+src="([^">]+)"/i);
+    return match ? match[1] : null;
+  }
+  return null;
+};
+
+const BlogGrid = ({ blogArray = [] }) => {
+  // Transform the blog data into the expected format with fallbacks
+  const blogs = blogArray.map((blog) => ({
+    id: blog._id || "unknown-id",
+    title: blog.title || "Untitled Blog",
+    content: blog.content || "",
+    image: extractImageUrl(blog.content) || null,
+    createdAt: blog.createdAt || new Date().toISOString(),
+    author: blog.author || "Unknown Author",
+    comments: blog.comments || 0,
+  }));
+
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
@@ -24,12 +44,12 @@ const BlogGrid = ({ blogs = [] }) => {
     startIndex + postsPerPage
   );
 
+  // Handle navigation to individual blog page
   const handleReadMore = (post) => {
     const slug = encodeURIComponent(
       post.title.replace(/\s+/g, "-").toLowerCase()
     );
-    // Send title and author as query parameters
-    router.push(`/blog/${slug}?id=${encodeURIComponent(post?._id)}`);
+    router.push(`/blog/${slug}?id=${encodeURIComponent(post.id)}`);
   };
 
   return (
@@ -56,47 +76,55 @@ const BlogGrid = ({ blogs = [] }) => {
             key={post.id}
             className="bg-white shadow-lg rounded-lg overflow-hidden"
           >
-            <Image
-              src={post.image}
-              alt={post.title}
-              width={500}
-              height={300}
-              className="w-full h-48 object-cover"
-            />
+            {post.image ? (
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={500}
+                height={300}
+                className="w-full h-48 object-cover"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.nextSibling.style.display = "block";
+                }}
+              />
+            ) : (
+              <div className="w-full h-48 bg-gray-300 rounded-t-lg"></div>
+            )}
             <div className="p-4">
               <p className="text-gray-500 text-sm">
-                {new Date(post?.createdAt).toLocaleDateString()}
+                {new Date(post.createdAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </p>
-              <h3 className="text-lg font-semibold mt-2">{post?.title}</h3>
+              <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
               <div className="flex items-center justify-between">
                 <div className="flex justify-around w-full mt-4">
                   <p className="text-gray-600 text-sm flex items-center w-1/3">
-                    <Image
+                    {/* <Image
                       src="/assets/image/blog/profile-icon.webp"
                       alt="profile icon"
                       width={20}
                       height={20}
                     />
-                    <p className="px-2"> {post?.author}</p>
+                    <p className="px-2">{post.author}</p> */}
                   </p>
                   <p className="text-gray-600 text-sm flex items-center w-1/2">
-                    <Image
+                    {/* <Image
                       src="/assets/image/blog/message-icon.webp"
                       alt="comment icon"
                       width={20}
                       height={20}
                     />
-                    {post?.comments}
-                    <p className="px-2"> Comments</p>
+                    {post.comments}
+                    <p className="px-2">Comments</p> */}
                   </p>
                 </div>
-
                 <button
-                  onClick={() => {
-                    console.log(post);
-                    handleReadMore(post);
-                  }}
-                  className="mt-4 w-1/1 bg-[#28C878] text-white py-1 px-1 text-sm rounded-lg hover:bg-[#28C878]"
+                  onClick={() => handleReadMore(post)}
+                  className="mt-4 w-1/3 bg-[#28C878] text-white py-1 px-1 text-sm rounded-lg hover:bg-[#28C878]"
                 >
                   Read More
                 </button>

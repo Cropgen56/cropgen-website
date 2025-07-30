@@ -7,9 +7,6 @@ import Subscrib from "@/components/common/Subscrib";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "https://server.cropgenapp.com/v1/api/blog/list";
-// const API_URL = "http://localhost:8080/v1/api/blog/list";
-
 export default function About() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,12 +15,15 @@ export default function About() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(API_URL, {
-          headers: {
-            "x-api-key": "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",
-          },
-        });
-        setBlogs(response.data.blogs);
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/blog`,
+          {
+            headers: {
+              "x-api-key": "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",
+            },
+          }
+        );
+        setBlogs(response.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -36,9 +36,9 @@ export default function About() {
 
   return (
     <div>
-      <HeroSection />
+      <HeroSection blogs={blogs.data} />
       <SubscriptionBanner />
-      <BlogGrid blogs={blogs} />
+      <BlogGrid blogArray={blogs.data} />
       <Subscrib
         text={
           <>
