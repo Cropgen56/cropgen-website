@@ -33,21 +33,21 @@ export default function Subscrib({ text }) {
   };
 
   return (
-    <div className="mx-auto sm:w-[1200px] my-5 h-[120px] sm:h-[400px] bg-[url('/assets/image/comman/background.webp')] bg-cover sm:bg-contain bg-no-repeat bg-center mt-2">
-      <div className="relative w-[60%] sm:w-[70%] h-full flex justify-between flex-col items-center p-4 sm:p-20">
-        <h2 className="text-[12px] sm:text-3xl font-bold text-[#2AB673]">
+    <div className="mx-auto my-5 h-[120px] md:h-[300px] lg:h-[400px] bg-[url('/assets/image/comman/background.webp')] bg-cover sm:bg-contain bg-no-repeat bg-center mt-2">
+      <div className="relative w-[60%] h-full flex flex-col justify-center gap-1 md:gap-2 items-center md:py-8 md:px-16">
+        <h2 className="text-xs sm:text-lg md:text-2xl lg:w-1/2 font-bold text-[#2AB673]">
           {text}
         </h2>
-        <div className="mt-4 flex items-center bg-[#F6FCFF] sm:p-2 rounded-full w-full max-w-md">
+        <div className="flex items-center bg-[#F6FCFF] sm:p-2 rounded-md w-full max-w-md">
           <input
             type="email"
             placeholder="Enter your Email-ID"
-            className="flex-1 outline-none px-1 sm:px-4 py-2 rounded-full text-gray-600 bg-[#F6FCFF] text-sm w-full"
+            className="flex-1 outline-none px-1 sm:px-4 py-2 rounded-full text-gray-600 bg-[#F6FCFF] text-xs md:text-sm w-full"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
-            className={`px-2 sm:px-6 py-1 sm:py-2 rounded-md text-sm sm:font-semibold transition-all ${
+            className={`px-2 sm:px-6 py-1 sm:py-2 rounded-md text-xs md:text-sm sm:font-semibold transition-all ease-in-out duration-500 ${
               isClicked ? "bg-[#1A854E]" : "bg-[#2AB673]"
             } text-white hover:bg-[#1A854E]`}
             onClick={handleSubscribe}

@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
         </h1>
         <section className="max-w-8xl mx-auto">
           {/* Introduction */}
-          <h2 className="text-xl font-bold">Introduction</h2>
+          <h2 className="text-lg font-bold">Introduction</h2>
           <p className="mt-2 text-sm">
             <strong>Welcome to CropGen! </strong>
             CropGen ("we," "our," or "us") respects your privacy and is
@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
             maintaining, protecting, and disclosing that information globally.
           </p>
           {/* Information We Collect */}
-          <h2 className="text-xl font-bold mt-6">Data Collection & Usage</h2>
+          <h2 className="text-lg font-bold mt-6">Data Collection & Usage</h2>
           <p className="mt-2 text-sm">
             We collect the following types of information:
           </p>
@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
           {/* Purpose of Data Collection */}
-          <h2 className="text-xl font-bold mt-6">Purpose of Data Collection</h2>
+          <h2 className="text-lg font-bold mt-6">Purpose of Data Collection</h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">User registration and authentication.</li>
             <li className="text-sm">
@@ -59,7 +59,7 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
           {/* How We Use Your Data */}
-          <h2 className="text-xl font-bold mt-6">How We Use Your Data</h2>
+          <h2 className="text-lg font-bold mt-6">How We Use Your Data</h2>
           <p className="mt-2 text-sm">Your data is used to:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -76,7 +76,7 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
           {/* Data Security */}
-          <h2 className="text-xl font-bold mt-6">Data Security & Protection</h2>
+          <h2 className="text-lg font-bold mt-6">Data Security & Protection</h2>
           <p className="mt-2 text-sm">
             We implement advanced encryption, secure cloud storage, and
             AI-driven threat detection to protect your personal and farm-related
@@ -92,7 +92,7 @@ const PrivacyPolicy = () => {
             guarantee absolute security.
           </li>
           {/* Third-Party Sharing */}
-          <h2 className="text-xl font-bold mt-6">
+          <h2 className="text-lg font-bold mt-6">
             Sharing & Third-Party Involvement
           </h2>
           <p className="mt-2 text-sm">
@@ -111,7 +111,7 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
           {/* Data Sharing & Third-Party Services */}
-          <h2 className="text-xl font-bold mt-6">
+          <h2 className="text-lg font-bold mt-6">
             Data Sharing & Third-Party Services
           </h2>
           <p className="mt-2 text-sm">
@@ -128,7 +128,7 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
           {/* Third-Party SDKs and Integrations */}
-          <h2 className="text-xl font-bold mt-6">
+          <h2 className="text-lg font-bold mt-6">
             Third-Party SDKs and Integrations Used
           </h2>
           <ul className="list-disc pl-6 mt-2">
@@ -145,7 +145,7 @@ const PrivacyPolicy = () => {
             standards and handle your information responsibly.
           </p>
           {/* Rights & Choices */}
-          <h2 className="text-xl font-bold mt-6">Your Rights & Control</h2>
+          <h2 className="text-lg font-bold mt-6">Your Rights & Control</h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
               <strong>Access & Correction:</strong> You can request access to
@@ -163,26 +163,26 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
           {/* Children's Privacy */}
-          <h2 className="text-xl font-bold mt-6">Children’s Privacy</h2>
+          <h2 className="text-lg font-bold mt-6">Children’s Privacy</h2>
           <p className="mt-2 text-sm">
             CropGen does not target users under the age of 13. We do not
             knowingly collect data from children under this age.
           </p>
           {/* Contact Information */}
-          <h2 className="text-xl font-bold mt-6">Contact Information</h2>
+          <h2 className="text-lg font-bold mt-6">Contact Information</h2>
           <p className="mt-2 text-sm">
             For privacy concerns, queries, or data requests, contact us at:
             <strong className="text-[#2AB673]">support@cropgenapp.com</strong>
           </p>
           {/* Compliance */}
-          <h2 className="text-xl font-bold mt-6">Compliance</h2>
+          <h2 className="text-lg font-bold mt-6">Compliance</h2>
           <p className="mt-2 text-sm">
             Our data handling practices comply with Google Play Developer
             Policy, GDPR, and other applicable global data protection
             regulations.
           </p>
           {/* Contact */}
-          <h2 className="text-xl font-bold mt-6">Contact Us</h2>
+          <h2 className="text-lg font-bold mt-6">Contact Us</h2>
           <p className="mt-2 text-sm">
             For any privacy-related concerns, contact us at{" "}
             <strong className="text-[#2AB673]">support@cropgenapp.com</strong>

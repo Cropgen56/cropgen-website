@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SustainabilityFocus() {
   return (
-    <div className="px-2 sm:px-10 mt-2">
+    <div className="px-6 sm:px-10 mt-2">
       <div className="relative flex justify-center items-center">
         <Image
           src="/assets/image/sustainability/sustainability-focus.webp"

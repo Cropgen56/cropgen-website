@@ -38,15 +38,15 @@ export default function BlogCarousel() {
   };
 
   return (
-    <section className="py-12 px-6 bg-white">
-      <div className="max-w-7xl mx-auto text-center sm:text-end">
+    <section className="p-6 lg:py-12 lg:px-6 flex flex-col gap-4 md:gap-8 bg-white">
+      <div className="text-center md:text-end">
         <h2 className="text-2xl md:text-3xl font-bold">
           <span className="text-green-500">Latest Articles</span> Direct from
           Blog
         </h2>
       </div>
 
-      <div className="mt-8 flex flex-col md:flex-row items-start gap-6 ">
+      <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-6 ">
         {/* Featured Blog */}
         <motion.div
           key={blogPosts[current].id}
@@ -60,7 +60,8 @@ export default function BlogCarousel() {
             alt={blogPosts[current].title}
             width={600}
             height={500}
-            className="w-full h-80 object-fit"
+            // className="w-full h-80 object-fit"
+            className="w-full h-[200px] md:h-[350px] object-fit"
           />
           {/* <div className="absolute top-4 left-4 bg-white p-2 rounded text-gray-700 text-sm font-semibold">
             {blogPosts[current].date}
@@ -70,14 +71,14 @@ export default function BlogCarousel() {
             <p className="text-sm">{blogPosts[current].description}</p>
           </div> */}
         </motion.div>
-        <div className="">
+        <div>
           {/* Smaller Blog Posts */}
           <div className="w-full md:w-[100%] md:h-[18rem] flex justify-around">
             {blogPosts.slice(1).map((post) => (
               <motion.div
                 key={post.id}
                 whileHover={{ scale: 1.05 }}
-                className="relative rounded-lg overflow-hidden cursor-pointer p-4"
+                className="relative rounded-lg overflow-hidden cursor-pointer p-2 md:p-4"
               >
                 <Image
                   src={post.image}
@@ -94,7 +95,7 @@ export default function BlogCarousel() {
             ))}
           </div>
           <div className="mt-2">
-            <p className="text-sm ">
+            <p className="text-xs md:text-sm ">
               Welcome to the CropGen Blog! Here, you'll find the latest news,
               tips, and insights into the world of crop monitoring and
               sustainable agriculture. Stay updated with expert advice, success
@@ -106,7 +107,7 @@ export default function BlogCarousel() {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="flex justify-start items-end gap-4 mt-6">
+      <div className="flex justify-start items-end gap-4">
         <button
           onClick={prevSlide}
           className="bg-[#E4FFF1] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600"

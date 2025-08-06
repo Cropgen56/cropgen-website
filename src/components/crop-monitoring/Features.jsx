@@ -5,7 +5,7 @@ import Subscrib from "../common/Subscrib";
 
 export default function CropMonitoringFeatures() {
   return (
-    <section className="py-10 bg-white">
+    <section className="py-4 md:py-10 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#2AB673] sm:mb-8">
           Crop Monitoring Features
@@ -570,7 +570,7 @@ export default function CropMonitoringFeatures() {
         <Subscrib
           text={
             <>
-              Keep Your farm Up to Date with <br />
+              Keep Your farm Up to Date with 
               Cropgen Crop Monitoring
             </>
           }

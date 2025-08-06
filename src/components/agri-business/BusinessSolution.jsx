@@ -4,14 +4,14 @@ import Image from "next/image";
 
 export default function BusinessSolution() {
   return (
-    <div className="px-2 sm:px-10 mt-2">
+    <div className="px-6 sm:px-10 mt-8 md:mt-2">
       {/* Heading */}
       <h2 className="text-2xl sm:text-4xl font-bold leading-tight text-center sm:mt-10 text-[#2AB673]">
         CropGen's Agribusiness Solutions
       </h2>
 
       {/* surveying and land maping */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -68,7 +68,7 @@ export default function BusinessSolution() {
       </div>
 
       {/* Crop classificationn and delinatieation */}
-      <div className="flex flex-col md:flex-row items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -126,7 +126,7 @@ export default function BusinessSolution() {
       </div>
 
       {/* GHG Emission Monitoring & Carbon Credit Solutions */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -184,7 +184,7 @@ export default function BusinessSolution() {
       </div>
 
       {/* Forest Area Mapping & Conservation Monitoring */}
-      <div className="flex flex-col md:flex-row items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -241,7 +241,7 @@ export default function BusinessSolution() {
       </div>
 
       {/* Support for Insurance Companies & Risk Assessment */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -299,7 +299,7 @@ export default function BusinessSolution() {
       </div>
 
       {/* FPO (Farmer Producer Organizations) Support */}
-      <div className="flex flex-col md:flex-row items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -357,7 +357,7 @@ export default function BusinessSolution() {
       </div>
 
       {/* Corporate Farming Solutions*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -415,7 +415,7 @@ export default function BusinessSolution() {
       </div>
 
       {/* White Label Solutions for Enterprises*/}
-      <div className="flex flex-col md:flex-row items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -473,7 +473,7 @@ export default function BusinessSolution() {
       </div>
 
       {/*API Integrations for Seamless Data Flow*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image

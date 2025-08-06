@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Su() {
   return (
-    <div className="px-2 sm:px-10">
+    <div className="px-6 sm:px-10 mt-8 md:mt-2">
       <div className="relative w-full md:w-1/2">
         {" "}
         {/* <Image
@@ -19,7 +19,7 @@ export default function Su() {
           CropGen
         </h2>
       </div>
-      <div className="flex flex-col md:flex-row-reverse items-start gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-start gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-start">
           <Image
@@ -38,9 +38,9 @@ export default function Su() {
           </h3>
           <p className="text-sm py-1">
             At CropGen, we are revolutionizing farming with AI-powered remote
-            sensing and precision agriculture to create a sustainable,
+            sensing and precision agriculture to create a sustainable,
             eco-friendly, and efficient agricultural system. Our AI-driven
-            analytics empower farmers to reduce costs, optimize resources, and
+            analytics empower farmers to reduce costs, optimize resources, and
             improve soil health, ensuring a profitable and climate-resilient
             future.
           </p>

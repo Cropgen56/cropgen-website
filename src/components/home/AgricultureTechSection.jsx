@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AgricultureTechSection() {
   return (
-    <section className="relative py-12 px-6 bg-white flex flex-col items-center">
+    <section className="relative p-6 md:py-12 px-6 bg-white flex flex-col gap-6 md:gap-8 items-center">
       {/* Title Animation */}
       <motion.h2
         initial={{ opacity: 0, x: -50 }}
@@ -21,7 +21,7 @@ export default function AgricultureTechSection() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative mt-12 max-w-5xl w-full flex flex-col md:flex-row items-center justify-center"
+        className="relative max-w-5xl w-full flex flex-col md:flex-row items-center justify-center"
       >
         <motion.div
           animate={{ y: [0, -10, 0] }}

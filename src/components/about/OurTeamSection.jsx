@@ -48,24 +48,24 @@ const teamMembers = [
 
 const OurTeamSection = () => {
   return (
-    <section className="px-4 md:px-8 lg:px-12 py-1 sm:py-10 bg-white">
-      <div className="max-w-6xl mx-auto text-start">
+    <section className="flex flex-col gap-8 px-4 md:px-8 lg:px-12 py-1 sm:py-10 bg-white">
+      <div className="max-w-6xl text-start">
         <h2 className="text-2xl md:text-4xl font-bold text-[#2AB673]">
           Our Team
         </h2>
       </div>
 
       {/* Team Members Grid */}
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {teamMembers.map((member) => (
-          <div key={member.id} className="shadow-lg rounded-xl overflow-hidden">
+          <div key={member.id} className="shadow-lg rounded-xl overflow-hidden group transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl ">
             <div className="relative">
               <Image
                 src={member.image}
                 alt={member.name}
                 width={200}
                 height={200}
-                className="w-full h-100 object-cover"
+                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             <div className="p-4 text-start">

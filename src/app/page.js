@@ -9,7 +9,7 @@ import ValuesSection from "@/components/home/ValueSection";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <HeroSection />
       <AboutSection />
       <ValuesSection />
@@ -24,6 +24,6 @@ export default function Home() {
           </>
         }
       />
-    </div>
+    </>
   );
 }

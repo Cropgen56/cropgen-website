@@ -4,14 +4,14 @@ import Image from "next/image";
 
 export default function Body() {
   return (
-    <div className="px-2 sm:px-10">
+    <div className="px-6 sm:px-10">
       {/* Heading */}
-      <h2 className="text-2xl sm:text-4xl font-bold leading-tight text-start  mt-4 sm:mt-10">
+      <h2 className="text-2xl md:text-4xl font-bold leading-tight text-start  mt-4 sm:mt-10">
         <span className="text-[#2AB673]">Why </span>CropGen for <br />{" "}
         Agribusiness?
       </h2>
 
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6 ">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6 ">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -54,8 +54,7 @@ export default function Body() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-2 text-sm text-gray-600 mt-2"
-            >
+              className="flex items-start gap-2 text-sm md:text-md text-gray-600 mt-2" >
               <Image
                 src="/assets/image/comman/dot.webp"
                 width={20}

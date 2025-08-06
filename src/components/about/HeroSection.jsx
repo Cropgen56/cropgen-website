@@ -27,7 +27,7 @@ const HeroSection = () => {
             src="/assets/image/about/hero.webp"
             alt="Farming Field with Sprinklers"
             layout="fill"
-            objectFit="cover"
+            objectFit="fill"
             priority
             className="brightness-75"
           />

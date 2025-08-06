@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 const FeaturesSection = () => {
   return (
-    <section className="py-10">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+    <section className="py-6 md:py-10">
+      <div className="container flex flex-col gap-10 items-center px-6 md:px-8">
+        <div className="text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
             What Makes{" "}
             <span className="text-[#2AB673]">CropGen's Crop Monitoring </span>
             Stand Out?
@@ -22,13 +22,13 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="px-8 py-8 rounded-2xl shadow-green-custom bg-white h-fit w-fit my-auto"
+            className="p-4 md:p-8 rounded-2xl shadow-green-custom bg-white h-fit w-fit my-auto"
           >
-            <h3 className="font-bold py-5">
+            <h3 className="font-bold p-3 md:py-5">
               Crop Monitoring by{" "}
               <span className="text-[#2AB673]"> CropGen</span>
             </h3>
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-gray-600 text-sm md:text-lg leading-relaxed">
               CropGen is a visualization software with advanced array components
               and debugged tools that help enhance productivity. Our system
               provides input tools for controlling output intelligence, job

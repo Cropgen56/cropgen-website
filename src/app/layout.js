@@ -113,7 +113,7 @@ export default function RootLayout({ children }) {
         </a>
 
         <Header />
-        <main className="pt-16">
+        <main className="pt-[4.5rem] overflow-hidden">
           {children} <Analytics />
         </main>
         <Footer />

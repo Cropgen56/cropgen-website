@@ -18,7 +18,7 @@ export default function About() {
         text={
           <>
             Start Your Farming Journey with <br />
-            Cropgen’s Sustainable Program
+            Cropgen's Sustainable Program
           </>
         }
       />

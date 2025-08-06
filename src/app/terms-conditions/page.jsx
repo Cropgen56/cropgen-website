@@ -18,7 +18,7 @@ const TermsConditions = () => {
           </p>
 
           {/* 2. Services Offered */}
-          <h2 className="text-lg font-bold mt-6">2. Services Offered</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">2. Services Offered</h2>
           <p className="mt-2 text-sm">CropGen provides:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -31,7 +31,7 @@ const TermsConditions = () => {
           </ul>
 
           {/* 3. User Responsibilities */}
-          <h2 className="text-lg font-bold mt-6">3. User Responsibilities</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">3. User Responsibilities</h2>
           <p className="mt-2 text-sm">By using CropGen, you agree to:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -44,7 +44,7 @@ const TermsConditions = () => {
           </ul>
 
           {/* 4. Subscription & Payment */}
-          <h2 className="text-lg font-bold mt-6">4. Subscription & Payment</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">4. Subscription & Payment</h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
               Subscription Plans: CropGen offers monthly and yearly subscription
@@ -57,7 +57,7 @@ const TermsConditions = () => {
           </ul>
 
           {/* 5. Intellectual Property Rights */}
-          <h2 className="text-lg font-bold mt-6">
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
             5. Intellectual Property Rights
           </h2>
           <p className="mt-2 text-sm">
@@ -67,7 +67,7 @@ const TermsConditions = () => {
           </p>
 
           {/* 6. Limitation of Liability */}
-          <h2 className="text-lg font-bold mt-6">6. Limitation of Liability</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">6. Limitation of Liability</h2>
           <p className="mt-2 text-sm">CropGen is not liable for:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -83,7 +83,7 @@ const TermsConditions = () => {
           </ul>
 
           {/* 7. Modifications to Terms */}
-          <h2 className="text-lg font-bold mt-6">7. Changes to Terms</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">7. Changes to Terms</h2>
           <p className="mt-2 text-sm">
             We may modify these Terms at any time. Users will receive
             notifications through app alerts or email updates. Continued use
@@ -91,14 +91,14 @@ const TermsConditions = () => {
           </p>
 
           {/* 8. Governing Law */}
-          <h2 className="text-lg font-bold mt-6">8. Governing Law</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">8. Governing Law</h2>
           <p className="mt-2 text-sm">
             These Terms shall be governed by Indian law, with disputes subject
             to the jurisdiction of Indian courts
           </p>
 
           {/* 9. Contact Information */}
-          <h2 className="text-lg font-bold mt-6">9. Contact Information</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">9. Contact Information</h2>
           <p className="mt-2 text-sm">
             For legal inquiries or clarifications, please contact:
             <strong className="text-[#2AB673]">legal@cropgenapp.com</strong>

@@ -6,27 +6,29 @@ export default function Footer() {
     <footer className="bg-[#1F4D3A] text-white py-8 px-6">
       <div className="max-w-7xl mx-auto">
         {/* First Row: Left Content & Right Icons */}
-        <div className="flex flex-col md:flex-row pb-6">
+        <div className="flex flex-col md:flex-row pb-2 md:pb-6">
           {/* Left Section: Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 w-full md:w-auto">
             {/* Column 1: Address */}
             <div>
-              <h3 className="text-xl font-semibold">CropGen</h3>
-              <p className="mt-2 text-gray-300">
-                Pune, Maharashtra, 411018, India
-              </p>
-              <p className="text-gray-300">info@cropgenapp.com</p>
-              <p className="text-gray-300">+91 9656959670</p>
+              <h3 className="text-md md:text-xl font-semibold">CropGen</h3>
+              <ul className="mt-2 space-y-1">
+                <p className="mt-2 text-sm md:text-md text-gray-300">
+                  Pune, Maharashtra, 411018, India
+                </p>
+                <p className="text-sm md:text-md text-gray-300">info@cropgenapp.com</p>
+                <p className="text-sm md:text-md text-gray-300">+91 9656959670</p>
+              </ul>
             </div>
 
             {/* Column 2: Resources */}
             <div>
-              <h3 className="text-xl font-semibold">Resources</h3>
+              <h3 className="text-md md:text-xl font-semibold">Resources</h3>
               <ul className="mt-2 space-y-1">
                 <li>
                   <a
                     href="/crop-monitoring"
-                    className="text-gray-300 hover:text-white"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
                   >
                     Crop Monitoring
                   </a>
@@ -34,7 +36,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="/agri-business"
-                    className="text-gray-300 hover:text-white"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
                   >
                     Agri Business
                   </a>
@@ -42,13 +44,13 @@ export default function Footer() {
                 <li>
                   <a
                     href="/sustainability"
-                    className="text-gray-300 hover:text-white"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
                   >
                     Sustainability
                   </a>
                 </li>
                 <li>
-                  <a href="/blog" className="text-gray-300 hover:text-white">
+                  <a href="/blog" className="text-gray-300 text-sm md:text-md hover:text-white">
                     Blog
                   </a>
                 </li>
@@ -57,20 +59,20 @@ export default function Footer() {
 
             {/* Column 3: Company */}
             <div>
-              <h3 className="text-xl font-semibold">Company</h3>
+              <h3 className="text-md md:text-xl font-semibold">Company</h3>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <a href="/about" className="text-gray-300 hover:text-white">
+                  <a href="/about" className="text-gray-300 text-sm md:text-md hover:text-white">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 text-sm md:text-md hover:text-white">
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 text-sm md:text-md hover:text-white">
                     Site Map
                   </a>
                 </li>

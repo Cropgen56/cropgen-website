@@ -63,19 +63,19 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
+    <section className="flex flex-col gap-4 md:gap-8 container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2AB673]">
           Contact Us
         </h2>
-        <p className="mt-4 text-[#000] text-sm sm:text-base">
+        <p className="text-[#000] text-sm sm:text-base">
           Need assistance? Pick the relevant department, submit the form, and
           we’ll take it from there. Want a demo? Contact our support team.
         </p>
       </div>
 
-      <div className="mt-8 max-w-2xl mx-auto p-6 sm:p-8">
-        <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
+      <div className="max-w-2xl mx-auto p-2 md:p-6">
+        <form className="flex flex-col gap-3 md:gap-4 w-full" onSubmit={handleSubmit}>
           <div className="flex justify-between gap-4">
             <input
               type="text"
@@ -83,7 +83,7 @@ const ContactUs = () => {
               placeholder="First Name*"
               value={formData.firstName}
               onChange={handleChange}
-              className="p-3 border rounded-md w-1/2 bg-[#EEEFF7]"
+              className="h-10 md:h-14 px-3 border rounded-md w-1/2 bg-[#EEEFF7]"
               required
             />
             <input
@@ -92,7 +92,7 @@ const ContactUs = () => {
               placeholder="Last Name*"
               value={formData.lastName}
               onChange={handleChange}
-              className="p-3 border rounded-md w-1/2 bg-[#EEEFF7]"
+              className="h-10 md:h-14 px-3 border rounded-md w-1/2 bg-[#EEEFF7]"
               required
             />
           </div>
@@ -102,7 +102,7 @@ const ContactUs = () => {
             placeholder="E-mail*"
             value={formData.email}
             onChange={handleChange}
-            className="p-3 border rounded-md w-full bg-[#EEEFF7]"
+            className="h-10 md:h-14 px-3 border rounded-md w-full bg-[#EEEFF7]"
             required
           />
           <p className="text-start text-sm">
@@ -114,7 +114,7 @@ const ContactUs = () => {
             placeholder="Additional Info*"
             value={formData.additionalInfo}
             onChange={handleChange}
-            className="p-3 border rounded-md w-full h-24 bg-[#EEEFF7]"
+            className="p-3 border rounded-md w-full resize-none h-24 bg-[#EEEFF7]"
             required
           ></textarea>
           <div className="flex items-center">
@@ -133,7 +133,7 @@ const ContactUs = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-[#28C878] text-white py-3 font-semibold hover:bg-[#28C878] transition w-1/4 mx-auto rounded-full"
+            className="bg-[#28C878] text-white py-3 font-semibold cursor-pointer hover:bg-[#28c878d5] transition-all duration-400 ease-in-out  w-1/3 md:w-1/4 mx-auto rounded-full"
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
@@ -150,21 +150,21 @@ const ContactUs = () => {
         )}
       </div>
 
-      <div className="mt-3 flex flex-row sm:flex-row justify-around items-center">
-        <div className="text-start sm:text-left">
-          <h3 className="text-xl sm:text-4xl font-bold">Head Office</h3>
-          <p className="text-gray-600">
+      <div className="flex flex-row items-center justify-between gap-2 md:gap-16 md:px-20">
+        <div className="text-left w-full md:w-auto">
+          <h3 className="text-md md:text-3xl font-bold">Head Office</h3>
+          <p className="text-sm md:text-md text-gray-600">
             Pune, Maharashtra,
-            <br />
+            {/* <br /> */} {" "}
             411038, India
           </p>
-          <p className="text-gray-600">
-            Email:
-            <br />
+          <p className="text-sm md:text-md text-gray-600">
+            Email: {" "}
+            {/* <br /> */}
             info@cropgenapp.com
           </p>
         </div>
-        <div>
+        <div className="flex justify-center md:justify-start">
           <Image
             src="/assets/image/comman/farm-satellite.webp"
             width={300}

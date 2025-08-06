@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SustainabilityImpact() {
   return (
-    <div className="px-2 sm:px-10">
+    <div className="px-6 sm:px-10">
       <div className="relative w-full">
         {" "}
         <Image
