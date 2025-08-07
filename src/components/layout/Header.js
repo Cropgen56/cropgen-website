@@ -132,7 +132,7 @@ export default function Navbar() {
                         </li>
                     ))}
                     <li>
-                        <Link href="/contact">
+                        <Link href="/contact" onClick={() => setIsOpen(false)}>
                             <button className="mt-4 bg-[#265A48] text-white px-4 py-2 rounded-full hover:bg-[#1E4A3A] transition-all ease-in-out duration-400 w-full">
                                 Contact us
                             </button>

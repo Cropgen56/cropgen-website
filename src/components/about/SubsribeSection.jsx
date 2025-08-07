@@ -12,7 +12,7 @@ const SubscribeSection = () => {
 
   return (
     <section
-      className="relative mx-auto md:shadow-lg rounded-2xl px-6 md:px-8 py-6 max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4 my-4
+      className="relative mt-4 md:mx-auto sm:shadow-lg sm:rounded-2xl px-6 md:px-12 py-8 max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-8 sm:my-10
       bg-[url('/assets/image/about/subscribe-background.webp')] bg-cover bg-center"
     >
       {/* Overlay for better readability */}
@@ -24,7 +24,7 @@ const SubscribeSection = () => {
           <input
             type="email"
             placeholder="Enter your Email-ID"
-            className="w-full bg-transparent px-3 py-2 outline-none text-gray-400 text-sm"
+            className="w-full bg-transparent px-3 py-2 outline-none text-gray-400 text-sm placeholder-gray-400"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
