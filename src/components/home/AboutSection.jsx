@@ -13,7 +13,7 @@ const AboutSection = () => {
                 className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center"
             >
                 {/* Left Content */}
-                <div className="flex flex-col gap-1 lg:gap-2">
+                <div className="flex flex-col gap-1 lg:gap-2">    
                     <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
                         <span className="text-green-600">Who</span> We Are?
                     </h2>
@@ -37,10 +37,9 @@ const AboutSection = () => {
                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
-                        className="relative z-10"
-                    >
+                        className="relative z-10" >
                         <Image
-                        src="/assets/image/home/index-image.svg"
+                        src="/assets/image/home/index-image.png"
                         alt="NDVI"
                         width={400}
                         height={400}

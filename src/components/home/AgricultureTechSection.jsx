@@ -5,6 +5,7 @@ import Image from "next/image";
 export default function AgricultureTechSection() {
   return (
     <section className="relative p-6 md:py-12 px-6 bg-white flex flex-col gap-6 md:gap-8 items-center">
+      
       {/* Title Animation */}
       <motion.h2
         initial={{ opacity: 0, x: -50 }}

@@ -22,7 +22,7 @@ export default function SustainabilityFocus() {
       </div>
 
       {/* Soil Health & Regeneration*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -30,7 +30,7 @@ export default function SustainabilityFocus() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
-            className="rounded-md object-contain"
+            className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
         </div>
 
@@ -59,14 +59,14 @@ export default function SustainabilityFocus() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-2 text-sm text-gray-600 mt-2 sm:leading-8"
+              className="flex items-start gap-2 text-sm text-gray-600 mt-2"
             >
               <Image
-                src="/assets/image/comman/dot.webp"
-                width={20}
-                height={20}
+                src="/assets/image/comman/dot.svg"
+                width={24}
+                height={24}
                 alt="dot"
-                className="sm:mt-3"
+                className="sm:mt-1"
               />
               <p>
                 <strong className="text-black">{item.title} – </strong>
@@ -78,7 +78,7 @@ export default function SustainabilityFocus() {
       </div>
 
       {/* Water Conservation & Smart Irrigation*/}
-      <div className="flex flex-col md:flex-row items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -86,7 +86,7 @@ export default function SustainabilityFocus() {
             alt="Crop gen sustainabilty water "
             width={500}
             height={300}
-            className="rounded-md object-contain"
+            className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
         </div>
 
@@ -115,14 +115,14 @@ export default function SustainabilityFocus() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-2 text-sm text-gray-600 mt-2 sm:leading-10"
+              className="flex items-start gap-2 text-sm text-gray-600 mt-2"
             >
               <Image
-                src="/assets/image/comman/dot.webp"
-                width={20}
-                height={20}
+                src="/assets/image/comman/dot.svg"
+                width={24}
+                height={24}
                 alt="dot"
-                className="sm:mt-3"
+                className="sm:mt-1"
               />
               <p>
                 <strong className="text-black">{item.title}</strong>
@@ -134,7 +134,7 @@ export default function SustainabilityFocus() {
       </div>
 
       {/* Carbon Sequestration & Climate Action */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -142,7 +142,7 @@ export default function SustainabilityFocus() {
             alt="Crop gen carbon sequestration"
             width={500}
             height={300}
-            className="rounded-md object-contain"
+            className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
         </div>
 
@@ -171,14 +171,14 @@ export default function SustainabilityFocus() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-2 text-sm text-gray-600 mt-2 sm:leading-8"
+              className="flex items-start gap-2 text-sm text-gray-600 mt-2"
             >
               <Image
-                src="/assets/image/comman/dot.webp"
-                width={20}
-                height={20}
+                src="/assets/image/comman/dot.svg"
+                width={24}
+                height={24}
                 alt="dot"
-                className="sm:mt-3"
+                className="sm:mt-1"
               />
               <p>
                 <strong className="text-black">{item.title} – </strong>
@@ -190,7 +190,7 @@ export default function SustainabilityFocus() {
       </div>
 
       {/* Crop Disease & Pest Management*/}
-      <div className="flex flex-col md:flex-row items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -198,7 +198,7 @@ export default function SustainabilityFocus() {
             alt="Crop disease detaction "
             width={500}
             height={300}
-            className="rounded-md object-contain"
+            className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
         </div>
 
@@ -226,14 +226,14 @@ export default function SustainabilityFocus() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-2 text-sm text-gray-600 mt-2 sm:leading-8"
+              className="flex items-start gap-2 text-sm text-gray-600 mt-2 "
             >
               <Image
-                src="/assets/image/comman/dot.webp"
-                width={20}
-                height={20}
+                src="/assets/image/comman/dot.svg"
+                width={24}
+                height={24}
                 alt="dot"
-                className="sm:mt-3"
+                className="sm:mt-1"
               />
               <p>
                 <strong className="text-black">{item.title} – </strong>
@@ -245,7 +245,7 @@ export default function SustainabilityFocus() {
       </div>
 
       {/* Sustainable Supply Chain & Traceability*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8 mt-6">
+      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -253,7 +253,7 @@ export default function SustainabilityFocus() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
-            className="rounded-md object-contain"
+            className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
         </div>
 
@@ -281,14 +281,14 @@ export default function SustainabilityFocus() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-2 text-sm text-gray-600 mt-2 sm:leading-8"
+              className="flex items-start gap-2 text-sm text-gray-600 mt-2 "
             >
               <Image
-                src="/assets/image/comman/dot.webp"
-                width={20}
-                height={20}
+                src="/assets/image/comman/dot.svg"
+                width={24}
+                height={24}
                 alt="dot"
-                className="sm:mt-3"
+                className="sm:mt-1"
               />
               <p>
                 <strong className="text-black">{item.title} – </strong>
