@@ -19,20 +19,19 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="bg-white shadow-md px-4 py-3 fixed top-0 right-0 left-0 z-40">
+        <nav className="bg-white shadow-md px-4 py-2 fixed top-0 right-0 left-0 z-40">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <h1 className="text-[#075A53] text-lg sm:text-xl font-semibold flex items-center gap-2 cursor-pointer">
                     <Link href="/" aria-label="CropGen Home">
                         <Image
-                        src="/assets/image/home/logo.png"
-                        width={45}
-                        height={45}
-                        alt="CropGen Logo"
-                        priority={false} 
+                            src="/assets/image/home/logo-cropgen.png"
+                            width={150}
+                            height={60}
+                            alt="CropGen Logo"
+                            priority={false} 
                         />
                     </Link>
-                    <Link href="/">CropGen</Link>
                 </h1>
 
                 {/* Desktop Menu */}
@@ -65,7 +64,7 @@ export default function Navbar() {
                                 : "bg-white text-[#075A53] border-2 border-[#075A53] hover:bg-[#075A53] hover:text-white"
                             }`}
                         >
-                        Get Started
+                        Start Demo
                         </button>
                     </Link>
 

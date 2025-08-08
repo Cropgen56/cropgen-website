@@ -53,120 +53,134 @@ const BlogGrid = ({ blogArray = [] }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-5 sm:mt-[5rem]">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Category</h2>
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search"
-            className="border rounded-md border-[#2AB673] py-2 pl-4 pr-10 w-64 focus:outline-none focus:ring-2 focus:ring-green-500"
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              setCurrentPage(1);
-            }}
-          />
-          <FaSearch className="absolute right-4 top-3 text-gray-500" />
+    <div className="flex justify-center px-4 md:px-6 py-8 sm:pt-20">
+      <div className="w-full max-w-6xl flex flex-col gap-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl md:text-3xl font-bold">Category</h2>
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="border rounded-lg border-[#2AB673] py-1 sm:py-2 pl-4 pr-10 w-48 sm:w-64 focus:outline-none focus:ring-1 focus:ring-green-500 transition-all ease-in-out duration-300"
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setCurrentPage(1);
+              }}
+            />
+            <FaSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-green-600" />
+          </div>
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {currentPosts.map((post) => (
-          <div
-            key={post.id}
-            className="bg-white shadow-lg rounded-lg overflow-hidden"
-          >
-            {post.image ? (
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={500}
-                height={300}
-                className="w-full h-48 object-cover"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "block";
-                }}
-              />
-            ) : (
-              <div className="w-full h-48 bg-gray-300 rounded-t-lg"></div>
-            )}
-            <div className="p-4">
-              <p className="text-gray-500 text-sm">
-                {new Date(post.createdAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </p>
-              <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
-              <div className="flex items-center justify-between">
-                <div className="flex justify-around w-full mt-4">
-                  <p className="text-gray-600 text-sm flex items-center w-1/3">
-                    {/* <Image
-                      src="/assets/image/blog/profile-icon.webp"
-                      alt="profile icon"
-                      width={20}
-                      height={20}
-                    />
-                    <p className="px-2">{post.author}</p> */}
-                  </p>
-                  <p className="text-gray-600 text-sm flex items-center w-1/2">
-                    {/* <Image
-                      src="/assets/image/blog/message-icon.webp"
-                      alt="comment icon"
-                      width={20}
-                      height={20}
-                    />
-                    {post.comments}
-                    <p className="px-2">Comments</p> */}
-                  </p>
+      {currentPosts.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {currentPosts.map((post) => (
+            <div
+              key={post.id}
+              className="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              {post.image ? (
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={500}
+                  height={400}
+                  className="w-full h-56 object-cover"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "block";
+                  }}
+                />
+              ) : (
+                <div className="w-full h-56 bg-gray-300 rounded-t-lg"></div>
+              )}
+              <div className="p-4">
+                <p className="text-gray-800 font-medium text-sm">
+                  {new Date(post.createdAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+                <h3 className="text-lg font-bold mt-2">{post.title}</h3>
+                <div className="flex items-center justify-between mt-4">
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1 text-gray-600 text-sm">
+                      <Image
+                        src="/assets/image/blog/profile-icon.webp"
+                        alt="profile icon"
+                        width={20}
+                        height={20}
+                      />
+                      <span className="text-xs">{post.author}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-gray-600 text-sm">
+                      <Image
+                        src="/assets/image/blog/message-icon.webp"
+                        alt="comment icon"
+                        width={20}
+                        height={20}
+                      />
+                      <span className="text-xs">{post.comments} Comments</span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => handleReadMore(post)}
+                    className="bg-[#28C878] cursor-pointer text-white p-2 text-sm rounded-lg hover:bg-[#169958] duration-300 transition-all ease-in-out"
+                  >
+                    Read More
+                  </button>
                 </div>
-                <button
-                  onClick={() => handleReadMore(post)}
-                  className="mt-4 w-1/3 bg-[#28C878] text-white py-1 px-1 text-sm rounded-lg hover:bg-[#28C878]"
-                >
-                  Read More
-                </button>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-6 space-x-4">
-          <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            className="px-3 py-1 rounded-full text-gray-600 hover:bg-gray-200"
-            disabled={currentPage === 1}
-          >
-            &#8249;
-          </button>
-          {[...Array(totalPages)].map((_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => setCurrentPage(index + 1)}
-              className={`px-3 py-1 rounded-full ${
-                currentPage === index + 1
-                  ? "bg-green-500 text-white"
-                  : "text-gray-600 hover:bg-gray-200"
-              }`}
-            >
-              {index + 1}
-            </button>
           ))}
-          <button
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-            }
-            className="px-3 py-1 font-bold rounded-full text-gray-600 hover:bg-gray-200"
-            disabled={currentPage === totalPages}
-          >
-            &#8250;
-          </button>
         </div>
+      ) : (   
+          <div className="text-center text-gray-600 text-sm sm:text-lg py-10">
+            {searchTerm.trim()
+              ? (
+                  <>
+                    No blogs found for "<span className="font-semibold">{searchTerm}</span>"
+                  </>
+                )
+              : "No blogs found."}
+          </div>
       )}
+
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              className="px-3 py-1 rounded-full text-gray-600 hover:bg-gray-200"
+              disabled={currentPage === 1}
+            >
+              &#8249;
+            </button>
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`px-3 py-1 rounded-full ${
+                  currentPage === index + 1
+                    ? "bg-green-500 text-white"
+                    : "text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              className="px-3 py-1 font-bold rounded-full text-gray-600 hover:bg-gray-200"
+              disabled={currentPage === totalPages}
+            >
+              &#8250;
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

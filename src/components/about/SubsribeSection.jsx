@@ -1,14 +1,79 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const SubscribeSection = () => {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isClient, setIsClient] = useState(false);
 
-  const handleSubscribe = () => {
-    alert(`Subscribed with ${email}`);
-  };
+
+  useEffect(() => {
+    // Indicate we are on the client (browser)
+    setIsClient(true);
+
+    // Load reCAPTCHA script dynamically
+    const script = document.createElement("script");
+    script.src = "https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+
+  const handleSubscribe = async () => {
+  if (!email.includes("@")) {
+    setMessage("Please enter a valid email address.");
+    return;
+  }
+
+  // setIsClicked(true);
+
+    try {
+      grecaptcha.ready(() => {
+        grecaptcha
+          .execute("6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10", { action: "subscribe" })
+          .then(async (token) => {
+            try {
+              const response = await fetch("/api/subscribe", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, token }),
+              });
+
+              const data = await response.json();
+              // console.log("Subscribe API response:", data);
+              setMessage(data.message);
+
+              if (data.message.toLowerCase().includes("subscribed")) {
+                alert(`Subscribed with ${email}`);
+                setEmail(""); 
+              }
+
+            } catch (fetchError) {
+              console.error("Fetch error:", fetchError);
+              setMessage("Something went wrong. Please try again.");
+            }
+          })
+          .catch((recaptchaError) => {
+            console.error("reCAPTCHA execution error:", recaptchaError);
+            setMessage("reCAPTCHA failed. Please try again.");
+          });
+      });
+    } catch (outerError) {
+      console.error("Unexpected outer error:", outerError);
+      setMessage("Something went wrong. Please try again.");
+    }
+
+  // setIsClicked(false);
+};
 
   return (
     <section

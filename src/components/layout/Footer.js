@@ -121,7 +121,7 @@ export default function Footer() {
         </div>
 
         {/* Second Row: Copyright & Policies - Responsive */}
-        <div className="mt-6 text-gray-300 text-sm flex flex-col sm:w-1/2 md:flex-row md:justify-between">
+        <div className="mt-6 text-gray-300 text-sm flex flex-col sm:w-2/3 md:flex-row md:justify-between">
           <p className="text-center md:text-left">
             © Copyright CropGen. All Rights Reserved
           </p>

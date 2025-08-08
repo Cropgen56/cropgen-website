@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const ContactUs = () => {
@@ -13,6 +13,22 @@ const ContactUs = () => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+
+    const script = document.createElement("script");
+    script.src = "https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
 
   // Handle form field changes
   const handleChange = (e) => {
@@ -24,18 +40,70 @@ const ContactUs = () => {
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setMessage(null);
+
+  //   // reCAPTCHA logic
+  //   const recaptchaToken = await window.grecaptcha.execute(
+  //     "6Lc8U50rAAAAAB53D6HW7HhezQXRoKqAX-k21eaT",
+  //     { action: "submit-contact-form" } 
+  //   );
+    
+
+  //   try {
+  //     const response = await fetch("/api/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       // body: JSON.stringify( formData ),
+  //       body: JSON.stringify({...formData, recaptchaToken}),
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (response.ok) {
+  //       setMessage({ type: "success", text: "Form submitted successfully!" });
+  //       setFormData({
+  //         firstName: "",
+  //         lastName: "",
+  //         email: "",
+  //         additionalInfo: "",
+  //         acceptedPrivacyPolicy: false,
+  //       });
+  //     } else {
+  //       setMessage({
+  //         type: "error",
+  //         text: data.error || "Something went wrong!",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     setMessage({ type: "error", text: "Failed to submit. Try again later." });
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  
+    const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage(null);
 
     try {
+      if (!window.grecaptcha) throw new Error("reCAPTCHA not loaded");
+
+      const token = await window.grecaptcha.execute("6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10", {
+        action: "contact_form",
+      });
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, token }),
       });
 
       const data = await response.json();
@@ -50,17 +118,16 @@ const ContactUs = () => {
           acceptedPrivacyPolicy: false,
         });
       } else {
-        setMessage({
-          type: "error",
-          text: data.error || "Something went wrong!",
-        });
+        setMessage({ type: "error", text: data.error || "Something went wrong!" });
       }
-    } catch (error) {
-      setMessage({ type: "error", text: "Failed to submit. Try again later." });
+    } catch (err) {
+      console.error("reCAPTCHA or submission error:", err);
+      setMessage({ type: "error", text: "Submission failed. Try again." });
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <section className="flex flex-col gap-4 md:gap-8 container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
@@ -123,7 +190,7 @@ const ContactUs = () => {
               name="acceptedPrivacyPolicy"
               checked={formData.acceptedPrivacyPolicy}
               onChange={handleChange}
-              className="mr-2"
+              className="mr-2 cursor-pointer"
               required
             />
             <label className="text-sm text-gray-600">

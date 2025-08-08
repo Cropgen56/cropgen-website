@@ -75,14 +75,14 @@ export default function BlogDetail() {
     : "Date not available";
 
   return (
-    <div className="max-w-3xl mx-auto p-4">
+    <div className="max-w-3xl md:max-w-4xl lg:max-w-5xl flex flex-col gap-2 md:gap-4 mx-auto px-8 py-4 lg:px-8">
       {/* Blog Title */}
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
+      <h1 className="text-2xl md:text-4xl font-extrabold text-gray-800">
         {blog.title || "Untitled Blog"}
       </h1>
 
       {/* Blog Date */}
-      <p className="text-lg text-gray-500 mb-6">{createdAt}</p>
+      <p className="text-sm md:text-lg text-gray-500">{createdAt}</p>
 
       {/* Blog Content (rendered as HTML, unchanged from CKEditor output) */}
       <div

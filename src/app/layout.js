@@ -4,9 +4,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata = {
-  title: "AI Satellite Crop Monitoring & Precision Farming Advisory",
+  title: "Smart Crop Monitoring with AI & Satellites | CropGen",
   description:
-    "CropGen is an advanced farm management system integrating satellite data for better agricultural decision-making.",
+    "AI-powered satellite crop monitoring & advisory for precision farming. CropGen helps Indian farmers make data-driven decisions with real-time farm insights.",
   icons: {
     icon: "/logo.png",
   },
@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+
         {/* Primary Meta Tags */}
         <meta name="description" content={metadata.description} />
         <meta
@@ -97,7 +98,7 @@ export default function RootLayout({ children }) {
           href="https://wa.me/919665935570"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-5 right-5 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-all duration-300"
+          className="fixed bottom-[5rem] right-5 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-all duration-300"
           aria-label="Chat on WhatsApp"
         >
           <svg
@@ -112,11 +113,20 @@ export default function RootLayout({ children }) {
           </svg>
         </a>
 
-        <Header />
-        <main className="pt-[4.5rem] overflow-hidden">
-          {children} <Analytics />
-        </main>
-        <Footer />
+        {/* reCAPTCHA script */}
+        {/* <Script
+          src="https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10"
+          strategy="beforeInteractive"
+        /> */}
+
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="pt-[4.5rem] overflow-hidden flex-1">
+            {children}
+            <Analytics />
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
