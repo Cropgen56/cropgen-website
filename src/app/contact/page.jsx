@@ -131,13 +131,13 @@ const ContactUs = () => {
 
   return (
     <section className="flex flex-col gap-4 md:gap-8 container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2AB673]">
+      <div className="max-w-2xl mx-auto text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2AB673]">
           Contact Us
-        </h2>
+        </h1>
         <p className="text-[#000] text-sm sm:text-base">
           Need assistance? Pick the relevant department, submit the form, and
-          we’ll take it from there. Want a demo? Contact our support team.
+          we'll take it from there. Want a demo? Contact our support team.
         </p>
       </div>
 
@@ -194,7 +194,7 @@ const ContactUs = () => {
               required
             />
             <label className="text-sm text-gray-600">
-              I understand and agree to the Privacy Policy
+              I understand and agree to the Privacy Policy*
             </label>
           </div>
           <button

@@ -65,7 +65,7 @@ export default function CropMonitoringFeatures() {
                 Receive detailed insights into the availability and requirements
                 of <strong> Nitrogen (N)</strong>,
                 <strong> Phosphorus (P)</strong>, and
-                <strong>Potassium (K) </strong>in your soil. CropGen helps
+                <strong>Potassium (K) </strong>in your soil. CropGen helps
                 farmers understand soil fertility levels and recommend the right
                 fertilizers to maintain nutrient balance.
               </p>

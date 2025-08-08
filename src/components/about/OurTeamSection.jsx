@@ -28,8 +28,8 @@ const teamMembers = [
   },
   {
     id: 5,
-    name: "Market Research Intern",
-    designation: "Janvi Magar",
+    name: "Janvi Magar ",
+    designation: "Market Research Intern",
     image: "/assets/image/about/janhvimagar.png",
   },
   {

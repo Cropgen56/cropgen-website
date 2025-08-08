@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Head from "next/head";
 
 const HeroSection = () => {
     const features = [
@@ -14,14 +13,6 @@ const HeroSection = () => {
 
     return (
         <main>
-            {/* SEO Meta Tags */}
-            <Head>
-                <title>AI Satellite Crop Monitoring & Precision Farming Advisory</title>
-                <meta
-                name="description"
-                content="CropGen is India's first LLM-based crop monitoring system using satellite imagery and AI to enable smarter farming decision and real-time crop advisory."/>
-                <meta name="robots" content="index, follow" />
-            </Head>
 
             <section className="relative flex flex-col md:flex-row justify-between bg-white pb-7 md:pb-10">
                 {/* Left Content with Animation */}

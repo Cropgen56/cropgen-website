@@ -22,7 +22,7 @@ export default function Navbar() {
         <nav className="bg-white shadow-md px-4 py-2 fixed top-0 right-0 left-0 z-40">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo */}
-                <h1 className="text-[#075A53] text-lg sm:text-xl font-semibold flex items-center gap-2 cursor-pointer">
+                <span className="text-[#075A53] text-lg sm:text-xl font-semibold flex items-center gap-2 cursor-pointer">
                     <Link href="/" aria-label="CropGen Home">
                         <Image
                             src="/assets/image/home/logo-cropgen.png"
@@ -32,7 +32,7 @@ export default function Navbar() {
                             priority={false} 
                         />
                     </Link>
-                </h1>
+                </span>
 
                 {/* Desktop Menu */}
                 <ul className="hidden lg:flex  space-x-4 lg:space-x-5">

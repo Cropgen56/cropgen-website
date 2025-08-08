@@ -72,7 +72,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 text-sm md:text-md hover:text-white">
+                  <a href="https://www.cropgenapp.com/sitemap-0.xml" target="_blank" rel="noopener noreferrer" className="text-gray-300 text-sm md:text-md hover:text-white">
                     Site Map
                   </a>
                 </li>
@@ -85,35 +85,35 @@ export default function Footer() {
             <a
               href="https://www.facebook.com/people/CropGen/61554177574869/"
               target="_blank"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_6px_white] transition-all duration-300 ease-in-out"
             >
               <Facebook size={24} />
             </a>
             <a
               href="https://www.instagram.com/cropgen"
               target="_blank"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_6px_white] transition-all duration-300 ease-in-out"
             >
               <Instagram size={24} />
             </a>
             <a
               href="https://x.com/cropgen"
               target="_blank"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_6px_white] transition-all duration-300 ease-in-out"
             >
               <Twitter size={24} />
             </a>
             <a
               href="https://www.linkedin.com/company/cropgen/posts/?feedView=all&viewAsMember=true"
               target="_blank"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_6px_white] transition-all duration-300 ease-in-out"
             >
               <Linkedin size={24} />
             </a>
             <a
               href="https://www.youtube.com/channel/UCuU7d-rByYZfMkfoj0Pgq0w"
               target="_blank"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white hover:drop-shadow-[0_0_6px_white] transition-all duration-300 ease-in-out"
             >
               <Youtube size={24} />
             </a>

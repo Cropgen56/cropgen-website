@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
           <h2 className="text-lg font-bold">Introduction</h2>
           <p className="mt-2 text-sm">
             <strong>Welcome to CropGen! </strong>
-            CropGen ("we," "our," or "us") respects your privacy and is
+            CropGen ("we," "our," or "us") respects your privacy and is       
             committed to protecting it through our compliance with this policy.
             This Privacy Policy describes the types of information we collect
             from you when you use our CropGen web and mobile applications
