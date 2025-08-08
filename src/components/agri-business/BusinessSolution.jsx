@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export default function BusinessSolution() {
   return (
-    <div className="px-6 sm:px-10 mt-8 md:mt-2">
+    <section className="px-6 sm:px-10 mt-8 md:mt-2">
       {/* Heading */}
       <h2 className="text-2xl sm:text-4xl font-bold leading-tight text-center sm:mt-10 text-[#2AB673]">
         CropGen's Agribusiness Solutions
       </h2>
 
       {/* surveying and land maping */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/land-mapping.webp"
             alt="Crop Health Analytics"
@@ -21,7 +21,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -65,12 +65,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Crop classificationn and delinatieation */}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/crop-classification.webp"
             alt="Crop Health Analytics"
@@ -78,7 +78,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -123,12 +123,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* GHG Emission Monitoring & Carbon Credit Solutions */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/crop-monitoring/crop-analytics.webp"
             alt="Crop Health Analytics"
@@ -136,7 +136,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -181,12 +181,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Forest Area Mapping & Conservation Monitoring */}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/forest-area.webp"
             alt="Crop Health Analytics"
@@ -194,7 +194,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -238,12 +238,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Support for Insurance Companies & Risk Assessment */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/support.webp"
             alt="Crop Health Analytics"
@@ -251,7 +251,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -296,12 +296,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* FPO (Farmer Producer Organizations) Support */}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/fpo.webp"
             alt="Crop Health Analytics"
@@ -309,7 +309,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -354,12 +354,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Corporate Farming Solutions*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/corporate-solution.webp"
             alt="corporate farming solution by cropgen"
@@ -367,7 +367,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -412,12 +412,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* White Label Solutions for Enterprises*/}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/white-label.webp"
             alt="White label solution by cropgen"
@@ -425,7 +425,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -470,12 +470,12 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/*API Integrations for Seamless Data Flow*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/agri-business/api-integration.webp"
             alt="api integration by cropgen"
@@ -483,7 +483,7 @@ export default function BusinessSolution() {
             height={300}
             className="rounded-md object-contain"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -528,7 +528,7 @@ export default function BusinessSolution() {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 }

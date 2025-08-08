@@ -4,7 +4,7 @@ import { PromoSection } from "@/components";
 const PrivacyPolicy = () => {
   return (
     <>
-      <div className="min-h-screen text-gray-800 px-6 md:px-20 py-10">
+      <section className="min-h-screen text-gray-800 px-6 md:px-20 py-10">
         {" "}
         <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6">
           Privacy Policy
@@ -189,7 +189,7 @@ const PrivacyPolicy = () => {
           </p>
         </section>
         <PromoSection />
-      </div>
+      </section>
     </>
   );
 };

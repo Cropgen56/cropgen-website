@@ -17,7 +17,7 @@ const FeaturesSection = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Left Content */}
-          <motion.div
+          <motion.article
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -35,10 +35,10 @@ const FeaturesSection = () => {
               control security, and data-driven analysis while minimizing errors
               on MDs.
             </p>
-          </motion.div>
+          </motion.article>
 
           {/* Right Content (Infinite Animation) */}
-          <div className="p-2 text-white flex justify-center items-center">
+          <figure  className="p-2 text-white flex justify-center items-center">
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{
@@ -55,7 +55,7 @@ const FeaturesSection = () => {
                 className="rounded-xl"
               />
             </motion.div>
-          </div>
+          </figure>
         </div>
       </div>
     </section>

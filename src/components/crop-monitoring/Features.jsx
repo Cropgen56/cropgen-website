@@ -5,18 +5,18 @@ import Subscrib from "../common/Subscrib";
 
 export default function CropMonitoringFeatures() {
   return (
-    <section className="py-4 md:py-10 bg-white">
+    <section aria-label="Crop Monitoring Hero Section" className="py-4 md:py-10 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#2AB673] sm:mb-8">
           Crop Monitoring Features
         </h2>
-        {/* Crop Health Analysis componetnt */}
-        <div className="flex flex-col gap-8">
+        {/* Crop Health Analysis componment */}
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/crop-analytics.webp"
                 alt="Crop Health Analytics"
@@ -24,7 +24,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-left sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Crop Health </span>Analytics
@@ -40,14 +40,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* NPK Analysis */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/npk-analytcis.webp"
                 alt="Crop Health Analytics"
@@ -55,7 +55,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-right sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 {" "}
@@ -71,14 +71,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* Automatic Agronomy System */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/automatic-agronomy.webp"
                 alt="Crop Health Analytics"
@@ -86,7 +86,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-left sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Automatic</span> Agronomy{" "}
@@ -106,14 +106,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* BBCh Stage */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/bbch.webp"
                 alt="Crop Health Analytics"
@@ -121,7 +121,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-right sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">BBCH </span>
@@ -136,14 +136,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* real time soing insights */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/real-time-soil-moisture.webp"
                 alt="Crop Health Analytics"
@@ -151,7 +151,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-left sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Real-Time</span> Soil Insights
@@ -165,14 +165,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* weather data */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/weather.webp"
                 alt="Crop Health Analytics"
@@ -180,7 +180,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start smLtext-center md:text-right sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Hyper-Local </span>Weather{" "}
@@ -196,14 +196,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* Crop Information data */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/crop-information.webp"
                 alt="Crop Health Analytics"
@@ -211,7 +211,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-xl sm:text-center md:text-left sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Crop </span>Information
@@ -225,14 +225,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>{" "}
+        </article>{" "}
         {/* soil health  */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/soil-report.webp"
                 alt="Crop Health Analytics"
@@ -240,7 +240,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-right sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Soil Health </span>Reports
@@ -254,14 +254,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* soil analytics  */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/soil-analytics.webp"
                 alt="Crop Health Analytics"
@@ -269,7 +269,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-left sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Soil Data </span>Analytics
@@ -282,14 +282,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* Disease & Pest */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/disease-alert.webp"
                 alt="Crop Health Analytics"
@@ -297,7 +297,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-right sm:p-4 ">
               <h3 className="text-xl sm:text-3xl font-bold mt-4">
                 <span className="text-[#2AB673]">Disease & Pest</span> Alerts
@@ -310,14 +310,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* Cropgen Scouting  */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/scouting.webp"
                 alt="Crop Health Analytics"
@@ -325,7 +325,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 text-start sm:text-center md:text-left sm:p-4 ">
               <h2 className="text-[#2AB673] text-3xl sm:text-4xl font-bold">
                 Scouting
@@ -344,8 +344,8 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
-        <div className="sm:w-1/2 sm:px-8 mt-10 sm:mt-20">
+        </article>
+        <article className="sm:w-1/2 sm:px-8 mt-10 sm:mt-20">
           <h2 className="text-[#2AB673] text-xl sm:text-4xl font-bold">
             How the CropGen{" "}
           </h2>{" "}
@@ -358,14 +358,14 @@ export default function CropMonitoringFeatures() {
             fields, empowering them to make informed decisions quickly and
             efficiently. Here’s how it transforms field inspections:
           </p>
-        </div>
+        </article>
         {/* How Scouting works  */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-start overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/satellite-imagery.webp"
                 alt="Crop Health Analytics"
@@ -373,7 +373,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 sm:text-center md:text-left sm:p-4 ">
               <h6 className="text-xl sm:text-3xl font-bold mt-4">
                 1. High-Resolution Satellite <br />
@@ -404,14 +404,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* Advance image processing */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row
             items-start overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/satellite-imagery2.webp"
                 alt="Crop Health Analytics"
@@ -419,7 +419,7 @@ export default function CropMonitoringFeatures() {
                 height={300}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 sm:text-center md:text-left sm:p-4 flex flex-col ">
               <h6 className="text-xl sm:text-3xl font-bold mt-4">
                 2.Advanced Image <br />
@@ -455,7 +455,7 @@ export default function CropMonitoringFeatures() {
               </div>
             </div>
           </div>
-        </div>
+        </article>
         {/* features of the scouting in the cropgen  */}
         <div className="sm:w-1/2 sm:px-8 mt-20">
           <h2 className="text-[#2AB673] text-2xl sm:text-4xl font-bold">
@@ -466,12 +466,12 @@ export default function CropMonitoringFeatures() {
           </h2>
         </div>
         {/* Advance image processing */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-start overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/crop-protection.webp"
                 alt="Crop Health Analytics"
@@ -479,7 +479,7 @@ export default function CropMonitoringFeatures() {
                 height={200}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 sm:text-center md:text-left sm:p-4 sm:px-8  ">
               <h6 className="text-xl sm:text-2xl font-bold mt-4">
                 Early Detection:
@@ -497,14 +497,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* Detailed report */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row
             items-start overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/detailed-report.webp"
                 alt="Crop Health Analytics"
@@ -512,7 +512,7 @@ export default function CropMonitoringFeatures() {
                 height={200}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 sm:text-center md:text-left sm:p-4 sm:px-8  ">
               <h6 className="text-xl sm:text-2xl font-bold mt-4 ">
                 Detailed Reports:
@@ -532,14 +532,14 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         {/* Customaizable report */}
-        <div className="flex flex-col gap-8">
+        <article className="flex flex-col gap-8">
           <div
             className="flex flex-col  md:flex-row-reverse
             items-center overflow-hidden p-1"
           >
-            <div className="w-full md:w-1/2 flex justify-center">
+            <figure className="w-full md:w-1/2 flex justify-center">
               <Image
                 src="/assets/image/crop-monitoring/customaizable-report.webp"
                 alt="Crop Health Analytics"
@@ -547,7 +547,7 @@ export default function CropMonitoringFeatures() {
                 height={200}
                 className="rounded-md object-contain"
               />
-            </div>
+            </figure>
             <div className="w-full md:w-1/2 sm:text-center md:text-left sm:p-4 sm:px-8  ">
               <h6 className="text-xl sm:text-2xl font-bold mt-4">
                 Customaizable Reports:
@@ -566,7 +566,7 @@ export default function CropMonitoringFeatures() {
               </p>
             </div>
           </div>
-        </div>
+        </article>
         <Subscrib
           text={
             <>

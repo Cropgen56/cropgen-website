@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <div className="relative h-[250px] sm:h-[600px] w-full flex flex-row sm:flex-row items-center justify-between px-4 sm:px-10">
+    <section className="relative h-[250px] sm:h-[600px] w-full flex flex-row sm:flex-row items-center justify-between px-4 sm:px-10">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -27,6 +27,6 @@ export default function HeroSection() {
           <br className="hidden sm:block" /> Insights for Smarter Farming
         </p>
       </div>
-    </div>
+    </section>
   );
 }

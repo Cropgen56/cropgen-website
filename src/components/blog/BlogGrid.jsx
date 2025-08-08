@@ -53,7 +53,7 @@ const BlogGrid = ({ blogArray = [] }) => {
   };
 
   return (
-    <div className="flex justify-center px-4 md:px-6 py-8 sm:pt-20">
+    <section className="flex justify-center px-4 md:px-6 py-8 sm:pt-20">
       <div className="w-full max-w-6xl flex flex-col gap-6">
         <div className="flex justify-between items-center">
           <h2 className="text-xl md:text-3xl font-bold">Category</h2>
@@ -181,7 +181,7 @@ const BlogGrid = ({ blogArray = [] }) => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

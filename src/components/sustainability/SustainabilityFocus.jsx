@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function SustainabilityFocus() {
   return (
-    <div className="px-6 sm:px-10 mt-2">
-      <div className="relative flex justify-center items-center">
+    <section className="px-6 sm:px-10 mt-2">
+      <figure className="relative flex justify-center items-center">
         <Image
           src="/assets/image/sustainability/sustainability-focus.webp"
           alt="Crop Health Analytics"
@@ -19,12 +19,12 @@ export default function SustainabilityFocus() {
             Key Sustainability Focus Areas{" "}
           </span>
         </h2>
-      </div>
+      </figure>
 
       {/* Soil Health & Regeneration*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/sustainability/soil-health.webp"
             alt="Crop Health Analytics"
@@ -32,7 +32,7 @@ export default function SustainabilityFocus() {
             height={300}
             className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -75,12 +75,12 @@ export default function SustainabilityFocus() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Water Conservation & Smart Irrigation*/}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/sustainability/water.webp"
             alt="Crop gen sustainabilty water "
@@ -88,7 +88,7 @@ export default function SustainabilityFocus() {
             height={300}
             className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -131,12 +131,12 @@ export default function SustainabilityFocus() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Carbon Sequestration & Climate Action */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/sustainability/carbon.webp"
             alt="Crop gen carbon sequestration"
@@ -144,7 +144,7 @@ export default function SustainabilityFocus() {
             height={300}
             className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -187,12 +187,12 @@ export default function SustainabilityFocus() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Crop Disease & Pest Management*/}
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/sustainability/crop-disease.webp"
             alt="Crop disease detaction "
@@ -200,7 +200,7 @@ export default function SustainabilityFocus() {
             height={300}
             className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -242,12 +242,12 @@ export default function SustainabilityFocus() {
             </div>
           ))}
         </div>
-      </div>
+      </article>
 
       {/* Sustainable Supply Chain & Traceability*/}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
+      <article className="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <figure className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/assets/image/sustainability/supply-chain.webp"
             alt="Crop Health Analytics"
@@ -255,7 +255,7 @@ export default function SustainabilityFocus() {
             height={300}
             className="rounded-md object-contain h-[200px] sm:h-[300px]"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 ">
@@ -297,7 +297,7 @@ export default function SustainabilityFocus() {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 }

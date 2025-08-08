@@ -79,6 +79,7 @@ const SubscribeSection = () => {
     <section
       className="relative mt-4 md:mx-auto sm:shadow-lg sm:rounded-2xl px-6 md:px-12 py-8 max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-8 sm:my-10
       bg-[url('/assets/image/about/subscribe-background.webp')] bg-cover bg-center"
+      aria-label="Subscribe to CropGen Farm Monitoring Updates"
     >
       {/* Overlay for better readability */}
       <div className="flex flex-col gap-2 relative z-10 md:w-2/5 text-center md:text-left">
@@ -102,7 +103,7 @@ const SubscribeSection = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-1 relative z-10 md:w-2/5 text-center md:text-left text-gray-700 text-sm">
+      <address  className="flex flex-col gap-1 relative z-10 md:w-2/5 text-center md:text-left text-gray-700 text-sm">
         <h3 className="text-[#2AB673] font-semibold text-md md:text-lg">Our Location</h3>
         <p>Pune, Maharashtra, 411038, India</p>
 
@@ -120,12 +121,12 @@ const SubscribeSection = () => {
               src="/assets/image/about/call-image.webp"
               width={40}
               height={40}
-              alt="Phone"
+              alt="Phone icon for contact"
             />
           </div>
-          <p className="text-[#2AB673] font-bold text-base">+91 9665935570</p>
+          <p href="tel:+919665935570" className="text-[#2AB673] font-bold text-base">+91 9665935570</p>
         </div>
-      </div>
+      </address>
     </section>
   );
 };

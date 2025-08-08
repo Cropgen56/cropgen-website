@@ -58,7 +58,7 @@ const OurTeamSection = () => {
       {/* Team Members Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {teamMembers.map((member) => (
-          <div key={member.id} className="shadow-lg rounded-xl overflow-hidden group transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl ">
+          <div key={member.id} className="shadow-lg rounded-xl overflow-hidden group transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl">
             <div className="relative">
               <Image
                 src={member.image}

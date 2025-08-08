@@ -7,7 +7,7 @@ const ValuesSection = () => {
   return (
     <section className="relative flex flex-col gap-12 bg-white py-5 px-4 sm:px-6 md:px-12 lg:px-20">
       {/* Values Heading */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -64,7 +64,7 @@ const ValuesSection = () => {
         </div>
 
         {/* Right Content - Graphics */}
-        <div className="relative flex flex-row items-center justify-around">
+        <figure className="relative flex flex-row items-center justify-around">
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 3 }}
@@ -98,7 +98,7 @@ const ValuesSection = () => {
               className="ps-0"
             />
           </motion.div>
-        </div>
+        </figure>
       </motion.div>
 
       {/* Call to Action */}

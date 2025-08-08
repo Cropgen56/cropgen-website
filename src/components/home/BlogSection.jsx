@@ -75,23 +75,25 @@ export default function BlogCarousel() {
           {/* Smaller Blog Posts */}
           <div className="w-full md:w-[100%] md:h-[18rem] flex justify-around">
             {blogPosts.slice(1).map((post) => (
-              <motion.div
+              <motion.article
                 key={post.id}
                 whileHover={{ scale: 1.05 }}
                 className="relative rounded-lg overflow-hidden cursor-pointer p-2 md:p-4"
               >
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={300}
-                  height={200}
-                  className="w-full h-50 object-cover"
-                />
-                {/* <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-sm font-bold">{post.title}</h3>
-                <p className="text-xs">{post.description}</p>
-              </div> */}
-              </motion.div>
+                <figure>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={300}
+                      height={200}
+                      className="w-full h-50 object-cover"
+                    />
+                    {/* <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-sm font-bold">{post.title}</h3>
+                      <p className="text-xs">{post.description}</p>
+                    </div> */}
+                </figure>  
+              </motion.article>
             ))}
           </div>
           <div className="mt-2">

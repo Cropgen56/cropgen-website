@@ -13,7 +13,7 @@ const AboutSection = () => {
                 className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center"
             >
                 {/* Left Content */}
-                <div className="flex flex-col gap-1 lg:gap-2">    
+                <article className="flex flex-col gap-1 lg:gap-2">    
                     <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
                         <span className="text-green-600">Who</span> We Are?
                     </h2>
@@ -30,7 +30,7 @@ const AboutSection = () => {
                         agricultural data solutions, leveraging the power of remote sensing
                         technology, artificial intelligence, and data analytics.
                     </p>
-                </div>
+                </article>
 
                 {/* Right Content - Image */}
                 <div className="flex items-center justify-between relative p-4">
@@ -65,7 +65,7 @@ const AboutSection = () => {
             </motion.div>
 
             {/* What We Offer Section */}
-            <motion.div
+            <motion.article 
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -114,7 +114,7 @@ const AboutSection = () => {
                         </li>
                     </ul>
                 </div>
-            </motion.div>
+            </motion.article>
         </section>
     );
 };

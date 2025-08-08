@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Su() {
   return (
-    <div className="px-6 sm:px-10 mt-8 md:mt-2">
-      <div className="relative w-full md:w-1/2">
+    <section className="px-6 sm:px-10 mt-8 md:mt-2">
+      <figure className="relative w-full md:w-1/2">
         {" "}
         <Image
           src="/assets/image/sustainability/sustainability-text.webp"
@@ -18,10 +18,10 @@ export default function Su() {
           <span className="text-[#2AB673]">Sustainability </span> at <br />{" "}
           CropGen
         </h2>
-      </div>
+      </figure>
       <div className="flex flex-col md:flex-row-reverse items-start gap-4 md:gap-8 mt-3 md:mt-6">
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-start">
+        <figure className="w-full md:w-1/2 flex justify-start">
           <Image
             src="/assets/image/sustainability/sustainability-image.webp"
             alt="Crop Health Analytics"
@@ -29,7 +29,7 @@ export default function Su() {
             height={400}
             className="rounded-md object-cover h-[300px] sm:h-[400px]"
           />
-        </div>
+        </figure>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2">
@@ -92,6 +92,6 @@ export default function Su() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

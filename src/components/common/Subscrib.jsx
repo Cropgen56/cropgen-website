@@ -76,7 +76,7 @@ export default function Subscrib({ text }) {
 
 
   return (
-    <div className="mx-auto my-5 h-[120px] md:h-[300px] lg:h-[400px] bg-[url('/assets/image/comman/background.webp')] bg-cover sm:bg-contain bg-no-repeat bg-center mt-2">
+    <section aria-labelledby="subscribe-heading" className="mx-auto my-5 h-[120px] md:h-[300px] lg:h-[400px] bg-[url('/assets/image/comman/background.webp')] bg-cover sm:bg-contain bg-no-repeat bg-center mt-2">
       <div className="relative w-[60%] h-full flex flex-col justify-center gap-1 md:gap-2 items-center md:py-8 md:px-16">
         <h2 className="text-xs sm:text-lg md:text-2xl w-[80%] lg:w-1/2 font-bold text-[#2AB673]">
           {text}
@@ -101,6 +101,6 @@ export default function Subscrib({ text }) {
         </div>
         {message && <p className="mt-2 text-sm text-gray-700">{message}</p>}
       </div>
-    </div>
+    </section>
   );
 }

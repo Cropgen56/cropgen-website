@@ -70,7 +70,7 @@ const MissionSection = () => {
         </div>
 
         {/* Text Content */}
-        <div className="w-full md:w-1/2 md:pl-6 flex flex-col items-center md:items-start gap-2 ">
+        <article  className="w-full md:w-1/2 md:pl-6 flex flex-col items-center md:items-start gap-2 ">
           <h2 className="text-2xl sm:text-4xl font-bold text-[#2AB673]">
             Our Mission
           </h2>
@@ -89,7 +89,7 @@ const MissionSection = () => {
           <button className="w-[50%] sm:w-auto px-6 py-3 bg-[#2AB673] text-white rounded-full text-sm font-medium hover:bg-[#2AB673] transition-all ease-in-out duration-400">
             Learn More
           </button>
-        </div>
+        </article>
       </div>
     </section>
   );

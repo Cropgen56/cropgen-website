@@ -49,7 +49,7 @@ export default function HeroSection({ blogs = [] }) {
   }
 
   return (
-    <div className="h-[600px] md:h-[570px] lg:h-[750px]">
+    <section className="h-[600px] md:h-[570px] lg:h-[750px]">
       {/* Background Image */}
       <div
         className="relative w-full h-[300px] sm:h-[400px] lg:h-[550px] flex items-center px-6 sm:px-12 lg:px-20"
@@ -126,6 +126,6 @@ export default function HeroSection({ blogs = [] }) {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

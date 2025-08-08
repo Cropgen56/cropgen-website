@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SustainabilityImpact() {
   return (
-    <div className="px-6 sm:px-10 mt-8 md:mt-2">
+    <section className="px-6 sm:px-10 mt-8 md:mt-2">
       <div className="relative w-full">
         {" "}
         <Image
@@ -27,6 +27,6 @@ export default function SustainabilityImpact() {
           className=" h-auto mx-auto mt-5 "
         />
       </div>
-    </div>
+    </section>
   );
 }

@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <div className="relative h-[250px] sm:h-[600px] w-full flex flex-row sm:flex-row items-center justify-between px-4 sm:px-10">
+    <section className="relative h-[250px] sm:h-[600px] w-full flex flex-row sm:flex-row items-center justify-between px-4 sm:px-10">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <figure className="absolute inset-0">
         <Image
           src="/assets/image/sustainability/hero.webp"
           alt="Farming Field with Sprinklers"
@@ -14,7 +14,7 @@ export default function HeroSection() {
           objectFit="cover"
           className="w-full h-full"
         />
-      </div>
+      </figure>
 
       {/* Text Content */}
       <div className="relative z-10 max-w-2xl text-white text-left sm:p-6">
@@ -26,6 +26,6 @@ export default function HeroSection() {
           Our Commitment to Sustainable Agriculture
         </p>
       </div>
-    </div>
+    </section>
   );
 }

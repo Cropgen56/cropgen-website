@@ -75,7 +75,7 @@ export default function BlogDetail() {
     : "Date not available";
 
   return (
-    <div className="max-w-3xl md:max-w-4xl lg:max-w-5xl flex flex-col gap-2 md:gap-4 mx-auto px-8 py-4 lg:px-8">
+    <section className="max-w-3xl md:max-w-4xl lg:max-w-5xl flex flex-col gap-2 md:gap-4 mx-auto px-8 py-4 lg:px-8">
       {/* Blog Title */}
       <h1 className="text-2xl md:text-4xl font-extrabold text-gray-800">
         {blog.title || "Untitled Blog"}
@@ -91,6 +91,6 @@ export default function BlogDetail() {
           __html: blog.content || "<p>No content available</p>",
         }}
       />
-    </div>
+    </section>
   );
 }
