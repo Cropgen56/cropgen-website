@@ -1,12 +1,20 @@
 "use client";
 import { PromoSection } from "@/components";
+import Image from "next/image";
 
 const PrivacyPolicy = () => {
   return (
     <>
-      <section className="min-h-screen text-gray-800 px-6 md:px-20 py-10">
+      <section className="min-h-screen text-gray-800 px-6 md:px-20 py-10 relative">
         {" "}
-        <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6">
+        <Image
+          src="/assets/image/contact/Privacy-policy.png"
+          alt="Privacy policy"
+          width={400}
+          height={200}
+          className="absolute z-0 opacity-80 top-2 sm:top-1 md:-top-2 w-[300px] sm:w-[400px] left-1/2 -translate-x-1/2"
+        />
+        <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6 relative z-10">
           Privacy Policy
         </h1>
         <section className="max-w-8xl mx-auto">
@@ -14,7 +22,7 @@ const PrivacyPolicy = () => {
           <h2 className="text-lg font-bold">Introduction</h2>
           <p className="mt-2 text-sm">
             <strong>Welcome to CropGen! </strong>
-            CropGen ("we," "our," or "us") respects your privacy and is       
+            CropGen ("we," "our," or "us") respects your privacy and is
             committed to protecting it through our compliance with this policy.
             This Privacy Policy describes the types of information we collect
             from you when you use our CropGen web and mobile applications

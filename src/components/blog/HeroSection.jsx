@@ -61,7 +61,7 @@ export default function HeroSection({ blogs = [] }) {
       >
         <div className="absolute inset-0 bg-opacity-30"></div>
         <div className="relative z-10 max-w-2xl text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold md:leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold md:leading-tight">
             CropGen
             <br />
             <span className="mt-0 md:mt-6 inline-block">Blog</span>
@@ -106,7 +106,7 @@ export default function HeroSection({ blogs = [] }) {
               <h2 className="text-lg sm:text-2xl font-bold text-[#2AB673]">
                 Top Posts
               </h2>
-              <div className="mt-2 sm:mt-4 flex flex-col gap-2">
+              <div className="mt-2 flex flex-col gap-1 sm:gap-2 max-h-[150px] lg:max-h-[200px] overflow-y-auto no-scrollbar">
                 {blogArray?.slice(0, 4).map((blog) => (
                   <div key={blog.id} className="pb-1 sm:pb-2">
                     <p className="text-black font-medium text-xs sm:text-sm">

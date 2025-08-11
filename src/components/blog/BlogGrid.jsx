@@ -103,7 +103,7 @@ const BlogGrid = ({ blogArray = [] }) => {
                 </p>
                 <h3 className="text-lg font-bold mt-2">{post.title}</h3>
                 <div className="flex items-center justify-between mt-4">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     <div className="flex items-center gap-1 text-gray-600 text-sm">
                       <Image
                         src="/assets/image/blog/profile-icon.webp"

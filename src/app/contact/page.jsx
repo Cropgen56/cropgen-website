@@ -19,7 +19,8 @@ const ContactUs = () => {
     setIsClient(true);
 
     const script = document.createElement("script");
-    script.src = "https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10";
+    script.src =
+      "https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10";
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
@@ -28,7 +29,6 @@ const ContactUs = () => {
       document.body.removeChild(script);
     };
   }, []);
-
 
   // Handle form field changes
   const handleChange = (e) => {
@@ -48,9 +48,8 @@ const ContactUs = () => {
   //   // reCAPTCHA logic
   //   const recaptchaToken = await window.grecaptcha.execute(
   //     "6Lc8U50rAAAAAB53D6HW7HhezQXRoKqAX-k21eaT",
-  //     { action: "submit-contact-form" } 
+  //     { action: "submit-contact-form" }
   //   );
-    
 
   //   try {
   //     const response = await fetch("/api/contact", {
@@ -85,8 +84,8 @@ const ContactUs = () => {
   //     setLoading(false);
   //   }
   // };
-  
-    const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage(null);
@@ -94,9 +93,12 @@ const ContactUs = () => {
     try {
       if (!window.grecaptcha) throw new Error("reCAPTCHA not loaded");
 
-      const token = await window.grecaptcha.execute("6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10", {
-        action: "contact_form",
-      });
+      const token = await window.grecaptcha.execute(
+        "6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10",
+        {
+          action: "contact_form",
+        }
+      );
 
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -118,7 +120,10 @@ const ContactUs = () => {
           acceptedPrivacyPolicy: false,
         });
       } else {
-        setMessage({ type: "error", text: data.error || "Something went wrong!" });
+        setMessage({
+          type: "error",
+          text: data.error || "Something went wrong!",
+        });
       }
     } catch (err) {
       console.error("reCAPTCHA or submission error:", err);
@@ -128,17 +133,16 @@ const ContactUs = () => {
     }
   };
 
-
   return (
     <section className="flex flex-col gap-4 md:gap-8 container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
       <div className="max-w-2xl mx-auto text-center relative">
-              <Image
-                src="/assets/image/agri-business/Why-Cropgen-for.png"
-                alt="Why-Cropgen-for-Agribusiness"
-                width={400}
-                height={200}
-                className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] start-0 sm:start-4"
-              />
+        <Image
+          src="/assets/image/contact/Contact-Us.png"
+          alt="Contact Us"
+          width={400}
+          height={200}
+          className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[400px] left-1/2 -translate-x-1/2"
+        />
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2AB673] relative z-10">
           Contact Us
         </h1>
@@ -149,7 +153,10 @@ const ContactUs = () => {
       </div>
 
       <div className="max-w-2xl mx-auto p-2 md:p-6">
-        <form className="flex flex-col gap-3 md:gap-4 w-full" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col gap-3 md:gap-4 w-full"
+          onSubmit={handleSubmit}
+        >
           <div className="flex justify-between gap-4">
             <input
               type="text"
@@ -229,12 +236,10 @@ const ContactUs = () => {
           <h3 className="text-md md:text-3xl font-bold">Head Office</h3>
           <p className="text-sm md:text-md text-gray-600">
             Pune, Maharashtra,
-            {/* <br /> */} {" "}
-            411038, India
+            {/* <br /> */} 411038, India
           </p>
           <p className="text-sm md:text-md text-gray-600">
-            Email: {" "}
-            {/* <br /> */}
+            Email: {/* <br /> */}
             info@cropgenapp.com
           </p>
         </div>

@@ -1,13 +1,20 @@
 "use client";
 import { PromoSection } from "@/components";
+import Image from "next/image";
 const TermsConditions = () => {
   return (
     <>
-      <section className="min-h-screen bg-white text-gray-800 px-6 md:px-20 py-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6">
+      <section className="min-h-screen bg-white text-gray-800 px-6 md:px-20 py-10 relative">
+        <Image
+          src="/assets/image/contact/Terms-&-Conditions.png"
+          alt="Terms & Conditions"
+          width={400}
+          height={200}
+          className="absolute z-0 opacity-80 top-2 sm:top-1 md:-top-2 w-[350px] md:w-[600px] left-1/2 -translate-x-1/2"
+        />
+        <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6 relative z-10">
           Terms & Conditions
         </h1>
-
         <section className="max-w-8xl mx-auto">
           {/* 1. Acceptance of Terms */}
           <h2 className="text-lg font-bold mt-6">1. Acceptance of Terms</h2>
@@ -18,7 +25,9 @@ const TermsConditions = () => {
           </p>
 
           {/* 2. Services Offered */}
-          <h2 className="text-lg font-bold mt-4 md:mt-6">2. Services Offered</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            2. Services Offered
+          </h2>
           <p className="mt-2 text-sm">CropGen provides:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -31,7 +40,9 @@ const TermsConditions = () => {
           </ul>
 
           {/* 3. User Responsibilities */}
-          <h2 className="text-lg font-bold mt-4 md:mt-6">3. User Responsibilities</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            3. User Responsibilities
+          </h2>
           <p className="mt-2 text-sm">By using CropGen, you agree to:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -44,7 +55,9 @@ const TermsConditions = () => {
           </ul>
 
           {/* 4. Subscription & Payment */}
-          <h2 className="text-lg font-bold mt-4 md:mt-6">4. Subscription & Payment</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            4. Subscription & Payment
+          </h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
               Subscription Plans: CropGen offers monthly and yearly subscription
@@ -67,7 +80,9 @@ const TermsConditions = () => {
           </p>
 
           {/* 6. Limitation of Liability */}
-          <h2 className="text-lg font-bold mt-4 md:mt-6">6. Limitation of Liability</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            6. Limitation of Liability
+          </h2>
           <p className="mt-2 text-sm">CropGen is not liable for:</p>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -83,7 +98,9 @@ const TermsConditions = () => {
           </ul>
 
           {/* 7. Modifications to Terms */}
-          <h2 className="text-lg font-bold mt-4 md:mt-6">7. Changes to Terms</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            7. Changes to Terms
+          </h2>
           <p className="mt-2 text-sm">
             We may modify these Terms at any time. Users will receive
             notifications through app alerts or email updates. Continued use
@@ -98,7 +115,9 @@ const TermsConditions = () => {
           </p>
 
           {/* 9. Contact Information */}
-          <h2 className="text-lg font-bold mt-4 md:mt-6">9. Contact Information</h2>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            9. Contact Information
+          </h2>
           <p className="mt-2 text-sm">
             For legal inquiries or clarifications, please contact:
             <strong className="text-[#2AB673]">legal@cropgenapp.com</strong>
