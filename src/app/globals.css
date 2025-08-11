@@ -56,6 +56,13 @@
   padding-right: 2rem !important;
 }
 
+@media (max-width: 767px) {
+  .ck-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 .ck-content h2 {
   font-size: 2rem; 
   font-weight: bold;
