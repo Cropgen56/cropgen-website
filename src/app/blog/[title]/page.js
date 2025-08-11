@@ -86,7 +86,7 @@ export default function BlogDetail() {
 
       {/* Blog Content (rendered as HTML, unchanged from CKEditor output) */}
       <div
-        className="prose max-w-none text-gray-700"
+        className="ck-content prose max-w-none"
         dangerouslySetInnerHTML={{
           __html: blog.content || "<p>No content available</p>",
         }}
