@@ -47,7 +47,13 @@ const MissionSection = () => {
         {stats.map((stat, index) => (
           <div key={stat.id} className="flex flex-col items-center">
             <div className="flex items-center justify-between">
-              <Image src={stat.icon} width={60} height={60} alt="icon" className="w-[40px] h-[40px] md:w-[60px] md:h-[60px]" />{" "}
+              <Image
+                src={stat.icon}
+                width={60}
+                height={60}
+                alt="icon"
+                className="w-[40px] h-[40px] md:w-[60px] md:h-[60px]"
+              />{" "}
               <p className="text-md md:text-xl font-bold ">{counts[index]}+</p>
             </div>
             <p className="text-black text-sm sm:font-semibold pt-1">
@@ -70,8 +76,15 @@ const MissionSection = () => {
         </div>
 
         {/* Text Content */}
-        <article  className="w-full md:w-1/2 md:pl-6 flex flex-col items-center md:items-start gap-2 ">
-          <h2 className="text-2xl sm:text-4xl font-bold text-[#2AB673]">
+        <article className="w-full md:w-1/2 md:pl-6 flex flex-col items-center md:items-start gap-2 relative">
+          <Image
+            src="/assets/image/about/Our-Mission.png"
+            alt="Our Mission"
+            width={400}
+            height={200}
+            className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
+          />
+          <h2 className="text-2xl sm:text-4xl font-bold text-[#2AB673] z-10">
             Our Mission
           </h2>
           <h3 className="text-xl sm:text-3xl font-bold text-gray-900">

@@ -131,8 +131,15 @@ const ContactUs = () => {
 
   return (
     <section className="flex flex-col gap-4 md:gap-8 container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
-      <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2AB673]">
+      <div className="max-w-2xl mx-auto text-center relative">
+              <Image
+                src="/assets/image/agri-business/Why-Cropgen-for.png"
+                alt="Why-Cropgen-for-Agribusiness"
+                width={400}
+                height={200}
+                className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] start-0 sm:start-4"
+              />
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2AB673] relative z-10">
           Contact Us
         </h1>
         <p className="text-[#000] text-sm sm:text-base">

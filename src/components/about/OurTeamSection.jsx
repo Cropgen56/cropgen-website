@@ -49,17 +49,29 @@ const teamMembers = [
 const OurTeamSection = () => {
   return (
     <section className="flex flex-col gap-8 px-4 md:px-8 lg:px-12 py-1 sm:py-10 bg-white">
-      <div className="max-w-6xl text-start">
-        <h2 className="text-2xl md:text-4xl font-bold text-[#2AB673]">
+      <div className="max-w-6xl text-start relative">
+        <Image
+          src="/assets/image/about/Our-Team.png"
+          alt="Our Team"
+          width={400}
+          height={200}
+          className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
+        />
+        <h2 className="text-2xl md:text-4xl font-bold text-[#2AB673] relative z-10">
           Our Team
         </h2>
       </div>
 
       {/* Team Members Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
         {teamMembers.map((member) => (
-          <div key={member.id} className="shadow-lg rounded-xl overflow-hidden group transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl">
-            <div className="relative">
+          <div
+            key={member.id}
+            className="bg-[#E1ECF3] relative shadow-lg rounded-xl group transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl"
+          >
+              <div className="absolute -top-4 -left-4 w-60 h-60 bg-[#2AB67366] rounded-2xl z-0"></div>
+
+            <div className="relative overflow-hidden rounded-xl z-10">
               <Image
                 src={member.image}
                 alt={member.name}

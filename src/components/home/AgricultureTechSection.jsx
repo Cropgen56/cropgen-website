@@ -6,17 +6,23 @@ export default function AgricultureTechSection() {
   return (
     <section className="relative p-6 md:py-12 px-6 bg-white flex flex-col gap-6 md:gap-8 items-center">
       
+      <Image
+        src="/assets/image/home/Enhancing-Agriculture-with-Technology.png"
+        alt="Enhancing-Agriculture-with-Technology"
+        width={400}
+        height={200}
+        className="absolute left-1/2 -translate-x-1/2 z-0 opacity-80 -top-2 w-[400px] sm:w-[750px] md:w-[1000px]"
+      />
       {/* Title Animation */}
       <motion.h2
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-2xl md:text-4xl font-bold text-center"
+        className="text-2xl md:text-4xl font-bold text-center z-10"
       >
         <span className="text-green-500">Enhancing</span> Agriculture with
         Technology
       </motion.h2>
-
       {/* Image Animation */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}

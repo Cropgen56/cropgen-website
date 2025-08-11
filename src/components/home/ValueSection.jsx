@@ -7,15 +7,23 @@ const ValuesSection = () => {
   return (
     <section className="relative flex flex-col gap-12 bg-white py-5 px-4 sm:px-6 md:px-12 lg:px-20">
       {/* Values Heading */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 items-center"
       >
         {/* Left Content */}
-        <div className="flex flex-col gap-4 px-4 md:px-0">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
+        <div className="flex flex-col gap-4 px-4 md:px-0 relative">
+          <Image
+            src="/assets/image/home/our-Values.png"
+            alt="our-Values"
+            width={400}
+            height={200}
+            className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
+          />
+
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 z-10">
             Our <span className="text-green-600">Values</span>
           </h2>
           <ul className=" text-gray-600 text-sm ml-2 md:ml-4 md:text-lg flex flex-col gap-2">
@@ -108,7 +116,14 @@ const ValuesSection = () => {
         transition={{ duration: 0.8 }}
         className="flex justify-center"
       >
-        <div className="max-w-2xl w-full flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 bg-white shadow-lg rounded-lg p-3 md:p-4">
+        <div
+          className="max-w-2xl w-full flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 bg-white shadow-lg rounded-lg p-3 md:p-4"
+          style={{
+            backgroundImage: "url('/assets/image/blog/background.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <p className="text-md md:text-xl font-semibold text-gray-900 text-center md:text-center">
             We will bring your Farm to the next level.
           </p>

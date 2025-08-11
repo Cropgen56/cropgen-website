@@ -6,8 +6,15 @@ const OurStorySection = () => {
     <section className="px-4 md:px-8 lg:px-12 py-4 md:py-8 bg-white">
       <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto">
         {/* Text Content */}
-        <div className="w-full flex flex-col gap-4 md:w-1/2 lg:w-[45%] text-center md:text-left">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#2AB673]">
+        <div className="w-full flex flex-col gap-4 md:w-1/2 lg:w-[45%] text-center md:text-left relative">
+          <Image
+            src="/assets/image/about/Our-Story.png"
+            alt="Our Story"
+            width={400}
+            height={200}
+            className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
+          />
+          <h2 className="text-2xl md:text-4xl font-bold text-[#2AB673] z-10">
             Our Story
           </h2>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed">

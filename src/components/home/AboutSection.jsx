@@ -10,11 +10,19 @@ const AboutSection = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center"
-            >
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+                
                 {/* Left Content */}
-                <article className="flex flex-col gap-1 lg:gap-2">    
-                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
+                <article className="flex flex-col gap-1 lg:gap-2 relative ">    
+                    <Image
+                        src="/assets/image/home/who-are-we-text.png"
+                        alt="Who We Are Text"
+                        width={400}
+                        height={200}
+                        className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
+                    />
+
+                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900 z-10">
                         <span className="text-green-600">Who</span> We Are?
                     </h2>
                     <p className="mt-4 text-gray-600 text-sm md:text-lg">
@@ -87,8 +95,16 @@ const AboutSection = () => {
                 </motion.div>
 
                 {/* Right Content - What We Offer */}
-                <div className="flex flex-col gap-4">
-                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
+                <div className="flex flex-col gap-4 relative">
+                    <Image
+                        src="/assets/image/home/What-We-Offer.png"
+                        alt="What-We-Offer"
+                        width={400}
+                        height={200}
+                        className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
+                    />
+
+                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900 z-10">
                         <span className="text-green-600">What</span> We Offer?
                     </h2>
                     <ul className="flex flex-col gap-2 text-gray-600 ml-2 md:ml-4 text-sm md:text-lg">

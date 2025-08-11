@@ -62,7 +62,7 @@ export default function SustainabilityFocus() {
               className="flex items-start gap-2 text-sm text-gray-600 mt-2"
             >
               <Image
-                src="/assets/image/comman/dot.svg"
+                src="/assets/image/comman/dot.webp"
                 width={24}
                 height={24}
                 alt="dot"
@@ -118,7 +118,7 @@ export default function SustainabilityFocus() {
               className="flex items-start gap-2 text-sm text-gray-600 mt-2"
             >
               <Image
-                src="/assets/image/comman/dot.svg"
+                src="/assets/image/comman/dot.webp"
                 width={24}
                 height={24}
                 alt="dot"
@@ -174,7 +174,7 @@ export default function SustainabilityFocus() {
               className="flex items-start gap-2 text-sm text-gray-600 mt-2"
             >
               <Image
-                src="/assets/image/comman/dot.svg"
+                src="/assets/image/comman/dot.webp"
                 width={24}
                 height={24}
                 alt="dot"
@@ -229,7 +229,7 @@ export default function SustainabilityFocus() {
               className="flex items-start gap-2 text-sm text-gray-600 mt-2 "
             >
               <Image
-                src="/assets/image/comman/dot.svg"
+                src="/assets/image/comman/dot.webp"
                 width={24}
                 height={24}
                 alt="dot"
@@ -284,7 +284,7 @@ export default function SustainabilityFocus() {
               className="flex items-start gap-2 text-sm text-gray-600 mt-2 "
             >
               <Image
-                src="/assets/image/comman/dot.svg"
+                src="/assets/image/comman/dot.webp"
                 width={24}
                 height={24}
                 alt="dot"

@@ -8,7 +8,7 @@ export default function SustainabilityImpact() {
       <div className="relative w-full">
         {" "}
         <Image
-          src="/assets/image/sustainability/sustainability-text.webp"
+          src="/assets/image/sustainability/Sustainability-text.webp"
           alt="Crop Health Analytics"
           width={400}
           height={200}

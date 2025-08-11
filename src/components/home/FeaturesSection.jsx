@@ -7,8 +7,16 @@ const FeaturesSection = () => {
   return (
     <section className="py-6 md:py-10">
       <div className="container flex flex-col gap-10 items-center px-6 md:px-8">
-        <div className="text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
+        <div className="text-center relative">
+        
+          <Image
+              src="/assets/image/home/CropGen’s-Monitoring.png"
+              alt="CropGen’s-Monitoring"
+              width={400}
+              height={200}
+              className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[400px] sm:w-[1000px] start-0 sm:start-4"
+          />      
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 z-10">
             What Makes{" "}
             <span className="text-[#2AB673]">CropGen's Crop Monitoring </span>
             Stand Out?

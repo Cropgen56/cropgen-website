@@ -4,9 +4,16 @@ import Image from "next/image";
 
 export default function Body() {
   return (
-    <section className="px-6 sm:px-10">
+    <section className="px-6 sm:px-10 relative">
+      <Image
+        src="/assets/image/agri-business/Why-Cropgen-for.png"
+        alt="Why-Cropgen-for-Agribusiness"
+        width={400}
+        height={200}
+        className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] start-0 sm:start-4"
+      />
       {/* Heading */}
-      <h2 className="text-2xl md:text-4xl font-bold leading-tight text-start  mt-4 sm:mt-10">
+      <h2 className="text-2xl md:text-4xl font-bold leading-tight text-start  mt-4 sm:mt-10 relative z-10">
         <span className="text-[#2AB673]">Why </span>CropGen for <br />{" "}
         Agribusiness?
       </h2>
@@ -54,7 +61,8 @@ export default function Body() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-2 text-sm md:text-md text-gray-600 mt-2" >
+              className="flex items-start gap-2 text-sm md:text-md text-gray-600 mt-2"
+            >
               <Image
                 src="/assets/image/comman/dot.webp"
                 width={20}

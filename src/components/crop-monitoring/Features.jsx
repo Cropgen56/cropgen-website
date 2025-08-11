@@ -5,9 +5,19 @@ import Subscrib from "../common/Subscrib";
 
 export default function CropMonitoringFeatures() {
   return (
-    <section aria-label="Crop Monitoring Hero Section" className="py-4 md:py-10 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#2AB673] sm:mb-8">
+    <section
+      aria-label="Crop Monitoring Hero Section"
+      className="py-4 md:py-10 bg-white"
+    >
+      <div className="container mx-auto px-4 relative">
+        <Image
+          src="/assets/image/crop-monitoring/Crop-Monitoring-Features.png"
+          alt="Crop-Monitoring-Features"
+          width={400}
+          height={200}
+          className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
+        />
+        <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#2AB673] sm:mb-8 z-10 relative">
           Crop Monitoring Features
         </h2>
         {/* Crop Health Analysis componment */}
@@ -326,8 +336,15 @@ export default function CropMonitoringFeatures() {
                 className="rounded-md object-contain"
               />
             </figure>
-            <div className="w-full md:w-1/2 text-start sm:text-center md:text-left sm:p-4 ">
-              <h2 className="text-[#2AB673] text-3xl sm:text-4xl font-bold">
+            <div className="w-full md:w-1/2 text-start sm:text-center md:text-left sm:p-4 relative">
+              <Image
+                src="/assets/image/crop-monitoring/Scouting.png"
+                alt="Scouting"
+                width={400}
+                height={200}
+                className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[300px] left-1/2 -translate-x-1/2"
+              />
+              <h2 className="text-[#2AB673] text-3xl sm:text-4xl font-bold z-10 relative">
                 Scouting
               </h2>
               <h6 className="text-xl sm:text-3xl font-semibold mt-4">
@@ -345,8 +362,16 @@ export default function CropMonitoringFeatures() {
             </div>
           </div>
         </article>
-        <article className="sm:w-1/2 sm:px-8 mt-10 sm:mt-20">
-          <h2 className="text-[#2AB673] text-xl sm:text-4xl font-bold">
+        <article className="sm:w-1/2 sm:px-8 mt-10 sm:mt-20 relative">
+          
+          <Image
+                src="/assets/image/crop-monitoring/How-the-Cropgen.png"
+                alt="How-the-Cropgen"
+                width={400}
+                height={200}
+                className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
+              />
+          <h2 className="text-[#2AB673] text-xl sm:text-4xl font-bold z-10 relative">
             How the CropGen{" "}
           </h2>{" "}
           <h2 className="text-[#2AB673] text-xl  sm:text-4xl font-bold sm:my-2">
@@ -457,8 +482,15 @@ export default function CropMonitoringFeatures() {
           </div>
         </article>
         {/* features of the scouting in the cropgen  */}
-        <div className="sm:w-1/2 sm:px-8 mt-20">
-          <h2 className="text-[#2AB673] text-2xl sm:text-4xl font-bold">
+        <div className="sm:w-1/2 sm:px-8 mt-20 relative">
+          <Image
+                src="/assets/image/crop-monitoring/Features.png"
+                alt="Features of CropGen Scouting Tool"
+                width={400}
+                height={200}
+                className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
+              />
+          <h2 className="text-[#2AB673] text-2xl sm:text-4xl font-bold relative z-10">
             Features of the
           </h2>{" "}
           <h2 className="text-[#2AB673] text-2xl sm:text-4xl font-bold my-2">
@@ -568,12 +600,7 @@ export default function CropMonitoringFeatures() {
           </div>
         </article>
         <Subscrib
-          text={
-            <>
-              Keep Your farm Up to Date with 
-              Cropgen Crop Monitoring
-            </>
-          }
+          text={<>Keep Your farm Up to Date with Cropgen Crop Monitoring</>}
         />
       </div>
     </section>

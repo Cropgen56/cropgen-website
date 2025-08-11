@@ -12,8 +12,6 @@ const HeroSection = () => {
     ];
 
     return (
-        <main>
-
             <section className="relative flex flex-col md:flex-row justify-between bg-white pb-7 md:pb-10">
                 {/* Left Content with Animation */}
                 <motion.article
@@ -92,7 +90,7 @@ const HeroSection = () => {
                         </motion.div>
 
                         {/* Overlapping Small Images with Infinite Animation */}
-                        <motion.div
+                        <motion.div 
                             animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                             className="absolute top-14 right-0 sm:top-20 sm:right-[-20px] w-1/3 md:w-1/3" >
@@ -120,7 +118,6 @@ const HeroSection = () => {
                     </div>
                 </motion.div>
             </section>
-        </main>
     );
 };
 

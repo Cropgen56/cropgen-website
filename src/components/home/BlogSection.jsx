@@ -39,8 +39,15 @@ export default function BlogCarousel() {
 
   return (
     <section className="p-6 lg:py-12 lg:px-6 flex flex-col gap-4 md:gap-8 bg-white">
-      <div className="text-center md:text-end">
-        <h2 className="text-2xl md:text-3xl font-bold">
+      <div className="text-center md:text-end relative inline-block">
+        <Image
+          src="/assets/image/home/Latest-Blog.png"
+          alt="Latest-Blog"
+          width={400}
+          height={200}
+          className="absolute right-0 z-0 opacity-80 -top-6 w-[400px] sm:w-[600px]"
+        />
+        <h2 className="text-2xl md:text-3xl font-bold z-10 relative">
           <span className="text-green-500">Latest Articles</span> Direct from
           Blog
         </h2>
@@ -81,18 +88,18 @@ export default function BlogCarousel() {
                 className="relative rounded-lg overflow-hidden cursor-pointer p-2 md:p-4"
               >
                 <figure>
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-50 object-cover"
-                    />
-                    {/* <div className="absolute bottom-4 left-4 text-white">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-50 object-cover"
+                  />
+                  {/* <div className="absolute bottom-4 left-4 text-white">
                       <h3 className="text-sm font-bold">{post.title}</h3>
                       <p className="text-xs">{post.description}</p>
                     </div> */}
-                </figure>  
+                </figure>
               </motion.article>
             ))}
           </div>
@@ -112,7 +119,7 @@ export default function BlogCarousel() {
       <div className="flex justify-start items-end gap-4">
         <button
           onClick={prevSlide}
-          className="bg-[#E4FFF1] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600"
+          className="bg-[#E4FFF1] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all ease-in-out duration-500"
         >
           <Image
             src="/assets/image/home/left-arrow.png"
@@ -123,7 +130,7 @@ export default function BlogCarousel() {
         </button>
         <button
           onClick={nextSlide}
-          className="bg-[#28C878] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600"
+          className="bg-[#28C878] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all ease-in-out duration-500"
         >
           <Image
             src="/assets/image/home/right-arrow.png"
