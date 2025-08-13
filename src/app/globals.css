@@ -129,3 +129,22 @@
   font-family: monospace !important;
   font-size: 0.875rem !important;
 }
+
+/* Custom scrollbar */
+         .scrollbar-custom::-webkit-scrollbar-button {
+  display: none; /* Hide top and bottom buttons */
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-custom::-webkit-scrollbar{
+  width: 18px;
+  height: 18px;
+}
+.scrollbar-custom::-webkit-scrollbar-thumb{
+  background-color: #d3d3d3;
+  border: 6px solid transparent;
+  border-radius: 20px;
+  background-clip: content-box;
+}
