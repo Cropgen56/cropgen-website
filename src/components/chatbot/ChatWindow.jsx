@@ -72,7 +72,7 @@ export default function ChatWindow({ onClose }) {
 
     return (
         <div className="relative">
-            <div className="w-[400px] h-[500px] bg-white rounded-2xl shadow-md shadow-gray-200 z-50 flex flex-col gap-2 overflow-hidden bg-cover bg-center"
+            <div className="w-[300px] h-[450px] sm:w-[400px] sm:h-[500px] bg-white rounded-2xl shadow-md shadow-gray-200 z-50 flex flex-col gap-2 overflow-hidden bg-cover bg-center"
                 style={{ backgroundImage: "url('/assets/image/comman/chatbot-bg.svg')" }}>
                 
                 {/* Header */}
@@ -104,7 +104,7 @@ export default function ChatWindow({ onClose }) {
                 </div>
 
                 {/* Main body */}
-                <div className="flex-1 px-4 py-2 overflow-y-auto flex flex-col scrollbar-custom mt-4">
+                <div className="flex-1 pr-0 pl-4 sm:px-4 py-2 overflow-y-auto flex flex-col scrollbar-custom mt-4">
                     {!roleSelected ? (
                         <div className="flex flex-col gap-2 mt-auto">
                             <button
@@ -114,13 +114,13 @@ export default function ChatWindow({ onClose }) {
                                 <Image src="/assets/image/comman/farmer.svg" alt="Farmer" width={20} height={20} /> I'm a Farmer
                             </button>
                             <button
-                                className="flex items-center gap-2 px-4 py-2 text-sm bg-[#EFFFF7] rounded-xl transition w-2/3 border-2 rounded-bl-none border-white"
+                                className="flex items-center gap-2 px-4 py-2 text-sm bg-[#EFFFF7] rounded-xl transition w-[80%] sm:w-2/3 border-2 rounded-bl-none border-white"
                                 onClick={() => handleRoleClick("from an Organization")}
                             >
                                 <Image src="/assets/image/comman/organization.svg" alt="organization" width={20} height={20} /> I'm from an Organization
                             </button>
                             <button
-                                className="flex items-center gap-2 px-4 py-2 text-sm bg-[#EFFFF7] rounded-xl transition w-1/2 border-2 rounded-bl-none border-white"
+                                className="flex items-center gap-2 px-4 py-2 text-sm bg-[#EFFFF7] rounded-xl transition w-2/3 sm:w-1/2 border-2 rounded-bl-none border-white"
                                 onClick={() => handleRoleClick("just Exploring")}
                             >
                                 <Image src="/assets/image/comman/earth-leaf.svg" alt="earth-leaf" width={20} height={20} />I'm just Exploring
