@@ -2,18 +2,22 @@
 import { useState } from "react";
 import ChatWindow from "./ChatWindow";
 import Image from "next/image";
+import WelcomeScreen from "./WelcomeScreen";
 
 export default function ChatbotButton() {
     const [open, setOpen] = useState(false);
     const [closing, setClosing] = useState(false);
     const [hover, setHover] = useState(false);
+    const [showChat, setShowChat] = useState(false);
+
 
     const handleClose = () => {
         setClosing(true);
         setHover(false);
-    setTimeout(() => {
-        setOpen(false);
-        setClosing(false);
+        setTimeout(() => {
+            setOpen(false);
+            setClosing(false);
+            setShowChat(false); 
         }, 300);
     };
 
@@ -50,7 +54,13 @@ export default function ChatbotButton() {
                 <div className={`fixed bottom-8 right-5 z-50 ${
                         closing ? "animate-chatSlideDown" : "animate-chatSlideUp"
                     }`} >
-                    <ChatWindow onClose={handleClose} />
+                    
+                    {!showChat ? (
+                        <WelcomeScreen onClose={handleClose} onContinue={() => setShowChat(true)} />
+                    ) : (
+                        <ChatWindow onClose={handleClose} onBack={() => setShowChat(false)} />
+                    )}
+
                 </div>
             )}
         </>

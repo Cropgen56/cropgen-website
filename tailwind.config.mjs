@@ -24,27 +24,37 @@ export default {
           "0%": { opacity: "1", transform: "translateY(0)" },
           "100%": { opacity: "0", transform: "translateY(50px)" },
         },
-        logoBounceUp: {
-          "0%": { transform: "translateY(50px)", opacity: "0" },
-          "60%": { transform: "translateY(-10px)", opacity: "1" },
-          "80%": { transform: "translateY(5px)" },
-          "100%": { transform: "translateY(0)" },
+        chatSlideLeft: {
+          "0%": { opacity: "0", transform: "translateX(-20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        gradientMove: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
+        chatSlideRight: {
+          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        // logoBounceUp: {
+        //   "0%": { transform: "translateY(50px)", opacity: "0" },
+        //   "60%": { transform: "translateY(-10px)", opacity: "1" },
+        //   "80%": { transform: "translateY(5px)" },
+        //   "100%": { transform: "translateY(0)" },
+        // },
+        // gradientMove: {
+        //   "0%": { backgroundPosition: "0% 50%" },
+        //   "50%": { backgroundPosition: "100% 50%" },
+        //   "100%": { backgroundPosition: "0% 50%" },
+        // },
       },
       animation: {
         chatSlideUp: "chatSlideUp 0.3s ease-out forwards",
         chatSlideDown: "chatSlideDown 0.3s ease-in forwards",
-        logoBounceUp: "logoBounceUp 0.8s ease-out forwards",
-        gradient: "gradientMove 4s ease infinite",
+        chatSlideLeft: "chatSlideLeft 0.5s ease-out forwards",
+        chatSlideRight: "chatSlideRight 0.5s ease-out forwards",
+      //   logoBounceUp: "logoBounceUp 0.8s ease-out forwards",
+      //   gradient: "gradientMove 4s ease infinite",
       },
-      backgroundSize: {
-        "300": "300% 300%",
-      },
+      // backgroundSize: {
+      //   "300": "300% 300%",
+      // },
     },
   },
   plugins: [],
