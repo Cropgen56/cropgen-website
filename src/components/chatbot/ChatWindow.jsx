@@ -320,7 +320,8 @@ export default function ChatWindow({ onClose, onBack }) {
                             key={idx}
                             className={`px-3 py-2 rounded-xl text-xs max-w-[75%] ${
                                 msg.sender === "user"
-                                    ? "bg-green-50 border border-green-200 self-end rounded-br-none animate-chatSlideRight"
+                                //  ? "bg-green-50 border border-green-200 self-end rounded-br-none animate-chatSlideRight"
+                                    ? "bg-[#DDDEEE] border border-gray-300 self-end rounded-br-none animate-chatSlideRight"
                                     : "bg-[#DDDEEE] border border-gray-300 self-start rounded-bl-none animate-chatSlideLeft"
                             }`}
                         >
