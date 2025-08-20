@@ -389,8 +389,8 @@ export default function ChatWindow({ onClose, onBack }) {
                         />
                         <div className="flex flex-row justify-between items-center w-full">
                             <div className="flex items-center gap-1.5">
-                                <Smile color="#9A9898" size={16} className="cursor-pointer" />
-                                <Image src="/assets/image/comman/chatbot-gif.svg" alt="chatbot gif" width={16} height={16} className="cursor-pointer" />
+                                {/* <Smile color="#9A9898" size={16} className="cursor-pointer" />
+                                <Image src="/assets/image/comman/chatbot-gif.svg" alt="chatbot gif" width={16} height={16} className="cursor-pointer" /> */}
                                 <Paperclip color="#9A9898" size={16} className="cursor-pointer" onClick={handleFileClick} />
 
                                 {/* Hidden file input */}
