@@ -314,7 +314,7 @@ export default function ChatWindow({ onClose, onBack }) {
                 )}
 
                 {/* Chat Body */}
-                <div className="flex-1 px-4 py-3 overflow-y-auto flex flex-col gap-1 scrollbar-custom">
+                <div className="flex-1 px-4 py-3 overflow-y-auto overflow-x-hidden flex flex-col gap-1 scrollbar-custom">
                     {messages.map((msg, idx) => (
                         <div
                             key={idx}
