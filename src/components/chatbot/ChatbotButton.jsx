@@ -34,7 +34,7 @@ export default function ChatbotButton() {
                     <button className={`flex items-center bg-[#28C878] hover:bg-green-600 text-white shadow-md rounded-full overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${hover ? "px-4 h-12 w-40" : "p-2.5 h-12 w-12"
                         }`} >
                         <Image
-                            src="/assets/image/comman/chatbot.png"
+                            src="/assets/image/comman/chatbot.svg"
                             alt="Chatbot Icon"
                             width={28}
                             height={28}
