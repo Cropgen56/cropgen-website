@@ -39,51 +39,6 @@ const ContactUs = () => {
     });
   };
 
-  // Handle form submission
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setMessage(null);
-
-  //   // reCAPTCHA logic
-  //   const recaptchaToken = await window.grecaptcha.execute(
-  //     "6Lc8U50rAAAAAB53D6HW7HhezQXRoKqAX-k21eaT",
-  //     { action: "submit-contact-form" }
-  //   );
-
-  //   try {
-  //     const response = await fetch("/api/contact", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       // body: JSON.stringify( formData ),
-  //       body: JSON.stringify({...formData, recaptchaToken}),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (response.ok) {
-  //       setMessage({ type: "success", text: "Form submitted successfully!" });
-  //       setFormData({
-  //         firstName: "",
-  //         lastName: "",
-  //         email: "",
-  //         additionalInfo: "",
-  //         acceptedPrivacyPolicy: false,
-  //       });
-  //     } else {
-  //       setMessage({
-  //         type: "error",
-  //         text: data.error || "Something went wrong!",
-  //       });
-  //     }
-  //   } catch (error) {
-  //     setMessage({ type: "error", text: "Failed to submit. Try again later." });
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
