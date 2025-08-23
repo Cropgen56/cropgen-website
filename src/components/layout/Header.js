@@ -23,14 +23,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <span className="text-[#075A53] text-lg sm:text-xl font-semibold flex items-center gap-2 cursor-pointer">
-          <Link href="/" aria-label="CropGen Home">
+          <Link href="/" aria-label="CropGen Home" className="flex items-center gap-2">
             <Image
-              src="/assets/image/home/logo-cropgen.png"
-              width={170}
-              height={70}
+              src="/assets/image/home/logo.png"
+              width={65}
+              height={65}
               alt="CropGen Logo"
               priority={false}
             />
+            <span className="text-xl font-bold text-[#075A53]">CropGen</span>
           </Link>
         </span>
 
