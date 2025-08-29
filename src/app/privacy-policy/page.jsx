@@ -52,6 +52,20 @@ const PrivacyPolicy = () => {
               satellite imagery, and other agronomic insights.
             </li>
           </ul>
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            Subscription & Payment
+          </h2>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              CropGen offers a free trial, then monthly or annual subscription
+              plans, based on acreage and services (monitoring, advisory, yield
+              prediction, sustainability).
+            </li>
+            <li className="text-sm">
+              If you are charged extra, activate by mistake, or cancel within 30
+              days, you get a full refund.
+            </li>
+          </ul>
           {/* Purpose of Data Collection */}
           <h2 className="text-lg font-bold mt-6">Purpose of Data Collection</h2>
           <ul className="list-disc pl-6 mt-2">
