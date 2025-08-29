@@ -2,6 +2,7 @@
 import { PromoSection } from "@/components";
 import React, { useState } from "react";
 import { Search } from "lucide-react";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 const faqData = [
     {
@@ -152,7 +153,7 @@ function AccordionItem({ question, answer, isOpen, onClick }) {
                     {question}
                 </div>
 
-                <span>{isOpen ? "▲" : "▼"}</span>
+                  {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
             {isOpen && (
                 <p className="pl-8 pr-4 pb-4 text-gray-600 text-[16px] font-[400]">
