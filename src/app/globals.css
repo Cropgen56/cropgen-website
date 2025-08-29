@@ -130,8 +130,21 @@
   font-size: 0.875rem !important;
 }
 
+.prose a {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+  text-decoration-color: #2563eb !important;
+}
+
+.prose a:hover {
+  color: #1d4ed8 !important;
+  text-decoration-color: #1d4ed8 !important;
+}
+
+
+
 /* Custom scrollbar */
-         .scrollbar-custom::-webkit-scrollbar-button {
+.scrollbar-custom::-webkit-scrollbar-button {
   display: none; /* Hide top and bottom buttons */
   background: transparent;
 }

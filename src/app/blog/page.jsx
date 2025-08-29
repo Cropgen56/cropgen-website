@@ -6,6 +6,7 @@ import Subscrib from "@/components/common/Subscrib";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Head from "next/head";
 
 export default function About() {
   const [blogs, setBlogs] = useState([]);
@@ -34,19 +35,22 @@ export default function About() {
     fetchBlogs();
   }, []);
 
+
   return (
-    <div>
-      <HeroSection blogs={blogs.data} />
-      <SubscriptionBanner />
-      <BlogGrid blogArray={blogs.data} />
-      <Subscrib
-        text={
-          <>
-            Start Monitoring your Farm <br />
-            Easily Now
-          </>
-        }
-      />
-    </div>
+    <>
+      <div>
+        <HeroSection blogs={blogs.data} />
+        <SubscriptionBanner />
+        <BlogGrid blogArray={blogs.data} />
+        <Subscrib
+          text={
+            <>
+              Start Monitoring your Farm <br />
+              Easily Now
+            </>
+          }
+        />
+      </div>
+    </>
   );
 }
