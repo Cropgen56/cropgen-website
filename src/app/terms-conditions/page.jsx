@@ -60,12 +60,10 @@ const TermsConditions = () => {
           </h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
-              Subscription Plans: CropGen offers monthly and yearly subscription
-              plans.
+              CropGen offers a free trial, then monthly or annual subscription plans, based on acreage and services (monitoring, advisory, yield prediction, sustainability).
             </li>
             <li className="text-sm">
-              Payments are securely processed with no refunds unless explicitly
-              stated in individual service agreements.
+             If you are charged extra, activate by mistake, or cancel within 30 days, you get a full refund.
             </li>
           </ul>
 
