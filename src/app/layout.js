@@ -115,12 +115,6 @@ export default function RootLayout({ children }) {
         </a>
         {/* <ChatbotButton /> */}
 
-        {/* reCAPTCHA script */}
-        {/* <Script
-          src="https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10"
-          strategy="beforeInteractive"
-        /> */}
-
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="pt-[4.5rem] overflow-hidden flex-1">
