@@ -1,6 +1,6 @@
 "use client";
 import { PromoSection } from "@/components";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
@@ -168,6 +168,65 @@ function AccordionItem({ question, answer, isOpen, onClick }) {
 export default function FAQ() {
 
     const [openIndex, setOpenIndex] = useState(null);
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const [loading, setLoading] = useState(false);
+    const [status, setStatus] = useState(null);
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setStatus(null);
+
+        // Split name into firstName + lastName
+        const [firstName, ...rest] = form.name.trim().split(" ");
+        const lastName = rest.length > 0 ? rest.join(" ") : "-"; 
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    firstName,
+                    lastName,
+                    email: form.email,
+                    additionalInfo: form.message,
+                    acceptedPrivacyPolicy: true,
+                }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            setStatus({ success: true, message: "Message sent successfully!" });
+            setForm({ name: "", email: "", message: "" });
+        } else {
+            setStatus({ success: false, message: data.error || "Something went wrong." });
+        }
+        } catch (err) {
+            setStatus({ success: false, message: "Network error. Please try again." });
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        if (status) {
+        const timer = setTimeout(() => {
+            setStatus(null);
+        }, 3000); 
+        return () => clearTimeout(timer);
+        }
+    }, [status]);
+
+
     return (
         <div>
             {/* ===== Hero Section ===== */}
@@ -251,11 +310,15 @@ export default function FAQ() {
                         <h2 className="text-xl font-bold mb-6 text-gray-800">
                             Still Have Questions? Contact Us
                         </h2>
-                        <form className="space-y-4">
+                        <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <label className="block text-gray-700 font-medium">Name</label>
                                 <input
                                     type="text"
+                                    name="name"
+                                    value={form.name}
+                                    onChange={handleChange}
+                                    required
                                     className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
                                 />
                             </div>
@@ -263,6 +326,10 @@ export default function FAQ() {
                                 <label className="block text-gray-700 font-medium">Email Address</label>
                                 <input
                                     type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    required
                                     className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
                                 />
                             </div>
@@ -270,16 +337,29 @@ export default function FAQ() {
                                 <label className="block text-gray-700 font-medium">Message</label>
                                 <textarea
                                     rows="4"
-                                    className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
+                                    name="message"
+                                    value={form.message}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full border rounded-lg px-4 py-2 mt-1 outline-none resize-none focus:ring-2 focus:ring-green-400"
                                 ></textarea>
                             </div>
                             <button
                                 type="submit"
+                                disabled={loading}
                                 className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium"
                             >
-                                Submit
+                                {loading ? "Submitting..." : "Submit"}
                             </button>
                         </form>
+
+                        {status && (
+                            <p className={`mt-4 text-sm ${
+                                status.success ? "text-green-600" : "text-red-600"
+                                }`} >
+                                    {status.message}
+                            </p>
+                        )}
                     </div>
                 </aside>
             </section>

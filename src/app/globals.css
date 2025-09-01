@@ -141,8 +141,6 @@
   text-decoration-color: #1d4ed8 !important;
 }
 
-
-
 /* Custom scrollbar */
 .scrollbar-custom::-webkit-scrollbar-button {
   display: none; /* Hide top and bottom buttons */
