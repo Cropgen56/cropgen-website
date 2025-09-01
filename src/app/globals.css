@@ -178,3 +178,30 @@
 }
 
 
+@font-face {
+  font-family: 'Gadugi';
+  src: url('/fonts/Gadugi.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gadugi';
+  src: url('/fonts/Gadugi.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+/* Custom class for FAQ */
+.faq-font {
+  font-family: 'Gadugi', sans-serif;
+}
+/* Hide scrollbar but still allow scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}

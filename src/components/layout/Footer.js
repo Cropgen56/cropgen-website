@@ -1,5 +1,6 @@
 "use client";
 import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -76,6 +77,11 @@ export default function Footer() {
                     Site Map
                   </a>
                 </li>
+                <li>
+                  <a href="/faq" className="text-gray-300 text-sm md:text-md hover:text-white">
+                    FAQ
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -138,3 +144,4 @@ export default function Footer() {
     </footer>
   );
 }
+
