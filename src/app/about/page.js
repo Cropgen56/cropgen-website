@@ -6,28 +6,25 @@ import MissionSection from "@/components/about/MissonSection";
 import OurStorySection from "@/components/about/OurStorySection";
 import OurTeamSection from "@/components/about/OurTeamSection";
 import SubscribeSection from "@/components/about/SubsribeSection";
-import TestimonialSection from "@/components/about/TestimonilSection";
+// import TestimonialSection from "@/components/about/TestimonilSection";
 
 export default function About() {
-  const organizationSchema = {
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "CropGen",
-    url: "https://cropgenapp.com",
-    logo: "https://cropgenapp.com/assets/image/home/logo-cropgen.png",
-    sameAs: [
-      "https://www.linkedin.com/company/cropgen/about/?viewAsMember=true",
-      "https://x.com/CropGen",
-      "https://www.facebook.com/share/1C42JygSKC/",
-      "https://www.instagram.com/cropgen?igsh=M2hnNXR3ZDB2eWRi",
-      "https://www.youtube.com/channel/UCuU7d-rByYZfMkfoj0Pgq0w",
-    ],
-    contactPoint: [
+    "@type": "BreadcrumbList",
+    itemListElement: [
       {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        email: "support@cropgenapp.com",
-        availableLanguage: ["en", "hi", "mr"],
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://cropgenapp.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About",
+        item: "https://cropgenapp.com/about",
       },
     ],
   };
@@ -35,10 +32,11 @@ export default function About() {
   return (
     <div>
       <Head>
+        {/* Breadcrumb Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(breadcrumbSchema),
           }}
         />
       </Head>

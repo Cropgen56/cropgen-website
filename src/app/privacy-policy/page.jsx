@@ -1,12 +1,40 @@
 "use client";
+import Head from "next/head";
 import { PromoSection } from "@/components";
 import Image from "next/image";
 
 const PrivacyPolicy = () => {
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://cropgenapp.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Privacy Policy",
+        item: "https://cropgenapp.com/privacy-policy",
+      },
+    ],
+  };
+
   return (
     <>
+      {/* Inject Breadcrumb Schema */}
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      </Head>
+
       <section className="min-h-screen text-gray-800 px-6 md:px-20 py-10 relative">
-        {" "}
         <Image
           src="/assets/image/contact/Privacy-policy.png"
           alt="Privacy policy"
@@ -17,6 +45,7 @@ const PrivacyPolicy = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6 relative z-10">
           Privacy Policy
         </h1>
+
         <section className="max-w-8xl mx-auto">
           {/* Introduction */}
           <h2 className="text-lg font-bold">Introduction</h2>
@@ -29,7 +58,8 @@ const PrivacyPolicy = () => {
             ("App") and outlines our practices for collecting, using,
             maintaining, protecting, and disclosing that information globally.
           </p>
-          {/* Information We Collect */}
+
+          {/* Data Collection & Usage */}
           <h2 className="text-lg font-bold mt-6">Data Collection & Usage</h2>
           <p className="mt-2 text-sm">
             We collect the following types of information:
@@ -52,6 +82,8 @@ const PrivacyPolicy = () => {
               satellite imagery, and other agronomic insights.
             </li>
           </ul>
+
+          {/* Subscription & Payment */}
           <h2 className="text-lg font-bold mt-4 md:mt-6">
             Subscription & Payment
           </h2>
@@ -66,6 +98,7 @@ const PrivacyPolicy = () => {
               days, you get a full refund.
             </li>
           </ul>
+
           {/* Purpose of Data Collection */}
           <h2 className="text-lg font-bold mt-6">Purpose of Data Collection</h2>
           <ul className="list-disc pl-6 mt-2">
@@ -80,6 +113,7 @@ const PrivacyPolicy = () => {
               Secure transaction processing and billing management.
             </li>
           </ul>
+
           {/* How We Use Your Data */}
           <h2 className="text-lg font-bold mt-6">How We Use Your Data</h2>
           <p className="mt-2 text-sm">Your data is used to:</p>
@@ -97,6 +131,7 @@ const PrivacyPolicy = () => {
               Communicate updates, promotions, or technical support.
             </li>
           </ul>
+
           {/* Data Security */}
           <h2 className="text-lg font-bold mt-6">Data Security & Protection</h2>
           <p className="mt-2 text-sm">
@@ -105,15 +140,17 @@ const PrivacyPolicy = () => {
             data. However, no online transmission is 100% secure, and we
             encourage users to take necessary precautions.
           </p>
-          <li>We employ rigorous security measures including: </li>{" "}
-          <li>Advanced encryption standards. </li>
-          <li>Secure global cloud storage solutions.</li>{" "}
-          <li>Continuous monitoring and proactive threat detection.</li>{" "}
-          <li>
-            Despite stringent security measures, no digital platform can
-            guarantee absolute security.
-          </li>
-          {/* Third-Party Sharing */}
+          <ul className="list-disc pl-6 mt-2">
+            <li>Advanced encryption standards</li>
+            <li>Secure global cloud storage solutions</li>
+            <li>Continuous monitoring and proactive threat detection</li>
+            <li>
+              Despite stringent security measures, no digital platform can
+              guarantee absolute security
+            </li>
+          </ul>
+
+          {/* Sharing & Third-Party Involvement */}
           <h2 className="text-lg font-bold mt-6">
             Sharing & Third-Party Involvement
           </h2>
@@ -132,24 +169,8 @@ const PrivacyPolicy = () => {
               Research institutions working on sustainable farming solutions.
             </li>
           </ul>
-          {/* Data Sharing & Third-Party Services */}
-          <h2 className="text-lg font-bold mt-6">
-            Data Sharing & Third-Party Services
-          </h2>
-          <p className="mt-2 text-sm">
-            We may share your data with trusted third parties, including:
-          </p>
-          <ul className="list-disc pl-6 mt-2">
-            <li className="text-sm">
-              Analytics services (e.g., Google Analytics, Firebase).
-            </li>
-            <li className="text-sm">Payment processing providers.</li>
-            <li className="text-sm">
-              Research institutions globally for agricultural innovation and
-              sustainability.
-            </li>
-          </ul>
-          {/* Third-Party SDKs and Integrations */}
+
+          {/* Third-Party SDKs */}
           <h2 className="text-lg font-bold mt-6">
             Third-Party SDKs and Integrations Used
           </h2>
@@ -166,7 +187,8 @@ const PrivacyPolicy = () => {
             We ensure all third-party services adhere to global data protection
             standards and handle your information responsibly.
           </p>
-          {/* Rights & Choices */}
+
+          {/* Your Rights */}
           <h2 className="text-lg font-bold mt-6">Your Rights & Control</h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
@@ -184,18 +206,21 @@ const PrivacyPolicy = () => {
               communications and personalized advertising at any time.
             </li>
           </ul>
+
           {/* Children's Privacy */}
           <h2 className="text-lg font-bold mt-6">Children’s Privacy</h2>
           <p className="mt-2 text-sm">
             CropGen does not target users under the age of 13. We do not
             knowingly collect data from children under this age.
           </p>
+
           {/* Contact Information */}
           <h2 className="text-lg font-bold mt-6">Contact Information</h2>
           <p className="mt-2 text-sm">
-            For privacy concerns, queries, or data requests, contact us at:
+            For privacy concerns, queries, or data requests, contact us at:{" "}
             <strong className="text-[#2AB673]">support@cropgenapp.com</strong>
           </p>
+
           {/* Compliance */}
           <h2 className="text-lg font-bold mt-6">Compliance</h2>
           <p className="mt-2 text-sm">
@@ -203,6 +228,7 @@ const PrivacyPolicy = () => {
             Policy, GDPR, and other applicable global data protection
             regulations.
           </p>
+
           {/* Contact */}
           <h2 className="text-lg font-bold mt-6">Contact Us</h2>
           <p className="mt-2 text-sm">
@@ -210,6 +236,7 @@ const PrivacyPolicy = () => {
             <strong className="text-[#2AB673]">support@cropgenapp.com</strong>
           </p>
         </section>
+
         <PromoSection />
       </section>
     </>

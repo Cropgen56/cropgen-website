@@ -1,9 +1,39 @@
 "use client";
+import Head from "next/head"; // Import Head
 import { PromoSection } from "@/components";
 import Image from "next/image";
+
 const TermsConditions = () => {
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://cropgenapp.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Terms & Conditions",
+        item: "https://cropgenapp.com/terms-conditions",
+      },
+    ],
+  };
+
   return (
     <>
+      {/* Inject Breadcrumb Schema */}
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      </Head>
+
       <section className="min-h-screen bg-white text-gray-800 px-6 md:px-20 py-10 relative">
         <Image
           src="/assets/image/contact/Terms-&-Conditions.png"
@@ -15,6 +45,7 @@ const TermsConditions = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6 relative z-10">
           Terms & Conditions
         </h1>
+
         <section className="max-w-8xl mx-auto">
           {/* 1. Acceptance of Terms */}
           <h2 className="text-lg font-bold mt-6">1. Acceptance of Terms</h2>
@@ -60,10 +91,13 @@ const TermsConditions = () => {
           </h2>
           <ul className="list-disc pl-6 mt-2">
             <li className="text-sm">
-              CropGen offers a free trial, then monthly or annual subscription plans, based on acreage and services (monitoring, advisory, yield prediction, sustainability).
+              CropGen offers a free trial, then monthly or annual subscription
+              plans, based on acreage and services (monitoring, advisory, yield
+              prediction, sustainability).
             </li>
             <li className="text-sm">
-             If you are charged extra, activate by mistake, or cancel within 30 days, you get a full refund.
+              If you are charged extra, activate by mistake, or cancel within 30
+              days, you get a full refund.
             </li>
           </ul>
 
@@ -117,10 +151,11 @@ const TermsConditions = () => {
             9. Contact Information
           </h2>
           <p className="mt-2 text-sm">
-            For legal inquiries or clarifications, please contact:
+            For legal inquiries or clarifications, please contact:{" "}
             <strong className="text-[#2AB673]">legal@cropgenapp.com</strong>
           </p>
         </section>
+
         <PromoSection />
       </section>
     </>

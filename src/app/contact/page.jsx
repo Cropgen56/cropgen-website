@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Head from "next/head"; // 👈 Add Head for schema injection
 import Image from "next/image";
 
 const ContactUs = () => {
@@ -30,6 +31,26 @@ const ContactUs = () => {
     };
   }, []);
 
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://cropgenapp.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Contact",
+        item: "https://cropgenapp.com/contact",
+      },
+    ],
+  };
+
   // Handle form field changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -38,7 +59,6 @@ const ContactUs = () => {
       [name]: type === "checkbox" ? checked : value,
     });
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,6 +110,16 @@ const ContactUs = () => {
 
   return (
     <section className="flex flex-col gap-4 md:gap-8 container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
+      {/* Inject Breadcrumb Schema */}
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
+          }}
+        />
+      </Head>
+
       <div className="max-w-2xl mx-auto text-center relative">
         <Image
           src="/assets/image/contact/Contact-Us.png"
@@ -190,12 +220,10 @@ const ContactUs = () => {
         <div className="text-left w-full md:w-auto">
           <h3 className="text-md md:text-3xl font-bold">Head Office</h3>
           <p className="text-sm md:text-md text-gray-600">
-            Pune, Maharashtra,
-            {/* <br /> */} 411038, India
+            Pune, Maharashtra, 411038, India
           </p>
           <p className="text-sm md:text-md text-gray-600">
-            Email: {/* <br /> */}
-            info@cropgenapp.com
+            Email: info@cropgenapp.com
           </p>
         </div>
         <div className="flex justify-center md:justify-start">

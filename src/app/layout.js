@@ -18,12 +18,44 @@ export default function RootLayout({ children }) {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "AI Satellite Crop Monitoring & Precision Farming Advisory",
-    url: siteUrl,
-    description:
-      "CropGen is India's first LLM-based crop monitoring system using satellite imagery and AI to enable smarter farming decision and real-time crop advisory.",
-    image: "/logo.png",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}#website`,
+        url: siteUrl,
+        name: "CropGen - AI Satellite Crop Monitoring & Precision Farming Advisory",
+        description:
+          "CropGen is India's first LLM-based crop monitoring system using satellite imagery and AI to enable smarter farming decisions and real-time crop advisory.",
+        publisher: { "@id": `${siteUrl}#organization` },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${siteUrl}/search?q={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}#organization`,
+        name: "CropGen",
+        url: siteUrl,
+        logo: `${siteUrl}/logo.png`,
+        sameAs: [
+          "https://www.linkedin.com/company/cropgen",
+          "https://x.com/CropGen",
+          "https://www.facebook.com/share/1C42JygSKC/",
+          "https://www.instagram.com/cropgen",
+          "https://www.youtube.com/channel/UCuU7d-rByYZfMkfoj0Pgq0w",
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "customer support",
+            email: "support@cropgenapp.com",
+            availableLanguage: ["en", "hi", "mr"],
+          },
+        ],
+      },
+    ],
   };
 
   return (
@@ -58,21 +90,6 @@ export default function RootLayout({ children }) {
         {/* Canonical URL */}
         <link rel="canonical" href={siteUrl} />
 
-        {/* Zoho chat boat  */}
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.$zoho = window.$zoho || {};
-              $zoho.salesiq = $zoho.salesiq || { ready: function() {} };
-            `,
-          }}
-        />
-        <script
-          id="zsiqscript"
-          src="https://salesiq.zohopublic.in/widget?wc=siqb1dfcc250d87c7426b1842b94264cfe74d2fbb646c7b17079870b4b6c6f77628"
-          defer
-        /> */}
-
         {/* Structured Data (JSON-LD) */}
         <script
           type="application/ld+json"
@@ -80,7 +97,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-        {/*  Google Analytics (Fixed) */}
+        {/* Google Analytics */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-602SZE71SM"
@@ -94,7 +111,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* chatbot */}
+        {/* WhatsApp Chat Shortcut */}
         <a
           href="https://wa.me/919665935570"
           target="_blank"

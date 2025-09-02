@@ -1,373 +1,239 @@
 "use client";
+import Head from "next/head";
 import { PromoSection } from "@/components";
-import React, { useEffect, useState } from "react";
-import { Search } from "lucide-react";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
-const faqData = [
-    {
-        category: "General Questions",
-        items: [
-            {
-                question: "What is CropGen?",
-                answer:
-                    "CropGen is an AI-powered crop monitoring and LLM-based advisory platform. It combines 12+ satellite vegetation indices, farm data, and advanced AI models to provide farmers with real-time crop insights and personalized, region-specific advisory.",
-            },
-            {
-                question: "Who can use CropGen?",
-                answer:
-                    "Farmers, FPOs, agribusinesses, agri-input companies, exporters, cooperatives, and consultants who want smart farming, cost savings, and higher yields can benefit from CropGen.",
-            },
-        ],
-    },
-    {
-        category: "How CropGen Works",
-        items: [
-            {
-                question: "How does CropGen monitor crops?",
-                answer:
-                    "CropGen analyzes satellite imagery and 12+ vegetation indices (NDVI, EVI, SAVI, NDWI, Chlorophyll Index, etc.) to detect crop health, stress, water status, and growth stage.",
-            },
-            {
-                question: "How does CropGen provide advisory?",
-                answer:
-                    "CropGen uses LLM (Large Language Models) combined with AI/ML agronomy systems. It converts raw satellite + farm data into easy-to-understand, crop- and region-wise advisory for farmers.",
-            },
-            {
-                question: "Do I need sensors to use CropGen?",
-                answer:
-                    "No sensors are required. CropGen primarily uses satellite + AI. But if you already use sensors (soil moisture, weather), CropGen can integrate them for higher precision.",
-            },
-        ],
-    },
-    {
-        category: "Payment & Copyright",
-        items: [
-            {
-                question: "What subscription options are available?",
-                answer:
-                    "CropGen offers a free trial, then monthly or annual subscription plans, based on acreage and services (monitoring, advisory, yield prediction, sustainability).",
-            },
-            {
-                question: "What is the refund policy?",
-                answer:
-                    "If you are charged extra, activate by mistake, or cancel within 30 days, you get a full refund.",
-            },
-            {
-                question: "Who owns the farm data?",
-                answer:
-                    "Farmers and agribusinesses own their data. CropGen only analyzes it securely and does not sell it.",
-            },
-        ],
-    },
-    {
-        category: "Crop Monitoring",
-        items: [
-            {
-                question: "What crop indices does CropGen provide?",
-                answer:
-                    "CropGen provides 12+ vegetation indices, including: NDVI, EVI, SAVI, MSAVI, NDWI, OSAVI, GNDVI, ARVI, VARI, Chlorophyll Index, DVI, SIPI.",
-            },
-            {
-                question: "Can CropGen detect crop stress, pests, and diseases?",
-                answer:
-                    "Yes. CropGen identifies stress zones early and provides preventive and curative LLM-based advisory for pest, disease, and nutrient management.",
-            },
-            {
-                question: "Does CropGen support fertilizer and irrigation advisory?",
-                answer:
-                    "Yes. CropGen analyzes soil and crop status to recommend NPK requirements, irrigation schedules, and water stress alerts.",
-            },
-        ],
-    },
-    {
-        category: "Sustainability",
-        items: [
-            {
-                question: "How does CropGen support sustainability?",
-                answer:
-                    "CropGen helps reduce fertilizer, pesticide, and water usage while improving yields. It also measures CO₂ emission reduction and water savings, useful for sustainability and carbon credit projects.",
-            },
-        ],
-    },
-    {
-        category: "Agri-Business",
-        items: [
-            {
-                question: "Can FPOs and cooperatives use CropGen?",
-                answer:
-                    "Yes. CropGen provides field-level + aggregated insights so FPOs can manage thousands of acres at once.",
-            },
-            {
-                question: "Can agri-input companies benefit from CropGen?",
-                answer:
-                    "Yes. Input companies use CropGen to give precision advisory, validate product performance, and engage with farmers more effectively.",
-            },
-            {
-                question: "Can exporters and processors use CropGen?",
-                answer:
-                    "Yes. CropGen helps exporters track crop quality, traceability, and yield forecasts across large areas.",
-            },
-        ],
-    },
-    {
-        category: "Additional Services",
-        items: [
-            {
-                question: "Does CropGen provide AI yield prediction?",
-                answer:
-                    "Yes. CropGen predicts yields using AI and satellite data, supporting procurement, insurance, and trade planning.",
-            },
-            {
-                question: "Can CropGen integrate with other platforms?",
-                answer:
-                    "Yes. CropGen supports API integration with agri-business or government platforms (e.g., CROPIC).",
-            },
-            {
-                question: "Does CropGen provide daily advisory to farmers?",
-                answer:
-                    "Yes. CropGen delivers daily LLM-powered advisory for fertilizer, irrigation, and pest/disease management, customized by crop and growth stage.",
-            },
-        ],
-    },
-];
+const PrivacyPolicy = () => {
+  //  Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://cropgenapp.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Privacy Policy",
+        item: "https://cropgenapp.com/privacy-policy",
+      },
+    ],
+  };
 
-function AccordionItem({ question, answer, isOpen, onClick }) {
-    return (
-        <div className="border-b">
-            <button
-                onClick={onClick}
-                className={`w-full flex justify-between items-center py-4 text-left font-bold md:text-[20px] text-[#265A48] transition-colors ${isOpen ? "text-[#2AB673]" : "text-gray-800 hover:text-green-700"
-                    }`}
-            >
-                <div className="flex items-center gap-2">
-                    <img
-                        src={
-                            isOpen
-                                ? "/assets/image/faq/bookopen.png"
-                                : "/assets/image/faq/bookclose.png"
-                        }
-                        alt="book icon"
-                        className="w-5 h-5"
-                    />
-                    {question}
-                </div>
+  return (
+    <>
+      {/* Inject Breadcrumb Schema */}
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      </Head>
 
-                  {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-            </button>
-            {isOpen && (
-                <p className="pl-8 pr-4 pb-4 text-gray-600 text-[16px] font-[400]">
-                    {answer}
-                </p>
-            )}
-        </div>
-    );
-}
+      <section className="min-h-screen text-gray-800 px-6 md:px-20 py-10 relative">
+        <Image
+          src="/assets/image/contact/Privacy-policy.png"
+          alt="Privacy policy"
+          width={400}
+          height={200}
+          className="absolute z-0 opacity-80 top-2 sm:top-1 md:-top-2 w-[300px] sm:w-[400px] left-1/2 -translate-x-1/2"
+        />
+        <h1 className="text-3xl md:text-4xl font-bold text-[#2AB673] text-center mb-6 relative z-10">
+          Privacy Policy
+        </h1>
 
+        <section className="max-w-8xl mx-auto">
+          {/* Introduction */}
+          <h2 className="text-lg font-bold">Introduction</h2>
+          <p className="mt-2 text-sm">
+            <strong>Welcome to CropGen! </strong>
+            CropGen ("we," "our," or "us") respects your privacy and is
+            committed to protecting it through our compliance with this policy.
+            This Privacy Policy describes the types of information we collect
+            from you when you use our CropGen web and mobile applications
+            ("App") and outlines our practices for collecting, using,
+            maintaining, protecting, and disclosing that information globally.
+          </p>
 
-export default function FAQ() {
+          {/* Data Collection & Usage */}
+          <h2 className="text-lg font-bold mt-6">Data Collection & Usage</h2>
+          <p className="mt-2 text-sm">
+            We collect the following types of information:
+          </p>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              <strong>Personal Information:</strong> Name, email address, phone
+              number, billing details, and other contact information.
+            </li>
+            <li className="text-sm">
+              <strong>Location Data:</strong> Geospatial location and
+              farm-specific coordinates.
+            </li>
+            <li className="text-sm">
+              <strong>Device Information:</strong> IP address, device type, OS
+              version, and browser details.
+            </li>
+            <li className="text-sm">
+              <strong>Agricultural Data:</strong> Crop types, farming practices,
+              satellite imagery, and other agronomic insights.
+            </li>
+          </ul>
 
-    const [openIndex, setOpenIndex] = useState(null);
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
-    const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState(null);
+          {/* Subscription & Payment */}
+          <h2 className="text-lg font-bold mt-4 md:mt-6">
+            Subscription & Payment
+          </h2>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              CropGen offers a free trial, then monthly or annual subscription
+              plans, based on acreage and services (monitoring, advisory, yield
+              prediction, sustainability).
+            </li>
+            <li className="text-sm">
+              If you are charged extra, activate by mistake, or cancel within 30
+              days, you get a full refund.
+            </li>
+          </ul>
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
+          {/* Purpose of Data Collection */}
+          <h2 className="text-lg font-bold mt-6">Purpose of Data Collection</h2>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">User registration and authentication.</li>
+            <li className="text-sm">
+              Providing personalized agricultural insights and recommendations.
+            </li>
+            <li className="text-sm">
+              Analytics to enhance global service delivery and app performance.
+            </li>
+            <li className="text-sm">
+              Secure transaction processing and billing management.
+            </li>
+          </ul>
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setStatus(null);
+          {/* How We Use Your Data */}
+          <h2 className="text-lg font-bold mt-6">How We Use Your Data</h2>
+          <p className="mt-2 text-sm">Your data is used to:</p>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              Provide and improve our AI-based crop monitoring services.
+            </li>
+            <li className="text-sm">
+              Customize advisory and insights based on your farm data.
+            </li>
+            <li className="text-sm">
+              Ensure platform security and prevent unauthorized access.
+            </li>
+            <li className="text-sm">
+              Communicate updates, promotions, or technical support.
+            </li>
+          </ul>
 
-        // Split name into firstName + lastName
-        const [firstName, ...rest] = form.name.trim().split(" ");
-        const lastName = rest.length > 0 ? rest.join(" ") : "-"; 
+          {/* Data Security */}
+          <h2 className="text-lg font-bold mt-6">Data Security & Protection</h2>
+          <p className="mt-2 text-sm">
+            We implement advanced encryption, secure cloud storage, and
+            AI-driven threat detection to protect your personal and farm-related
+            data. However, no online transmission is 100% secure, and we
+            encourage users to take necessary precautions.
+          </p>
+          <ul className="list-disc pl-6 mt-2">
+            <li>Advanced encryption standards</li>
+            <li>Secure global cloud storage solutions</li>
+            <li>Continuous monitoring and proactive threat detection</li>
+            <li>
+              Despite stringent security measures, no digital platform can
+              guarantee absolute security
+            </li>
+          </ul>
 
-        try {
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    firstName,
-                    lastName,
-                    email: form.email,
-                    additionalInfo: form.message,
-                    acceptedPrivacyPolicy: true,
-                }),
-        });
+          {/* Sharing & Third-Party Involvement */}
+          <h2 className="text-lg font-bold mt-6">
+            Sharing & Third-Party Involvement
+          </h2>
+          <p className="mt-2 text-sm">
+            <strong>We do not sell your personal data</strong> to third parties.
+            However, we may share data with:
+          </p>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              Government agencies for compliance purposes.
+            </li>
+            <li className="text-sm">
+              Trusted third-party analytics or payment processing partners.
+            </li>
+            <li className="text-sm">
+              Research institutions working on sustainable farming solutions.
+            </li>
+          </ul>
 
-        const data = await res.json();
+          {/* Third-Party SDKs */}
+          <h2 className="text-lg font-bold mt-6">
+            Third-Party SDKs and Integrations Used
+          </h2>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              <strong>Firebase:</strong> Used for analytics, crash reporting,
+              and user engagement.
+            </li>
+            <li className="text-sm">
+              <strong>Google Maps API:</strong> Used for geolocation services.
+            </li>
+          </ul>
+          <p className="mt-2 text-sm">
+            We ensure all third-party services adhere to global data protection
+            standards and handle your information responsibly.
+          </p>
 
-        if (res.ok) {
-            setStatus({ success: true, message: "Message sent successfully!" });
-            setForm({ name: "", email: "", message: "" });
-        } else {
-            setStatus({ success: false, message: data.error || "Something went wrong." });
-        }
-        } catch (err) {
-            setStatus({ success: false, message: "Network error. Please try again." });
-        } finally {
-            setLoading(false);
-        }
-    };
+          {/* Your Rights */}
+          <h2 className="text-lg font-bold mt-6">Your Rights & Control</h2>
+          <ul className="list-disc pl-6 mt-2">
+            <li className="text-sm">
+              <strong>Access & Correction:</strong> You can request access to
+              your data and update inaccuracies within your account settings.
+            </li>
+            <li className="text-sm">
+              <strong>Data Deletion:</strong> You can request to delete your
+              personal information from our system by contacting{" "}
+              <strong className="text-[#2AB673]">support@cropgenapp.com</strong>
+              .
+            </li>
+            <li className="text-sm">
+              <strong>Opt-out:</strong> You can opt out of marketing
+              communications and personalized advertising at any time.
+            </li>
+          </ul>
 
-    useEffect(() => {
-        if (status) {
-        const timer = setTimeout(() => {
-            setStatus(null);
-        }, 3000); 
-        return () => clearTimeout(timer);
-        }
-    }, [status]);
+          {/* Children's Privacy */}
+          <h2 className="text-lg font-bold mt-6">Children’s Privacy</h2>
+          <p className="mt-2 text-sm">
+            CropGen does not target users under the age of 13. We do not
+            knowingly collect data from children under this age.
+          </p>
 
+          {/* Contact Information */}
+          <h2 className="text-lg font-bold mt-6">Contact Information</h2>
+          <p className="mt-2 text-sm">
+            For privacy concerns, queries, or data requests, contact us at:{" "}
+            <strong className="text-[#2AB673]">support@cropgenapp.com</strong>
+          </p>
 
-    return (
-        <div>
-            {/* ===== Hero Section ===== */}
-            <section
-                className="relative bg-cover bg-center min-h-[700px]"
-                style={{ backgroundImage: "url('/assets/image/faq/faq2.png')" }}
-            >
-                <div className="bg-black bg-opacity-10 w-full h-full">
-                    <div className="max-w-7xl mx-auto px-6 py-28 flex flex-col md:flex-row items-center gap-10 text-white">
-                        {/* Left Section */}
-                        <div className="flex-1">
-                            <h1 className="text-5xl font-[700] md:text-[100px] faq-font leading-tight mb-6">
-                                Frequently Ask <br /> Questions
-                            </h1>
-                            <img src="/assets/image/faq/line.png" alt="line" />
-                            <p className="text-lg md:text-[32px] font-[400] md:leading-[1.2] mt-6">
-                                Discover answers to the most common questions <br /> about
-                                CropGen’s crop monitoring and precision <br /> farming tools.
-                            </p>
+          {/* Compliance */}
+          <h2 className="text-lg font-bold mt-6">Compliance</h2>
+          <p className="mt-2 text-sm">
+            Our data handling practices comply with Google Play Developer
+            Policy, GDPR, and other applicable global data protection
+            regulations.
+          </p>
+        </section>
 
-                            {/* Search */}
-                            <div className="flex-1 flex flex-col items-start md:items-end mt-20 md:mt-0">
-                                <div className="flex flex-col justify-end gap-2">
-                                    <h2 className="text-xl md:text-[30px] font-bold faq-font mb-4">
-                                        How Can we Help you?
-                                    </h2>
-                                    <div className="w-full max-w-md flex items-center bg-white rounded-md shadow-lg overflow-hidden">
-                                        <input
-                                            type="text"
-                                            placeholder="Type in your search"
-                                            className="flex-grow px-4 py-3 text-gray-700 outline-none md:w-[600px] w-auto"
-                                        />
-                                        <button className="px-4 py-3 bg-green-500 text-white hover:bg-green-600 ">
-                                            <Search className="w-5 h-5" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <PromoSection />
+      </section>
+    </>
+  );
+};
 
-            {/* ===== FAQ Accordion + Contact Form Section ===== */}
-            <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-12">
-                {/* Left scrollable Q&A */}
-                <div className="md:col-span-2 h-[65vh] overflow-y-auto pr-2 scrollbar-hide">
-                    <div className="space-y-6">
-                        {faqData.map((section, sectionIndex) => (
-                            <div key={sectionIndex} className="mb-8">
-                                {/* Category Heading */}
-                                <h2 className="text-xl md:text-[36px] font-bold text-[#265A48] mb-4">
-                                    {section.category}
-                                </h2>
-
-                                {/* Questions in Category */}
-                                <div className="bg-white rounded-lg divide-y">
-                                    {section.items.map((item, itemIndex) => {
-                                        const index = `${sectionIndex}-${itemIndex}`;
-                                        return (
-                                            <AccordionItem
-                                                key={index}
-                                                question={item.question}
-                                                answer={item.answer}
-                                                isOpen={openIndex === index}
-                                                onClick={() =>
-                                                    setOpenIndex(openIndex === index ? null : index)
-                                                }
-                                            />
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Right sticky form */}
-                <aside className="md:sticky md:top-10 self-start h-fit">
-                    <div className="bg-green-50 p-6 rounded-xl shadow-lg">
-                        <h2 className="text-xl font-bold mb-6 text-gray-800">
-                            Still Have Questions? Contact Us
-                        </h2>
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            <div>
-                                <label className="block text-gray-700 font-medium">Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={form.name}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-gray-700 font-medium">Email Address</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-gray-700 font-medium">Message</label>
-                                <textarea
-                                    rows="4"
-                                    name="message"
-                                    value={form.message}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full border rounded-lg px-4 py-2 mt-1 outline-none resize-none focus:ring-2 focus:ring-green-400"
-                                ></textarea>
-                            </div>
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium"
-                            >
-                                {loading ? "Submitting..." : "Submit"}
-                            </button>
-                        </form>
-
-                        {status && (
-                            <p className={`mt-4 text-sm ${
-                                status.success ? "text-green-600" : "text-red-600"
-                                }`} >
-                                    {status.message}
-                            </p>
-                        )}
-                    </div>
-                </aside>
-            </section>
-
-
-            {/* ===== Promo Section ===== */}
-            <PromoSection />
-
-        </div>
-    );
-}
+export default PrivacyPolicy;
