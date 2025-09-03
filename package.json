@@ -7,7 +7,8 @@
     "build": "next build && next-sitemap",
     "export": "next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",

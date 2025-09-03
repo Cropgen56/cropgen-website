@@ -1,5 +1,5 @@
 "use client";
-import Head from "next/head"; // Import Head
+import Head from "next/head";
 import { PromoSection } from "@/components";
 import Image from "next/image";
 
