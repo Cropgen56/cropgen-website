@@ -64,7 +64,7 @@
 }
 
 .ck-content h2 {
-  font-size: 2rem; 
+  font-size: 2rem;
   font-weight: bold;
   line-height: 1.2;
 }
@@ -76,8 +76,8 @@
 }
 
 .ck-content h4 {
-  font-size: 1.2rem ;
-  font-weight: bold ;
+  font-size: 1.2rem;
+  font-weight: bold;
   line-height: 1.4;
 }
 
@@ -117,13 +117,13 @@
 .ck-content blockquote {
   border-left: 4px solid #ccc !important;
   padding-left: 1rem !important;
-  color: #6b7280 !important; 
+  color: #6b7280 !important;
   font-style: italic !important;
   margin: 1rem 0 !important;
 }
 
 .ck-content code {
-  background-color: #f3f4f6 !important; 
+  background-color: #f3f4f6 !important;
   padding: 2px 4px !important;
   border-radius: 4px !important;
   font-family: monospace !important;
@@ -149,11 +149,11 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-.scrollbar-custom::-webkit-scrollbar{
+.scrollbar-custom::-webkit-scrollbar {
   width: 18px;
   height: 18px;
 }
-.scrollbar-custom::-webkit-scrollbar-thumb{
+.scrollbar-custom::-webkit-scrollbar-thumb {
   background-color: #d3d3d3;
   border: 6px solid transparent;
   border-radius: 20px;
@@ -175,24 +175,23 @@
   width: 256px !important;
 }
 
-
 @font-face {
-  font-family: 'Gadugi';
-  src: url('/fonts/Gadugi.ttf') format('truetype');
+  font-family: "Gadugi";
+  src: url("/fonts/Gadugi.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Gadugi';
-  src: url('/fonts/Gadugi.ttf') format('truetype');
+  font-family: "Gadugi";
+  src: url("/fonts/Gadugi.ttf") format("truetype");
   font-weight: bolder;
   font-style: normal;
 }
 
 /* Custom class for FAQ */
 .faq-font {
-  font-family: 'Gadugi', sans-serif;
+  font-family: "Gadugi", sans-serif;
 }
 /* Hide scrollbar but still allow scrolling */
 .scrollbar-hide::-webkit-scrollbar {
@@ -200,6 +199,6 @@
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
