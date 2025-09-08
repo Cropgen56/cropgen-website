@@ -17,7 +17,7 @@ export default function Footer() {
                   Pune, Maharashtra, 411018, India
                 </p>
                 <p className="text-sm md:text-md text-gray-300">info@cropgenapp.com</p>
-                <p className="text-sm md:text-md text-gray-300">+91 9656959670</p>
+                <p className="text-sm md:text-md text-gray-300">+91 70831 97907</p>
               </ul>
             </div>
 
