@@ -17,8 +17,12 @@ export default function Footer() {
                 <p className="mt-2 text-sm md:text-md text-gray-300">
                   Pune, Maharashtra, 411018, India
                 </p>
-                <p className="text-sm md:text-md text-gray-300">info@cropgenapp.com</p>
-                <p className="text-sm md:text-md text-gray-300">+91 9656959670</p>
+                <p className="text-sm md:text-md text-gray-300">
+                  info@cropgenapp.com
+                </p>
+                <p className="text-sm md:text-md text-gray-300">
+                  +91 9665935570
+                </p>
               </ul>
             </div>
 
@@ -51,7 +55,10 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="/blog" className="text-gray-300 text-sm md:text-md hover:text-white">
+                  <a
+                    href="/blog"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
+                  >
                     Blog
                   </a>
                 </li>
@@ -63,22 +70,36 @@ export default function Footer() {
               <h3 className="text-md md:text-xl font-semibold">Company</h3>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <a href="/about" className="text-gray-300 text-sm md:text-md hover:text-white">
+                  <a
+                    href="/about"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
+                  >
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 text-sm md:text-md hover:text-white">
+                  <a
+                    href="#"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
+                  >
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.cropgenapp.com/sitemap-0.xml" target="_blank" rel="noopener noreferrer" className="text-gray-300 text-sm md:text-md hover:text-white">
+                  <a
+                    href="https://www.cropgenapp.com/sitemap-0.xml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
+                  >
                     Site Map
                   </a>
                 </li>
                 <li>
-                  <a href="/faq" className="text-gray-300 text-sm md:text-md hover:text-white">
+                  <a
+                    href="/faq"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
+                  >
                     FAQ
                   </a>
                 </li>
@@ -144,4 +165,3 @@ export default function Footer() {
     </footer>
   );
 }
-
