@@ -2,20 +2,44 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import FeaturesSectionSkeleton from "../skeleton-loaders/home/FeaturesSectionSkeleton";
 
 const FeaturesSection = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const imagesToLoad = [
+    "/assets/image/home/CropGen’s-Monitoring.png",
+    "/assets/image/home/features.png",
+  ];
+
+  useEffect(() => {
+    let loaded = 0;
+    imagesToLoad.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => {
+        loaded += 1;
+        if (loaded === imagesToLoad.length) {
+          setTimeout(() => setIsLoading(false), 200); // smooth fade
+        }
+      };
+    });
+  }, []);
+
+  if (isLoading) return <FeaturesSectionSkeleton />;
+
   return (
     <section className="py-6 md:py-10">
       <div className="container flex flex-col gap-10 items-center px-6 md:px-8">
         <div className="text-center relative">
-        
           <Image
-              src="/assets/image/home/CropGen’s-Monitoring.png"
-              alt="CropGen’s-Monitoring"
-              width={400}
-              height={200}
-              className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[400px] sm:w-[1000px] start-0 sm:start-4"
-          />      
+            src="/assets/image/home/CropGen’s-Monitoring.png"
+            alt="CropGen’s-Monitoring"
+            width={400}
+            height={200}
+            className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[400px] sm:w-[1000px] start-0 sm:start-4"
+          />
           <h2 className="text-2xl md:text-4xl font-bold text-gray-800 z-10">
             What Makes{" "}
             <span className="text-[#2AB673]">CropGen's Crop Monitoring </span>
@@ -46,7 +70,7 @@ const FeaturesSection = () => {
           </motion.article>
 
           {/* Right Content (Infinite Animation) */}
-          <figure  className="p-2 text-white flex justify-center items-center">
+          <figure className="p-2 text-white flex justify-center items-center">
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{

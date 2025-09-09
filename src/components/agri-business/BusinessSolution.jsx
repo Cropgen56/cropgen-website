@@ -1,8 +1,53 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import BusinessSolutionSkeleton from "../skeleton-loaders/agri-buisness/BusinessSolutionSkeleton"; // import the skeleton
 
 export default function BusinessSolution() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadedCount, setLoadedCount] = useState(0);
+
+  const images = [
+    "/assets/image/agri-business/CropGen’s-Agribusiness-Solutions.png",
+    "/assets/image/agri-business/land-mapping.webp",
+    "/assets/image/agri-business/crop-classification.webp",
+    "/assets/image/crop-monitoring/crop-analytics.webp",
+    "/assets/image/agri-business/forest-area.webp",
+    "/assets/image/agri-business/support.webp",
+    "/assets/image/agri-business/fpo.webp",
+    "/assets/image/agri-business/corporate-solution.webp",
+    "/assets/image/agri-business/white-label.webp",
+    "/assets/image/agri-business/api-integration.webp",
+    "/assets/image/comman/dot.webp",
+  ];
+
+  useEffect(() => {
+    let isMounted = true;
+
+    images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => {
+        if (!isMounted) return;
+        setLoadedCount((prev) => prev + 1);
+      };
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (loadedCount === images.length) {
+      setImagesLoaded(true);
+    }
+  }, [loadedCount]);
+
+  if (!imagesLoaded) {
+    return <BusinessSolutionSkeleton />;
+  }
+
   return (
     <section className="px-6 sm:px-10 mt-8 md:mt-2 relative">
           <Image

@@ -1,8 +1,31 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import HeroSkeleton from "../skeleton-loaders/about/HeroSkeleton"; // adjust the path
 
 export default function HeroSection() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let loadedImages = 0;
+    const imagesToLoad = [
+      "/assets/image/crop-monitoring/hero.webp",
+      "/assets/image/crop-monitoring/dashboard.webp",
+      "/assets/image/comman/right-arrow.webp",
+    ];
+
+    imagesToLoad.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => {
+        loadedImages += 1;
+        if (loadedImages === imagesToLoad.length) setIsLoading(false);
+      };
+    });
+  }, []);
+
+  if (isLoading) return <HeroSkeleton />;
+
   return (
     <section className="relative h-[250px] sm:h-[600px] w-full flex flex-row sm:flex-row items-center justify-between px-4 sm:px-10">
       {/* Background Image */}
@@ -30,8 +53,10 @@ export default function HeroSection() {
             <br className="hidden sm:block" />
             compare multiple data layers without extra tools.
           </p>
-          <button className="bg-[#00AA64] rounded-full px-4 sm:px-6 py-2 mt-4 sm:mt-5 flex items-center justify-center text-sm sm:text-base"
-            aria-label="Start your demo" >
+          <button
+            className="bg-[#00AA64] rounded-full px-4 sm:px-6 py-2 mt-4 sm:mt-5 flex items-center justify-center text-sm sm:text-base"
+            aria-label="Start your demo"
+          >
             Start Your Demo{" "}
             <Image
               src="/assets/image/comman/right-arrow.webp"
@@ -41,7 +66,7 @@ export default function HeroSection() {
               className="ml-2"
             />
           </button>
-        </article>  
+        </article>
       </div>
 
       {/* Dashboard Image */}

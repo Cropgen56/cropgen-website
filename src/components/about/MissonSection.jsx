@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import MissionSkeleton from "../skeleton-loaders/about/MissionSkeleton";
 
 const stats = [
   {
@@ -26,6 +27,7 @@ const stats = [
 
 const MissionSection = () => {
   const [counts, setCounts] = useState(stats.map(() => 0));
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,10 +42,18 @@ const MissionSection = () => {
 
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <section className="px-4 md:px-8 lg:px-12 py-4 md:py-8 bg-white">
+    <section className="px-4 md:px-8 lg:px-12 py-4 md:py-8 bg-white relative">
+      {/* Skeleton overlay (shows until imageLoaded = true) */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 z-20 bg-white">
+          <MissionSkeleton />
+        </div>
+      )}
+
       {/* Stats Section */}
-      <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-6 text-center border-b-4 border-gray-200 pb-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-6 text-center border-b-4 border-gray-200 pb-8 max-w-4xl mx-auto relative z-10">
         {stats.map((stat, index) => (
           <div key={stat.id} className="flex flex-col items-center">
             <div className="flex items-center justify-between">
@@ -53,7 +63,7 @@ const MissionSection = () => {
                 height={60}
                 alt="icon"
                 className="w-[40px] h-[40px] md:w-[60px] md:h-[60px]"
-              />{" "}
+              />
               <p className="text-md md:text-xl font-bold ">{counts[index]}+</p>
             </div>
             <p className="text-black text-sm sm:font-semibold pt-1">
@@ -64,14 +74,15 @@ const MissionSection = () => {
       </div>
 
       {/* Mission Section */}
-      <div className="flex flex-col md:flex-row items-center gap-2 md:px-4 md:py-12 max-w-7xl mx-auto ">
+      <div className="flex flex-col md:flex-row items-center gap-2 md:px-4 md:py-12 max-w-7xl mx-auto relative z-10">
         {/* Image Section */}
-        <div className="relative w-full md:w-1/2 h-[400px] ">
+        <div className="relative w-full md:w-1/2 h-[400px]">
           <Image
             src="/assets/image/about/mission-image.webp"
             alt="Farmers in Field"
             layout="fill"
             objectFit="contain"
+            onLoadingComplete={() => setImageLoaded(true)}
           />
         </div>
 

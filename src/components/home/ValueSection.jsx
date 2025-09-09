@@ -2,8 +2,37 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import ValuesSectionSkeleton from "../skeleton-loaders/home/ValuesSectionSkeleton";
 
 const ValuesSection = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // List of all images to preload
+  const imagesToLoad = [
+    "/assets/image/home/our-Values.png",
+    "/assets/image/home/weather-card.png",
+    "/assets/image/home/insights.png",
+    "/assets/image/home/report-cards.png",
+    "/assets/image/blog/background.webp",
+  ];
+
+  useEffect(() => {
+    let loaded = 0;
+    imagesToLoad.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => {
+        loaded += 1;
+        if (loaded === imagesToLoad.length) {
+          setTimeout(() => setIsLoading(false), 200); // smooth fade
+        }
+      };
+    });
+  }, []);
+
+  if (isLoading) return <ValuesSectionSkeleton />;
+
   return (
     <section className="relative flex flex-col gap-12 bg-white py-5 px-4 sm:px-6 md:px-12 lg:px-20">
       {/* Values Heading */}
@@ -22,62 +51,31 @@ const ValuesSection = () => {
             height={200}
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
           />
-
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 z-10">
             Our <span className="text-green-600">Values</span>
           </h2>
           <ul className=" text-gray-600 text-sm ml-2 md:ml-4 md:text-lg flex flex-col gap-2">
-            <motion.li
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <strong className="text-gray-900">Innovation:</strong> Committed
-              to continuous innovation and striving to pioneer new solutions
-              that drive efficiency and sustainability in agriculture.
+            <motion.li whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+              <strong className="text-gray-900">Innovation:</strong> Committed to continuous innovation and pioneering solutions...
             </motion.li>
-            <motion.li
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <strong className="text-gray-900">Empowerment:</strong> Providing
-              farmers with the tools and knowledge they need to succeed in an
-              ever-changing agricultural landscape.
+            <motion.li whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+              <strong className="text-gray-900">Empowerment:</strong> Providing farmers with the tools and knowledge they need...
             </motion.li>
-            <motion.li
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <strong className="text-gray-900">Collaboration:</strong> Foster
-              collaboration and partnerships with stakeholders across the
-              agricultural value chain to create shared value and drive
-              collective impact.
+            <motion.li whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+              <strong className="text-gray-900">Collaboration:</strong> Foster collaboration and partnerships across the agricultural value chain...
             </motion.li>
-            <motion.li
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <strong className="text-gray-900">Integrity:</strong> Upholding
-              the highest standards of integrity, transparency, and ethical
-              conduct in all interactions and operations.
+            <motion.li whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+              <strong className="text-gray-900">Integrity:</strong> Upholding the highest standards of integrity and transparency...
             </motion.li>
-            <motion.li
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <strong className="text-gray-900">Sustainability:</strong>{" "}
-              Dedicated to promoting sustainable farming practices that preserve
-              natural resources and promote environmental stewardship.
+            <motion.li whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+              <strong className="text-gray-900">Sustainability:</strong> Dedicated to promoting sustainable farming practices...
             </motion.li>
           </ul>
         </div>
 
         {/* Right Content - Graphics */}
         <figure className="relative flex flex-row items-center justify-around">
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 3 }}
-            className="h-full"
-          >
+          <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 3 }} className="h-full">
             <div className="float-end">
               <Image
                 src="/assets/image/home/weather-card.png"
@@ -94,10 +92,7 @@ const ValuesSection = () => {
               height={400}
             />
           </motion.div>
-          <motion.div
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ repeat: Infinity, duration: 3 }}
-          >
+          <motion.div animate={{ scale: [1, 1.05, 1] }} transition={{ repeat: Infinity, duration: 3 }}>
             <Image
               src="/assets/image/home/report-cards.png"
               alt="Report"

@@ -1,12 +1,40 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import SustainabilityFeaturesSkeleton from "../skeleton-loaders/sustainability/SustainabilityFeaturesSkeleton";
 
-export default function Su() {
+export default function SustainabilityFeatures() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const images = [
+    "/assets/image/sustainability/Sustainability-text.webp",
+    "/assets/image/sustainability/sustainability-image.webp",
+    "/assets/image/comman/dot.webp",
+  ];
+
+  useEffect(() => {
+    let isMounted = true;
+    let loadedCount = 0;
+
+    images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => {
+        if (!isMounted) return;
+        loadedCount++;
+        if (loadedCount === images.length) setImagesLoaded(true);
+      };
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  if (!imagesLoaded) return <SustainabilityFeaturesSkeleton />;
+
   return (
     <section className="px-6 sm:px-10 mt-8 md:mt-2">
       <figure className="relative w-full md:w-1/2">
-        {" "}
         <Image
           src="/assets/image/sustainability/Sustainability-text.webp"
           alt="Crop Health Analytics"
@@ -45,30 +73,12 @@ export default function Su() {
             future.
           </p>
           {[
-            {
-              title: "Reducing water wastage with smart irrigation",
-              description: "",
-            },
-            {
-              title:
-                "Cutting excessive fertilizer use with precision NPK monitoring",
-              description: "",
-            },
-            {
-              title:
-                "Tracking carbon sequestration for monetization through carbon credits",
-              description: "",
-            },
-            {
-              title:
-                "AI-powered pest and disease detection to minimize chemical usage",
-              description: "",
-            },
-            {
-              title: "Sustainable Agriculture Practices",
-              description: "",
-            },
-          ].map((item, index) => (
+            "Reducing water wastage with smart irrigation",
+            "Cutting excessive fertilizer use with precision NPK monitoring",
+            "Tracking carbon sequestration for monetization through carbon credits",
+            "AI-powered pest and disease detection to minimize chemical usage",
+            "Sustainable Agriculture Practices",
+          ].map((title, index) => (
             <div
               key={index}
               className="flex items-start gap-2 text-sm text-gray-600 mt-2"
@@ -79,9 +89,8 @@ export default function Su() {
                 height={24}
                 alt="dot"
               />
-              <p >
-                <span className="text-black font-medium">{item.title}</span>
-                {item.description}
+              <p>
+                <span className="text-black font-medium">{title}</span>
               </p>
             </div>
           ))}

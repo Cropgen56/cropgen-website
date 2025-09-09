@@ -1,9 +1,63 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Subscrib from "../common/Subscrib";
+import CropMonitoringFeaturesSkeleton from "../skeleton-loaders/crop-monitoring/CropMonitoringFeaturesSkeleton";
 
 export default function CropMonitoringFeatures() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadedCount, setLoadedCount] = useState(0);
+
+  // List of all image URLs in this component
+  const images = [
+    "/assets/image/crop-monitoring/Crop-Monitoring-Features.png",
+    "/assets/image/crop-monitoring/crop-analytics.webp",
+    "/assets/image/crop-monitoring/npk-analytcis.webp",
+    "/assets/image/crop-monitoring/automatic-agronomy.webp",
+    "/assets/image/crop-monitoring/bbch.webp",
+    "/assets/image/crop-monitoring/real-time-soil-moisture.webp",
+    "/assets/image/crop-monitoring/weather.webp",
+    "/assets/image/crop-monitoring/crop-information.webp",
+    "/assets/image/crop-monitoring/soil-report.webp",
+    "/assets/image/crop-monitoring/soil-analytics.webp",
+    "/assets/image/crop-monitoring/disease-alert.webp",
+    "/assets/image/crop-monitoring/scouting.webp",
+    "/assets/image/crop-monitoring/Scouting.png",
+    "/assets/image/crop-monitoring/How-the-Cropgen.png",
+    "/assets/image/crop-monitoring/satellite-imagery.webp",
+    "/assets/image/crop-monitoring/satellite-imagery2.webp",
+    "/assets/image/crop-monitoring/crop-protection.webp",
+    "/assets/image/crop-monitoring/detailed-report.webp",
+    "/assets/image/crop-monitoring/customaizable-report.webp",
+  ];
+
+useEffect(() => {
+  let isMounted = true;
+
+  images.forEach((src) => {
+    const img = new window.Image(); // <-- use window.Image instead of Image
+    img.src = src;
+    img.onload = () => {
+      if (!isMounted) return;
+      setLoadedCount((prev) => prev + 1);
+    };
+  });
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
+
+
+  useEffect(() => {
+    if (loadedCount === images.length) {
+      setImagesLoaded(true);
+    }
+  }, [loadedCount]);
+
+  if (!imagesLoaded) {
+    return <CropMonitoringFeaturesSkeleton />;
+  }
   return (
     <section
       aria-label="Crop Monitoring Hero Section"

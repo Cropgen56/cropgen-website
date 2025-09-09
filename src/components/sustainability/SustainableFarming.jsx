@@ -1,7 +1,11 @@
 "use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import SustainableFarmingSkeleton from "../skeleton-loaders/sustainability/SustainableFarmingSkeleton";
 
 const SustainableFarming = () => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
   const features = [
     {
       icon: "/assets/image/sustainability/emporing.webp",
@@ -23,35 +27,52 @@ const SustainableFarming = () => {
     },
   ];
 
+  useEffect(() => {
+    let loadedCount = 0;
+    const isMounted = { value: true };
+
+    features.forEach((feature) => {
+      const img = new window.Image();
+      img.src = feature.icon;
+      img.onload = () => {
+        if (!isMounted.value) return;
+        loadedCount++;
+        if (loadedCount === features.length) setImagesLoaded(true);
+      };
+    });
+
+    return () => {
+      isMounted.value = false;
+    };
+  }, []);
+
+  if (!imagesLoaded) return <SustainableFarmingSkeleton />;
+
   return (
     <section className="px-6 sm:px-12 lg:px-24 py-12">
-      {/* Heading */}
       <h2 className="text-2xl sm:text-4xl font-bold text-start leading-tight">
         <span className="text-[#2AB673]">The Future of Sustainable</span>
         <br />
         Farming with CropGen
       </h2>
 
-      {/* Cards Section */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         {features.map((feature, index) => (
           <div
             key={index}
             className="bg-white shadow-lg rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300"
           >
-            {/* Image */}
             <div className="flex justify-center">
               <Image
                 src={feature.icon}
                 alt={feature.title}
                 width={120}
                 height={120}
-                priority={index === 0} // Optimize the first image load
+                priority={index === 0}
                 className="object-contain"
               />
             </div>
 
-            {/* Title & Description */}
             <h3 className="text-lg font-semibold text-[#2AB673] mt-4">
               {feature.title}
             </h3>
