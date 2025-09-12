@@ -69,7 +69,6 @@ export default function ChatWindow({ onClose, onBack }) {
     }
   };
 
-  // Initialize socket http://localhost:3002  https://server.cropgenapp.com
   useEffect(() => {
     socketRef.current = io(process.env.NEXT_PUBLIC_AGENT, {
       path: "/v3/socket.io",
