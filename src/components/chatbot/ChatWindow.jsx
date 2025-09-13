@@ -15,6 +15,10 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { io } from "socket.io-client";
 import { Trash2 } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
 export default function ChatWindow({ onClose, onBack }) {
@@ -23,6 +27,8 @@ export default function ChatWindow({ onClose, onBack }) {
     const [input, setInput] = useState("");
     const [roleSelected, setRoleSelected] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [viewingHistory, setViewingHistory] = useState(false);
+
 
     const [dynamicInput, setDynamicInput] = useState(null); // Inline AI-triggered input
     const [dynamicValue, setDynamicValue] = useState("");
@@ -266,9 +272,12 @@ export default function ChatWindow({ onClose, onBack }) {
                                             className="p-2 mb-2 border rounded cursor-pointer hover:bg-gray-50 bg-white/70"
                                             onClick={() => {
                                                 setMessages(chat.messages); // restore messages
-                                                setRoleSelected(true);      // skip role selection
+                                                setViewingHistory(true);    // enter view-only mode
                                                 setHistoryOpen(false);
+                                                setDynamicInput(null);
+                                                setRoleSelected(true)
                                             }}
+
                                         >
                                             <p className="font-medium text-black">
                                                 {new Date(chat.createdAt).toLocaleString()}
@@ -293,20 +302,6 @@ export default function ChatWindow({ onClose, onBack }) {
                 )}
 
 
-
-
-
-                {/* Dropdown */}
-                {/* {menuOpen && (
-                    <div className="absolute top-12 right-4 bg-white shadow-lg rounded-lg p-2 w-28 z-30">
-                        <button className="flex items-center gap-2 w-full text-xs font-medium p-1 hover:bg-gray-100 rounded">
-                            <HistoryIcon className="text-black" size={16} /> clear chat
-                        </button>
-                        <button className="flex items-center gap-2 w-full text-xs font-medium p-1 hover:bg-gray-100 rounded">
-                            <ArrowDownToLine size={16} /> clear chat
-                        </button>
-                    </div>
-                )} */}
 
                 {/* Chat Body */}
                 <div className="flex-1 px-4 py-3 overflow-y-auto flex flex-col gap-1 scrollbar-hide">
@@ -334,18 +329,62 @@ export default function ChatWindow({ onClose, onBack }) {
                                     {msg.file.name}
                                 </a>
                             )}
-                            {msg.text &&
-                                msg.text.split("\n").map((line, i) => {
-                                    const isError = line.toLowerCase().includes("valid") || line.toLowerCase().includes("invalid");
-                                    return (
-                                        <p
-                                            key={i}
-                                            className={`m-0 ${isError ? "font-bold " : ""}`}
-                                        >
-                                            {line}
-                                        </p>
-                                    );
-                                })}
+                            {msg.text && (
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    components={{
+                                        code({ node, inline, className, children, ...props }) {
+                                            const match = /language-(\w+)/.exec(className || "");
+                                            return !inline && match ? (
+                                                <SyntaxHighlighter
+                                                    style={oneDark}
+                                                    language={match[1]}
+                                                    PreTag="div"
+                                                    className="rounded-lg text-xs"
+                                                    {...props}
+                                                >
+                                                    {String(children).replace(/\n$/, "")}
+                                                </SyntaxHighlighter>
+                                            ) : (
+                                                <code className="bg-gray-200 px-1 py-0.5 rounded text-[10px]" {...props}>
+                                                    {children}
+                                                </code>
+                                            );
+                                        },
+                                        p({ children }) {
+                                            return <p className="text-gray-800 text-xs leading-relaxed mb-1">{children}</p>;
+                                        },
+                                        li({ children }) {
+                                            return <li className="list-disc ml-4 text-xs text-gray-800">{children}</li>;
+                                        },
+                                        h1({ children }) {
+                                            return (
+                                                <h1 className="text-sm font-bold text-green-900 mb-1">
+                                                    {children}
+                                                </h1>
+                                            );
+                                        },
+                                        h2({ children }) {
+                                            return (
+                                                <h2 className="text-xs font-semibold text-green-800 mb-1">
+                                                    {children}
+                                                </h2>
+                                            );
+                                        },
+                                        h3({ children }) {
+                                            return (
+                                                <h3 className="text-xs font-medium text-green-700 mb-1">
+                                                    {children}
+                                                </h3>
+                                            );
+                                        }
+                                    }}
+
+                                >
+                                    {msg.text}
+                                </ReactMarkdown>
+                            )}
+
                         </div>
                     ))}
 
@@ -355,6 +394,7 @@ export default function ChatWindow({ onClose, onBack }) {
                             <TypingLoader />
                         </div>
                     )}
+
                     {/* Dynamic AI Input */}
                     {dynamicInput && (
                         <div className="flex items-center gap-2 mt-2">
@@ -463,53 +503,57 @@ export default function ChatWindow({ onClose, onBack }) {
                 </div>
 
                 {/* Input Bar */}
-                <div className="p-3">
-                    <div
-                        className={`flex flex-col items-center gap-2 bg-white rounded-xl px-3 py-1.5 h-[80px] border border-gray-300 shadow-sm ${!roleSelected || dynamicInput ? "opacity-80 cursor-not-allowed" : ""
-                            }`}
-                    >
-                        <input
-                            type="text"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            onKeyDown={handleKeyDown}
-                            placeholder="Monitor crops, get accurate farm insights, and boost yields."
-                            className="flex-1 w-full outline-none text-xs bg-transparent text-gray-700"
-                            disabled={!roleSelected || dynamicInput}
-                        />
-                        <div className="flex flex-row justify-between items-center w-full">
-                            <div className="flex items-center gap-1.5">
-                                <Paperclip
-                                    color="#9A9898"
-                                    size={16}
-                                    className="cursor-pointer"
-                                    onClick={handleFileClick}
-                                />
-                                <input
-                                    type="file"
-                                    ref={fileInputRef}
-                                    onChange={handleFileChange}
-                                    className="hidden"
-                                    multiple
-                                    accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                {/* Input Bar */}
+                {!viewingHistory && (
+                    <div className="p-3">
+                        <div
+                            className={`flex flex-col items-center gap-2 bg-white rounded-xl px-3 py-1.5 h-[80px] border border-gray-300 shadow-sm ${!roleSelected || dynamicInput ? "opacity-80 cursor-not-allowed" : ""
+                                }`}
+                        >
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                onKeyDown={handleKeyDown}
+                                placeholder="Monitor crops, get accurate farm insights, and boost yields."
+                                className="flex-1 w-full outline-none text-xs bg-transparent text-gray-700"
+                                disabled={!roleSelected || dynamicInput}
+                            />
+                            <div className="flex flex-row justify-between items-center w-full">
+                                <div className="flex items-center gap-1.5">
+                                    <Paperclip
+                                        color="#9A9898"
+                                        size={16}
+                                        className="cursor-pointer"
+                                        onClick={handleFileClick}
+                                    />
+                                    <input
+                                        type="file"
+                                        ref={fileInputRef}
+                                        onChange={handleFileChange}
+                                        className="hidden"
+                                        multiple
+                                        accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                    />
+                                </div>
+
+                                <IoSend
+                                    className="text-[#28C878] cursor-pointer"
+                                    size={20}
+                                    onClick={() => roleSelected && !dynamicInput && sendMessage(input, "user")}
                                 />
                             </div>
-
-                            <IoSend
-                                className="text-[#28C878] cursor-pointer"
-                                size={20}
-                                onClick={() => roleSelected && !dynamicInput && sendMessage(input, "user")}
-                            />
                         </div>
+                        <p className="text-[10px] text-gray-400 mt-1 text-center">
+                            By using CropGen, you agree to our{" "}
+                            <Link href="/terms-conditions" className="text-green-500 cursor-pointer">
+                                Terms & Conditions
+                            </Link>
+                            .
+                        </p>
                     </div>
-                    <p className="text-[10px] text-gray-400 mt-1 text-center">
-                        By using CropGen, you agree to our{" "}
-                        <Link href="/terms-conditions" className="text-green-500 cursor-pointer">
-                            Terms & Conditions
-                        </Link>
-                        .
-                    </p>
-                </div>
+                )}
+
             </div>
         </div>
     );
