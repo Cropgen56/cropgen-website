@@ -62,6 +62,14 @@ export default function Footer() {
                     Blog
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/pricing"
+                    className="text-gray-300 text-sm md:text-md hover:text-white"
+                  >
+                    Pricing
+                  </a>
+                </li>
               </ul>
             </div>
 
