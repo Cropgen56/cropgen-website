@@ -1,18 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FeaturesSectionSkeleton from "../skeleton-loaders/home/FeaturesSectionSkeleton";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FeaturesSection = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
 
   const imagesToLoad = [
     "/assets/image/home/CropGen’s-Monitoring.png",
     "/assets/image/home/features.png",
   ];
 
+  // Preload images
   useEffect(() => {
     let loaded = 0;
     imagesToLoad.forEach((src) => {
@@ -21,18 +29,81 @@ const FeaturesSection = () => {
       img.onload = () => {
         loaded += 1;
         if (loaded === imagesToLoad.length) {
-          setTimeout(() => setIsLoading(false), 200); // smooth fade
+          setTimeout(() => setIsLoading(false), 200);
         }
       };
     });
   }, []);
 
+  // GSAP Scroll Animations
+  useEffect(() => {
+    if (isLoading) return;
+
+    const ctx = gsap.context(() => {
+      // Heading from left
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, x: -100 },
+        {
+          opacity: 1,
+          x: 0,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            end: "top 50%",
+            scrub: 1.2, // smooth animation
+            toggleActions: "play reverse play reverse", // in/out animations
+          },
+        }
+      );
+
+      // Left text from left and grow
+      gsap.fromTo(
+        leftRef.current,
+        { opacity: 0, x: -120, scale: 0.7 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            end: "top 50%",
+            scrub: 1.2,
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // Right image from bottom and grow
+      gsap.fromTo(
+        rightRef.current,
+        { opacity: 0, y: 60, scale: 0.5 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            end: "top 50%",
+            scrub: 1.2,
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [isLoading]);
+
   if (isLoading) return <FeaturesSectionSkeleton />;
 
   return (
-    <section className="py-6 md:py-10">
+    <section ref={sectionRef} className="py-6 md:py-10">
       <div className="container flex flex-col gap-10 items-center px-6 md:px-8">
-        <div className="text-center relative">
+        {/* Heading */}
+        <div ref={headingRef} className="text-center relative">
           <Image
             src="/assets/image/home/CropGen’s-Monitoring.png"
             alt="CropGen’s-Monitoring"
@@ -49,11 +120,8 @@ const FeaturesSection = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Left Content */}
-          <motion.article
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+          <article
+            ref={leftRef}
             className="p-4 md:p-8 rounded-2xl shadow-green-custom bg-white h-fit w-fit my-auto"
           >
             <h3 className="font-bold p-3 md:py-5">
@@ -67,26 +135,20 @@ const FeaturesSection = () => {
               control security, and data-driven analysis while minimizing errors
               on MDs.
             </p>
-          </motion.article>
+          </article>
 
-          {/* Right Content (Infinite Animation) */}
-          <figure className="p-2 text-white flex justify-center items-center">
-            <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <Image
-                src="/assets/image/home/features.png"
-                height={500}
-                width={500}
-                alt="CropGen feature image"
-                className="rounded-xl"
-              />
-            </motion.div>
+          {/* Right Content (Feature Image) */}
+          <figure
+            ref={rightRef}
+            className="p-2 text-white flex justify-center items-center"
+          >
+            <Image
+              src="/assets/image/home/features.png"
+              height={500}
+              width={500}
+              alt="CropGen feature image"
+              className="rounded-xl"
+            />
           </figure>
         </div>
       </div>

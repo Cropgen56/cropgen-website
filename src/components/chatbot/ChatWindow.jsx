@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import { IoSend } from "react-icons/io5";
+import 'remixicon/fonts/remixicon.css';
+
+import { motion, AnimatePresence } from "framer-motion";
+
 import {
   EllipsisVertical,
   ChevronLeft,
@@ -36,6 +40,15 @@ export default function ChatWindow({ onClose, onBack }) {
   const messagesEndRef = useRef(null);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [chatHistory, setChatHistory] = useState([]); // store all past chats
+  const messageVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
+  };
+
+  const roleButtonVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
 
   const TypingLoader = () => (
     <div className="flex gap-1 items-end h-6">
@@ -215,7 +228,7 @@ export default function ChatWindow({ onClose, onBack }) {
               width={24}
               height={24}
             />
-            <span className="text-black text-xs font-semibold">CropGen</span>
+            <span className="text-[#265A48] text-md font-bold">CropGen</span>
           </div>
           <div className="flex items-center gap-3 ">
             <div className="flex items-center gap-3">
@@ -306,98 +319,97 @@ export default function ChatWindow({ onClose, onBack }) {
 
         {/* Chat Body */}
         <div className="flex-1 px-4 py-3 overflow-y-auto flex flex-col gap-1 scrollbar-hide">
-          {messages.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`px-3 py-2 rounded-xl text-xs max-w-[75%] ${
-                msg.sender === "user"
-                  ? "bg-white border border-gray-200 self-end rounded-br-none"
-                  : "bg-green-200 self-start rounded-bl-none"
-              }`}
-            >
-              {msg.type === "image" && (
-                <img
-                  src={URL.createObjectURL(msg.file)}
-                  alt={msg.file.name}
-                  className="max-w-full h-auto rounded"
-                />
-              )}
-              {msg.type === "file" && (
-                <a
-                  href={URL.createObjectURL(msg.file)}
-                  target="_blank"
-                  className="text-blue-500 underline text-xs"
+          <AnimatePresence>
+            {messages.map((msg, idx) => (
+              <motion.div
+                key={idx}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={messageVariants}
+                className={`flex gap-2 items-start max-w-[75%] ${msg.sender === "user" ? "self-end flex-row-reverse" : "self-start"
+                  }`}
+              >
+                {/* Icon */}
+                <i
+                  className={`text-xl ${msg.sender === "user"
+                      ? "ri-user-3-fill text-green-500"
+                      : "ri-robot-2-fill text-green-700"
+                    }`}
+                ></i>
+
+                {/* Bubble */}
+                <div
+                  className={`px-3 py-2 rounded-xl text-xs ${msg.sender === "user"
+                      ? "bg-white border border-gray-200 rounded-br-none"
+                      : "bg-green-200 rounded-bl-none"
+                    }`}
                 >
-                  {msg.file.name}
-                </a>
-              )}
-              {msg.text && (
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  components={{
-                    code({ node, inline, className, children, ...props }) {
-                      const match = /language-(\w+)/.exec(className || "");
-                      return !inline && match ? (
-                        <SyntaxHighlighter
-                          style={oneDark}
-                          language={match[1]}
-                          PreTag="div"
-                          className="rounded-lg text-xs"
-                          {...props}
-                        >
-                          {String(children).replace(/\n$/, "")}
-                        </SyntaxHighlighter>
-                      ) : (
-                        <code
-                          className="bg-gray-200 px-1 py-0.5 rounded text-[10px]"
-                          {...props}
-                        >
-                          {children}
-                        </code>
-                      );
-                    },
-                    p({ children }) {
-                      return (
-                        <p className="text-gray-800 text-xs leading-relaxed mb-1">
-                          {children}
-                        </p>
-                      );
-                    },
-                    li({ children }) {
-                      return (
-                        <li className="list-disc ml-4 text-xs text-gray-800">
-                          {children}
-                        </li>
-                      );
-                    },
-                    h1({ children }) {
-                      return (
-                        <h1 className="text-sm font-bold text-green-900 mb-1">
-                          {children}
-                        </h1>
-                      );
-                    },
-                    h2({ children }) {
-                      return (
-                        <h2 className="text-xs font-semibold text-green-800 mb-1">
-                          {children}
-                        </h2>
-                      );
-                    },
-                    h3({ children }) {
-                      return (
-                        <h3 className="text-xs font-medium text-green-700 mb-1">
-                          {children}
-                        </h3>
-                      );
-                    },
-                  }}
-                >
-                  {msg.text}
-                </ReactMarkdown>
-              )}
-            </div>
-          ))}
+                  {msg.type === "image" && (
+                    <img
+                      src={URL.createObjectURL(msg.file)}
+                      alt={msg.file.name}
+                      className="max-w-full h-auto rounded"
+                    />
+                  )}
+                  {msg.type === "file" && (
+                    <a
+                      href={URL.createObjectURL(msg.file)}
+                      target="_blank"
+                      className="text-blue-500 underline text-xs"
+                    >
+                      {msg.file.name}
+                    </a>
+                  )}
+                  {msg.text && (
+                    <ReactMarkdown
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        code({ node, inline, className, children, ...props }) {
+                          const match = /language-(\w+)/.exec(className || "");
+                          return !inline && match ? (
+                            <SyntaxHighlighter
+                              style={oneDark}
+                              language={match[1]}
+                              PreTag="div"
+                              className="rounded-lg text-xs"
+                              {...props}
+                            >
+                              {String(children).replace(/\n$/, "")}
+                            </SyntaxHighlighter>
+                          ) : (
+                            <code
+                              className="bg-gray-200 px-1 py-0.5 rounded text-[10px]"
+                              {...props}
+                            >
+                              {children}
+                            </code>
+                          );
+                        },
+                        p({ children }) {
+                          return (
+                            <p className="text-gray-800 text-xs leading-relaxed mb-1">
+                              {children}
+                            </p>
+                          );
+                        },
+                        li({ children }) {
+                          return (
+                            <li className="list-disc ml-4 text-xs text-gray-800">
+                              {children}
+                            </li>
+                          );
+                        },
+                      }}
+                    >
+                      {msg.text}
+                    </ReactMarkdown>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+
 
           {/* Typing Loader */}
           {loading && (
@@ -468,45 +480,35 @@ export default function ChatWindow({ onClose, onBack }) {
           )}
           {/* Role buttons */}
           {!roleSelected && (
-            <div className="flex flex-col gap-2">
-              <button
-                className="flex items-center gap-2 px-4 py-2 text-xs bg-white rounded-xl w-fit border border-gray-200 shadow-sm hover:shadow-md transition rounded-bl-none"
-                onClick={() => handleRoleClick("Farmer")}
-              >
-                <Image
-                  src="/assets/image/comman/farmer.svg"
-                  alt="Farmer"
-                  width={18}
-                  height={18}
-                />{" "}
-                Farmer
-              </button>
-              <button
-                className="flex items-center gap-2 px-4 py-2 text-xs bg-white rounded-xl w-fit border border-gray-200 shadow-sm hover:shadow-md transition rounded-bl-none whitespace-nowrap"
-                onClick={() =>
-                  handleRoleClick("Agribusiness / AgTech Professional")
-                }
-              >
-                <Image
-                  src="/assets/image/comman/organization.svg"
-                  alt="organization"
-                  width={18}
-                  height={18}
-                />{" "}
-                Agribusiness / AgTech Professional
-              </button>
-              <button
-                className="flex items-center gap-2 px-4 py-2 text-xs bg-white rounded-xl w-fit border border-gray-200 shadow-sm hover:shadow-md transition rounded-bl-none"
-                onClick={() => handleRoleClick("Just Exploring")}
-              >
-                <Image
-                  src="/assets/image/comman/earth-leaf.svg"
-                  alt="exploring"
-                  width={18}
-                  height={18}
-                />{" "}
-                Just Exploring
-              </button>
+            <div className="flex flex-col gap-2 mt-2">
+              <AnimatePresence>
+                {["Farmer", "Agribusiness / AgTech Professional", "Just Exploring"].map((role, idx) => (
+                  <motion.button
+                    key={role}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={roleButtonVariants}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex items-center gap-2 px-4 py-2 text-xs bg-white rounded-xl w-fit border border-gray-200 shadow-sm hover:shadow-md transition rounded-bl-none"
+                    onClick={() => handleRoleClick(role)}
+                  >
+                    <Image
+                      src={
+                        role === "Farmer"
+                          ? "/assets/image/comman/farmer.svg"
+                          : role === "Agribusiness / AgTech Professional"
+                            ? "/assets/image/comman/organization.svg"
+                            : "/assets/image/comman/earth-leaf.svg"
+                      }
+                      alt={role}
+                      width={18}
+                      height={18}
+                    />
+                    {role}
+                  </motion.button>
+                ))}
+              </AnimatePresence>
             </div>
           )}
           <div ref={messagesEndRef} />
@@ -517,11 +519,10 @@ export default function ChatWindow({ onClose, onBack }) {
         {!viewingHistory && (
           <div className="p-3">
             <div
-              className={`flex flex-col items-center gap-2 bg-white rounded-xl px-3 py-1.5 h-[80px] border border-gray-300 shadow-sm ${
-                !roleSelected || dynamicInput
+              className={`flex flex-col items-center gap-2 bg-white rounded-xl px-3 py-1.5 h-[80px] border border-gray-300 shadow-sm ${!roleSelected || dynamicInput
                   ? "opacity-80 cursor-not-allowed"
                   : ""
-              }`}
+                }`}
             >
               <input
                 type="text"

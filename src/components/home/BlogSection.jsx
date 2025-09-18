@@ -23,30 +23,36 @@ export default function BlogCarousel() {
   const [direction, setDirection] = useState(0);
 
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/blog`,
-          {
-            headers: { "x-api-key": "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" },
-          }
-        );
 
-        const normalized = (response.data?.data || []).map((blog) => ({
-          ...blog,
-          image: extractImageUrl(blog.content) || blog.image,
-        }));
 
-        setBlogs(normalized);
-      } catch (err) {
-        console.error("Failed to fetch blogs:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchBlogs = async() => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/blog`,
+        {
+          headers: { "x-api-key": "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" },
+        }
+      );
 
-    fetchBlogs();
-  }, []);
+
+
+      const normalized = (response.data?.data || []).map((blog) => ({
+        ...blog,
+        image: extractImageUrl(blog.content) || blog.image,
+      }));
+
+
+      setBlogs(normalized);
+    } catch (err) {
+      console.error("Failed to fetch blogs:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchBlogs();
+}, []);
+
 
   const router = useRouter();
 

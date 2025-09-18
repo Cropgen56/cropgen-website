@@ -202,3 +202,33 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+@keyframes chatSlideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes chatSlideDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+.animate-chatSlideUp {
+  animation: chatSlideUp 0.5s ease-out forwards;
+}
+
+.animate-chatSlideDown {
+  animation: chatSlideDown 0.3s ease-in forwards;
+}
