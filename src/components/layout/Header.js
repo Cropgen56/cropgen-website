@@ -60,7 +60,7 @@ export default function Navbar() {
             <button
               className={`px-3 lg:px-4 py-2 font-semibold rounded-full transition-all duration-300 ${
                 pathname === "/"
-                  ? "bg-[#075A53] text-white hover:bg-[#054a44]"
+                  ? "bg-[#00AA64] text-white border-2 border-[#00AA64] hover:bg-[#EEFFF9] hover:text-[#00AA64] hover:border-[2px] hover:border-[#00AA64]"
                   : "bg-white text-[#075A53] border-2 border-[#075A53] hover:bg-[#075A53] hover:text-white"
               }`}
             >
@@ -72,7 +72,7 @@ export default function Navbar() {
             <button
               className={`px-3 lg:px-4 py-2 font-semibold rounded-full transition-all duration-300 ${
                 pathname === "/"
-                  ? "bg-[#075A53] text-white hover:bg-[#054a44]"
+                  ? "bg-[#EEFFF9] text-[#00AA64] border-2 border-[#00AA64] "
                   : "bg-white text-[#075A53] border-2 border-[#075A53] hover:bg-[#075A53] hover:text-white"
               }`}
             >

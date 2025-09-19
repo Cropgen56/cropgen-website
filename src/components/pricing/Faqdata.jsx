@@ -5,32 +5,33 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 // ==================== FAQ Data ====================
 const faqData = [
-    {
-        category: "FAQ's",
-        items: [
-            {
-                question: "What payment methods do you accept?",
-                answer:
-                    "You can try CropGen free for 30 days with limited features to explore how the platform works.",
-            },
-            {
-                question: "Is my payment information secure?",
-                answer:
-                    "Yes, you can upgrade or downgrade your subscription plan anytime in your account settings.",
-            },
-            {
-                question: "Can I cancel my subscription anytime?",
-                answer:
-                    "We support major credit cards, debit cards, and enterprise invoicing for large operations.",
-            },
-            {
-                question: "Do you offer refunds?",
-                answer:
-                    "Yes! All paid plans come with support. Enterprise users get priority and dedicated support.",
-            },
-        ],
-    },
+  {
+    category: "FAQ's",
+    items: [
+      {
+        question: "What payment methods do you accept?",
+        answer:
+          "We accept all major credit and debit cards, as well as UPI payments through Razorpay. For larger teams, we also support invoicing options to keep things simple.",
+      },
+      {
+        question: "Is my payment information secure?",
+        answer:
+          "Absolutely! All transactions are processed securely through PCI-compliant providers like Razorpay and Stripe. We never store or share your sensitive information.",
+      },
+      {
+        question: "Can I cancel my subscription anytime?",
+        answer:
+          "Yes, you’re free to cancel anytime from your account settings. You’ll still have full access to CropGen until the end of your billing cycle.",
+      },
+      {
+        question: "Do you offer refunds?",
+        answer:
+          "We’re happy to help with refunds in cases of accidental charges or billing issues. For regular cancellations, you can continue using CropGen until your plan expires.",
+      },
+    ],
+  },
 ];
+
 
 // ==================== Accordion Item ====================
 function AccordionItem({ question, answer, isOpen, onClick }) {

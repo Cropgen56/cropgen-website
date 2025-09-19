@@ -11,13 +11,18 @@ export default function ChatbotButton() {
     const [showChat, setShowChat] = useState(false);
     const [userClosed, setUserClosed] = useState(false); // track manual close
 
-    // Auto-open chat after 4 seconds
+    useEffect(() => {
+        const storedClosed = localStorage.getItem("chatbotClosed");
+        if (storedClosed === "true") {
+            setUserClosed(true);
+        }
+    }, []);
+
     useEffect(() => {
         if (!userClosed) {
             const timer = setTimeout(() => {
                 setOpen(true);
             }, 5000);
-
             return () => clearTimeout(timer);
         }
     }, [userClosed]);
@@ -25,13 +30,15 @@ export default function ChatbotButton() {
     const handleClose = () => {
         setClosing(true);
         setHover(false);
-        setUserClosed(true); // user manually closed
+        setUserClosed(true);
+        localStorage.setItem("chatbotClosed", "true"); // persist choice
         setTimeout(() => {
             setOpen(false);
             setClosing(false);
             setShowChat(false);
         }, 300);
     };
+
 
     return (
         <>
