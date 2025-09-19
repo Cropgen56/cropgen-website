@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { X } from "lucide-react";
-import PlanCard from "../../components/pricing/PlanCard";
+import PlanCard from "@/components/pricing/PlanCard";
 import Image from "next/image";
-import PricingFAQ from "../../components/pricing/Faqdata";
+import PricingFAQ from "@/components/pricing/Faqdata";
 import { PromoSection } from "@/components";
 
 const USD_TO_INR = 83;
