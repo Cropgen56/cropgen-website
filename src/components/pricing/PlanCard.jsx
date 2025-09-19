@@ -2,7 +2,7 @@
 
 import { Check, X } from "lucide-react";
 
-export default function PlanCard({ plan }) {
+export default function Plancard({ plan }) {
   const isRecommended = plan.recommended;
 
   return (
