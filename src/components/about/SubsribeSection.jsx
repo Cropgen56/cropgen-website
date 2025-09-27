@@ -58,10 +58,6 @@ const SubscribeSection = () => {
     }
   };
 
-  if (isLoading) {
-    return <SubscribeSectionSkeleton />;
-  }
-
   return (
     <section
       className="relative mt-4 md:mx-auto sm:shadow-lg sm:rounded-2xl px-6 md:px-12 py-8 max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-8 sm:my-10
@@ -121,7 +117,7 @@ const SubscribeSection = () => {
               height={40}
               alt="Phone icon for contact"
               onLoadingComplete={() => setIconLoaded(true)}
-              onLoad={() => setIconLoaded(true)} 
+              onLoad={() => setIconLoaded(true)}
             />
           </div>
           <p className="text-[#2AB673] font-bold text-base">+91 9665935570</p>

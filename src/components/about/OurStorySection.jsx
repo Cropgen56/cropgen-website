@@ -1,19 +1,16 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import OurStorySkeleton from "../skeleton-loaders/about/OurStorySkeleton";
 
 const OurStorySection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <section className="px-4 md:px-8 lg:px-12 py-4 md:py-8 bg-white">
-      {!imageLoaded && <OurStorySkeleton />}
 
       <div
-        className={`flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto transition-opacity duration-700 ${
-          imageLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
-        }`}
+        className={`flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto transition-opacity duration-700 ${imageLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
+          }`}
       >
         {/* Text Content */}
         <div className="w-full flex flex-col gap-4 md:w-1/2 lg:w-[45%] text-center md:text-left relative">

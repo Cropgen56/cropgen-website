@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HeroSectionSkeleton from "../skeleton-loaders/home/HeroSectionSkeleton";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,8 +98,6 @@ const HeroSection = () => {
 
     return () => ctx.revert();
   }, [isLoading, isLaptop]);
-
-  if (isLoading) return <HeroSectionSkeleton />;
 
   return (
     <section ref={sectionRef} className="relative flex flex-col md:flex-row justify-between bg-white pb-7 md:pb-10 min-h-screen">

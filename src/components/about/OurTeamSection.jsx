@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import OurTeamSkeleton from "../skeleton-loaders/about/OurTeamSkeleton";
+
 
 const teamMembers = [
   {
@@ -59,12 +59,11 @@ const OurTeamSection = () => {
 
   return (
     <section className="px-4 md:px-8 lg:px-12 py-1 sm:py-10 bg-white">
-      {!allImagesLoaded && <OurTeamSkeleton />}
+
 
       <div
-        className={`flex flex-col gap-8 transition-opacity duration-700 ${
-          allImagesLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
-        }`}
+        className={`flex flex-col gap-8 transition-opacity duration-700 ${allImagesLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
+          }`}
       >
         <div className="max-w-6xl text-start relative">
           <Image

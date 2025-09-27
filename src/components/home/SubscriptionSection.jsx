@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import SubscriptionSectionSkeleton from "../skeleton-loaders/home/SubscriptionSectionSkeleton"; 
+import SubscriptionSectionSkeleton from "../skeleton-loaders/home/SubscriptionSectionSkeleton";
 
 export default function SubscriptionSection() {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,8 +12,6 @@ export default function SubscriptionSection() {
     img.src = "/assets/image/home/dashboard.png";
     img.onload = () => setIsLoading(false);
   }, []);
-
-  if (isLoading) return <SubscriptionSectionSkeleton />;
 
   return (
     <section className="w-full flex justify-center py-10 px-4">

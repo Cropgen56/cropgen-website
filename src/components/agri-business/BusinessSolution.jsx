@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import BusinessSolutionSkeleton from "../skeleton-loaders/agri-buisness/BusinessSolutionSkeleton"; // import the skeleton
 
 export default function BusinessSolution() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -44,19 +43,17 @@ export default function BusinessSolution() {
     }
   }, [loadedCount]);
 
-  if (!imagesLoaded) {
-    return <BusinessSolutionSkeleton />;
-  }
+
 
   return (
     <section className="px-6 sm:px-10 mt-8 md:mt-2 relative">
-          <Image
-            src="/assets/image/agri-business/CropGen’s-Agribusiness-Solutions.png"
-            alt="CropGen’s-Agribusiness-Solutions"
-            width={400}
-            height={200}
-            className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[500px] md:w-[800px] left-1/2 -translate-x-1/2"
-          />
+      <Image
+        src="/assets/image/agri-business/CropGen’s-Agribusiness-Solutions.png"
+        alt="CropGen’s-Agribusiness-Solutions"
+        width={400}
+        height={200}
+        className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[500px] md:w-[800px] left-1/2 -translate-x-1/2"
+      />
       {/* Heading */}
       <h2 className="text-2xl sm:text-4xl font-bold leading-tight text-center sm:mt-10 text-[#2AB673] z-10 relative">
         CropGen's Agribusiness Solutions

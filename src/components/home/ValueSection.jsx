@@ -108,8 +108,6 @@ const ValuesSection = () => {
     }
   }, [isLoading]);
 
-  if (isLoading) return <ValuesSectionSkeleton />;
-
   return (
     <section
       ref={sectionRef}

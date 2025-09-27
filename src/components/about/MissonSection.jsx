@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import MissionSkeleton from "../skeleton-loaders/about/MissionSkeleton";
+
 
 const stats = [
   {
@@ -45,12 +45,7 @@ const MissionSection = () => {
 
   return (
     <section className="px-4 md:px-8 lg:px-12 py-4 md:py-8 bg-white relative">
-      {/* Skeleton overlay (shows until imageLoaded = true) */}
-      {!imageLoaded && (
-        <div className="absolute inset-0 z-20 bg-white">
-          <MissionSkeleton />
-        </div>
-      )}
+
 
       {/* Stats Section */}
       <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-6 text-center border-b-4 border-gray-200 pb-8 max-w-4xl mx-auto relative z-10">

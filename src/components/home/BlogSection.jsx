@@ -83,7 +83,6 @@ export default function BlogCarousel() {
 
   const visibleBlogs = getVisibleBlogs(blogs, current);
 
-  if (loading) return <BlogCarouselSkeleton />;
   if (blogs.length === 0) return <p className="p-6">No blogs available.</p>;
 
   const slideVariants = {

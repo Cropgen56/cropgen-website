@@ -120,8 +120,6 @@ const AboutSection = () => {
     }
   }, [isLoading]);
 
-  if (isLoading) return <AboutSectionSkeleton />;
-
   return (
     <section
       ref={sectionRef}

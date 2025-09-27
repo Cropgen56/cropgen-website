@@ -97,7 +97,6 @@ const FeaturesSection = () => {
     return () => ctx.revert();
   }, [isLoading]);
 
-  if (isLoading) return <FeaturesSectionSkeleton />;
 
   return (
     <section ref={sectionRef} className="py-6 md:py-10">

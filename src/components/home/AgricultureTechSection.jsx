@@ -27,7 +27,6 @@ export default function AgricultureTechSection() {
     });
   }, []);
 
-  if (isLoading) return <AgricultureTechSkeleton />;
 
   return (
     <section className="relative p-6 md:py-12 px-6 bg-white flex flex-col gap-6 md:gap-8 items-center">

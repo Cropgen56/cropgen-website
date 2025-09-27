@@ -24,7 +24,6 @@ export default function HeroSection() {
     });
   }, []);
 
-  if (isLoading) return <HeroSkeleton />;
 
   return (
     <section className="relative h-[250px] sm:h-[600px] w-full flex flex-row sm:flex-row items-center justify-between px-4 sm:px-10">

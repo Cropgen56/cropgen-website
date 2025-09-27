@@ -31,22 +31,22 @@ export default function CropMonitoringFeatures() {
     "/assets/image/crop-monitoring/customaizable-report.webp",
   ];
 
-useEffect(() => {
-  let isMounted = true;
+  useEffect(() => {
+    let isMounted = true;
 
-  images.forEach((src) => {
-    const img = new window.Image(); // <-- use window.Image instead of Image
-    img.src = src;
-    img.onload = () => {
-      if (!isMounted) return;
-      setLoadedCount((prev) => prev + 1);
+    images.forEach((src) => {
+      const img = new window.Image(); // <-- use window.Image instead of Image
+      img.src = src;
+      img.onload = () => {
+        if (!isMounted) return;
+        setLoadedCount((prev) => prev + 1);
+      };
+    });
+
+    return () => {
+      isMounted = false;
     };
-  });
-
-  return () => {
-    isMounted = false;
-  };
-}, []);
+  }, []);
 
 
   useEffect(() => {
@@ -55,9 +55,6 @@ useEffect(() => {
     }
   }, [loadedCount]);
 
-  if (!imagesLoaded) {
-    return <CropMonitoringFeaturesSkeleton />;
-  }
   return (
     <section
       aria-label="Crop Monitoring Hero Section"
@@ -417,14 +414,14 @@ useEffect(() => {
           </div>
         </article>
         <article className="sm:w-1/2 sm:px-8 mt-10 sm:mt-20 relative">
-          
+
           <Image
-                src="/assets/image/crop-monitoring/How-the-Cropgen.png"
-                alt="How-the-Cropgen"
-                width={400}
-                height={200}
-                className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
-              />
+            src="/assets/image/crop-monitoring/How-the-Cropgen.png"
+            alt="How-the-Cropgen"
+            width={400}
+            height={200}
+            className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
+          />
           <h2 className="text-[#2AB673] text-xl sm:text-4xl font-bold z-10 relative">
             How the CropGen{" "}
           </h2>{" "}
@@ -538,12 +535,12 @@ useEffect(() => {
         {/* features of the scouting in the cropgen  */}
         <div className="sm:w-1/2 sm:px-8 mt-20 relative">
           <Image
-                src="/assets/image/crop-monitoring/Features.png"
-                alt="Features of CropGen Scouting Tool"
-                width={400}
-                height={200}
-                className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
-              />
+            src="/assets/image/crop-monitoring/Features.png"
+            alt="Features of CropGen Scouting Tool"
+            width={400}
+            height={200}
+            className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
+          />
           <h2 className="text-[#2AB673] text-2xl sm:text-4xl font-bold relative z-10">
             Features of the
           </h2>{" "}
