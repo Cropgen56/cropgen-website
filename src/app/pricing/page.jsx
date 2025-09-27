@@ -2,9 +2,73 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Check, X } from "lucide-react";
 import PricingFAQ from "@/components/pricing/Faqdata";
 import { PromoSection } from "@/components";
-import PlanCard from "@/components/pricing/PlanCard";
+
+/** Inline PlanCard component */
+function PlanCard({ plan }) {
+  const isRecommended = plan.recommended;
+  const isEnterprise = plan.name === "Enterprise";
+
+  return (
+    <div
+      className={`relative flex flex-col rounded-2xl shadow-lg p-6 w-[250px] transition-all duration-300 items-stretch
+      ${
+        isRecommended
+          ? "bg-white text-black [border-width:8px] border-[#265A48]"
+          : "bg-white text-black border border-gray-200"
+      }
+      hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.03]`}
+    >
+      {isRecommended && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#265A48] text-white text-xs font-bold px-3 py-1 rounded-full">
+          Recommended
+        </span>
+      )}
+
+      <h3 className="text-[22px] font-bold mt-6 mb-1">{plan.name}</h3>
+      <p className="text-xs mb-2 text-gray-400">{plan.tagline}</p>
+
+      {!isEnterprise ? (
+        <p className="text-[20px] font-bold mb-4">{plan.price}</p>
+      ) : (
+        <p className="text-[20px] font-bold mb-4 text-[#2AB673]">Contact Us</p>
+      )}
+
+      <hr className="border-t border-gray-300 mb-4" />
+
+      <div className="flex-1 flex flex-col gap-2 text-[12px] leading-[16px]">
+        {plan.features.map((f, i) => (
+          <p key={`f-${i}`} className="flex items-start gap-2">
+            <Check
+              size={14}
+              strokeWidth={3}
+              className="text-green-500 shrink-0"
+            />
+            {f}
+          </p>
+        ))}
+        {plan.missing?.map((f, i) => (
+          <p key={`m-${i}`} className="flex items-start gap-2 text-gray-400">
+            <X size={14} strokeWidth={3} className="text-red-500 shrink-0" />
+            {f}
+          </p>
+        ))}
+      </div>
+
+      <button
+        className={`mt-6 py-2 rounded-2xl font-semibold transition-colors duration-300 ${
+          isEnterprise
+            ? "bg-[#265A48] text-white hover:bg-[#1E473A]"
+            : "bg-[#2AB673] text-white hover:bg-[#466657]"
+        }`}
+      >
+        {isEnterprise ? "Contact Us" : "Get Started"}
+      </button>
+    </div>
+  );
+}
 
 const USD_TO_INR = 83;
 
@@ -98,8 +162,6 @@ const plans = [
     tagline: "Advanced analytics",
     basePrice: 29,
     unit: "/ha/month",
-    // recommended: true,
-    // recommended:true,
     recommended: true,
     features: [
       "Up to 5 hectares",
@@ -125,8 +187,8 @@ const plans = [
   {
     name: "Enterprise",
     tagline: "For large operations",
-    basePrice: 2.5,
-    unit: "/ha/month",
+    basePrice: null,
+    unit: null,
     features: [
       "Up to 5 hectares",
       "Graphs & Historical Data (10 Year Plus)",
@@ -150,10 +212,11 @@ const plans = [
   },
 ];
 
+// Remaining component code (unchanged)
 const benefits = [
   {
     id: 1,
-    icon: "/assets/image/contact/Farming.png", // replace with your image path
+    icon: "/assets/image/contact/Farming.png",
     title: "Be at the forefront of smart farming",
     description:
       "Leverage AI, remote sensing, and precision agriculture tools to transform the way you manage your fields.",
@@ -179,62 +242,30 @@ export default function Page() {
   const [currency, setCurrency] = useState("USD");
 
   const adjustedPlans = plans.map((p) => {
-    let displayPrice = p.basePrice;
+    if (p.name === "Enterprise") return p;
 
-    if (p.basePrice === 0) {
-      displayPrice = 0;
-    } else if (billing === "yearly") {
-      displayPrice = p.basePrice * 12 * 0.8; // yearly discount
-    }
+    let displayPrice = p.basePrice;
+    if (p.basePrice === 0) displayPrice = 0;
+    else if (billing === "yearly") displayPrice = p.basePrice * 12 * 0.8;
 
     let formattedPrice;
-    if (displayPrice === 0) {
-      formattedPrice = "$0 /30 days";
-    } else {
-      if (currency === "USD") {
-        formattedPrice = `$${displayPrice.toFixed(2)} ${
-          billing === "yearly" ? "/ha/year" : "/ha/month"
-        }`;
-      } else {
-        formattedPrice = `₹${Math.round(displayPrice * USD_TO_INR)} ${
-          billing === "yearly" ? "/ha/year" : "/ha/month"
-        }`;
-      }
-    }
+    if (displayPrice === 0) formattedPrice = "$0 /30 days";
+    else if (currency === "USD")
+      formattedPrice = `$${displayPrice.toFixed(2)} ${
+        billing === "yearly" ? "/ha/year" : "/ha/month"
+      }`;
+    else
+      formattedPrice = `₹${Math.round(displayPrice * 83)} ${
+        billing === "yearly" ? "/ha/year" : "/ha/month"
+      }`;
 
     return { ...p, price: formattedPrice };
   });
 
   return (
     <div>
-      <div className="min-h-screen bg-white px-6 py-12 flex flex-col items-center ">
-        {/* Left side - Back link */}
-        <div className="absolute top-6 left-6 mt-16 flex items-center gap-2 cursor-pointer text-gray-700 hover:text-[#2AB673] transition">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          <span className="font-semibold text-md text-gray-400"> Go Back</span>
-        </div>
-
+      <div className="min-h-screen bg-white px-6 py-12 flex flex-col items-center">
         <div className="relative w-full text-center mt-10">
-          <Image
-            src="/assets/image/contact/Pricing.png"
-            alt="pricing"
-            width={800} // bigger width
-            height={400}
-            className="absolute z-0 opacity-100 top-0 sm:-top-2 md:-top-4 w-[500px] md:w-[800px] left-1/2 -translate-x-1/2"
-          />
           <h2 className="text-[50px] font-extrabold text-[#2AB673] mb-2 relative z-10">
             Choose the Right Plan for Your Farm
           </h2>
@@ -244,9 +275,8 @@ export default function Page() {
           Affordable plans designed to grow with your farming needs.
         </p>
 
-        {/* Toggles */}
+        {/* Toggle */}
         <div className="flex flex-col items-center gap-4 mb-12">
-          {/* Billing */}
           <div className="flex items-center gap-4">
             <span
               className={`font-bold text-[16px] cursor-pointer ${
@@ -284,18 +314,17 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="px-3 py-4 bg-[#EEFFF9]">
-          {/* Cards */}
+        <div className="px-3 py-4 bg-[#EEFFF9] w-full">
           <div className="flex gap-6 items-stretch flex-wrap justify-center mt-5">
             {adjustedPlans.map((plan, i) => (
               <PlanCard key={i} plan={plan} />
             ))}
           </div>
 
-          {/* Footer */}
           <div className="text-center text-black text-sm font-bold mt-12">
             Prices are exclusive of VAT, GST, or other applicable taxes in your
-            region. <br />
+            region.
+            <br />
             If you require an invoice to process your CropGen subscription,
             please contact our support team.
           </div>
@@ -309,33 +338,26 @@ export default function Page() {
       <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto px-10">
         {benefits.map((b) => (
           <div key={b.id} className="relative">
-            {/* Green background box (top-right) */}
-            <div className="absolute -top-3 -right-3 w-[70%] h-[70%] bg-[#2AB67366] rounded-2xl"></div>
-
-            {/* White card in front (equal height) */}
+            <div className="absolute -top-3 -right-3 w-[70%] h-[70%] bg-[#2AB67366] rounded-2xl" />
             <div className="relative bg-white rounded-2xl shadow-lg p-8 text-center h-full flex flex-col transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl">
-              {/* Green Circle with Icon */}
               <div className="w-28 h-28 mx-auto mb-6 bg-[#2AB673] rounded-full flex items-center justify-center">
                 <Image
                   src={b.icon}
                   alt={b.title}
-                  width={60} // bigger icon
-                  height={60} // bigger icon
+                  width={60}
+                  height={60}
                   className="object-contain"
                 />
               </div>
-
-              {/* Title */}
               <h3 className="font-bold text-[26px] mb-3">{b.title}</h3>
-
-              {/* Description (fills remaining space to keep equal height) */}
-              <p className="text-gray-600 text-xs  font-bold  mt-5 leading-relaxed flex-1">
+              <p className="text-gray-600 text-xs font-bold mt-5 leading-relaxed flex-1">
                 {b.description}
               </p>
             </div>
           </div>
         ))}
       </div>
+
       <PricingFAQ />
       <PromoSection />
     </div>
