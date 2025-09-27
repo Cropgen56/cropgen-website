@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { X } from "lucide-react";
-import PlanCard from "@/components/pricing/Plancard";
 import Image from "next/image";
 import PricingFAQ from "@/components/pricing/Faqdata";
 import { PromoSection } from "@/components";
+import PlanCard from "@/components/pricing/PlanCard";
 
 const USD_TO_INR = 83;
 
