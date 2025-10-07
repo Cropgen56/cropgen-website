@@ -22,8 +22,8 @@ export default function Navbar() {
   ];
 
   const projectDropdown = [
-    { name: "Project Dronagiri", path: "/projects/project-dronagiri" },
-    { name: "Upcoming Projects", path: "/projects/upcoming-projects" },
+    { name: "Operation Dronagiri", path: "/projects/operation-dronagiri" },
+    { name: "Upcoming...", path: "#" },
   ];
 
   return (

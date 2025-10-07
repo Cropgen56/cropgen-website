@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Image from "next/image";
 
-
 const teamMembers = [
   {
     id: 1,
@@ -46,6 +45,18 @@ const teamMembers = [
     designation: "Frontend Developer",
     image: "/assets/image/about/garima-rawat.png",
   },
+  // {
+  //   id: 6,
+  //   name: "Ganesh Gawande",
+  //   role: "Field Executive",
+  //   img: "/assets/image/about/Ganesh Gawande - field executive.png",
+  // },
+  // {
+  //   id: 7,
+  //   name: "Rushikesh Landage",
+  //   role: "Field Executive",
+  //   img: "/assets/image/about/Rushikesh Landage- field executive.png",
+  // },
 ];
 
 const OurTeamSection = () => {
@@ -59,11 +70,10 @@ const OurTeamSection = () => {
 
   return (
     <section className="px-4 md:px-8 lg:px-12 py-1 sm:py-10 bg-white">
-
-
       <div
-        className={`flex flex-col gap-8 transition-opacity duration-700 ${allImagesLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
-          }`}
+        className={`flex flex-col gap-8 transition-opacity duration-700 ${
+          allImagesLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
+        }`}
       >
         <div className="max-w-6xl text-start relative">
           <Image
