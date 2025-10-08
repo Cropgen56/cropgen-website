@@ -10,11 +10,11 @@ const galleryImages = [
   "/assets/image/projects/Group 590.svg",
   "/assets/image/projects/Group 591.svg",
   "/assets/image/projects/Group 592.svg",
-  "/assets/image/projects/Group 593.svg",
+  "/assets/image/projects/Group 593.png",
   "/assets/image/projects/Group 594.svg",
-  "/assets/image/projects/Group 595.svg",
-  "/assets/image/projects/Group 596.svg",
-  "/assets/image/projects/Group 597.svg",
+  "/assets/image/projects/Group 595.png",
+  "/assets/image/projects/Group 596.png",
+  "/assets/image/projects/Group 599.png",
 ];
 
 const FieldImplementationGallery = () => {

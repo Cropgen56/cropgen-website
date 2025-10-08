@@ -6,7 +6,7 @@ function AiPowered() {
   const cards = [
     {
       number: "18",
-      title: "Field Parameters",
+      title: "Field parameters- AAS SYSTEM",
       subtitle:
         "Comprehensive monitoring of soil, weather, and crop conditions",
       plus: true,

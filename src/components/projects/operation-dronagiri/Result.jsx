@@ -85,17 +85,16 @@ function Result() {
 
         <div className="flex flex-col justify-between">
           <p className="text-sm md:text-base text-black leading-relaxed">
-            "I am using the CropGen mobile application, which provides me with
+            {" "}
+            I'am using the CropGen mobile application, which provides me with
             helpful advisories on what fertilizers and pesticides to apply to my
             soybean and turmeric farms. It also gives me images showing where my
-            crops are under stress."
-            <br />
-            "Right now, I am making my crop decisions by myself, but the
-            information and insights from CropGen are helping me make better and
-            more informed decisions."
+            crops are under stress. Right now, I am making my crop decisions by
+            myself, but the information and insights from CropGen are helping me
+            make better and more informed decisions.
           </p>
           <p className="mt-2 text-xs md:text-sm font-bold text-black">
-            - Ramesh Patil, Cotton Farmer, Washim
+            - Ramesh Patil, Soybean Farmer, Washim
           </p>
         </div>
       </div>
