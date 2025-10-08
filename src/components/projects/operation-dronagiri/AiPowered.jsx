@@ -5,11 +5,11 @@ import React from "react";
 function AiPowered() {
   const cards = [
     {
-      number: "18",
-      title: "Field parameters- AAS SYSTEM",
+      number: "AAS System",
+      title: "Automatic Agronomy System ",
       subtitle:
-        "Comprehensive monitoring of soil, weather, and crop conditions",
-      plus: true,
+        "18+ ground data points to deliver real-time crop advisories on pests, diseases, irrigation, and fertigation — helping farmers make smart, data-driven decisions for better yield and sustainability",
+      plus: false,
     },
     {
       number: 12,
