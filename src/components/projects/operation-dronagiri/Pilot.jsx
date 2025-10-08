@@ -21,7 +21,7 @@ function Pilot() {
     ];
 
     return (
-        <section className="py-4 md:py-10 w-full flex flex-col justify-center items-center gap-4 sm:gap-6">
+        <section className="py-4 md:py-10 w-full flex flex-col justify-center items-center gap-3 sm:gap-6">
             <div className="flex flex-col gap-6 relative">
                 <Image
                     src="/assets/image/projects/Pilot at Washim, Maharashtra.svg"
@@ -34,6 +34,7 @@ function Pilot() {
                     Pilot at Washim, Maharashtra
                 </h2>
             </div>
+
             <div className="max-w-2xl text-center px-4 py-2">
                 <p className="text-black text-xs md:text-base leading-relaxed">
                     Our pilot implementation at IIT Tirupati Accelerator validates
@@ -43,11 +44,12 @@ function Pilot() {
             </div>
 
             {/* Cards Section */}
-            <div className="flex flex-wrap justify-center gap-4 md:mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:mt-6 px-4 w-full">
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className="flex flex-col items-center gap-2 border border-[#00000026] shadow-xl rounded-2xl sm:gap-4 bg-white px-2 pt-2 pb-4 w-80">
+                        className="flex flex-col items-center gap-2 border border-[#00000026] shadow-xl rounded-2xl sm:gap-4 bg-white px-2 pt-2 pb-4 w-full"
+                    >
                         <div className="relative bg-white rounded-2xl rounded-b-none w-full h-[170px] flex items-center justify-center overflow-hidden">
                             <Image
                                 src={card.img}

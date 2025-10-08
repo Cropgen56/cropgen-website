@@ -26,7 +26,7 @@ function Challenge() {
     ];
 
     return (
-        <section className="py-4 md:py-10 w-full flex flex-col justify-center items-center gap-4 sm:gap-6">
+        <section className="py-4 md:py-10 w-full flex flex-col justify-center items-center gap-3 sm:gap-6">
             <div className="flex flex-col gap-6 relative">
                 <Image
                     src="/assets/image/projects/The-Challenge-We're-Solving.svg"
@@ -41,20 +41,21 @@ function Challenge() {
             </div>
             <div className="max-w-2xl text-center px-4 py-2">
                 <p className="text-black text-xs md:text-base leading-relaxed">
-                Traditional farming faces critical challenges: inefficient resource
-                utilization, excessive fertilizer use leading to environmental
-                degradation, unpredictable weather patterns, and declining
-                productivity. Farmers need data-driven insights to make informed
-                decisions and optimize their agricultural practices.
+                    Traditional farming faces critical challenges: <span className="font-bold">inefficient resource
+                        utilization, excessive fertilizer use leading to environmental
+                        degradation, unpredictable weather patterns, and declining
+                        productivity. </span>Farmers need data-driven insights to make informed
+                    decisions and optimize their agricultural practices.
                 </p>
             </div>
 
             {/* Cards Section */}
-            <div className="flex flex-wrap justify-center gap-4 md:mt-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 md:mt-6 px-4">
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className="flex flex-col items-center gap-2 sm:gap-4 border border-[#00000026] shadow-xl rounded-2xl bg-white p-4 w-80">
+                        className="flex flex-col items-center gap-2 sm:gap-4 bg-white p-2 md:p-4"
+                    >
                         <div className="bg-[#2AB673] rounded-full w-[100px] h-[100px] sm:w-[200px] sm:h-[200px] flex items-center justify-center">
                             <Image
                                 src={card.img}
@@ -64,8 +65,8 @@ function Challenge() {
                                 className="object-contain w-[50px] h-[50px] sm:w-[100px] sm:h-[100px]"
                             />
                         </div>
-                        <h3 className="text-md md:text-xl font-bold text-center">{card.title}</h3>
-                        <p className="text-xs md:text-md font-bold text-center">{card.subtitle}</p>
+                        <h3 className="text-sm sm:text-xl font-bold text-center">{card.title}</h3>
+                        <p className="text-[10px] sm:text-md font-bold text-center">{card.subtitle}</p>
                     </div>
                 ))}
             </div>

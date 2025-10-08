@@ -26,7 +26,7 @@ function AiPowered() {
   ];
 
   return (
-    <section className="relative py-4 md:py-10 w-full flex flex-col justify-center items-center gap-4 sm:gap-6">
+    <section className="relative py-4 md:py-10 w-full flex flex-col justify-center items-center gap-3 sm:gap-6">
       {/* Heading */}
       <div className="flex flex-col gap-6 relative">
         <Image

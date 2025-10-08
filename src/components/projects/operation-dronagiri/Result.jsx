@@ -57,7 +57,7 @@ function Result() {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="relative z-10 flex flex-col items-center border border-[#00000026] shadow-xl rounded-2xl gap-4 bg-white p-6 flex-grow sm:flex-grow-0 sm:w-[30%] min-w-[150px]"
+            className="relative z-10 flex flex-col items-center border border-[#00000026] shadow-xl rounded-2xl gap-4 bg-white p-3 sm:p-6 flex-grow sm:flex-grow-0 sm:w-[30%] min-w-[150px]"
           >
             <div className="text-[#2AB673] font-bold text-2xl sm:text-4xl flex items-center justify-center whitespace-nowrap">
               {card.number}
@@ -72,11 +72,11 @@ function Result() {
       </div>
 
       {/* Testimonial Section */}
-      <div className="flex max-w-3xl w-full border-2 border-[#2AB673] rounded-lg p-4 mt-8 gap-4">
-        <div className="flex-shrink-0 flex flex-col justify-center">
+      <div className="flex flex-col sm:flex-row max-w-sm sm:max-w-3xl w-full border-2 border-[#2AB673] rounded-lg p-4 px-4 sm:px-6 mt-8 gap-4 mx-4 sm:mx-0">
+        <div className="flex-shrink-0 flex flex-col justify-center sm:mx-0 mx-auto">
           <Image
-            src="/assets/image/projects/img.jpg"
-            alt="Ramesh Patil"
+            src="/assets/image/projects/farmer-img.jpeg"
+            alt="Farmer Image"
             width={120}
             height={120}
             className="rounded-full object-cover w-[120px] h-[120px]"
@@ -85,11 +85,16 @@ function Result() {
 
         <div className="flex flex-col justify-between">
           <p className="text-sm md:text-base text-black leading-relaxed">
-            "CropGen has transformed how I manage my farm. The AI
-            recommendations helped me reduce fertilizer costs by 40% while
-            increasing my cotton yield significantly."
+            "I am using the CropGen mobile application, which provides me with
+            helpful advisories on what fertilizers and pesticides to apply to my
+            soybean and turmeric farms. It also gives me images showing where my
+            crops are under stress."
+            <br />
+            "Right now, I am making my crop decisions by myself, but the
+            information and insights from CropGen are helping me make better and
+            more informed decisions."
           </p>
-          <p className="mt-2 text-xs md:text-sm font-semibold text-gray-700">
+          <p className="mt-2 text-xs md:text-sm font-bold text-black">
             - Ramesh Patil, Cotton Farmer, Washim
           </p>
         </div>

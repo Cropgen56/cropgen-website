@@ -53,12 +53,12 @@ export default function Navbar() {
               >
                 <div className="flex items-center gap-1 font-medium text-[#797979] hover:text-[#075A53] cursor-pointer">
                   {link.name}
-                  <ChevronDown
+                  {/* <ChevronDown
                     size={16}
                     className={`transition-transform duration-300 ${
                       showProjects ? "rotate-180 text-[#075A53]" : ""
                     }`}
-                  />
+                  /> */}
                 </div>
 
                 {/* Desktop Dropdown */}
