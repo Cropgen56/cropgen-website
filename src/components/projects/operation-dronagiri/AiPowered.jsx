@@ -5,11 +5,11 @@ import React from "react";
 function AiPowered() {
   const cards = [
     {
-      number: "AAS System",
+      number: "18",
       title: "Automatic Agronomy System ",
       subtitle:
-        "18+ ground data points to deliver real-time crop advisories on pests, diseases, irrigation, and fertigation — helping farmers make smart, data-driven decisions for better yield and sustainability",
-      plus: false,
+        "Comprehensive monitoring of soil, weather, and crop conditions.",
+      plus: true,
     },
     {
       number: 12,
@@ -30,26 +30,23 @@ function AiPowered() {
       {/* Heading */}
       <div className="flex flex-col gap-6 relative">
         <Image
-          src="/assets/image/projects/Our-AI-Powered-Solution.svg"
-          alt="Our AI-Powered Solution"
+          src="/assets/image/projects/Solution-Overview.svg"
+          alt="Solution Overview"
           width={600}
           height={300}
           className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
         />
         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold text-center text-[#2AB673] z-10 relative">
-          Our AI-Powered Solution
+          Solution Overview
         </h2>
       </div>
 
-      <div className="max-w-2xl text-center px-4 py-2">
+      <div className="max-w-4xl text-center px-4 py-2">
         <p className="text-black text-xs md:text-base leading-relaxed">
-          CropGen leverages advanced AI algorithms and satellite imagery to
-          provide real-time crop monitoring and personalized advisory services.
-          Our platform analyzes multiple data sources including weather
-          patterns, soil conditions, and crop health indicators to deliver
-          actionable insights that optimize farming practices, reduce resource
-          waste, and maximize yield potential while promoting sustainable
-          agriculture.
+          Comprehensive AI-based crop monitoring system with satellite intelligence. <br />
+          CropGen is an AI-based Crop Monitoring and Advisory System (AAS System) that provides real-time, LLM-powered crop advisories using 18+ field parameters — including soil health, moisture, weather, vegetation indices, and nutrient balance. <br />
+          It analyzes 12+ satellite indices (NDVI, EVI, NDWI, MSAVI, SAVI, etc.) and offers BBCH-scale nutrient management for precise NPK recommendations. <br />
+          <strong>Geospatial Datasets (GDI):</strong> Sentinel satellite imagery, weather satellite data (NASA POWER & ERA5), SoilGrids, and local field validation data.
         </p>
       </div>
 

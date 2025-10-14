@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import PilotStats from "./PilotStats";
 
 function Pilot() {
     const cards = [
@@ -68,6 +69,8 @@ function Pilot() {
                     </div>
                 ))}
             </div>
+
+            <PilotStats />
         </section>
     );
 }

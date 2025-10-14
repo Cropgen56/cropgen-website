@@ -2,6 +2,7 @@ import { Plus } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import SustainableDevelopment from "./SustainableDevelopment";
+import PressCoverage from "./PressCoverage";
 
 function Next() {
   const cards = [
@@ -68,8 +69,9 @@ function Next() {
             <p className="text-xs md:text-sm text-center">{card.subtitle}</p>
           </div>
         ))}
-        </div>
-        <SustainableDevelopment />  
+      </div>
+      <PressCoverage />
+      <SustainableDevelopment />
     </section>
   );
 }

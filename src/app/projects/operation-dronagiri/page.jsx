@@ -16,8 +16,8 @@ export default function ProjectDronagiri() {
             <Challenge />
             <AiPowered />
             <Pilot />
-            <Team />
             <Result />
+            <Team />
             <Next />
             <PromoSection />
         </>

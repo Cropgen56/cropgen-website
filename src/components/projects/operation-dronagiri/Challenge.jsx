@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import ProblemSolution from "./ProblemSolution";
 
 function Challenge() {
     const cards = [
@@ -70,6 +71,8 @@ function Challenge() {
                     </div>
                 ))}
             </div>
+
+            <ProblemSolution />
         </section>
     );
 }

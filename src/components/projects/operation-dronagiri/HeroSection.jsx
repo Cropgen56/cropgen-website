@@ -28,7 +28,7 @@ export default function HeroSection() {
           Climate-Smart Farming Platform
         </h1>
 
-        <p className="text-xs md:text-lg text-white">
+        <p className="text-xs md:text-lg text-white font-bold">
           Developed under Operation Dronagiri | Early Stage | Agriculture Sector
         </p>
 
