@@ -6,21 +6,21 @@ import { motion } from "framer-motion";
 import { MoveLeft, MoveRight } from "lucide-react";
 
 const pressCards = [
-  {
-    title: "Participated in",
-    img: "/assets/image/projects/startup-conclave.svg",
-    subtitle: "Startup Conclave 2025 Gandhinagar",
-  },
-  {
-    title: "Featured under",
-    img: "/assets/image/projects/iit-tirupati.svg",
-    subtitle: "IIT Tirupati",
-  },
-  {
-    title: "Selected for",
-    img: "/assets/image/projects/msme.svg",
-    subtitle: "MSME Hackathon 5.0",
-  },
+  // {
+  //   title: "Participated in",
+  //   img: "/assets/image/projects/startup-conclave.svg",
+  //   subtitle: "Startup Conclave 2025 Gandhinagar",
+  // },
+  // {
+  //   title: "Featured under",
+  //   img: "/assets/image/projects/iit-tirupati.svg",
+  //   subtitle: "IIT Tirupati",
+  // },
+  // {
+  //   title: "Selected for",
+  //   img: "/assets/image/projects/msme.svg",
+  //   subtitle: "MSME Hackathon 5.0",
+  // },
   {
     title: "Selected by",
     img: "/assets/image/projects/climate-collective.svg",
@@ -36,11 +36,11 @@ const pressCards = [
     img: "/assets/image/projects/eureka.jpg",
     subtitle: "Eureka participitaed - ASIA  program",
   },
-  {
-    title: "Participated in",
-    img: "/assets/image/projects/climate-collective.svg",
-    subtitle: "Eureka Hackathon",
-  },
+  // {
+  //   title: "Participated in",
+  //   img: "/assets/image/projects/climate-collective.svg",
+  //   subtitle: "Eureka Hackathon",
+  // },
 ];
 
 const PressCoverage = () => {

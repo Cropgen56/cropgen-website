@@ -6,6 +6,18 @@ function Collab() {
     { img: "/assets/image/projects/local.svg", title: "Local FPOs" },
     { img: "/assets/image/projects/iit-tirupati.svg", title: "IIT Tirupati" },
     { img: "/assets/image/projects/washim-farmer.svg", title: "Washim Farmers" },
+    {
+      img: "/assets/image/projects/climate-collective.svg",
+      title: "AI for Climate Accelerator Program",
+    },
+    {
+      img: "/assets/image/projects/rouge.svg",
+      title: "Rouge International, Thailand",
+    },
+    {
+      img: "/assets/image/projects/eureka.jpg",
+      title: "Eureka - ASIA Program",
+    },
   ];
 
   return (
@@ -14,28 +26,31 @@ function Collab() {
         Partnerships & Collaborations
       </h2>
 
-<div className="w-full flex flex-wrap justify-center gap-6">
-  {cards.map((card, index) => (
-    <div
-      key={index}
-      className="flex flex-col items-center flex-[1_1_250px] sm:flex-[1_1_45%] md:flex-[1_1_30%] gap-2 md:gap-4"
-    >
-      {/* Image container same size for all */}
-      <div className="w-[150px] md:w-[200px] h-[150px] md:h-[150px] flex justify-center items-center overflow-hidden">
-        <Image
-          src={card.img}
-          alt={card.title}
-          width={card.title === "IIT Tirupati" ? 200 : 150} // IIT wider
-          height={150} // uniform height
-          className="object-contain"
-        />
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 place-items-center w-full">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center text-center gap-3"
+          >
+            {/* Image */}
+            <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[130px] md:h-[130px] flex justify-center items-center overflow-hidden">
+              <Image
+                src={card.img}
+                alt={card.title}
+                width={130}
+                height={130}
+                className="object-contain"
+              />
+            </div>
+
+            {/* Title */}
+            <h3 className="text-sm sm:text-base font-medium text-black">
+              {card.title}
+            </h3>
+          </div>
+        ))}
       </div>
-      <h3 className="text-center text-md md:text-lg font-semibold">
-        {card.title}
-      </h3>
-    </div>
-  ))}
-</div>
     </div>
   );
 }

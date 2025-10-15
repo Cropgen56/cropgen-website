@@ -3,7 +3,7 @@ import React from "react";
 function PilotStats() {
     const cards = [
         { value: "50", title: "Acres Under Pilot" },
-        { value: "100+", title: "Farmers Onboarded"},
+        { value: "200+", title: "Farmers Onboarded"},
         { value: "85%", title: "Advisory Accuracy"},
     ];
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import FieldImplementationGallery from "./FieldImplementationGallery";
 import Collab from "./Collab";
+import PressCoverage from "./PressCoverage";
 
 function Result() {
   const cards = [
@@ -91,6 +92,7 @@ function Result() {
       </div>
 
       <Collab />
+      {/* <PressCoverage /> */}
       <FieldImplementationGallery />
     </section>
   );

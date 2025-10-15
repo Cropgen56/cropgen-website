@@ -70,7 +70,7 @@ function Next() {
           </div>
         ))}
       </div>
-      <PressCoverage />
+      {/* <PressCoverage /> */}
       <SustainableDevelopment />
     </section>
   );

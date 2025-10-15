@@ -1,20 +1,18 @@
 import React from "react";
+import Image from "next/image";
 
 function SustainableDevelopment() {
   const cards = [
     {
-      color: "bg-[#FF7171]",
-      text: "SDG 2",
+      img: "/assets/image/projects/zero-hunger.png",
       title: "Zero Hunger",
     },
     {
-      color: "bg-[#FBDCA6]",
-      text: "SDG 12",
+      img: "/assets/image/projects/responsible-consumption.png",
       title: "Responsible Consumption",
     },
     {
-      color: "bg-[#B6DF94]",
-      text: "SDG 13",
+      img: "/assets/image/projects/climate-action.png",
       title: "Climate Action",
     },
   ];
@@ -32,10 +30,14 @@ function SustainableDevelopment() {
             key={index}
             className="bg-white p-3 sm:p-6 flex flex-col items-center w-full max-w-[20rem] text-center"
           >
-            <div
-              className={`w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-xl mb-2 sm:mb-4 ${card.color}`}
-            >
-              {card.text}
+            <div className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] rounded-lg overflow-hidden mb-2 sm:mb-4">
+              <Image
+                src={card.img}
+                alt={card.title}
+                width={150}
+                height={150}
+                className="object-cover w-full h-full"
+              />
             </div>
 
             <h3 className="text-base sm:text-lg font-semibold text-black">
