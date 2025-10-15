@@ -13,7 +13,7 @@ const crops = [
 const cropImages = {
   Soyabean: [
     "/assets/image/projects/gallery/3.png",
-    "/assets/image/projects/gallery/water mark vid1.mp4",
+    "/assets/image/projects/gallery/water mark vid.mp4",
     "/assets/image/projects/gallery/2.png",
     "/assets/image/projects/gallery/1.png",
     "/assets/image/projects/gallery/im2.png",
@@ -22,12 +22,12 @@ const cropImages = {
   ],
   Turmeric: [
     "/assets/image/projects/gallery/1 copy 2.png",
-    "/assets/image/projects/gallery/water mark vid.mp4",
+    "/assets/image/projects/gallery/water mark vid1.mp4",
     "/assets/image/projects/gallery/img4.png",
     "/assets/image/projects/gallery/4.png",
     "/assets/image/projects/gallery/2 copy 2.png",
     "/assets/image/projects/gallery/4.png",
-    "/assets/image/projects/gallery/3 copy.png",
+    "/assets/image/projects/gallery/turmeric.jpg",
   ],
 };
 
