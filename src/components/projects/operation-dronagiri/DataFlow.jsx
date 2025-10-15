@@ -5,7 +5,7 @@ const DataFlowSection = () => {
     <div className="relative w-full flex flex-col md:flex-row items-center justify-center py-20 bg-white">
       <div className="flex flex-col items-center text-center z-10">
         <img
-          src="/assets/image/projects/Satellite-data.svg"
+          src="/assets/image/projects/satellite-data.svg"
           alt="Satellite Data"
           className="w-32 h-32 object-contain"
         />
