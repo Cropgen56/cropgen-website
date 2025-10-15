@@ -1,14 +1,15 @@
 import { Plus } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import DataFlowSection from "./DataFlow";
 
 function AiPowered() {
   const cards = [
     {
       number: "18",
-      title: "Automatic Agronomy System ",
+      title: "Automatic Agronomy Advisory System (AAAS) Field Parameters",
       subtitle:
-        "Comprehensive monitoring of soil, weather, and crop conditions.",
+        "18+ ground data points to deliver real-time crop advisories on pests, diseases, irrigation, and fertigation — helping farmers make smart, data-driven decisions for better yield and sustainability.",
       plus: true,
     },
     {
@@ -57,17 +58,18 @@ function AiPowered() {
             key={index}
             className="relative z-10 flex flex-col items-center border border-[#00000026] shadow-xl rounded-2xl gap-4 bg-white p-6 flex-grow sm:flex-grow-0 sm:w-[30%] min-w-[150px]"
           >
-            <div className="text-[#2AB673] font-bold text-2xl sm:text-4xl flex items-center justify-center whitespace-nowrap">
+            <div className="text-[#2AB673] font-bold text-xl sm:text-3xl flex items-center justify-center whitespace-nowrap">
               {card.number}
               {card.plus && <Plus size={20} strokeWidth={2.75} />}
             </div>
-            <h3 className="text-md md:text-xl font-bold text-center">
+            <h3 className="text-md md:text-lg font-bold text-center">
               {card.title}
             </h3>
             <p className="text-xs md:text-sm text-center">{card.subtitle}</p>
           </div>
         ))}
       </div>
+      <DataFlowSection />
     </section>
   );
 }

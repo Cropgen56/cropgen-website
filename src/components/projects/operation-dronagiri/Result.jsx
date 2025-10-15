@@ -8,8 +8,18 @@ function Result() {
   const cards = [
     { number: "28", title: "Fertilizer Savings", percent: true },
     { number: "15", title: "Yield Increase", percent: true },
-    { number: "0.12", title: "NDVI Improvement", plus: true },
-    { number: "12", title: "Satellite Indices", plus: true },
+    {
+      number: "0.12",
+      title: "NDVI Improvement",
+      plus: true,
+      plusPosition: "before",
+    },
+    {
+      number: "12",
+      title: "Satellite Indices",
+      plus: true,
+      plusPosition: "after",
+    },
   ];
 
   return (
@@ -35,18 +45,26 @@ function Result() {
             key={index}
             className="flex flex-col items-center border border-[#00000026] shadow-xl rounded-2xl gap-4 bg-white p-3 sm:p-6"
           >
-            <div className="text-[#2AB673] font-bold text-2xl sm:text-4xl flex items-center justify-center whitespace-nowrap gap-1">
-              {card.plus && <Plus size={28} strokeWidth={2.75} />}
+            <div className="text-[#28C878] font-bold text-2xl sm:text-4xl flex items-center justify-center whitespace-nowrap gap-1">
+              {card.plus && card.plusPosition === "before" && (
+                <Plus size={28} strokeWidth={2.75} />
+              )}
               {card.number}
               {card.percent && <Percent size={28} strokeWidth={2.75} />}
+              {card.plus && card.plusPosition === "after" && (
+                <Plus size={28} strokeWidth={2.75} />
+              )}
             </div>
-            <h3 className="text-md md:text-xl font-bold text-center">{card.title}</h3>
+
+            <h3 className="text-md md:text-xl font-bold text-center">
+              {card.title}
+            </h3>
           </div>
         ))}
       </div>
 
       {/* Testimonial Section */}
-      <div className="flex flex-col sm:flex-row max-w-sm sm:max-w-3xl w-full border-2 border-[#2AB673] rounded-lg p-4 px-4 sm:px-6 mt-8 gap-4 mx-4 sm:mx-0">
+      <div className="flex flex-col sm:flex-row max-w-sm sm:max-w-3xl w-full border-2 border-[#2AB673] rounded-3xl p-4 px-4 sm:px-6 mt-8 gap-4 mx-4 sm:mx-0">
         <div className="flex-shrink-0 flex flex-col justify-center sm:mx-0 mx-auto">
           <Image
             src="/assets/image/projects/farmer-img.jpeg"

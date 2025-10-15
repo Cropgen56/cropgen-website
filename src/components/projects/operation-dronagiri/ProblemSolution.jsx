@@ -9,13 +9,13 @@ import monitoring from "../../../../public/assets/image/projects/streamline_grap
 const InfoCard = ({ title, content, pointers, bgColor, textColor }) => {
   return (
     <div
-      className="flex-1 flex flex-col gap-4 p-6 rounded-xl shadow-lg"
+      className="w-full lg:max-w-lg flex-1 flex flex-col  gap-4 p-6 rounded-xl shadow-lg"
       style={{ backgroundColor: bgColor }}
     >
       <h3 className="text-xl font-bold" style={{ color: textColor }}>
         {title}
       </h3>
-      <p className="text-sm md:text-base">{content}</p>
+      <p className="text-sm md:text-base leading-loose">{content}</p>
       <ul className="flex flex-col gap-2">
         {pointers.map((pointer, idx) => (
           <li key={idx} className="flex items-center gap-2">
@@ -34,7 +34,7 @@ const InfoCard = ({ title, content, pointers, bgColor, textColor }) => {
                 fill={pointer.fill || "none"}
               />
             ) : null}
-            <span className="text-sm md:text-base">
+            <span className="text-sm md:text-base leading-loose ">
               {pointer.text}
             </span>
           </li>
@@ -74,7 +74,7 @@ const ProblemSolution = () => {
   ];
 
   return (
-    <section className="w-full flex flex-col gap-6 py-4 px-4 md:px-16">
+    <section className="w-full flex flex-col gap-6 flex-wrap justify-center items-center py-4 px-4 md:px-16">
       <div className="flex flex-col md:flex-row gap-6">
         {data.map((card, index) => (
           <InfoCard

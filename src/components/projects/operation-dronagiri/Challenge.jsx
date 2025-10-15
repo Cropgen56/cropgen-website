@@ -57,13 +57,13 @@ function Challenge() {
                         key={index}
                         className="flex flex-col items-center gap-2 sm:gap-4 bg-white p-2 md:p-4"
                     >
-                        <div className="bg-[#2AB673] rounded-full w-[100px] h-[100px] sm:w-[200px] sm:h-[200px] flex items-center justify-center">
+                        <div className="bg-[#2AB673] rounded-full w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] flex items-center justify-center">
                             <Image
                                 src={card.img}
                                 alt={card.title}
-                                width={100}
-                                height={100}
-                                className="object-contain w-[50px] h-[50px] sm:w-[100px] sm:h-[100px]"
+                                width={80}
+                                height={80}
+                                className="object-contain w-[50px] h-[50px] sm:w-[80px] sm:h-[80px]"
                             />
                         </div>
                         <h3 className="text-sm sm:text-xl font-bold text-center">{card.title}</h3>

@@ -6,18 +6,23 @@ function Pilot() {
     const cards = [
         {
             img: "/assets/image/projects/Field-Implementation.svg",
-            title: "Field Implementation",
-            subtitle: "Real-time monitoring across diverse crop types",
+            title: "Field Validation Visit",
+            subtitle: "Farmers + CropGen Team",
         },
         {
             img: "/assets/image/projects/NDVI-Analysis.svg",
-            title: "NDVI Analysis",
-            subtitle: "Satellite-based vegetation health monitoring",
+            title: "NDVI Map",
+            subtitle: "Washim Pilot Fields",
+        },
+        {
+            img: "/assets/image/projects/true-color.svg",
+            title: "True Color Satellite View",
+            subtitle: "Washim",
         },
         {
             img: "/assets/image/projects/Advisory-System.svg",
-            title: "Advisory System",
-            subtitle: "AI-powered recommendations for farmers",
+            title: "CropGen Dashboard",
+            subtitle: "AI Advisory Output",
         },
     ];
 
@@ -45,7 +50,7 @@ function Pilot() {
             </div>
 
             {/* Cards Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:mt-6 px-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 md:mt-6 px-4 w-full">
                 {cards.map((card, index) => (
                     <div
                         key={index}
@@ -60,10 +65,10 @@ function Pilot() {
                             />
                         </div>
 
-                        <h3 className="text-md md:text-xl text-[#28C878] font-bold text-center">
+                        <h3 className="text-base md:text-xl text-[#28C878] font-bold text-center">
                             {card.title}
                         </h3>
-                        <p className="text-xs md:text-md text-black text-center px-4">
+                        <p className="text-xs md:text-base text-black text-center px-4">
                             {card.subtitle}
                         </p>
                     </div>
