@@ -13,7 +13,7 @@ const crops = [
 const cropImages = {
   Soyabean: [
     "/assets/image/projects/gallery/gallery1.jpeg",
-    "/assets/image/projects/gallery/gallery-video.mp4",
+    "/assets/image/projects/gallery/soybean-video.mp4",
     "/assets/image/projects/gallery/gallery2.jpeg",
     "/assets/image/projects/gallery/gallery3.jpeg",
     "/assets/image/projects/gallery/gallery5.jpeg",
@@ -27,7 +27,7 @@ const cropImages = {
     "/assets/image/projects/gallery/turmeric2.jpeg",
     "/assets/image/projects/gallery/turmeric3.jpeg",
     "/assets/image/projects/gallery/turmeric4.jpeg",
-    "/assets/image/projects/gallery/turmeric5.jpeg",
+    "/assets/image/projects/gallery/turmeric.jpg",
   ],
 };
 
@@ -68,7 +68,7 @@ const FieldImplementationGallery = () => {
 
       <div className="flex items-center justify-between mb-6">
         <span className="text-lg md:text-2xl font-bold text-[#000]">
-          Gallery - {cropName}
+          Gallery
         </span>
         <div className="flex items-center gap-3">
           <button
@@ -115,7 +115,10 @@ const FieldImplementationGallery = () => {
           <div className="relative w-full h-[685px] rounded-xl overflow-hidden shadow">
             {renderMedia(images[5], "img-5")}
           </div>
-          <div className="relative w-full  rounded-xl overflow-hidden shadow" style={{ height: `calc(485px / 2)` }} >
+          <div
+            className="relative w-full  rounded-xl overflow-hidden shadow"
+            style={{ height: `calc(485px / 2)` }}
+          >
             {renderMedia(images[6], "img-6")}
           </div>
         </div>
