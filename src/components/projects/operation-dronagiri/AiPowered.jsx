@@ -10,7 +10,7 @@ function AiPowered() {
       title: "Automatic Agronomy System",
       subtitle:
         "18+ ground data points to deliver real-time crop advisories on pests, diseases, irrigation, and fertigation — helping farmers make smart, data-driven decisions for better yield and sustainability.",
-      plus: true,
+      plus: false,
     },
     {
       number: 12,
