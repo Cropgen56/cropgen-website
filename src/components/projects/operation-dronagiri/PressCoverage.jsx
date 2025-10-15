@@ -22,14 +22,19 @@ const pressCards = [
     subtitle: "MSME Hackathon 5.0",
   },
   {
+    title: "Selected by",
+    img: "/assets/image/projects/climate-collective.svg",
+    subtitle: "AI for Climate Accelerator - program",
+  },
+  {
     title: "Rouge International, Thailand",
     img: "/assets/image/projects/rouge.svg",
     subtitle: "MoU signed",
   },
   {
-    title: "Selected by",
-    img: "/assets/image/projects/climate-collective.svg",
-    subtitle: "Eureka Hackathon",
+    title: "Participated in",
+    img: "/assets/image/projects/eureka.jpg",
+    subtitle: "Eureka participitaed - ASIA  program",
   },
   {
     title: "Participated in",
@@ -102,7 +107,7 @@ const PressCoverage = () => {
         {/* Prev Button */}
         <button
           onClick={handlePrev}
-          className="p-2 rounded-full bg-[#E4FFF1] hover:bg-[#28C878] hover:text-white transition-all duration-300"
+          className="p-2 rounded-full bg-[#E4FFF1] hover:bg-[#28C878] hover:text-white transition-all duration-300 z-50"
         >
           <MoveLeft size={28} strokeWidth={1.5} />
         </button>
@@ -142,7 +147,7 @@ const PressCoverage = () => {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="p-2 rounded-full bg-[#2AB673] text-white hover:bg-[#24965a] transition-all duration-300"
+          className="p-2 rounded-full bg-[#2AB673] text-white hover:bg-[#24965a] transition-all duration-300 z-50"
         >
           <MoveRight size={28} strokeWidth={1.5} />
         </button>

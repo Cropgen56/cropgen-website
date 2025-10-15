@@ -15,12 +15,13 @@ const DataFlowSection = () => {
       </div>
 
       <div className="flex flex-col items-center text-center mx-40 z-10">
-        <h3 className="text-lg font-semibold mb-3 text-black">AI Processing</h3>
+        <h3 className="hidden md:flex text-lg font-semibold mb-3 text-black whitespace-nowrap">AI Processing</h3>
         <img
           src="/assets/image/projects/ai.svg"
           alt="AI Processing"
           className="w-32 h-32 object-contain"
         />
+         <h3 className="block md:flex text-lg font-semibold mb-3 text-black whitespace-nowrap">AI Processing</h3>
       </div>
 
       <div className="flex flex-col items-center text-center z-10">

@@ -12,21 +12,21 @@ const crops = [
 
 const cropImages = {
   Soyabean: [
-    "/assets/image/projects/gallery/gallery1.jpeg",
-    "/assets/image/projects/gallery/soybean-video.mp4",
-    "/assets/image/projects/gallery/gallery2.jpeg",
-    "/assets/image/projects/gallery/gallery3.jpeg",
-    "/assets/image/projects/gallery/gallery5.jpeg",
-    "/assets/image/projects/gallery/gallery6.jpeg",
-    "/assets/image/projects/gallery/gallery7.jpeg",
+    "/assets/image/projects/gallery/3.png",
+    "/assets/image/projects/gallery/water mark vid.mp4",
+    "/assets/image/projects/gallery/2.png",
+    "/assets/image/projects/gallery/1.png",
+    "/assets/image/projects/gallery/im2.png",
+    "/assets/image/projects/gallery/2 copy.png",
+    "/assets/image/projects/gallery/1 copy.png",
   ],
   Turmeric: [
-    "/assets/image/projects/gallery/turmeric1.jpeg",
-    "/assets/image/projects/gallery/turmeric-video.mp4",
-    "/assets/image/projects/gallery/gallery4.jpeg",
-    "/assets/image/projects/gallery/turmeric2.jpeg",
-    "/assets/image/projects/gallery/turmeric3.jpeg",
-    "/assets/image/projects/gallery/turmeric4.jpeg",
+    "/assets/image/projects/gallery/1 copy 2.png",
+    "/assets/image/projects/gallery/water mark vid1.mp4",
+    "/assets/image/projects/gallery/img4.png",
+    "/assets/image/projects/gallery/4.png",
+    "/assets/image/projects/gallery/2 copy 2.png",
+    "/assets/image/projects/gallery/4.png",
     "/assets/image/projects/gallery/turmeric.jpg",
   ],
 };
@@ -53,7 +53,7 @@ const FieldImplementationGallery = () => {
         loop
         muted
         playsInline
-        className="object-cover w-full h-[550px]"
+        className="object-cover w-full h-full md:h-[550px]"
       />
     ) : (
       <Image src={src} alt={alt} fill className="object-cover" />
@@ -86,12 +86,12 @@ const FieldImplementationGallery = () => {
         </div>
       </div>
 
-      <div className="hidden md:grid grid-cols-10 gap-4 h-[600px] lg:h-[1000px]">
+      <div className="hidden md:grid grid-cols-10 gap-4 h-[600px] md:h-[1000px]">
         <div className="col-span-3 grid grid-rows-[2fr_4fr] gap-4">
           <div className="relative w-full h-full rounded-xl overflow-hidden shadow">
             {renderMedia(images[0], "img-0")}
           </div>
-          <div className="relative w-full h-[550px] rounded-xl overflow-hidden shadow">
+          <div className="relative w-full h-full md:h-[550px] rounded-xl overflow-hidden shadow">
             {renderMedia(images[1], "img-0")}
           </div>
         </div>
