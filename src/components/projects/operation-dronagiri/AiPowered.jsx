@@ -9,7 +9,7 @@ function AiPowered() {
       number: "AAS System",
       title: "Automatic Agronomy System",
       subtitle:
-        "18+ ground data points to deliver real-time crop advisories on pests, diseases, irrigation, and fertigation — helping farmers make smart, data-driven decisions for better yield and sustainability.",
+        "18+ ground data points to deliver real-time crop advisories on pests, diseases, irrigation, and fertigation helping farmers make smart, data-driven decisions for better yield and sustainability.",
       plus: false,
     },
     {
@@ -48,8 +48,8 @@ function AiPowered() {
           intelligence. <br />
           CropGen is an AI-based Crop Monitoring and Advisory System (AAS
           System) that provides real-time, LLM-powered crop advisories using 18+
-          field parameters — including soil health, moisture, weather,
-          vegetation indices, and nutrient balance. <br />
+          field parameters including soil health, moisture, weather, vegetation
+          indices, and nutrient balance. <br />
           It analyzes 12+ satellite indices (NDVI, EVI, NDWI, MSAVI, SAVI, etc.)
           and offers BBCH-scale nutrient management for precise NPK
           recommendations. <br />
