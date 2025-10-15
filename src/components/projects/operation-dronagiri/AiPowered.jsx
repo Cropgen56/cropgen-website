@@ -6,8 +6,8 @@ import DataFlowSection from "./DataFlow";
 function AiPowered() {
   const cards = [
     {
-      number: "18",
-      title: "Automatic Agronomy Advisory System (AAAS) Field Parameters",
+      number: "AAS System",
+      title: "Automatic Agronomy System",
       subtitle:
         "18+ ground data points to deliver real-time crop advisories on pests, diseases, irrigation, and fertigation — helping farmers make smart, data-driven decisions for better yield and sustainability.",
       plus: true,
@@ -44,10 +44,18 @@ function AiPowered() {
 
       <div className="max-w-4xl text-center px-4 py-2">
         <p className="text-black text-xs md:text-base leading-relaxed">
-          Comprehensive AI-based crop monitoring system with satellite intelligence. <br />
-          CropGen is an AI-based Crop Monitoring and Advisory System (AAS System) that provides real-time, LLM-powered crop advisories using 18+ field parameters — including soil health, moisture, weather, vegetation indices, and nutrient balance. <br />
-          It analyzes 12+ satellite indices (NDVI, EVI, NDWI, MSAVI, SAVI, etc.) and offers BBCH-scale nutrient management for precise NPK recommendations. <br />
-          <strong>Geospatial Datasets (GDI):</strong> Sentinel satellite imagery, weather satellite data (NASA POWER & ERA5), SoilGrids, and local field validation data.
+          Comprehensive AI-based crop monitoring system with satellite
+          intelligence. <br />
+          CropGen is an AI-based Crop Monitoring and Advisory System (AAS
+          System) that provides real-time, LLM-powered crop advisories using 18+
+          field parameters — including soil health, moisture, weather,
+          vegetation indices, and nutrient balance. <br />
+          It analyzes 12+ satellite indices (NDVI, EVI, NDWI, MSAVI, SAVI, etc.)
+          and offers BBCH-scale nutrient management for precise NPK
+          recommendations. <br />
+          <strong>Geospatial Datasets (GDI):</strong> Sentinel satellite
+          imagery, weather satellite data (NASA POWER & ERA5), SoilGrids, and
+          local field validation data.
         </p>
       </div>
 
