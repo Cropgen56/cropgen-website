@@ -7,17 +7,17 @@ import PressCoverage from "./PressCoverage";
 function Next() {
   const cards = [
     {
-      image: "/assets/image/projects/Group 582.svg",
+      image: "/assets/image/projects/Scale.svg",
       title: "Scale to 10,000+ Acres",
       subtitle: "Expanding coverage across multiple states",
     },
     {
-      image: "/assets/image/projects/Clip path group.svg",
+      image: "/assets/image/projects/ICAR.svg",
       title: "ICAR Validation",
       subtitle: "Official validation from agricultural research council",
     },
     {
-      image: "/assets/image/projects/Group 583.svg",
+      image: "/assets/image/projects/carbon-tracking.svg",
       title: "Carbon Tracking",
       subtitle: "Comprehensive environmental impact monitoring",
     },

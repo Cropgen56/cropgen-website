@@ -215,40 +215,41 @@ export default function ChatWindow({ onClose, onBack }) {
   bg-[length:390px_auto] bg-[position:center_10%]"
       >
         {/* Header */}
-        <div className="flex justify-between items-center p-3 border-b border-gray-200">
-          <div className="flex items-center gap-2">
+        <div className="flex justify-between items-center p-2 sm:p-3 border-b border-gray-200">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <ChevronLeft
               className="cursor-pointer text-black"
-              size={18}
+              size={16}
               onClick={onBack}
             />
             <Image
               src="/assets/image/comman/chatbot-logo.svg"
               alt="cropgen logo"
-              width={24}
-              height={24}
+              width={20}
+              height={20}
+              className="w-5 h-5 sm:w-6 sm:h-6"
             />
-            <span className="text-[#265A48] text-md font-bold">CropGen</span>
+            <span className="text-[#265A48] text-sm sm:text-md font-bold">CropGen</span>
           </div>
-          <div className="flex items-center gap-3 ">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {/* Reset chat = message + icon */}
               <MessageSquare
                 onClick={resetChat}
                 className="cursor-pointer text-black"
-                size={16}
+                size={14}
               />
 
               {/* Open history = clock icon */}
               <Clock
                 onClick={() => setHistoryOpen(true)}
                 className="cursor-pointer text-black"
-                size={16}
+                size={14}
               />
 
               {/* Close chat */}
               <X
-                size={16}
+                size={14}
                 className="cursor-pointer text-black"
                 onClick={onClose}
               />
@@ -265,28 +266,28 @@ export default function ChatWindow({ onClose, onBack }) {
       bg-[length:390px_auto] bg-[position:center_10%]"
             >
               {/* Header */}
-              <div className="flex justify-between items-center p-3 border-b border-gray-200">
-                <span className="font-semibold text-sm text-black">
+              <div className="flex justify-between items-center p-2 sm:p-3 border-b border-gray-200">
+                <span className="font-semibold text-xs sm:text-sm text-black">
                   Chat History
                 </span>
                 <X
                   className="cursor-pointer text-black"
-                  size={16}
+                  size={14}
                   onClick={() => setHistoryOpen(false)}
                 />
               </div>
 
               {/* History list */}
-              <div className="flex-1 overflow-y-auto p-3 text-xs">
+              <div className="flex-1 overflow-y-auto p-2 sm:p-3 text-[10px] sm:text-xs">
                 {chatHistory.length === 0 ? (
-                  <p className="text-gray-500 text-center text-xs">
+                  <p className="text-gray-500 text-center text-[10px] sm:text-xs">
                     No history yet.
                   </p>
                 ) : (
                   chatHistory.map((chat) => (
                     <div
                       key={chat.id}
-                      className="p-2 mb-2 border rounded cursor-pointer hover:bg-gray-50 bg-white/70"
+                      className="p-1.5 sm:p-2 mb-2 border rounded cursor-pointer hover:bg-gray-50 bg-white/70"
                       onClick={() => {
                         setMessages(chat.messages); // restore messages
                         setViewingHistory(true); // enter view-only mode
@@ -295,10 +296,10 @@ export default function ChatWindow({ onClose, onBack }) {
                         setRoleSelected(true);
                       }}
                     >
-                      <p className="font-medium text-black">
+                      <p className="font-medium text-black text-[10px] sm:text-xs">
                         {new Date(chat.createdAt).toLocaleString()}
                       </p>
-                      <p className="truncate text-gray-600">
+                      <p className="truncate text-gray-600 text-[10px] sm:text-xs">
                         {chat.messages[0]?.text}
                       </p>
                     </div>
@@ -309,7 +310,7 @@ export default function ChatWindow({ onClose, onBack }) {
               {/* Clear all button */}
               <button
                 onClick={() => setChatHistory([])}
-                className="m-3 py-1.5 text-xs bg-green-500 text-white rounded"
+                className="m-2 sm:m-3 py-1 sm:py-1.5 text-[10px] sm:text-xs bg-green-500 text-white rounded"
               >
                 Clear All
               </button>
@@ -318,7 +319,7 @@ export default function ChatWindow({ onClose, onBack }) {
         )}
 
         {/* Chat Body */}
-        <div className="flex-1 px-4 py-3 overflow-y-auto flex flex-col gap-1 scrollbar-hide">
+        <div className="flex-1 px-3 sm:px-4 py-2 sm:py-3 overflow-y-auto flex flex-col gap-1 scrollbar-hide">
           <AnimatePresence>
             {messages.map((msg, idx) => (
               <motion.div
@@ -327,12 +328,12 @@ export default function ChatWindow({ onClose, onBack }) {
                 animate="visible"
                 exit="hidden"
                 variants={messageVariants}
-                className={`flex gap-2 items-start max-w-[75%] ${msg.sender === "user" ? "self-end flex-row-reverse" : "self-start"
+                className={`flex gap-1.5 sm:gap-2 items-start max-w-[75%] ${msg.sender === "user" ? "self-end flex-row-reverse" : "self-start"
                   }`}
               >
                 {/* Icon */}
                 <i
-                  className={`text-xl ${msg.sender === "user"
+                  className={`text-base sm:text-xl ${msg.sender === "user"
                       ? "ri-user-3-fill text-green-500"
                       : "ri-robot-2-fill text-green-700"
                     }`}
@@ -340,7 +341,7 @@ export default function ChatWindow({ onClose, onBack }) {
 
                 {/* Bubble */}
                 <div
-                  className={`px-3 py-2 rounded-xl text-xs ${msg.sender === "user"
+                  className={`px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs ${msg.sender === "user"
                       ? "bg-white border border-gray-200 rounded-br-none"
                       : "bg-green-200 rounded-bl-none"
                     }`}
@@ -356,7 +357,7 @@ export default function ChatWindow({ onClose, onBack }) {
                     <a
                       href={URL.createObjectURL(msg.file)}
                       target="_blank"
-                      className="text-blue-500 underline text-xs"
+                      className="text-blue-500 underline text-[10px] sm:text-xs"
                     >
                       {msg.file.name}
                     </a>
@@ -372,14 +373,14 @@ export default function ChatWindow({ onClose, onBack }) {
                               style={oneDark}
                               language={match[1]}
                               PreTag="div"
-                              className="rounded-lg text-xs"
+                              className="rounded-lg text-[10px] sm:text-xs"
                               {...props}
                             >
                               {String(children).replace(/\n$/, "")}
                             </SyntaxHighlighter>
                           ) : (
                             <code
-                              className="bg-gray-200 px-1 py-0.5 rounded text-[10px]"
+                              className="bg-gray-200 px-1 py-0.5 rounded text-[9px] sm:text-[10px]"
                               {...props}
                             >
                               {children}
@@ -388,14 +389,14 @@ export default function ChatWindow({ onClose, onBack }) {
                         },
                         p({ children }) {
                           return (
-                            <p className="text-gray-800 text-xs leading-relaxed mb-1">
+                            <p className="text-gray-800 text-[10px] sm:text-xs leading-relaxed mb-1">
                               {children}
                             </p>
                           );
                         },
                         li({ children }) {
                           return (
-                            <li className="list-disc ml-4 text-xs text-gray-800">
+                            <li className="list-disc ml-3 sm:ml-4 text-[10px] sm:text-xs text-gray-800">
                               {children}
                             </li>
                           );
@@ -413,14 +414,14 @@ export default function ChatWindow({ onClose, onBack }) {
 
           {/* Typing Loader */}
           {loading && (
-            <div className="px-3 py-2 rounded-xl self-start">
+            <div className="px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl self-start">
               <TypingLoader />
             </div>
           )}
 
           {/* Dynamic AI Input */}
           {dynamicInput && (
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 mt-2">
               {dynamicInput.type === "tel" ? (
                 <>
                   {/* Country Code Dropdown */}
@@ -431,7 +432,7 @@ export default function ChatWindow({ onClose, onBack }) {
                       const number = dynamicValue.split(" ")[1] || "";
                       setDynamicValue(`${code} ${number}`);
                     }}
-                    className="px-2 py-2 text-xs border rounded-xl outline-none bg-white"
+                    className="px-1.5 sm:px-2 py-1.5 sm:py-2 text-[10px] sm:text-xs border rounded-xl outline-none bg-white"
                   >
                     <option value="+91">🇮🇳 +91</option>
                     <option value="+1">🇺🇸 +1</option>
@@ -450,7 +451,7 @@ export default function ChatWindow({ onClose, onBack }) {
                       const code = dynamicValue.split(" ")[0] || "+91";
                       setDynamicValue(`${code} ${e.target.value}`);
                     }}
-                    className="flex-1 px-3 py-2 text-xs border rounded-xl outline-none"
+                    className="flex-1 px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs border rounded-xl outline-none"
                   />
                 </>
               ) : (
@@ -460,13 +461,13 @@ export default function ChatWindow({ onClose, onBack }) {
                   placeholder={dynamicInput.placeholder}
                   value={dynamicValue}
                   onChange={(e) => setDynamicValue(e.target.value)}
-                  className="flex-1 px-3 py-2 text-xs border rounded-xl outline-none"
+                  className="flex-1 px-2 sm:px-3 py-1.5 sm:py-2 text-[10px] sm:text-xs border rounded-xl outline-none"
                 />
               )}
 
               {/* Send Button */}
               <button
-                className="px-3 py-1 text-xs text-white bg-green-500 rounded-xl"
+                className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs text-white bg-green-500 rounded-xl"
                 onClick={() => {
                   if (!dynamicValue.trim()) return;
                   sendMessage(dynamicValue, "user"); // full number with code
@@ -480,7 +481,7 @@ export default function ChatWindow({ onClose, onBack }) {
           )}
           {/* Role buttons */}
           {!roleSelected && (
-            <div className="flex flex-col gap-2 mt-2">
+            <div className="flex flex-col gap-1.5 sm:gap-2 mt-2">
               <AnimatePresence>
                 {["Farmer", "Agribusiness / AgTech Professional", "Just Exploring"].map((role, idx) => (
                   <motion.button
@@ -490,7 +491,7 @@ export default function ChatWindow({ onClose, onBack }) {
                     exit="hidden"
                     variants={roleButtonVariants}
                     transition={{ delay: idx * 0.1 }}
-                    className="flex items-center gap-2 px-4 py-2 text-xs bg-white rounded-xl w-fit border border-gray-200 shadow-sm hover:shadow-md transition rounded-bl-none"
+                    className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs bg-white rounded-xl w-fit border border-gray-200 shadow-sm hover:shadow-md transition rounded-bl-none"
                     onClick={() => handleRoleClick(role)}
                   >
                     <Image
@@ -502,10 +503,14 @@ export default function ChatWindow({ onClose, onBack }) {
                             : "/assets/image/comman/earth-leaf.svg"
                       }
                       alt={role}
-                      width={18}
-                      height={18}
+                      width={16}
+                      height={16}
+                      className="w-4 h-4 sm:w-[18px] sm:h-[18px]"
                     />
-                    {role}
+                    <span className="hidden sm:inline">{role}</span>
+                    <span className="sm:hidden">
+                      {role === "Agribusiness / AgTech Professional" ? "AgTech Pro" : role === "Just Exploring" ? "Exploring" : role}
+                    </span>
                   </motion.button>
                 ))}
               </AnimatePresence>
@@ -517,9 +522,9 @@ export default function ChatWindow({ onClose, onBack }) {
         {/* Input Bar */}
         {/* Input Bar */}
         {!viewingHistory && (
-          <div className="p-3">
+          <div className="p-2 sm:p-3">
             <div
-              className={`flex flex-col items-center gap-2 bg-white rounded-xl px-3 py-1.5 h-[80px] border border-gray-300 shadow-sm ${!roleSelected || dynamicInput
+              className={`flex flex-col items-center gap-1.5 sm:gap-2 bg-white rounded-xl px-2 sm:px-3 py-1 sm:py-1.5 h-[70px] sm:h-[80px] border border-gray-300 shadow-sm ${!roleSelected || dynamicInput
                   ? "opacity-80 cursor-not-allowed"
                   : ""
                 }`}
@@ -529,15 +534,15 @@ export default function ChatWindow({ onClose, onBack }) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Monitor crops, get accurate farm insights, and boost yields."
-                className="flex-1 w-full outline-none text-xs bg-transparent text-gray-700"
+                placeholder="Monitor crops & boost yields"
+                className="flex-1 w-full outline-none text-[10px] sm:text-xs bg-transparent text-gray-700 placeholder:text-[10px] sm:placeholder:text-xs"
                 disabled={!roleSelected || dynamicInput}
               />
               <div className="flex flex-row justify-between items-center w-full">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1 sm:gap-1.5">
                   <Paperclip
                     color="#9A9898"
-                    size={16}
+                    size={14}
                     className="cursor-pointer"
                     onClick={handleFileClick}
                   />
@@ -553,20 +558,20 @@ export default function ChatWindow({ onClose, onBack }) {
 
                 <IoSend
                   className="text-[#28C878] cursor-pointer"
-                  size={20}
+                  size={18}
                   onClick={() =>
                     roleSelected && !dynamicInput && sendMessage(input, "user")
                   }
                 />
               </div>
             </div>
-            <p className="text-[10px] text-gray-400 mt-1 text-center">
+            <p className="text-[9px] sm:text-[10px] text-gray-400 mt-1 text-center">
               By using CropGen, you agree to our{" "}
               <Link
                 href="/terms-conditions"
                 className="text-green-500 cursor-pointer"
               >
-                Terms & Conditions
+                Terms and Conditions
               </Link>
               .
             </p>

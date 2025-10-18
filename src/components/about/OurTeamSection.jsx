@@ -28,12 +28,6 @@ const teamMembers = [
     image: "/assets/image/about/adeshborkute.png",
   },
   {
-    id: 5,
-    name: "Janvi Magar ",
-    designation: "Market Research Intern",
-    image: "/assets/image/about/janhvimagar.png",
-  },
-  {
     id: 6,
     name: "Vishal Pillai",
     designation: "Frontend Developer",
@@ -45,6 +39,12 @@ const teamMembers = [
     designation: "Frontend Developer",
     image: "/assets/image/about/garima-rawat.png",
   },
+  {
+    id: 8,
+    name: "Darshan Shirsat",
+    designation: "Data Analyst",
+    image: "/assets/image/about/darshan.png",
+  }
   // {
   //   id: 6,
   //   name: "Ganesh Gawande",

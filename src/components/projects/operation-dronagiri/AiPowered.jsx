@@ -1,9 +1,48 @@
+"use client";
 import { Plus } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DataFlowSection from "./DataFlow";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function AiPowered() {
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    cardsRef.current.forEach((card, i) => {
+      const directions = ["left", "bottom", "right"];
+      const dir = directions[i % directions.length];
+      let x = 0,
+        y = 0;
+
+      if (dir === "left") x = -120;
+      if (dir === "right") x = 120;
+      if (dir === "bottom") y = 120;
+
+      gsap.fromTo(
+        card,
+        { opacity: 0, x, y, scale: 0.95 },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 1.4,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "bottom 65%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  }, []);
+
   const cards = [
     {
       number: "AAS System",
@@ -42,6 +81,7 @@ function AiPowered() {
         </h2>
       </div>
 
+      {/* Paragraph */}
       <div className="max-w-4xl text-center px-4 py-2">
         <p className="text-black text-xs md:text-base leading-relaxed">
           Comprehensive AI-based crop monitoring system with satellite
@@ -64,6 +104,7 @@ function AiPowered() {
         {cards.map((card, index) => (
           <div
             key={index}
+            ref={(el) => (cardsRef.current[index] = el)}
             className="relative z-10 flex flex-col items-center border border-[#00000026] shadow-xl rounded-2xl gap-4 bg-white p-6 flex-grow sm:flex-grow-0 sm:w-[30%] min-w-[150px]"
           >
             <div className="text-[#2AB673] font-bold text-xl sm:text-3xl flex items-center justify-center whitespace-nowrap">
@@ -77,6 +118,7 @@ function AiPowered() {
           </div>
         ))}
       </div>
+
       <DataFlowSection />
     </section>
   );

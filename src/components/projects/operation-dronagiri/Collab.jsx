@@ -23,7 +23,7 @@ function Collab() {
     },
     {
       img: "/assets/image/projects/cropydeals.jpg",
-      title: "Service Partner, CorpyDeals",
+      title: "Service Partner, CropyDeals",
     },
     {
       img: "/assets/image/projects/startup-conclave.svg",

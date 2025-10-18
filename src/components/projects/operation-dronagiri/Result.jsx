@@ -40,7 +40,7 @@ function Result() {
       </div>
 
       {/* Cards Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full px-4 py-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full px-4 py-4">
         {cards.map((card, index) => (
           <div
             key={index}

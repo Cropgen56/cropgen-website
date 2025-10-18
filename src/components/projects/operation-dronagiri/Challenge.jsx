@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 import ProblemSolution from "./ProblemSolution";
 
 function Challenge() {
@@ -28,7 +30,14 @@ function Challenge() {
 
     return (
         <section className="py-4 md:py-10 w-full flex flex-col justify-center items-center gap-3 sm:gap-6">
-            <div className="flex flex-col gap-6 relative">
+            {/* Heading */}
+            <motion.div
+                className="flex flex-col gap-6 relative"
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: true }}
+            >
                 <Image
                     src="/assets/image/projects/The-Challenge-We're-Solving.svg"
                     alt="The Challenge We're Solving"
@@ -39,22 +48,56 @@ function Challenge() {
                 <h2 className="text-xl md:text-3xl lg:text-5xl font-bold text-center text-[#2AB673] z-10 relative">
                     The Challenge We're Solving
                 </h2>
-            </div>
-            <div className="max-w-2xl text-center px-4 py-2">
+            </motion.div>
+
+            {/* Paragraph */}
+            <motion.div
+                className="max-w-2xl text-center px-4 py-2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+                viewport={{ once: true }}
+            >
                 <p className="text-black text-xs md:text-base leading-relaxed">
-                    Traditional farming faces critical challenges: <span className="font-bold">inefficient resource
-                        utilization, excessive fertilizer use leading to environmental
-                        degradation, unpredictable weather patterns, and declining
-                        productivity. </span>Farmers need data-driven insights to make informed
-                    decisions and optimize their agricultural practices.
+                    Traditional farming faces critical challenges:{" "}
+                    <span className="font-bold">
+                        inefficient resource utilization, excessive fertilizer use leading
+                        to environmental degradation, unpredictable weather patterns, and
+                        declining productivity.
+                    </span>{" "}
+                    Farmers need data-driven insights to make informed decisions and
+                    optimize their agricultural practices.
                 </p>
-            </div>
+            </motion.div>
 
             {/* Cards Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 md:mt-6 px-4">
+            <motion.div
+                className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 md:mt-6 px-4"
+                initial="hidden"
+                whileInView="visible"
+                variants={{
+                    hidden: {},
+                    visible: {
+                        transition: { staggerChildren: 0.2 },
+                    },
+                }}
+                viewport={{ once: true }}
+            >
                 {cards.map((card, index) => (
-                    <div
+                    <motion.div
                         key={index}
+                        variants={{
+                            hidden: { opacity: 0, y: 40, scale: 0.95 },
+                            visible: {
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                transition: {
+                                    duration: 0.8,
+                                    ease: [0.25, 1, 0.5, 1],
+                                },
+                            },
+                        }}
                         className="flex flex-col items-center gap-2 sm:gap-4 bg-white p-2 md:p-4"
                     >
                         <div className="bg-[#2AB673] rounded-full w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] flex items-center justify-center">
@@ -66,12 +109,17 @@ function Challenge() {
                                 className="object-contain w-[50px] h-[50px] sm:w-[80px] sm:h-[80px]"
                             />
                         </div>
-                        <h3 className="text-sm sm:text-xl font-bold text-center">{card.title}</h3>
-                        <p className="text-[10px] sm:text-md font-bold text-center">{card.subtitle}</p>
-                    </div>
+                        <h3 className="text-sm sm:text-xl font-bold text-center">
+                            {card.title}
+                        </h3>
+                        <p className="text-[10px] sm:text-md font-bold text-center">
+                            {card.subtitle}
+                        </p>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
+            {/* Problem Solution Section */}
             <ProblemSolution />
         </section>
     );
