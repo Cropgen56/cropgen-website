@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const teamMembers = [
   {
@@ -8,55 +10,50 @@ const teamMembers = [
     name: "Mahesh Gote",
     designation: "Founder",
     image: "/assets/image/about/maheshgote.jpeg",
+    linkedin: "https://www.linkedin.com/in/mahesh-gote-106738228/",
   },
   {
     id: 2,
     name: "Abhishek Sumatkar",
     designation: "Agronomist",
     image: "/assets/image/about/abhisheksumatkar.png",
+    linkedin: "https://www.linkedin.com/in/abhishek-sumatkar-997271252/",
   },
   {
     id: 3,
     name: "Vishal Maske",
     designation: "Full Stack Developer",
     image: "/assets/image/about/vishalmaske.png",
+    linkedin: "https://www.linkedin.com/in/vishalmaske-/",
   },
   {
     id: 4,
     name: "Adesh Borkute",
     designation: "UI / UX Designer",
     image: "/assets/image/about/adeshborkute.png",
+    linkedin: "https://www.linkedin.com/in/adesh-borkute-5203811a1/",
   },
   {
     id: 6,
     name: "Vishal Pillai",
     designation: "Frontend Developer",
     image: "/assets/image/about/vishal-pillai.png",
+    linkedin: "https://www.linkedin.com/in/vishalpillai21122004/",
   },
   {
     id: 7,
     name: "Garima Rawat",
     designation: "Frontend Developer",
     image: "/assets/image/about/garima-rawat.png",
+    linkedin: "https://www.linkedin.com/in/garima-rawat-1a5798221/",
   },
   {
     id: 8,
     name: "Darshan Shirsat",
     designation: "Data Analyst",
     image: "/assets/image/about/darshan.png",
-  }
-  // {
-  //   id: 6,
-  //   name: "Ganesh Gawande",
-  //   role: "Field Executive",
-  //   img: "/assets/image/about/Ganesh Gawande - field executive.png",
-  // },
-  // {
-  //   id: 7,
-  //   name: "Rushikesh Landage",
-  //   role: "Field Executive",
-  //   img: "/assets/image/about/Rushikesh Landage- field executive.png",
-  // },
+    linkedin: "https://www.linkedin.com/in/darshan-shirsat-5b182b210/",
+  },
 ];
 
 const OurTeamSection = () => {
@@ -98,15 +95,22 @@ const OurTeamSection = () => {
               <div className="absolute -top-2 lg:-top-4 -left-4 w-40 h-40 lg:w-52 lg:h-52 bg-[#2AB67366] rounded-2xl z-0 mx-1"></div>
 
               <div className="relative overflow-hidden rounded-xl z-10">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={200}
-                  height={200}
-                  className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
-                  onLoadingComplete={handleImageLoad}
-                />
+                {/* Clickable Image */}
+                <div
+                  onClick={() => window.open(member.linkedin, "_blank")}
+                  className="cursor-pointer relative"
+                >
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={200}
+                    height={200}
+                    className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
+                    onLoadingComplete={handleImageLoad}
+                  />
+                </div>
               </div>
+
               <div className="px-4 py-2 lg:p-4 text-start">
                 <p className="font-semibold">{member.name}</p>
                 <p className="text-gray-600 text-sm">{member.designation}</p>
