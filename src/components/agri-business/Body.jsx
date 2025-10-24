@@ -10,6 +10,7 @@ export default function Body() {
         alt="Why-Cropgen-for-Agribusiness"
         width={400}
         height={200}
+        priority
         className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] start-0 sm:start-4"
       />
       {/* Heading */}
@@ -26,6 +27,7 @@ export default function Body() {
             alt="Crop Health Analytics"
             width={400}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -67,6 +69,7 @@ export default function Body() {
                 src="/assets/image/comman/dot.webp"
                 width={20}
                 height={20}
+                priority
                 alt="dot"
                 className="mt-1"
               />

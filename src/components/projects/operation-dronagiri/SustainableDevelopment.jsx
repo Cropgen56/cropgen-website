@@ -36,6 +36,7 @@ function SustainableDevelopment() {
                 alt={card.title}
                 width={150}
                 height={150}
+                priority
                 className="object-cover w-full h-full"
               />
             </div>

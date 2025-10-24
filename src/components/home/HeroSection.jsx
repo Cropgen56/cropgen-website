@@ -124,6 +124,7 @@ const HeroSection = () => {
                   src={feature.src}
                   width={35}
                   height={35}
+                  priority
                   alt={feature.label}
                   className="w-[35px] h-auto"
                   onLoad={() => setLoadedImages((prev) => prev + 1)}

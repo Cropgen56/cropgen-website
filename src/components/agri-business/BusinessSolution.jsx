@@ -52,6 +52,7 @@ export default function BusinessSolution() {
         alt="CropGen’s-Agribusiness-Solutions"
         width={400}
         height={200}
+        priority
         className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[500px] md:w-[800px] left-1/2 -translate-x-1/2"
       />
       {/* Heading */}
@@ -68,6 +69,7 @@ export default function BusinessSolution() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -105,6 +107,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>
@@ -125,6 +128,7 @@ export default function BusinessSolution() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -163,6 +167,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>
@@ -183,6 +188,7 @@ export default function BusinessSolution() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -221,6 +227,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>
@@ -241,6 +248,7 @@ export default function BusinessSolution() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -278,6 +286,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>
@@ -298,6 +307,7 @@ export default function BusinessSolution() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -335,6 +345,7 @@ export default function BusinessSolution() {
                 src="/assets/image/comman/dot.webp"
                 width={20}
                 height={20}
+                priority
                 alt="dot"
                 className="sm:mt-3"
               />
@@ -356,6 +367,7 @@ export default function BusinessSolution() {
             alt="Crop Health Analytics"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -394,6 +406,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>
@@ -414,6 +427,7 @@ export default function BusinessSolution() {
             alt="corporate farming solution by cropgen"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -452,6 +466,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>
@@ -472,6 +487,7 @@ export default function BusinessSolution() {
             alt="White label solution by cropgen"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -510,6 +526,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>
@@ -530,6 +547,7 @@ export default function BusinessSolution() {
             alt="api integration by cropgen"
             width={500}
             height={300}
+            priority
             className="rounded-md object-contain"
           />
         </figure>
@@ -568,6 +586,7 @@ export default function BusinessSolution() {
                 width={20}
                 height={20}
                 alt="dot"
+                priority
                 className="sm:mt-3"
               />
               <p>

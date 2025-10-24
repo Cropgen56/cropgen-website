@@ -108,6 +108,7 @@ const FeaturesSection = () => {
             alt="CropGen’s-Monitoring"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[400px] sm:w-[1000px] start-0 sm:start-4"
           />
           <h2 className="text-2xl md:text-4xl font-bold text-gray-800 z-10">
@@ -145,6 +146,7 @@ const FeaturesSection = () => {
               src="/assets/image/home/features.png"
               height={500}
               width={500}
+              priority
               alt="CropGen feature image"
               className="rounded-xl"
             />

@@ -78,6 +78,7 @@ const OurTeamSection = () => {
             alt="Our Team"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
           />
           <h2 className="text-2xl md:text-4xl font-bold text-[#2AB673] relative z-10">
@@ -105,6 +106,7 @@ const OurTeamSection = () => {
                     alt={member.name}
                     width={200}
                     height={200}
+                    priority
                     className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
                     onLoadingComplete={handleImageLoad}
                   />

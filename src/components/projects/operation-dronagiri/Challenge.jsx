@@ -43,6 +43,7 @@ function Challenge() {
                     alt="The Challenge We're Solving"
                     width={600}
                     height={300}
+                    priority
                     className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
                 />
                 <h2 className="text-xl md:text-3xl lg:text-5xl font-bold text-center text-[#2AB673] z-10 relative">
@@ -105,6 +106,7 @@ function Challenge() {
                                 src={card.img}
                                 alt={card.title}
                                 width={80}
+                                priority
                                 height={80}
                                 className="object-contain w-[50px] h-[50px] sm:w-[80px] sm:h-[80px]"
                             />

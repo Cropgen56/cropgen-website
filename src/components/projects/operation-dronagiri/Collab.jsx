@@ -51,6 +51,7 @@ function Collab() {
                 alt={card.title}
                 width={120}
                 height={120}
+                priority
                 className="object-contain w-full h-full"
               />
             </div>

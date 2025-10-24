@@ -40,6 +40,7 @@ export default function SustainabilityFeatures() {
           alt="Crop Health Analytics"
           width={400}
           height={200}
+          priority
           className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-6 sm:start-10"
         />
         <h2 className="relative text-2xl sm:text-4xl font-bold leading-tight text-start mt-4 sm:mt-14 z-10">
@@ -55,6 +56,7 @@ export default function SustainabilityFeatures() {
             alt="Crop Health Analytics"
             width={500}
             height={400}
+            priority
             className="rounded-md object-cover h-[300px] sm:h-[400px]"
           />
         </figure>
@@ -87,6 +89,7 @@ export default function SustainabilityFeatures() {
                 src="/assets/image/comman/dot.webp"
                 width={24}
                 height={24}
+                priority
                 alt="dot"
               />
               <p>

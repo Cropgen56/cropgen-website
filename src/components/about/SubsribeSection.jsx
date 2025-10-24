@@ -68,6 +68,7 @@ const SubscribeSection = () => {
       <img
         src="/assets/image/about/subscribe-background.webp"
         alt="preload background"
+        priority
         className="hidden"
         onLoad={() => setBgLoaded(true)}
       />
@@ -115,6 +116,7 @@ const SubscribeSection = () => {
               src="/assets/image/about/call-image.webp"
               width={40}
               height={40}
+              priority
               alt="Phone icon for contact"
               onLoadingComplete={() => setIconLoaded(true)}
               onLoad={() => setIconLoaded(true)}

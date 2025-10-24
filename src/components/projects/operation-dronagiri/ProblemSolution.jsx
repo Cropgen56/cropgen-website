@@ -25,12 +25,14 @@ const InfoCard = ({ title, content, pointers, bgColor, textColor }) => {
                 alt={pointer.text}
                 width={20}
                 height={20}
+                priority
               />
             ) : pointer.icon ? (
               <pointer.icon
                 size={20}
                 strokeWidth={2}
                 color={textColor}
+                
                 fill={pointer.fill || "none"}
               />
             ) : null}

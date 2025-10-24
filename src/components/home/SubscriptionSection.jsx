@@ -46,6 +46,7 @@ export default function SubscriptionSection() {
             alt="Subscription Illustration"
             width={400}
             height={200}
+            priority
             className="object-contain"
           />
         </div>

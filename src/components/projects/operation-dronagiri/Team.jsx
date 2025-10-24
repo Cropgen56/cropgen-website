@@ -47,6 +47,7 @@ export default function Team() {
         src="/assets/image/projects/green-bg.svg"
         alt="Green Wave"
         fill
+        priority
         className="absolute top-0 left-0 w-full h-full object-contain -z-10 opacity-80"
       />
 
@@ -56,6 +57,7 @@ export default function Team() {
           src="/assets/image/projects/Meet-the-Team.svg"
           alt="Meet the Team"
           width={600}
+          priority
           height={300}
           className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
         />
@@ -136,6 +138,7 @@ export default function Team() {
                   src={member.img}
                   alt={member.name}
                   width={150}
+                  priority
                   height={150}
                   className="object-cover w-full h-full"
                 />

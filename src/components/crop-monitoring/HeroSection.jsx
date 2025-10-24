@@ -32,6 +32,7 @@ export default function HeroSection() {
         <Image
           src="/assets/image/crop-monitoring/hero.webp"
           alt="Farming Field with Sprinklers"
+          priority
           layout="fill"
           objectFit="cover"
           className="w-full h-full"
@@ -63,6 +64,7 @@ export default function HeroSection() {
               width={20}
               height={20}
               className="ml-2"
+              priority
             />
           </button>
         </article>
@@ -76,6 +78,7 @@ export default function HeroSection() {
           width={800}
           height={300}
           layout="responsive"
+          priority
         />
       </figure>
     </section>

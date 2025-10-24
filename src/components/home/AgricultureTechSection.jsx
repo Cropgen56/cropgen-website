@@ -36,6 +36,7 @@ export default function AgricultureTechSection() {
         alt="Enhancing-Agriculture-with-Technology"
         width={400}
         height={200}
+        priority
         className="absolute left-1/2 -translate-x-1/2 z-0 opacity-80 -top-2 w-[400px] sm:w-[750px] md:w-[1000px]"
       />
 
@@ -64,6 +65,7 @@ export default function AgricultureTechSection() {
             src="/assets/image/home/technology.png"
             width={1000}
             height={1000}
+            priority
             alt="agriculture technology image"
           />
         </motion.div>

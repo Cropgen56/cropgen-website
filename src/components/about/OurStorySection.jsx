@@ -19,6 +19,7 @@ const OurStorySection = () => {
             alt="Our Story"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
           />
           <h2 className="text-2xl md:text-4xl font-bold text-[#2AB673] z-10">
@@ -45,6 +46,7 @@ const OurStorySection = () => {
             alt="Farmers in Field"
             fill
             className="object-contain"
+            priority
             onLoadingComplete={() => setImageLoaded(true)}
           />
         </div>

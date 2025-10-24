@@ -42,6 +42,7 @@ export default function HeroSection() {
             alt="Right Arrow"
             width={18}
             height={18}
+            priority
           />
         </button>
       </div>

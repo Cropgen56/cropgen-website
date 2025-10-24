@@ -59,6 +59,7 @@ export default function ChatbotButton() {
                             alt="Chatbot Icon"
                             width={28}
                             height={28}
+                            priority
                             className="flex-shrink-0"
                         />
                         <span

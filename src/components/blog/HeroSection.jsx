@@ -71,6 +71,7 @@ export default function HeroSection({ blogs = [] }) {
           alt="Blog Hero"
           layout="fill"
           objectFit="cover"
+          priority
           className={`brightness-75 transition-opacity duration-700 ${
             bgLoaded ? "opacity-100" : "opacity-0"
           }`}
@@ -109,6 +110,7 @@ export default function HeroSection({ blogs = [] }) {
                   alt="Top Post Image"
                   width={500}
                   height={300}
+                  priority
                   className={`w-full h-auto rounded-lg shadow-md transition-opacity duration-700 ${
                     topPostLoaded ? "opacity-100" : "opacity-0"
                   }`}

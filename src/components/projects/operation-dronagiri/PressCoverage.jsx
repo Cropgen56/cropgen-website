@@ -134,6 +134,7 @@ const PressCoverage = () => {
                   alt={card.title}
                   width={120}
                   height={120}
+                  priority
                   className="object-contain"
                 />
               </div>

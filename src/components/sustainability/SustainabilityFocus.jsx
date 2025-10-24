@@ -46,6 +46,7 @@ export default function SustainabilityFocus() {
           alt="Sustainability Focus"
           width={1000}
           height={200}
+          priority
           className="absolute z-0 opacity-80"
         />
         <h2 className="relative text-2xl sm:text-5xl font-bold leading-tight text-center mt-4 sm:mt-10 z-10">
@@ -116,6 +117,7 @@ export default function SustainabilityFocus() {
               alt={focus.title}
               width={500}
               height={300}
+              priority
               className="rounded-md object-contain h-[200px] sm:h-[300px]"
             />
           </figure>
@@ -135,6 +137,7 @@ export default function SustainabilityFocus() {
                   width={24}
                   height={24}
                   alt="dot"
+                  priority
                   className="sm:mt-1"
                 />
                 <p>

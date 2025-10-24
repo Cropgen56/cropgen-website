@@ -40,6 +40,7 @@ export default function SustainabilityImpact() {
           alt="Crop Health Analytics"
           width={400}
           height={200}
+          priority
           className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-6 sm:start-10"
         />
 
@@ -54,6 +55,7 @@ export default function SustainabilityImpact() {
           alt="Crop Gen Sustainability Impact"
           width={800}
           height={300}
+          priority
           className="h-auto mx-auto mt-5"
         />
       </div>

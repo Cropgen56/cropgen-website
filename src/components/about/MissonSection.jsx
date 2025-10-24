@@ -58,6 +58,7 @@ const MissionSection = () => {
                 height={60}
                 alt="icon"
                 className="w-[40px] h-[40px] md:w-[60px] md:h-[60px]"
+                priority
               />
               <p className="text-md md:text-xl font-bold ">{counts[index]}+</p>
             </div>
@@ -77,6 +78,7 @@ const MissionSection = () => {
             alt="Farmers in Field"
             layout="fill"
             objectFit="contain"
+            priority
             onLoadingComplete={() => setImageLoaded(true)}
           />
         </div>
@@ -88,6 +90,7 @@ const MissionSection = () => {
             alt="Our Mission"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
           />
           <h2 className="text-2xl sm:text-4xl font-bold text-[#2AB673] z-10">

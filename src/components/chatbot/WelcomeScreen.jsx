@@ -34,6 +34,7 @@ export default function WelcomeScreen({ onClose, onContinue }) {
                 src="/assets/image/comman/chatbot-logo.svg"
                 alt="cropgen logo"
                 width={30}
+                priority
                 height={30}
               />
               <span className="text-white text-[1rem] font-semibold">
@@ -69,6 +70,7 @@ export default function WelcomeScreen({ onClose, onContinue }) {
               alt="Leaf"
               width={18}
               height={18}
+              priority
             />
             <span>Hi! Welcome to CropGen</span>
           </p>
@@ -110,6 +112,7 @@ export default function WelcomeScreen({ onClose, onContinue }) {
             alt="chatbot home"
             width={24}
             height={24}
+            priority
           />
           <p className="text-sm font-bold text-[#2AB673]">Home</p>
         </button>
@@ -123,6 +126,7 @@ export default function WelcomeScreen({ onClose, onContinue }) {
             alt="chatbot msg gray"
             width={24}
             height={24}
+            priority
             className="block group-hover:hidden transition-all duration-500 ease-in-out"
           />
 
@@ -132,6 +136,7 @@ export default function WelcomeScreen({ onClose, onContinue }) {
             alt="chatbot msg green"
             width={24}
             height={24}
+            priority
             className="hidden group-hover:block transition-all duration-500 ease-in-out"
           />
           <p className="text-sm font-bold text-[#9A9898] group-hover:text-[#2AB673] transition-all duration-500 ease-in-out">

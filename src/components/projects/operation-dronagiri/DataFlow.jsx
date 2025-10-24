@@ -8,6 +8,7 @@ const DataFlowSection = () => {
           src="/assets/image/projects/satellite-data.svg"
           alt="Satellite Data"
           className="w-32 h-32 object-contain"
+          priority
         />
         <h3 className="text-lg font-semibold mt-3 text-black">
           Satellite Data
@@ -20,6 +21,7 @@ const DataFlowSection = () => {
           src="/assets/image/projects/ai.svg"
           alt="AI Processing"
           className="w-32 h-32 object-contain"
+          priority
         />
          <h3 className="block md:flex text-lg font-semibold mb-3 text-black whitespace-nowrap">AI Processing</h3>
       </div>
@@ -29,6 +31,7 @@ const DataFlowSection = () => {
           src="/assets/image/projects/farmer.svg"
           alt="Farmer Insights"
           className="w-32 h-32 object-contain"
+          priority
         />
         <h3 className="text-lg font-semibold mt-3 text-black">
           Farmer Insights

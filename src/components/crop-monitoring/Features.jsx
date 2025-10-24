@@ -66,6 +66,7 @@ export default function CropMonitoringFeatures() {
           alt="Crop-Monitoring-Features"
           width={400}
           height={200}
+          priority
           className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
         />
         <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#2AB673] sm:mb-8 z-10 relative">
@@ -83,6 +84,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -114,6 +116,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -145,6 +148,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -180,6 +184,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -210,6 +215,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -239,6 +245,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -270,6 +277,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -299,6 +307,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -328,6 +337,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -356,6 +366,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -384,6 +395,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={500}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -393,6 +405,7 @@ export default function CropMonitoringFeatures() {
                 alt="Scouting"
                 width={400}
                 height={200}
+                priority
                 className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[300px] left-1/2 -translate-x-1/2"
               />
               <h2 className="text-[#2AB673] text-3xl sm:text-4xl font-bold z-10 relative">
@@ -420,6 +433,7 @@ export default function CropMonitoringFeatures() {
             alt="How-the-Cropgen"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
           />
           <h2 className="text-[#2AB673] text-xl sm:text-4xl font-bold z-10 relative">
@@ -447,6 +461,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={500}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -460,6 +475,7 @@ export default function CropMonitoringFeatures() {
                   src="/assets/image/comman/dot.webp"
                   width={20}
                   height={20}
+                  priority
                   alt="dot"
                   className="pt-1 me-1"
                 />{" "}
@@ -472,6 +488,7 @@ export default function CropMonitoringFeatures() {
                   src="/assets/image/comman/dot.webp"
                   width={20}
                   height={20}
+                  priority
                   alt="dot"
                   className="pt-1 me-1"
                 />{" "}
@@ -493,6 +510,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={500}
                 height={300}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -506,6 +524,7 @@ export default function CropMonitoringFeatures() {
                   src="/assets/image/comman/dot.webp"
                   width={20}
                   height={20}
+                  priority
                   alt="dot"
                   className="pt-1 me-1"
                 />{" "}
@@ -518,6 +537,7 @@ export default function CropMonitoringFeatures() {
                   src="/assets/image/comman/dot.webp"
                   width={20}
                   height={20}
+                  priority
                   alt="dot"
                   className="pt-1 me-1"
                 />{" "}
@@ -538,6 +558,7 @@ export default function CropMonitoringFeatures() {
             src="/assets/image/crop-monitoring/Features.png"
             alt="Features of CropGen Scouting Tool"
             width={400}
+            priority
             height={200}
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[600px] left-1/2 -translate-x-1/2"
           />
@@ -560,6 +581,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={200}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -572,6 +594,7 @@ export default function CropMonitoringFeatures() {
                   src="/assets/image/comman/dot.webp"
                   width={20}
                   height={20}
+                  priority
                   alt="dot"
                   className="pt-1 me-1"
                 />{" "}
@@ -593,6 +616,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={500}
                 height={200}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -605,6 +629,7 @@ export default function CropMonitoringFeatures() {
                   src="/assets/image/comman/dot.webp"
                   width={20}
                   height={20}
+                  priority
                   alt="dot"
                   className="pt-1 me-1"
                 />{" "}
@@ -628,6 +653,7 @@ export default function CropMonitoringFeatures() {
                 alt="Crop Health Analytics"
                 width={600}
                 height={200}
+                priority
                 className="rounded-md object-contain"
               />
             </figure>
@@ -640,6 +666,7 @@ export default function CropMonitoringFeatures() {
                   src="/assets/image/comman/dot.webp"
                   width={20}
                   height={20}
+                  priority
                   alt="dot"
                   className="pt-1 me-1"
                 />{" "}

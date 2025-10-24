@@ -125,6 +125,7 @@ const ValuesSection = () => {
             alt="our-Values"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px] start-0 sm:start-4"
           />
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 z-10">
@@ -165,6 +166,7 @@ const ValuesSection = () => {
                 alt="Report"
                 width={150}
                 height={100}
+                priority
                 className="pb-0 md:pb-20"
               />
             </div>
@@ -175,6 +177,7 @@ const ValuesSection = () => {
                 alt="Report"
                 width={400}
                 height={400}
+                priority
               />
             </div>
           </div>
@@ -186,6 +189,7 @@ const ValuesSection = () => {
               alt="Report"
               width={600}
               height={600}
+              priority
               className="ps-0"
             />
           </div>

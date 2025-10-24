@@ -105,6 +105,7 @@ export default function BlogCarousel() {
           alt="Latest-Blog"
           width={400}
           height={200}
+          priority
           className="absolute right-0 z-0 opacity-80 -top-6 w-[250px] sm:w-[400px] md:w-[600px]"
         />
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold z-10 relative">
@@ -134,6 +135,7 @@ export default function BlogCarousel() {
                 alt={visibleBlogs[0].title || "Blog"}
                 width={600}
                 height={400}
+                priority
                 className="w-full h-[220px] sm:h-[300px] lg:h-[400px] "
               />
               <div className="absolute inset-0 bg-black/30 p-3 sm:p-4 flex flex-col justify-between">
@@ -189,6 +191,7 @@ export default function BlogCarousel() {
                   alt={blog.title || "Blog"}
                   width={300}
                   height={200}
+                  priority
                   className="w-full h-[180px] sm:h-[220px] object-cover"
                 />
                 <div className="absolute inset-0 bg-black/20 p-3 sm:p-4 flex items-end">
@@ -231,6 +234,7 @@ export default function BlogCarousel() {
             src="/assets/image/home/left-arrow.png"
             width={16}
             height={16}
+            priority
             alt="Left"
           />
         </button>
@@ -242,6 +246,7 @@ export default function BlogCarousel() {
             src="/assets/image/home/right-arrow.png"
             width={16}
             height={16}
+            priority
             alt="Right"
           />
         </button>

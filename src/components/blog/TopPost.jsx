@@ -13,6 +13,7 @@ export default function TopPost() {
             src="/assets/image/blog/top-post.webp"
             alt="Top Post Image"
             width={500}
+            priority
             height={300}
             className="w-full h-auto rounded-lg shadow-md"
           />

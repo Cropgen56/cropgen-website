@@ -134,6 +134,7 @@ const AboutSection = () => {
             alt="Who We Are Text"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px]"
           />
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 z-10">
@@ -155,6 +156,7 @@ const AboutSection = () => {
               alt="NDVI"
               width={400}
               height={400}
+              priority
               className="rounded-md w-[350px] h-[300px] md:w-[400px] md:h-[400px] object-cover"
             />
           </div>
@@ -165,6 +167,7 @@ const AboutSection = () => {
               src="/assets/image/home/about.png"
               width={120}
               height={120}
+              priority
               alt="Dotted Background"
             />
           </div>
@@ -180,6 +183,7 @@ const AboutSection = () => {
             alt="Monitoring"
             width={500}
             height={500}
+            priority
             className="md:w-[500px] md:h-[500px] block"
           />
         </div>
@@ -191,6 +195,7 @@ const AboutSection = () => {
             alt="What We Offer"
             width={400}
             height={200}
+            priority
             className="absolute z-0 opacity-80 -top-6 w-[300px] sm:w-[400px]"
           />
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 z-10">

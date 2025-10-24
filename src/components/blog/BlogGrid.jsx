@@ -110,6 +110,7 @@ const BlogGrid = ({ blogArray = [], loading = false }) => {
                     alt={post.title}
                     width={500}
                     height={400}
+                    priority
                     className="w-full h-56 object-cover"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -135,6 +136,7 @@ const BlogGrid = ({ blogArray = [], loading = false }) => {
                           src="/assets/image/blog/profile-icon.webp"
                           alt="profile icon"
                           width={20}
+                          priority
                           height={20}
                         />
                         <span className="text-xs">{post.author}</span>
@@ -144,6 +146,7 @@ const BlogGrid = ({ blogArray = [], loading = false }) => {
                           src="/assets/image/blog/message-icon.webp"
                           alt="comment icon"
                           width={20}
+                          priority
                           height={20}
                         />
                         <span className="text-xs">{post.comments} Comments</span>
