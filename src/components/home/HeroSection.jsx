@@ -143,7 +143,7 @@ const HeroSection = () => {
         <div className="relative w-full max-w-md md:max-w-lg lg:max-w-xl z-10 flex justify-start">
           <div ref={dashRef}>
             <Image
-              src="/assets/image/home/dashboard.png"
+              src="/assets/image/home/dashboard.webp"
               alt="Dashboard"
               width={1000}
               height={1000}
@@ -154,11 +154,11 @@ const HeroSection = () => {
           </div>
 
           <div ref={donutRef} className="absolute top-14 right-0 sm:top-20 sm:right-[-20px] w-1/3 md:w-1/3">
-            <Image src="/assets/image/home/doughnut.png" alt="Agricultural Data Chart" width={200} height={120} className="w-full h-auto" />
+            <Image src="/assets/image/home/doughnut.webp" alt="Agricultural Data Chart" width={200} height={120} className="w-full h-auto" />
           </div>
 
           <div ref={soilRef} className="absolute bottom-0 right-0 sm:bottom-[10px] sm:right-[30px] w-1/2 md:w-1/2">
-            <Image src="/assets/image/home/soil-chart.png" alt="Soil Analysis Graph" width={300} height={300} className="w-full h-auto" />
+            <Image src="/assets/image/home/soil-chart.webp" alt="Soil Analysis Graph" width={300} height={300} className="w-full h-auto" />
           </div>
         </div>
       </div>

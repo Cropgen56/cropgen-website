@@ -20,10 +20,10 @@ const AboutSection = () => {
   useEffect(() => {
     const imagesToLoad = [
       "/assets/image/home/who-are-we-text.png",
-      "/assets/image/home/index-image.png",
-      "/assets/image/home/about.png",
+      "/assets/image/home/index-image.webp",
+      "/assets/image/home/about.webp",
       "/assets/image/home/curve-background.png",
-      "/assets/image/home/monitoring.png",
+      "/assets/image/home/monitoring.webp",
       "/assets/image/home/What-We-Offer.png",
     ];
 
@@ -152,7 +152,7 @@ const AboutSection = () => {
         <div ref={imgRightRef} className="flex items-center justify-between relative p-4">
           <div className="relative z-10">
             <Image
-              src="/assets/image/home/index-image.png"
+              src="/assets/image/home/index-image.webp"
               alt="NDVI"
               width={400}
               height={400}
@@ -164,7 +164,7 @@ const AboutSection = () => {
           {/* Floating Label */}
           <div className="absolute top-0 right-0 animate-bounce-slow">
             <Image
-              src="/assets/image/home/about.png"
+              src="/assets/image/home/about.webp"
               width={120}
               height={120}
               priority
@@ -179,7 +179,7 @@ const AboutSection = () => {
         {/* Left Image */}
         <div ref={offerImgRef} className="relative flex justify-center items-start">
           <Image
-            src="/assets/image/home/monitoring.png"
+            src="/assets/image/home/monitoring.webp"
             alt="Monitoring"
             width={500}
             height={500}

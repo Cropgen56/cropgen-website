@@ -17,7 +17,7 @@ const FeaturesSection = () => {
 
   const imagesToLoad = [
     "/assets/image/home/CropGen’s-Monitoring.png",
-    "/assets/image/home/features.png",
+    "/assets/image/home/features.webp",
   ];
 
   // Preload images
@@ -143,7 +143,7 @@ const FeaturesSection = () => {
             className="p-2 text-white flex justify-center items-center"
           >
             <Image
-              src="/assets/image/home/features.png"
+              src="/assets/image/home/features.webp"
               height={500}
               width={500}
               priority

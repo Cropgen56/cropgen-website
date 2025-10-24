@@ -21,9 +21,9 @@ const ValuesSection = () => {
 
   const imagesToLoad = [
     "/assets/image/home/our-Values.png",
-    "/assets/image/home/weather-card.png",
-    "/assets/image/home/insights.png",
-    "/assets/image/home/report-cards.png",
+    "/assets/image/home/weather-card.webp",
+    "/assets/image/home/insights.webp",
+    "/assets/image/home/report-cards.webp",
     "/assets/image/blog/background.webp",
   ];
 
@@ -162,7 +162,7 @@ const ValuesSection = () => {
           <div className="h-full">
             <div className="float-end" ref={weatherRef}>
               <Image
-                src="/assets/image/home/weather-card.png"
+                src="/assets/image/home/weather-card.webp"
                 alt="Report"
                 width={150}
                 height={100}
@@ -173,7 +173,7 @@ const ValuesSection = () => {
 
             <div ref={insightsRef}>
               <Image
-                src="/assets/image/home/insights.png"
+                src="/assets/image/home/insights.webp"
                 alt="Report"
                 width={400}
                 height={400}
@@ -185,7 +185,7 @@ const ValuesSection = () => {
           {/* Report Cards */}
           <div ref={reportRef}>
             <Image
-              src="/assets/image/home/report-cards.png"
+              src="/assets/image/home/report-cards.webp"
               alt="Report"
               width={600}
               height={600}

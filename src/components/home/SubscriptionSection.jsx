@@ -9,7 +9,7 @@ export default function SubscriptionSection() {
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = "/assets/image/home/dashboard.png";
+    img.src = "/assets/image/home/dashboard.webp";
     img.onload = () => setIsLoading(false);
   }, []);
 
@@ -42,7 +42,7 @@ export default function SubscriptionSection() {
         {/* Right Image */}
         <div className="w-full md:w-1/2 flex justify-end">
           <Image
-            src="/assets/image/home/dashboard.png"
+            src="/assets/image/home/dashboard.webp"
             alt="Subscription Illustration"
             width={400}
             height={200}
