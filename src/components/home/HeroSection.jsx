@@ -22,9 +22,22 @@ const HeroSection = () => {
   const [loadedImages, setLoadedImages] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isLaptop, setIsLaptop] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") setIsLaptop(window.innerWidth >= 1024);
+    if (typeof window !== "undefined") {
+      setIsLaptop(window.innerWidth >= 1024);
+      setIsMobile(window.innerWidth < 768); // Mobile screens are typically < 768px
+      
+      // Add resize listener to update on screen size change
+      const handleResize = () => {
+        setIsLaptop(window.innerWidth >= 1024);
+        setIsMobile(window.innerWidth < 768);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   const features = [
@@ -104,7 +117,7 @@ const HeroSection = () => {
       {/* Left */}
       <article className={`md:w-1/2 text-center lg:text-left space-y-3 pt-8 md:px-8 ${isLaptop ? "md:pt-20" : ""}`}>
         <h1 ref={h1Ref} className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-          India’s First LLM-Based <br /> Crop Monitoring System with <br />Remote Sensing Technology
+          India's First LLM-Based <br /> Crop Monitoring System with <br />Remote Sensing Technology
         </h1>
         <br />
 
@@ -113,7 +126,12 @@ const HeroSection = () => {
         </p>
 
         <button ref={btnRef} className="px-5 py-2.5 bg-[#00AA64] text-white font-medium rounded-full hover:bg-[#008a50] transition">
-          <a href="https://app.cropgenapp.com/login" target="_blank">Get Started</a>
+          <a 
+            href={isMobile ? "https://play.google.com/store/apps/details?id=com.cropgenapp" : "https://app.cropgenapp.com/login"} 
+            target="_blank"
+          >
+            Get Started
+          </a>
         </button>
         <br /><br /><br />
         <div className="mt-5 grid grid-cols-2 gap-2 lg:gap-4 text-green-600">
