@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
@@ -22,9 +21,22 @@ const HeroSection = () => {
   const [loadedImages, setLoadedImages] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isLaptop, setIsLaptop] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") setIsLaptop(window.innerWidth >= 1024);
+    if (typeof window !== "undefined") {
+      setIsLaptop(window.innerWidth >= 1024);
+      setIsMobile(window.innerWidth < 768);
+
+      const handleResize = () => {
+        setIsLaptop(window.innerWidth >= 1024);
+        setIsMobile(window.innerWidth < 768);
+      };
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   const features = [
@@ -45,6 +57,26 @@ const HeroSection = () => {
     return () => clearTimeout(fallback);
   }, [loadedImages, imagesToWait]);
 
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+
+    if (isAnimating) return;
+    setIsAnimating(true);
+
+    const button = e.currentTarget;
+    button.classList.add('liquid-active');
+
+    // Redirect after 3.5 seconds
+    setTimeout(() => {
+      const url = isMobile
+        ? "https://play.google.com/store/apps/details?id=com.cropgenapp"
+        : "https://app.cropgenapp.com/login";
+      window.open(url, "_blank");
+      setIsAnimating(false);
+      button.classList.remove('liquid-active');
+    }, 2500);
+  };
+
   useEffect(() => {
     if (isLoading) return;
 
@@ -61,11 +93,8 @@ const HeroSection = () => {
       );
 
       gsap.fromTo(dashRef.current, { x: 200, y: -200, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.3 });
-
       gsap.fromTo(bgRef.current, { x: 200, opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.1 });
-
       gsap.fromTo(donutRef.current, { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power2.out", delay: 0.4, onComplete: () => { gsap.to(donutRef.current, { y: "+=15", duration: 2, yoyo: true, repeat: -1, ease: "sine.inOut" }); } });
-
       gsap.fromTo(soilRef.current, { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power2.out", delay: 0.5, onComplete: () => { gsap.to(soilRef.current, { scale: 1.1, duration: 2, yoyo: true, repeat: -1, ease: "sine.inOut" }); } });
 
       // ===== OUT ANIMATIONS =====
@@ -104,7 +133,7 @@ const HeroSection = () => {
       {/* Left */}
       <article className={`md:w-1/2 text-center lg:text-left space-y-3 pt-8 md:px-8 ${isLaptop ? "md:pt-20" : ""}`}>
         <h1 ref={h1Ref} className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-          India’s First LLM-Based <br /> Crop Monitoring System with <br />Remote Sensing Technology
+          India's First LLM-Based <br /> Crop Monitoring System with <br />Remote Sensing Technology
         </h1>
         <br />
 
@@ -112,9 +141,48 @@ const HeroSection = () => {
           The power of AI and remote sensing to drive  <br />precision agriculture. Designed for farmers,<br /> agronomists, agri-businesses, and researchers, <br /> CropGen delivers real-time, data-driven insights for smarter decision-making and sustainable growth.
         </p>
 
-        <button ref={btnRef} className="px-5 py-2.5 bg-[#00AA64] text-white font-medium rounded-full hover:bg-[#008a50] transition">
-          <a href="https://app.cropgenapp.com/login" target="_blank">Get Started</a>
-        </button>
+        <div className="button-wrapper">
+          <button
+            ref={btnRef}
+            onClick={handleButtonClick}
+            className="liquid-button px-5 py-2.5 text-white font-medium rounded-full"
+          >
+            <span className="button-text">Get Started</span>
+            {isAnimating && (
+              <>
+                <div className="loading-dots">
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                </div>
+                <div className="wave-container">
+                  <svg className="wave-svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                    <path
+                      d="M0,50 C150,20 350,80 500,50 C650,20 850,80 1000,50 C1150,20 1200,50 1200,50 L1200,100 L0,100 Z"
+                      fill="rgba(144, 255, 200, 0.25)"
+                    />
+                    <path
+                      d="M0,60 C200,30 400,90 600,60 C800,30 1000,90 1200,60 L1200,100 L0,100 Z"
+                      fill="rgba(122, 255, 190, 0.30)"
+                    />
+                    <path
+                      d="M0,70 C150,50 350,90 500,70 C650,50 850,90 1000,70 C1150,50 1200,70 1200,70 L1200,100 L0,100 Z"
+                      fill="rgba(100, 240, 180, 0.35)"
+                    />
+                  </svg>
+                </div>
+                <span className="liquid-layer-1"></span>
+                <span className="liquid-layer-2"></span>
+                <span className="bubble bubble-1"></span>
+                <span className="bubble bubble-2"></span>
+                <span className="bubble bubble-3"></span>
+                <span className="bubble bubble-4"></span>
+                <span className="bubble bubble-5"></span>
+              </>
+            )}
+          </button>
+        </div>
+
         <br /><br /><br />
         <div className="mt-5 grid grid-cols-2 gap-2 lg:gap-4 text-green-600">
           {features.map((feature, i) => (
