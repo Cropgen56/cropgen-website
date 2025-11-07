@@ -89,7 +89,7 @@ body {
 }
 
 .ck-content p {
-  font-size: 1rem; /* 16px */
+  font-size: 1rem; 
   line-height: 1.6;
 }
 
@@ -137,6 +137,74 @@ body {
   font-size: 0.875rem !important;
 }
 
+.ck-content .image {
+  display: inline-block;
+  text-align: center;
+  margin: 1em auto;
+}
+
+.ck-content .image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.ck-content .image-style-align-left {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.ck-content .image-style-align-right {
+  float: right;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.ck-content .image-style-align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ck-content::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+
+.ck-content ol,
+.ck-content ul {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.ck-content li {
+  margin-bottom: 0.4em;
+  line-height: 1.5;
+  list-style-position: outside;
+}
+
+.ck-content ol li::marker {
+  font-weight: 600;
+}
+
+.ck-content ol li,
+.ck-content ul li {
+  display: list-item;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.ck-content ol ol,
+.ck-content ul ul {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
 .prose a {
   color: #2563eb !important;
   text-decoration: underline !important;
@@ -147,6 +215,7 @@ body {
   color: #1d4ed8 !important;
   text-decoration-color: #1d4ed8 !important;
 }
+
 
 /* Custom scrollbar */
 .scrollbar-custom::-webkit-scrollbar-button {
