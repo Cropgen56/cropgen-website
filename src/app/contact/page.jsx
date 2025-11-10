@@ -9,7 +9,7 @@ const ContactUs = () => {
     lastName: "",
     email: "",
     additionalInfo: "",
-    acceptedPrivacyPolicy: false,
+    acceptedPrivacyPolicy: true,
   });
 
   const [loading, setLoading] = useState(false);
@@ -183,7 +183,7 @@ const ContactUs = () => {
             className="p-3 border rounded-md w-full resize-none h-24 bg-[#EEEFF7]"
             required
           ></textarea>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <input
               type="checkbox"
               name="acceptedPrivacyPolicy"
@@ -195,7 +195,7 @@ const ContactUs = () => {
             <label className="text-sm text-gray-600">
               I understand and agree to the Privacy Policy*
             </label>
-          </div>
+          </div> */}
           <button
             type="submit"
             disabled={loading}
