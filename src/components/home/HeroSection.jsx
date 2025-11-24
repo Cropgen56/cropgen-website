@@ -12,7 +12,7 @@ const HeroSection = () => {
   const h1Ref = useRef(null);
   const pRef = useRef(null);
   const btnRef = useRef(null);
-  const playStoreBtnRef = useRef(null); // New ref for Play Store button
+  const playStoreBtnRef = useRef(null); 
   const featuresRef = useRef([]);
   const dashRef = useRef(null);
   const bgRef = useRef(null);
