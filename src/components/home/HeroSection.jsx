@@ -12,6 +12,7 @@ const HeroSection = () => {
   const h1Ref = useRef(null);
   const pRef = useRef(null);
   const btnRef = useRef(null);
+  const playStoreBtnRef = useRef(null); // New ref for Play Store button
   const featuresRef = useRef([]);
   const dashRef = useRef(null);
   const bgRef = useRef(null);
@@ -23,6 +24,7 @@ const HeroSection = () => {
   const [isLaptop, setIsLaptop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPlayStoreAnimating, setIsPlayStoreAnimating] = useState(false); // New state
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -57,7 +59,8 @@ const HeroSection = () => {
     return () => clearTimeout(fallback);
   }, [loadedImages, imagesToWait]);
 
-  const handleButtonClick = (e) => {
+  // Handler for "Get Started" button - redirects to web app
+  const handleGetStartedClick = (e) => {
     e.preventDefault();
 
     if (isAnimating) return;
@@ -66,13 +69,28 @@ const HeroSection = () => {
     const button = e.currentTarget;
     button.classList.add('liquid-active');
 
-    // Redirect after 3.5 seconds
+    // Redirect to web app after animation
     setTimeout(() => {
-      const url = isMobile
-        ? "https://play.google.com/store/apps/details?id=com.cropgenapp"
-        : "https://app.cropgenapp.com/login";
-      window.open(url, "_blank");
+      window.open("https://app.cropgenapp.com/login", "_blank");
       setIsAnimating(false);
+      button.classList.remove('liquid-active');
+    }, 2500);
+  };
+
+  // Handler for "Get on Play Store" button - redirects to Play Store
+  const handlePlayStoreClick = (e) => {
+    e.preventDefault();
+
+    if (isPlayStoreAnimating) return;
+    setIsPlayStoreAnimating(true);
+
+    const button = e.currentTarget;
+    button.classList.add('liquid-active');
+
+    // Redirect to Play Store after animation
+    setTimeout(() => {
+      window.open("https://play.google.com/store/apps/details?id=com.cropgenapp", "_blank");
+      setIsPlayStoreAnimating(false);
       button.classList.remove('liquid-active');
     }, 2500);
   };
@@ -85,6 +103,7 @@ const HeroSection = () => {
       gsap.fromTo(h1Ref.current, { x: -200, opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out" });
       gsap.fromTo(pRef.current, { x: -200, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.2 });
       gsap.fromTo(btnRef.current, { y: 50, opacity: 0 }, { y: isLaptop ? 20 : 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.4 });
+      gsap.fromTo(playStoreBtnRef.current, { y: 50, opacity: 0 }, { y: isLaptop ? 20 : 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.5 }); // Animate Play Store button
 
       gsap.fromTo(
         featuresRef.current,
@@ -102,6 +121,7 @@ const HeroSection = () => {
         { el: h1Ref.current, x: -200, y: 0 },
         { el: pRef.current, x: -200, y: 0 },
         { el: btnRef.current, x: 0, y: 50 },
+        { el: playStoreBtnRef.current, x: 0, y: 50 }, // Add Play Store button to out animations
         { el: featuresRef.current, x: 0, y: isLaptop ? 30 : 20 },
         { el: dashRef.current, x: 200, y: -200 },
         { el: bgRef.current, x: 200, y: 0 },
@@ -141,46 +161,96 @@ const HeroSection = () => {
           The power of AI and remote sensing to drive  <br />precision agriculture. Designed for farmers,<br /> agronomists, agri-businesses, and researchers, <br /> CropGen delivers real-time, data-driven insights for smarter decision-making and sustainable growth.
         </p>
 
-        <div className="button-wrapper">
-          <button
-            ref={btnRef}
-            onClick={handleButtonClick}
-            className="liquid-button px-5 py-2.5 text-white font-medium rounded-full"
-          >
-            <span className="button-text">Get Started</span>
-            {isAnimating && (
-              <>
-                <div className="loading-dots">
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                </div>
-                <div className="wave-container">
-                  <svg className="wave-svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
-                    <path
-                      d="M0,50 C150,20 350,80 500,50 C650,20 850,80 1000,50 C1150,20 1200,50 1200,50 L1200,100 L0,100 Z"
-                      fill="rgba(144, 255, 200, 0.25)"
-                    />
-                    <path
-                      d="M0,60 C200,30 400,90 600,60 C800,30 1000,90 1200,60 L1200,100 L0,100 Z"
-                      fill="rgba(122, 255, 190, 0.30)"
-                    />
-                    <path
-                      d="M0,70 C150,50 350,90 500,70 C650,50 850,90 1000,70 C1150,50 1200,70 1200,70 L1200,100 L0,100 Z"
-                      fill="rgba(100, 240, 180, 0.35)"
-                    />
-                  </svg>
-                </div>
-                <span className="liquid-layer-1"></span>
-                <span className="liquid-layer-2"></span>
-                <span className="bubble bubble-1"></span>
-                <span className="bubble bubble-2"></span>
-                <span className="bubble bubble-3"></span>
-                <span className="bubble bubble-4"></span>
-                <span className="bubble bubble-5"></span>
-              </>
-            )}
-          </button>
+        {/* Buttons Container */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start pt-4">
+          {/* Get Started Button */}
+          <div className="button-wrapper">
+            <button
+              ref={btnRef}
+              onClick={handleGetStartedClick}
+              className="liquid-button px-5 py-2.5 text-white font-medium rounded-full"
+            >
+              <span className="button-text">Get Started</span>
+              {isAnimating && (
+                <>
+                  <div className="loading-dots">
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                  </div>
+                  <div className="wave-container">
+                    <svg className="wave-svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                      <path
+                        d="M0,50 C150,20 350,80 500,50 C650,20 850,80 1000,50 C1150,20 1200,50 1200,50 L1200,100 L0,100 Z"
+                        fill="rgba(144, 255, 200, 0.25)"
+                      />
+                      <path
+                        d="M0,60 C200,30 400,90 600,60 C800,30 1000,90 1200,60 L1200,100 L0,100 Z"
+                        fill="rgba(122, 255, 190, 0.30)"
+                      />
+                      <path
+                        d="M0,70 C150,50 350,90 500,70 C650,50 850,90 1000,70 C1150,50 1200,70 1200,70 L1200,100 L0,100 Z"
+                        fill="rgba(100, 240, 180, 0.35)"
+                      />
+                    </svg>
+                  </div>
+                  <span className="liquid-layer-1"></span>
+                  <span className="liquid-layer-2"></span>
+                  <span className="bubble bubble-1"></span>
+                  <span className="bubble bubble-2"></span>
+                  <span className="bubble bubble-3"></span>
+                  <span className="bubble bubble-4"></span>
+                  <span className="bubble bubble-5"></span>
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Play Store Button */}
+          <div className="button-wrapper">
+            <button
+              ref={playStoreBtnRef}
+              onClick={handlePlayStoreClick}
+              className="liquid-button playstore-button px-5 py-2.5 text-white font-medium rounded-full flex items-center gap-2"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+              </svg>
+              <span className="button-text">Get on Play Store</span>
+              {isPlayStoreAnimating && (
+                <>
+                  <div className="loading-dots">
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                  </div>
+                  <div className="wave-container">
+                    <svg className="wave-svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                      <path
+                        d="M0,50 C150,20 350,80 500,50 C650,20 850,80 1000,50 C1150,20 1200,50 1200,50 L1200,100 L0,100 Z"
+                        fill="rgba(144, 255, 200, 0.25)"
+                      />
+                      <path
+                        d="M0,60 C200,30 400,90 600,60 C800,30 1000,90 1200,60 L1200,100 L0,100 Z"
+                        fill="rgba(122, 255, 190, 0.30)"
+                      />
+                      <path
+                        d="M0,70 C150,50 350,90 500,70 C650,50 850,90 1000,70 C1150,50 1200,70 1200,70 L1200,100 L0,100 Z"
+                        fill="rgba(100, 240, 180, 0.35)"
+                      />
+                    </svg>
+                  </div>
+                  <span className="liquid-layer-1"></span>
+                  <span className="liquid-layer-2"></span>
+                  <span className="bubble bubble-1"></span>
+                  <span className="bubble bubble-2"></span>
+                  <span className="bubble bubble-3"></span>
+                  <span className="bubble bubble-4"></span>
+                  <span className="bubble bubble-5"></span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         <br /><br /><br />
