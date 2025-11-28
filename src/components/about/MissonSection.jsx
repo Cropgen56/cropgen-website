@@ -108,9 +108,9 @@ const MissionSection = () => {
             landscape, ensuring a greener, more profitable future for
             agriculture.
           </p>
-          <button className="w-[50%] sm:w-auto px-6 py-3 bg-[#2AB673] text-white rounded-full text-sm font-medium hover:bg-[#2AB673] transition-all ease-in-out duration-400">
+          {/* <button className="w-[50%] sm:w-auto px-6 py-3 bg-[#2AB673] text-white rounded-full text-sm font-medium hover:bg-[#2AB673] transition-all ease-in-out duration-400">
             Learn More
-          </button>
+          </button> */}
         </article>
       </div>
     </section>

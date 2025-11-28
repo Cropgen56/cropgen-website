@@ -545,9 +545,9 @@ export default function CropMonitoringFeatures() {
                 for targeted agricultural practices.
               </p>
               <div className="flex mt-5">
-                <button className="bg-[#2AB673] text-white px-6 py-2 mx-auto rounded-full font-semibold hover:bg-[#2AB673] transition-all">
+                <a href="https://app.cropgenapp.com/cropgen-analytics" className="bg-[#2AB673] text-white px-6 py-2 mx-auto rounded-full font-semibold hover:bg-[#2AB673] transition-all">
                   Start Analyze
-                </button>
+                </a>
               </div>
             </div>
           </div>

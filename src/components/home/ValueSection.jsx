@@ -210,9 +210,9 @@ const ValuesSection = () => {
           <p className="text-md md:text-xl font-semibold text-gray-900 text-center md:text-center">
             We will bring your Farm to the next level.
           </p>
-          <button className=" bg-green-500 text-white px-6 py-2 rounded-full text-sm md:text-lg font-semibold shadow-md hover:bg-green-600 transition-all ease-in-out duration-400">
+          <a href="https://app.cropgenapp.com/cropgen-analytics" className=" bg-green-500 text-white px-6 py-2 rounded-full text-sm md:text-lg font-semibold shadow-md hover:bg-green-600 transition-all ease-in-out duration-400">
             Start Free Trial
-          </button>
+          </a>
         </div>
       </div>
     </section>

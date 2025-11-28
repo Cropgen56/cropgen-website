@@ -1,6 +1,6 @@
 "use client";
 import { PromoSection } from "@/components";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Search, ChevronUp, ChevronDown } from "lucide-react";
 import Head from "next/head";
 
@@ -170,6 +170,38 @@ function AccordionItem({ question, answer, isOpen, onClick }) {
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    additionalInfo: "",
+    acceptedPrivacyPolicy: true,
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [submitMsg, setSubmitMsg] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredFaqData = faqData
+    .map((section) => ({
+      ...section,
+      items: section.items.filter(
+        (item) =>
+          item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.answer.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    }))
+    .filter((section) => section.items.length > 0);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => document.body.removeChild(script);
+  }, []);
+
   // ✅ Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -188,6 +220,68 @@ export default function FAQ() {
         item: "https://cropgenapp.com/faq",
       },
     ],
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSubmitMsg(null);
+
+    try {
+      if (!window.grecaptcha) throw new Error("reCAPTCHA failed");
+
+      const token = await window.grecaptcha.execute(
+        "6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10",
+        { action: "contact_form" }
+      );
+
+      // Name split
+      const nameParts = formData.name.trim().split(" ");
+      const firstName = nameParts[0] || "";
+      const lastName = nameParts.slice(1).join(" ") || "";
+
+      // Final payload backend ke format me
+      const payload = {
+        firstName,
+        lastName,
+        email: formData.email,
+        additionalInfo: formData.additionalInfo,
+        acceptedPrivacyPolicy: true,
+        token,
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitMsg({ type: "success", text: "Message sent successfully!" });
+        setFormData({
+          name: "",
+          email: "",
+          additionalInfo: "",
+          acceptedPrivacyPolicy: true,
+        });
+      } else {
+        setSubmitMsg({ type: "error", text: data.error || "Failed to send!" });
+      }
+    } catch (err) {
+      setSubmitMsg({ type: "error", text: "Something went wrong! Try again." });
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -229,6 +323,8 @@ export default function FAQ() {
                     <input
                       type="text"
                       placeholder="Type in your search"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
                       className="flex-grow px-4 py-3 text-gray-700 outline-none md:w-[600px] w-auto"
                     />
                     <button className="px-4 py-3 bg-green-500 text-white hover:bg-green-600 ">
@@ -247,7 +343,7 @@ export default function FAQ() {
         {/* Left scrollable Q&A */}
         <div className="md:col-span-2 h-[65vh] overflow-y-auto pr-2 scrollbar-hide">
           <div className="space-y-6">
-            {faqData.map((section, sectionIndex) => (
+            {filteredFaqData.map((section, sectionIndex) => (
               <div key={sectionIndex} className="mb-8">
                 {/* Category Heading */}
                 <h2 className="text-xl md:text-[36px] font-bold text-[#265A48] mb-4">
@@ -282,11 +378,15 @@ export default function FAQ() {
             <h2 className="text-xl font-bold mb-6 text-gray-800">
               Still Have Questions? Contact Us
             </h2>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-gray-700 font-medium">Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
                 />
               </div>
@@ -296,6 +396,11 @@ export default function FAQ() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="Email*"
                   className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
                 />
               </div>
@@ -305,16 +410,34 @@ export default function FAQ() {
                 </label>
                 <textarea
                   rows="4"
+                  name="additionalInfo"
+                  placeholder="Additional Info*"
+                  value={formData.additionalInfo}
+                  onChange={handleChange}
+                  required
                   className="w-full border rounded-lg px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-green-400"
                 ></textarea>
               </div>
               <button
                 type="submit"
+                disabled={loading}
                 className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium"
               >
-                Submit
+                {loading ? "Submitting..." : "Submit"}
               </button>
             </form>
+
+            {submitMsg && (
+              <p
+                className={`mt-4 text-center ${
+                  submitMsg.type === "success"
+                    ? "text-green-600"
+                    : "text-red-600"
+                }`}
+              >
+                {submitMsg.text}
+              </p>
+            )}
           </div>
         </aside>
       </section>

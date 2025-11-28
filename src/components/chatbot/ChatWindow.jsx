@@ -81,6 +81,7 @@ export default function ChatWindow({ onClose, onBack }) {
     setDynamicInput(null);
     setDynamicValue("");
     setLoading(false);
+    // setViewingHistory(false); 
 
     if (socketRef.current) {
       socketRef.current.emit("reset_conversation");
@@ -520,7 +521,6 @@ export default function ChatWindow({ onClose, onBack }) {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input Bar */}
         {/* Input Bar */}
         {!viewingHistory && (
           <div className="p-2 sm:p-3">

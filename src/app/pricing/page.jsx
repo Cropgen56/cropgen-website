@@ -36,10 +36,11 @@ function PlanCard({ plan }) {
       >
         {/* FRONT */}
         <div
-          className={`absolute inset-0 flex flex-col rounded-2xl shadow-lg p-6 transition-all duration-300 items-stretch ${isRecommended
+          className={`absolute inset-0 flex flex-col rounded-2xl shadow-lg p-6 transition-all duration-300 items-stretch ${
+            isRecommended
               ? "bg-white text-black [border-width:8px] border-[#265A48]"
               : "bg-white text-black border border-gray-200"
-            }`}
+          }`}
           style={{ backfaceVisibility: "hidden" }}
         >
           {isRecommended && (
@@ -54,7 +55,9 @@ function PlanCard({ plan }) {
           {!isEnterprise ? (
             <p className="text-[20px] font-bold mb-4">{plan.price}</p>
           ) : (
-            <p className="text-[20px] font-bold mb-4 text-[#2AB673]">Contact Us</p>
+            <p className="text-[20px] font-bold mb-4 text-[#2AB673]">
+              Contact Us
+            </p>
           )}
 
           <hr className="border-t border-gray-300 mb-4" />
@@ -83,11 +86,19 @@ function PlanCard({ plan }) {
               View All Features
             </button>
             <button
-              onClick={(e) => e.stopPropagation()}
-              className={`py-2 rounded-2xl font-semibold transition-colors duration-300 ${isEnterprise
+              onClick={(e) => {
+                e.stopPropagation();
+                if (isEnterprise) {
+                  window.open("https://www.cropgenapp.com/contact", "_blank");
+                } else {
+                  window.open("https://app.cropgenapp.com/", "_blank");
+                }
+              }}
+              className={`py-2 rounded-2xl font-semibold transition-colors duration-300 ${
+                isEnterprise
                   ? "bg-[#265A48] text-white hover:bg-[#1E473A]"
                   : "bg-[#2AB673] text-white hover:bg-[#466657]"
-                }`}
+              }`}
             >
               {isEnterprise ? "Contact Us" : "Get Started"}
             </button>
@@ -96,10 +107,11 @@ function PlanCard({ plan }) {
 
         {/* BACK */}
         <div
-          className={`absolute inset-0 flex flex-col rounded-2xl shadow-lg p-6 ${isRecommended
+          className={`absolute inset-0 flex flex-col rounded-2xl shadow-lg p-6 ${
+            isRecommended
               ? "bg-white text-black [border-width:8px] border-[#265A48]"
               : "bg-white text-black border border-gray-200"
-            }`}
+          }`}
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
           <h3 className="text-[18px] font-bold mt-2 mb-3">
@@ -118,8 +130,15 @@ function PlanCard({ plan }) {
               </p>
             ))}
             {plan.missing?.map((f, i) => (
-              <p key={`bm-${i}`} className="flex items-start gap-2 text-gray-400">
-                <X size={14} strokeWidth={3} className="text-red-500 shrink-0" />
+              <p
+                key={`bm-${i}`}
+                className="flex items-start gap-2 text-gray-400"
+              >
+                <X
+                  size={14}
+                  strokeWidth={3}
+                  className="text-red-500 shrink-0"
+                />
                 {f}
               </p>
             ))}
@@ -339,11 +358,13 @@ export default function Page() {
     let formattedPrice;
     if (displayPrice === 0) formattedPrice = "$0 /30 days";
     else if (currency === "USD")
-      formattedPrice = `$${displayPrice.toFixed(2)} ${billing === "yearly" ? "/ha/year" : "/ha/month"
-        }`;
+      formattedPrice = `$${displayPrice.toFixed(2)} ${
+        billing === "yearly" ? "/ha/year" : "/ha/month"
+      }`;
     else
-      formattedPrice = `₹${Math.round(displayPrice * 83)} ${billing === "yearly" ? "/ha/year" : "/ha/month"
-        }`;
+      formattedPrice = `₹${Math.round(displayPrice * 83)} ${
+        billing === "yearly" ? "/ha/year" : "/ha/month"
+      }`;
 
     return { ...p, price: formattedPrice };
   });
@@ -380,8 +401,9 @@ export default function Page() {
         <div className="flex flex-col items-center gap-4 mb-12">
           <div className="flex items-center gap-4">
             <span
-              className={`font-bold text-[14px] sm:text-[16px] cursor-pointer ${billing === "monthly" ? "text-[#2AB673]" : "text-gray-400"
-                }`}
+              className={`font-bold text-[14px] sm:text-[16px] cursor-pointer ${
+                billing === "monthly" ? "text-[#2AB673]" : "text-gray-400"
+              }`}
               onClick={() => setBilling("monthly")}
             >
               Monthly
@@ -393,15 +415,17 @@ export default function Page() {
               className="relative flex items-center bg-gray-200 rounded-full w-16 sm:w-20 h-8 sm:h-10 cursor-pointer"
             >
               <div
-                className={`absolute top-1 w-6 sm:w-8 h-6 sm:h-8 rounded-full transition-all ${billing === "monthly"
+                className={`absolute top-1 w-6 sm:w-8 h-6 sm:h-8 rounded-full transition-all ${
+                  billing === "monthly"
                     ? "left-1 bg-[#2AB673]"
                     : "left-8 sm:left-11 bg-[#2AB673]"
-                  }`}
+                }`}
               />
             </div>
             <span
-              className={`font-bold text-[14px] sm:text-[16px] cursor-pointer ${billing === "yearly" ? "text-[#2AB673]" : "text-gray-400"
-                }`}
+              className={`font-bold text-[14px] sm:text-[16px] cursor-pointer ${
+                billing === "yearly" ? "text-[#2AB673]" : "text-gray-400"
+              }`}
               onClick={() => setBilling("yearly")}
             >
               Yearly
@@ -465,19 +489,21 @@ export default function Page() {
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
                     aria-label={`Go to plan ${idx + 1}`}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentIndex
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      idx === currentIndex
                         ? "bg-[#2AB673] w-6"
                         : "bg-gray-300 hover:bg-gray-400"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
 
               {/* Plan Counter */}
               <p className="text-center text-sm text-gray-600 mt-3 font-medium">
-                <span className="text-[#2AB673] font-bold">{currentIndex + 1}</span>
-                {" "}/{" "}
-                <span>{adjustedPlans.length} plans</span>
+                <span className="text-[#2AB673] font-bold">
+                  {currentIndex + 1}
+                </span>{" "}
+                / <span>{adjustedPlans.length} plans</span>
               </p>
             </div>
           ) : (
@@ -514,7 +540,9 @@ export default function Page() {
                   className="object-contain w-10 sm:w-[60px] h-10 sm:h-[60px]"
                 />
               </div>
-              <h3 className="font-bold text-[20px] sm:text-[26px] mb-3">{b.title}</h3>
+              <h3 className="font-bold text-[20px] sm:text-[26px] mb-3">
+                {b.title}
+              </h3>
               <p className="text-gray-600 text-xs font-bold mt-5 leading-relaxed flex-1">
                 {b.description}
               </p>

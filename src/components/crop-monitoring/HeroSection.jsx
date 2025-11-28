@@ -53,9 +53,10 @@ export default function HeroSection() {
             <br className="hidden sm:block" />
             compare multiple data layers without extra tools.
           </p>
-          <button
-            className="bg-[#00AA64] rounded-full px-4 sm:px-6 py-2 mt-4 sm:mt-5 flex items-center justify-center text-sm sm:text-base"
+          <a
+            className="inline-flex bg-[#00AA64] rounded-full px-4 sm:px-6 py-2 mt-4 sm:mt-5 items-center justify-center text-sm sm:text-base"
             aria-label="Start your demo"
+            href="https://app.cropgenapp.com/cropgen-analytics"
           >
             Start Your Demo{" "}
             <Image
@@ -66,7 +67,7 @@ export default function HeroSection() {
               className="ml-2"
               priority
             />
-          </button>
+          </a>
         </article>
       </div>
 

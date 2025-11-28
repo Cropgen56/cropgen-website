@@ -9,12 +9,18 @@ export default function PromoSection() {
           Start Monitoring your Farm <br /> Easily Now
         </h2>
         <div className="flex justify-between gap-4 whitespace-nowrap">
-          <button className="bg-[#2AB673] text-white px-2 sm:px-6 py-1 sm:py-3 rounded-md text-[10px] sm:text-sm sm:font-semibold hover:bg-[#2ab677e9] transition-all duration-300 ease-in-out">
+          <a
+            href="https://www.cropgenapp.com/pricing"
+            className="bg-[#2AB673] text-white px-2 sm:px-6 py-1 sm:py-3 rounded-md text-[10px] sm:text-sm sm:font-semibold hover:bg-[#2ab677e9] transition-all duration-300 ease-in-out"
+          >
             Start Free Trial
-          </button>
-          <button className="bg-[#2AB673] text-white px-2 sm:px-6 py-1 sm:py-3 rounded-md text-[10px] sm:text-sm sm:font-semibold hover:bg-[#2ab677e9] transition-all duration-300 ease-in-out">
-            Choose Plane
-          </button>
+          </a>
+          <a
+            href="https://www.cropgenapp.com/pricing"
+            className="bg-[#2AB673] text-white px-2 sm:px-6 py-1 sm:py-3 rounded-md text-[10px] sm:text-sm sm:font-semibold hover:bg-[#2ab677e9] transition-all duration-300 ease-in-out"
+          >
+            Choose Plan
+          </a>
         </div>
       </div>
     </div>
