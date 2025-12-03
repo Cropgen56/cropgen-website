@@ -22,7 +22,7 @@ const teamMembers = [
   {
     id: 3,
     name: "Vishal Maske",
-    designation: "Full Stack Developer",
+    designation: "Software Developer",
     image: "/assets/image/about/vishalmaske.png",
     linkedin: "https://www.linkedin.com/in/vishalmaske-/",
   },

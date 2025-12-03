@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 const teamMembers = [
   { id: 1, name: "Ganesh Gawande", role: "Field Executive", img: "/assets/image/about/Ganesh Gawande - field executive.png" },
   { id: 2, name: "Abhishek Sumatkar", role: "Agronomist", img: "/assets/image/about/abhisheksumatkar.png" },
-  { id: 3, name: "Vishal Maske", role: "Full Stack Developer", img: "/assets/image/about/vishalmaske.png" },
+  { id: 3, name: "Vishal Maske", role: "Software Developer", img: "/assets/image/about/vishalmaske.png" },
   { id: 4, name: "Mahesh Gote", role: "Founder", img: "/assets/image/about/maheshgote.jpeg" },
   { id: 5, name: "Vishal Pillai", role: "Frontend Developer", img: "/assets/image/about/vishal-pillai.png" },
   { id: 6, name: "Garima Rawat", role: "Frontend Developer", img: "/assets/image/about/garima-rawat.png" },
