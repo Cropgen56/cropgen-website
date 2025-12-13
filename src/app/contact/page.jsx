@@ -75,18 +75,31 @@ const ContactUs = () => {
         }
       );
 
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...formData, token }),
-      });
+      const body = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        content: formData.additionalInfo,
+      };
+
+      const response = await fetch(
+        "https://server.cropgenapp.com/v1/api/common/contact-us",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage({ type: "success", text: "Form submitted successfully!" });
+        setMessage({
+          type: "success",
+          text: data.message || "Message sent successfully!",
+        });
         setFormData({
           firstName: "",
           lastName: "",
