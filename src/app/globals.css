@@ -1,13 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-
 
 @keyframes moveBg {
   0% {
@@ -89,7 +88,7 @@ body {
 }
 
 .ck-content p {
-  font-size: 1rem; 
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -174,8 +173,6 @@ body {
   clear: both;
 }
 
-
-
 .ck-content ol,
 .ck-content ul {
   margin: 1em 0;
@@ -215,7 +212,6 @@ body {
   color: #1d4ed8 !important;
   text-decoration-color: #1d4ed8 !important;
 }
-
 
 /* Custom scrollbar */
 .scrollbar-custom::-webkit-scrollbar-button {
@@ -309,7 +305,7 @@ body {
   animation: chatSlideDown 0.3s ease-in forwards;
 }
 
- /* Liquid Button Animation Styles */
+/* Liquid Button Animation Styles */
 .button-wrapper {
   position: relative;
   display: inline-block;
@@ -319,7 +315,7 @@ body {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: #00AA64;
+  background: #00aa64;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -369,7 +365,9 @@ body {
 }
 
 @keyframes dotPulse {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: scale(0.8);
     opacity: 0.5;
   }
@@ -430,7 +428,7 @@ body {
   background: linear-gradient(
     to top,
     rgba(144, 255, 200, 0.25),
-    rgba(166, 255, 210, 0.20),
+    rgba(166, 255, 210, 0.2),
     rgba(188, 255, 220, 0.15),
     transparent
   );
@@ -451,7 +449,8 @@ body {
     rgba(180, 255, 215, 0.12),
     transparent
   );
-  animation: liquidRise 2.5s ease-out 0.1s forwards, liquidRotate 10s linear infinite reverse;
+  animation: liquidRise 2.5s ease-out 0.1s forwards,
+    liquidRotate 10s linear infinite reverse;
 }
 
 @keyframes liquidRise {
@@ -523,10 +522,8 @@ body {
 
 /* Add subtle glow when liquid is active */
 .liquid-active {
-  box-shadow: 
-    0 0 30px rgba(144, 255, 200, 0.4),
-    0 0 50px rgba(166, 255, 210, 0.3),
-    inset 0 0 30px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 30px rgba(144, 255, 200, 0.4),
+    0 0 50px rgba(166, 255, 210, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 /* Create dynamic bubbles */
@@ -572,7 +569,7 @@ body {
 
 /* Surface shimmer */
 .liquid-active::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;

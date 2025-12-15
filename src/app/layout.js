@@ -1,7 +1,8 @@
+import { Poppins } from "next/font/google";
+import "./globals.css";
 import { Footer, Header } from "@/components";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import "./globals.css";
 import ChatbotButton from "@/components/chatbot/ChatbotButton";
 
 export const metadata = {
@@ -12,6 +13,12 @@ export const metadata = {
     icon: "/logo.png",
   },
 };
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export default function RootLayout({ children }) {
   const siteUrl = "https://cropgenapp.com";
@@ -105,7 +112,7 @@ export default function RootLayout({ children }) {
   `}
         </Script>
       </head>
-      <body className="antialiased">
+      <body className={`${poppins.className} antialiased`}>
         {/* Google Analytics */}
         <Script
           async
