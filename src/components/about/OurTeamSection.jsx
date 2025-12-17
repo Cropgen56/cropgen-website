@@ -47,13 +47,6 @@ const teamMembers = [
     image: "/assets/image/about/garima-rawat.png",
     linkedin: "https://www.linkedin.com/in/garima-rawat-1a5798221/",
   },
-  {
-    id: 8,
-    name: "Darshan Shirsat",
-    designation: "Data Analyst",
-    image: "/assets/image/about/darshan.png",
-    linkedin: "https://www.linkedin.com/in/darshan-shirsat-5b182b210/",
-  },
 ];
 
 const OurTeamSection = () => {
