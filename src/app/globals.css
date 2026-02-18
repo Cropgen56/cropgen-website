@@ -438,7 +438,9 @@ body {
 }
 
 .liquid-active .liquid-layer-1 {
-  animation: liquidRise 2.5s ease-out forwards, liquidRotate 8s linear infinite;
+  animation:
+    liquidRise 2.5s ease-out forwards,
+    liquidRotate 8s linear infinite;
 }
 
 .liquid-active .liquid-layer-2 {
@@ -449,7 +451,8 @@ body {
     rgba(180, 255, 215, 0.12),
     transparent
   );
-  animation: liquidRise 2.5s ease-out 0.1s forwards,
+  animation:
+    liquidRise 2.5s ease-out 0.1s forwards,
     liquidRotate 10s linear infinite reverse;
 }
 
@@ -522,8 +525,10 @@ body {
 
 /* Add subtle glow when liquid is active */
 .liquid-active {
-  box-shadow: 0 0 30px rgba(144, 255, 200, 0.4),
-    0 0 50px rgba(166, 255, 210, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 30px rgba(144, 255, 200, 0.4),
+    0 0 50px rgba(166, 255, 210, 0.3),
+    inset 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 /* Create dynamic bubbles */
@@ -591,5 +596,20 @@ body {
   }
   100% {
     left: 100%;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
   }
 }
