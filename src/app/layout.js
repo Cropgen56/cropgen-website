@@ -97,6 +97,13 @@ export default function RootLayout({ children }) {
         {/* Canonical URL */}
         <link rel="canonical" href={siteUrl} />
 
+        {/*Adsence tag*/}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2821754723764616"
+          crossorigin="anonymous"
+        ></script>
+
         {/* Structured Data (JSON-LD) */}
         <script
           type="application/ld+json"
