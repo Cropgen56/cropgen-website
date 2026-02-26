@@ -89,6 +89,11 @@ export default function RootLayout({ children }) {
         <meta name="twitter:description" content={metadata.description} />
         <meta name="twitter:image" content={`${siteUrl}/logo.png`} />
 
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-2821754723764616"
+        ></meta>
+
         {/* Favicon & Icons */}
         <link rel="icon" type="image/png" href="/logo.png" />
         <link rel="shortcut icon" href="/logo.png" />
