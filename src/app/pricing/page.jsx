@@ -82,7 +82,9 @@ export default function PricingPage() {
       .catch(() => {});
   }, []);
 
-  const filteredPlans = plans.filter((p) => p.platform === "web" && p.active);
+  const filteredPlans = plans.filter(
+    (p) => p.platform === "web" && p.active && p.slug !== "enterprise-test",
+  );
 
   const getPrice = (plan) => {
     const priceObj = plan.pricing?.find((p) => p.billingCycle === billing);
