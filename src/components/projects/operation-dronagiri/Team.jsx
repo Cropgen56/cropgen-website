@@ -4,13 +4,54 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 const teamMembers = [
-  { id: 1, name: "Ganesh Gawande", role: "Field Executive", img: "/assets/image/about/Ganesh Gawande - field executive.png" },
-  { id: 2, name: "Abhishek Sumatkar", role: "Agronomist", img: "/assets/image/about/abhisheksumatkar.png" },
-  { id: 3, name: "Vishal Maske", role: "Software Developer", img: "/assets/image/about/vishalmaske.png" },
-  { id: 4, name: "Mahesh Gote", role: "Founder", img: "/assets/image/about/maheshgote.jpeg" },
-  { id: 5, name: "Vishal Pillai", role: "Frontend Developer", img: "/assets/image/about/vishal-pillai.png" },
-  { id: 6, name: "Garima Rawat", role: "Frontend Developer", img: "/assets/image/about/garima-rawat.png" },
-  { id: 7, name: "Rushikesh Landage", role: "Field Executive", img: "/assets/image/about/Rushikesh Landage- field executive.png" },
+  {
+    id: 1,
+    name: "Ganesh Gawande",
+    role: "Field Executive",
+    img: "/assets/image/about/Ganesh Gawande - field executive.png",
+  },
+  {
+    id: 2,
+    name: "Abhishek Sumatkar",
+    role: "Agronomist",
+    img: "/assets/image/about/abhisheksumatkar.png",
+  },
+  {
+    id: 3,
+    name: "Vishal Maske",
+    role: "Software Developer",
+    img: "/assets/image/about/vishalmaske.png",
+  },
+  {
+    id: 4,
+    name: "Mahesh Gote",
+    role: "Founder",
+    img: "/assets/image/about/maheshgote.jpeg",
+  },
+  {
+    id: 5,
+    name: "Vishal Pillai",
+    role: "Frontend Developer",
+    img: "/assets/image/about/vishal-pillai.png",
+  },
+  {
+    id: 6,
+    name: "Garima Rawat",
+    role: "Frontend Developer",
+    img: "/assets/image/about/garima-rawat.png",
+  },
+  {
+    id: 6,
+    name: "Ayush Ashtikar",
+    role: "Data Scientist",
+    img: "/assets/image/about/ayushashtikar.jpeg",
+  },
+  {
+    id: 7,
+    name: "Rushikesh Landage",
+    role: "Field Executive",
+    img: "/assets/image/about/Rushikesh Landage- field executive.png",
+  },
 ];
 
 export default function Team() {
@@ -94,7 +135,7 @@ export default function Team() {
             else if (offset === 1) {
               positionStyles = {
                 bottom: "15%",
-                left: isSmallScreen ? "82%" : "70%", 
+                left: isSmallScreen ? "82%" : "70%",
                 transform: "translateX(-50%)",
               };
             } else if (offset === 2) {
@@ -108,7 +149,7 @@ export default function Team() {
             else if (offset === -1) {
               positionStyles = {
                 bottom: "15%",
-                left: isSmallScreen ? "18%" : "30%", 
+                left: isSmallScreen ? "18%" : "30%",
                 transform: "translateX(-50%)",
               };
             } else if (offset === -2) {

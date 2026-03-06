@@ -47,6 +47,13 @@ const teamMembers = [
     image: "/assets/image/about/garima-rawat.png",
     linkedin: "https://www.linkedin.com/in/garima-rawat-1a5798221/",
   },
+  {
+    id: 8,
+    name: "Ayush Ashtikar",
+    designation: "Data Scientist ",
+    image: "/assets/image/about/ayushashtikar.jpeg",
+    linkedin: "https://www.linkedin.com/in/garima-rawat-1a5798221/",
+  },
 ];
 
 const OurTeamSection = () => {
