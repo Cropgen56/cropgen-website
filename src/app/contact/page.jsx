@@ -128,7 +128,7 @@ export default function ContactUs() {
       const apiBaseUrl = (
         process.env.NEXT_PUBLIC_API_BASE_URL ||
         process.env.NEXT_PUBLIC_CROPGEN_SERVER_URL ||
-        "http://localhost:7070"
+        "https://server.cropgenapp.com"
       ).replace(/\/+$/, "");
 
       const { firstName, lastName } = splitName(form.name);
