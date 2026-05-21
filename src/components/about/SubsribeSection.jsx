@@ -100,7 +100,7 @@ const SubscribeSection = () => {
         <h3 className="text-[#2AB673] font-semibold text-md md:text-lg">
           Our Location
         </h3>
-        <p>Pune, Maharashtra, 411038, India</p>
+        <p>87/3b/1c, Shree Colony, Azad Nagar, Kothrud, Pune, Maharashtra 411038, India</p>
 
         <h3 className="text-[#2AB673] font-semibold text-md md:text-lg">
           Quick Contact

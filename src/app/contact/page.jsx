@@ -1,255 +1,407 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import Head from "next/head"; // 👈 Add Head for schema injection
-import Image from "next/image";
+import Head from "next/head";
+import Link from "next/link";
+import { MapPin, Mail, Phone, Clock } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 
-const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    additionalInfo: "",
-    acceptedPrivacyPolicy: true,
-  });
+const contactInfo = [
+  {
+    icon: MapPin,
+    label: "Office Address",
+    value: "87/3b/1c, Shree Colony, Azad Nagar, Kothrud, Pune, Maharashtra 411038, India",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "info@cropgenapp.com",
+    href: "mailto:info@cropgenapp.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 96659 35570",
+    href: "tel:+919665935570",
+  },
+  {
+    icon: Clock,
+    label: "Support Hours",
+    value: "Mon–Sat, 9 AM – 6 PM IST",
+  },
+];
 
+const TOPICS = [
+  "Product Demo Request",
+  "Sales Inquiry",
+  "Technical Support",
+  "FPO / Enterprise Partnership",
+  "Government / Research Collaboration",
+  "General Inquiry",
+];
+
+const initialForm = {
+  name: "",
+  email: "",
+  phone: "",
+  organization: "",
+  topic: "",
+  message: "",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://cropgenapp.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact",
+      item: "https://cropgenapp.com/contact",
+    },
+  ],
+};
+
+function splitName(fullName) {
+  const parts = fullName.trim().split(/\s+/);
+  const firstName = parts[0] || "";
+  const lastName = parts.slice(1).join(" ") || "";
+  return { firstName, lastName };
+}
+
+export default function ContactUs() {
+  const [form, setForm] = useState(initialForm);
+  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState(null);
-  const [isClient, setIsClient] = useState(false);
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
-    setIsClient(true);
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 5000);
+    return () => clearTimeout(t);
+  }, [toast]);
 
-    const script = document.createElement("script");
-    script.src =
-      "https://www.google.com/recaptcha/api.js?render=6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://cropgenapp.com/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Contact",
-        item: "https://cropgenapp.com/contact",
-      },
-    ],
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: null }));
   };
 
-  // Handle form field changes
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+  const validate = () => {
+    const next = {};
+    if (!form.name.trim() || form.name.trim().length < 2) {
+      next.name = "Name must be at least 2 characters";
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      next.email = "Please enter a valid email address";
+    }
+    if (!form.phone.trim() || form.phone.trim().length < 8) {
+      next.phone = "Please enter a valid phone number";
+    }
+    if (!form.organization.trim() || form.organization.trim().length < 2) {
+      next.organization = "Please enter your organisation or farm name";
+    }
+    if (!form.topic.trim()) {
+      next.topic = "Please select a topic";
+    }
+    if (!form.message.trim() || form.message.trim().length < 10) {
+      next.message = "Please provide more details (10+ characters)";
+    }
+    setErrors(next);
+    return Object.keys(next).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
+
     setLoading(true);
-    setMessage(null);
+    setToast(null);
 
     try {
-      if (!window.grecaptcha) throw new Error("reCAPTCHA not loaded");
+      const apiBaseUrl = (
+        process.env.NEXT_PUBLIC_API_BASE_URL ||
+        process.env.NEXT_PUBLIC_CROPGEN_SERVER_URL ||
+        "http://localhost:7070"
+      ).replace(/\/+$/, "");
 
-      const token = await window.grecaptcha.execute(
-        "6Lfne50rAAAAAPFY9qWeskY_qE3mX1DS5sbG3o10",
-        {
-          action: "contact_form",
-        }
-      );
+      const { firstName, lastName } = splitName(form.name);
 
-      const body = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        content: formData.additionalInfo,
-      };
+      const response = await fetch(`${apiBaseUrl}/v1/api/common/contact-us`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "cropgen",
+          name: form.name.trim(),
+          firstName,
+          lastName,
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          organization: form.organization.trim(),
+          topic: form.topic,
+          message: form.message.trim(),
+          content: form.message.trim(),
+        }),
+      });
 
-      const response = await fetch(
-        "https://server.cropgenapp.com/v1/api/common/contact-us",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(body),
-        }
-      );
+      const data = await response.json().catch(() => null);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage({
-          type: "success",
-          text: data.message || "Message sent successfully!",
-        });
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          additionalInfo: "",
-          acceptedPrivacyPolicy: false,
-        });
-      } else {
-        setMessage({
-          type: "error",
-          text: data.error || "Something went wrong!",
-        });
+      if (!response.ok || !data?.success) {
+        throw new Error(
+          data?.message ||
+            `Failed to send your message (${response.status}). Please try again.`,
+        );
       }
+
+      setToast({
+        type: "success",
+        text: "Message sent! We'll get back to you within 24 hours.",
+      });
+      setForm(initialForm);
     } catch (err) {
-      console.error("reCAPTCHA or submission error:", err);
-      setMessage({ type: "error", text: "Submission failed. Try again." });
+      setToast({
+        type: "error",
+        text: err.message || "Submission failed. Please try again.",
+      });
     } finally {
       setLoading(false);
     }
   };
 
+  const inputClass =
+    "h-12 w-full rounded-xl border border-gray-200 bg-[#F4F5F9] px-4 text-sm text-gray-800 transition focus:border-[#2AB673] focus:outline-none focus:ring-2 focus:ring-[#2AB673]/20";
+
   return (
-    <section className="flex flex-col gap-4 md:gap-8 container mx-auto px-4 sm:px-6 md:px-12 py-5 md:py-20">
-      {/* Inject Breadcrumb Schema */}
+    <>
       <Head>
+        <title>Contact Us | CropGen</title>
+        <meta
+          name="description"
+          content="Get in touch with the CropGen team for demos, sales inquiries, technical support, or partnership discussions."
+        />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       </Head>
 
-      <div className="max-w-2xl mx-auto text-center relative">
-        <Image
-          src="/assets/image/contact/Contact-Us.png"
-          alt="Contact Us"
-          width={400}
-          height={200}
-          className="absolute z-0 opacity-80 -top-2 sm:-top-6 w-[300px] sm:w-[400px] left-1/2 -translate-x-1/2"
-        />
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2AB673] relative z-10">
-          Contact Us
-        </h1>
-        <p className="text-[#000] text-sm sm:text-base">
-          Need assistance? Pick the relevant department, submit the form, and
-          we'll take it from there. Want a demo? Contact our support team.
-        </p>
-      </div>
-
-      <div className="max-w-2xl mx-auto p-2 md:p-6">
-        <form
-          className="flex flex-col gap-3 md:gap-4 w-full"
-          onSubmit={handleSubmit}
+      {toast && (
+        <div
+          className={`fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full px-6 py-3 text-sm font-medium shadow-lg ${
+            toast.type === "success"
+              ? "bg-[#2AB673] text-white"
+              : "bg-red-600 text-white"
+          }`}
         >
-          <div className="flex justify-between gap-4">
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First Name*"
-              value={formData.firstName}
-              onChange={handleChange}
-              className="h-10 md:h-14 px-3 border rounded-md w-1/2 bg-[#EEEFF7]"
-              required
-            />
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name*"
-              value={formData.lastName}
-              onChange={handleChange}
-              className="h-10 md:h-14 px-3 border rounded-md w-1/2 bg-[#EEEFF7]"
-              required
-            />
+          {toast.text}
+        </div>
+      )}
+
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-[#E8F8EF] to-white py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#2AB673]">
+            Contact
+          </p>
+          <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">
+            Talk to Our Team
+          </h1>
+          <p className="mx-auto mt-4 max-w-md text-gray-500">
+            Share your precision farming goals and we&apos;ll help you get started
+            within 24 hours.
+          </p>
+        </div>
+      </section>
+
+      {/* Form + sidebar */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:px-8">
+          {/* Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-5 rounded-2xl border border-gray-200 bg-white p-6 shadow-md md:p-8"
+          >
+            <h2 className="text-2xl font-bold text-gray-900">Send us a message</h2>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <input
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className={inputClass}
+                />
+                {errors.name && (
+                  <p className="mt-1 text-xs text-red-500">{errors.name}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="Email Address"
+                  className={inputClass}
+                />
+                {errors.email && (
+                  <p className="mt-1 text-xs text-red-500">{errors.email}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <input
+                  name="phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                  className={inputClass}
+                />
+                {errors.phone && (
+                  <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  name="organization"
+                  value={form.organization}
+                  onChange={handleChange}
+                  placeholder="Farm / Organisation Name"
+                  className={inputClass}
+                />
+                {errors.organization && (
+                  <p className="mt-1 text-xs text-red-500">{errors.organization}</p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <select
+                name="topic"
+                value={form.topic}
+                onChange={handleChange}
+                className={`${inputClass} text-gray-600`}
+              >
+                <option value="">Select a topic</option>
+                {TOPICS.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+              {errors.topic && (
+                <p className="mt-1 text-xs text-red-500">{errors.topic}</p>
+              )}
+            </div>
+
+            <div>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                rows={4}
+                placeholder="Tell us about your farm, how many hectares you manage, and what you're hoping to achieve..."
+                className="w-full resize-none rounded-xl border border-gray-200 bg-[#F4F5F9] p-4 text-sm text-gray-800 transition focus:border-[#2AB673] focus:outline-none focus:ring-2 focus:ring-[#2AB673]/20"
+              />
+              {errors.message && (
+                <p className="mt-1 text-xs text-red-500">{errors.message}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="h-12 w-full rounded-xl bg-[#2AB673] text-sm font-semibold text-white transition hover:bg-[#249a65] disabled:opacity-60"
+            >
+              {loading ? "Sending…" : "Send Message"}
+            </button>
+
+            <p className="text-center text-xs text-gray-400">
+              We respond within 1 business day. Your data is never shared.
+            </p>
+          </form>
+
+          {/* Contact info column */}
+          <div className="space-y-6">
+            <div className="space-y-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-md md:p-7">
+              <h2 className="text-2xl font-bold text-gray-900">Contact Information</h2>
+              <p className="text-sm text-gray-500">
+                Our team is available to help with demos, onboarding, and support.
+              </p>
+
+              <div className="space-y-5">
+                {contactInfo.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className="flex gap-3">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#2AB673]/10 text-[#2AB673]">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
+                          {item.label}
+                        </p>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="text-sm font-medium text-gray-700 transition hover:text-[#2AB673]"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="text-sm text-gray-700">{item.value}</p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/919665935570"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-2xl border border-[#25D366]/30 bg-[#25D366]/5 p-5 transition hover:bg-[#25D366]/10"
+            >
+              <FaWhatsapp className="h-8 w-8 text-[#25D366]" />
+              <div>
+                <p className="font-semibold text-gray-900">WhatsApp Us</p>
+                <p className="text-sm text-gray-500">
+                  Quick support available on WhatsApp
+                </p>
+              </div>
+            </a>
+
+            <div className="rounded-2xl border border-gray-200 bg-[#F4F5F9] p-6 text-center">
+              <p className="text-sm font-semibold text-gray-900">
+                Ready to see CropGen in action?
+              </p>
+              <p className="mt-1 text-xs text-gray-500">
+                Start monitoring your farm with AI-powered satellite insights
+              </p>
+              <Link
+                href="https://app.cropgenapp.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex h-11 items-center justify-center rounded-xl bg-[#2AB673] px-6 text-sm font-semibold text-white transition hover:bg-[#249a65]"
+              >
+                Launch Platform →
+              </Link>
+            </div>
           </div>
-          <input
-            type="email"
-            name="email"
-            placeholder="E-mail*"
-            value={formData.email}
-            onChange={handleChange}
-            className="h-10 md:h-14 px-3 border rounded-md w-full bg-[#EEEFF7]"
-            required
-          />
-          <p className="text-start text-sm">
-            Fill in your goals, must-have features, contact preferences, and any
-            additional information to help us serve you better.
-          </p>
-          <textarea
-            name="additionalInfo"
-            placeholder="Additional Info*"
-            value={formData.additionalInfo}
-            onChange={handleChange}
-            className="p-3 border rounded-md w-full resize-none h-24 bg-[#EEEFF7]"
-            required
-          ></textarea>
-          {/* <div className="flex items-center">
-            <input
-              type="checkbox"
-              name="acceptedPrivacyPolicy"
-              checked={formData.acceptedPrivacyPolicy}
-              onChange={handleChange}
-              className="mr-2 cursor-pointer"
-              required
-            />
-            <label className="text-sm text-gray-600">
-              I understand and agree to the Privacy Policy*
-            </label>
-          </div> */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-[#28C878] text-white py-3 font-semibold cursor-pointer hover:bg-[#28c878d5] transition-all duration-400 ease-in-out  w-1/3 md:w-1/4 mx-auto rounded-full"
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </button>
-        </form>
-
-        {message && (
-          <p
-            className={`mt-4 text-center ${
-              message.type === "success" ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {message.text}
-          </p>
-        )}
-      </div>
-
-      <div className="flex flex-row items-center justify-between gap-2 md:gap-16 md:px-20">
-        <div className="text-left w-full md:w-auto">
-          <h3 className="text-md md:text-3xl font-bold">Head Office</h3>
-          <p className="text-sm md:text-md text-gray-600">
-            Pune, Maharashtra, 411038, India
-          </p>
-          <p className="text-sm md:text-md text-gray-600">
-            Email: info@cropgenapp.com
-          </p>
         </div>
-        <div className="flex justify-center md:justify-start">
-          <Image
-            src="/assets/image/comman/farm-satellite.webp"
-            width={300}
-            height={300}
-            alt="farm with tractor and satellite"
-          />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
-};
-
-export default ContactUs;
+}
