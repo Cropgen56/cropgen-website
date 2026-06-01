@@ -41,18 +41,10 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/vishalpillai21122004/",
   },
   {
-    id: 7,
-    name: "Garima Rawat",
-    designation: "Frontend Developer",
-    image: "/assets/image/about/garima-rawat.png",
-    linkedin: "https://www.linkedin.com/in/garima-rawat-1a5798221/",
-  },
-  {
     id: 8,
     name: "Ayush Ashtikar",
     designation: "Data Scientist ",
     image: "/assets/image/about/ayushashtikar.jpeg",
-    linkedin: "https://www.linkedin.com/in/garima-rawat-1a5798221/",
   },
 ];
 
@@ -98,8 +90,10 @@ const OurTeamSection = () => {
               <div className="relative overflow-hidden rounded-xl z-10">
                 {/* Clickable Image */}
                 <div
-                  onClick={() => window.open(member.linkedin, "_blank")}
-                  className="cursor-pointer relative"
+                  onClick={() =>
+                    member.linkedin && window.open(member.linkedin, "_blank")
+                  }
+                  className={`relative ${member.linkedin ? "cursor-pointer" : ""}`}
                 >
                   <Image
                     src={member.image}

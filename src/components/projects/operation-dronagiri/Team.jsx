@@ -36,12 +36,6 @@ const teamMembers = [
   },
   {
     id: 6,
-    name: "Garima Rawat",
-    role: "Frontend Developer",
-    img: "/assets/image/about/garima-rawat.png",
-  },
-  {
-    id: 6,
     name: "Ayush Ashtikar",
     role: "Data Scientist",
     img: "/assets/image/about/ayushashtikar.jpeg",
