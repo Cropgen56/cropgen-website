@@ -83,11 +83,17 @@ export default function PricingPage() {
   }, []);
 
   const filteredPlans = plans.filter(
-    (p) => p.platform === "web" && p.active && p.slug !== "enterprise-test",
+    (p) =>
+      p.brand === "cropgen" &&
+      p.platform === "web" &&
+      p.active &&
+      p.slug !== "enterprise-test",
   );
 
   const getPrice = (plan) => {
-    const priceObj = plan.pricing?.find((p) => p.billingCycle === billing);
+    const priceObj = plan.pricing?.find(
+      (p) => p.billingCycle === billing && p.currency === "USD",
+    );
     if (!priceObj) return { price: "$0", detail: "/month" };
 
     const perAcre = (priceObj.pricePerUnitMinor || 0) / 100;
