@@ -1075,6 +1075,537 @@ body {
     border-radius: 12px;
   }
 }
+/* =========================================
+   GALLERY PAGE
+========================================= */
+
+.gallery-page {
+  width: 100%;
+  background: #ffffff;
+  color: #173f38;
+}
+
+
+/* =========================================
+   GALLERY HERO
+========================================= */
+
+.gallery-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 430px;
+
+  background-image: url("/assets/image/gallery/gallery-1.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+
+/* Green overlay */
+
+.gallery-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 90, 83, 0.88) 0%,
+      rgba(38, 90, 72, 0.60) 50%,
+      rgba(0, 0, 0, 0.25) 100%
+    );
+
+  z-index: 1;
+}
+
+
+/* Hero content */
+
+.gallery-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1330px, calc(100% - 120px));
+
+  margin: 0 auto;
+
+  padding: 90px 0;
+}
+
+
+/* Large background outline */
+
+.gallery-hero-outline {
+  position: absolute;
+
+  top: 35px;
+  left: -10px;
+
+  font-size: clamp(90px, 10vw, 170px);
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: transparent;
+
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.28);
+
+  opacity: 0.8;
+
+  pointer-events: none;
+}
+
+
+/* Main title */
+
+.gallery-hero-content h1 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  font-size: clamp(52px, 6vw, 86px);
+
+  line-height: 1.05;
+
+  font-weight: 700;
+
+  letter-spacing: -2px;
+
+  color: #ffffff;
+}
+
+
+/* Description */
+
+.gallery-hero-content p {
+  position: relative;
+  z-index: 2;
+
+  margin: 28px 0 0;
+
+  max-width: 650px;
+
+  font-size: 21px;
+
+  line-height: 1.55;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.gallery-container {
+  width: min(1330px, calc(100% - 120px));
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.gallery-breadcrumb {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding-top: 38px;
+
+  margin-bottom: 24px;
+
+  font-size: 18px;
+}
+
+.gallery-breadcrumb a {
+  color: #1683ff;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.gallery-breadcrumb a:hover {
+  color: #075a53;
+}
+
+.gallery-breadcrumb span {
+  color: #1683ff;
+}
+
+
+/* =========================================
+   GALLERY HEADING
+========================================= */
+
+.gallery-heading {
+  margin-bottom: 60px;
+}
+
+.gallery-heading h2 {
+  margin: 0;
+
+  font-size: clamp(40px, 4vw, 58px);
+
+  line-height: 1.1;
+
+  font-weight: 600;
+
+  color: #173f38;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* Green underline */
+
+.gallery-heading-line {
+  width: 55px;
+
+  height: 5px;
+
+  margin-top: 20px;
+
+  border-radius: 10px;
+
+  background: #00aa64;
+}
+
+
+/* Description */
+
+.gallery-heading p {
+  max-width: 760px;
+
+  margin-top: 25px;
+
+  font-size: 20px;
+
+  line-height: 1.6;
+
+  color: #526b66;
+}
+
+
+/* =========================================
+   MASONRY GALLERY
+========================================= */
+
+.gallery-grid {
+  columns: 3;
+
+  column-gap: 26px;
+
+  padding-bottom: 110px;
+}
+
+
+/* =========================================
+   GALLERY ITEM
+========================================= */
+
+.gallery-item {
+  position: relative;
+
+  display: inline-block;
+
+  width: 100%;
+
+  margin: 0 0 26px;
+
+  break-inside: avoid;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #f1f7f4;
+
+  box-shadow:
+    0 8px 25px rgba(7, 90, 83, 0.08);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* Hover */
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 40px rgba(7, 90, 83, 0.16);
+}
+
+
+/* =========================================
+   IMAGES
+========================================= */
+
+.gallery-item img {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================
+   VIDEOS
+========================================= */
+
+.gallery-item video {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  background: #102d28;
+
+  object-fit: contain;
+}
+
+
+/* =========================================
+   VIDEO PLAY BUTTON
+========================================= */
+
+.gallery-video-item::after {
+  content: "▶";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(0, 170, 100, 0.94);
+
+  color: #ffffff;
+
+  font-size: 21px;
+
+  padding-left: 3px;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.gallery-video-item:hover::after {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+}
+
+
+/* =========================================
+   IMAGE / VIDEO OVERLAY
+========================================= */
+
+.gallery-image-overlay {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 45px 20px 18px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.55),
+      transparent
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+
+  pointer-events: none;
+}
+
+.gallery-item:hover .gallery-image-overlay {
+  opacity: 1;
+}
+
+.gallery-image-overlay span {
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .gallery-container,
+  .gallery-hero-content {
+    width: calc(100% - 80px);
+  }
+
+  .gallery-grid {
+    columns: 2;
+
+    column-gap: 22px;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .gallery-hero {
+    min-height: 360px;
+  }
+
+  .gallery-hero-content {
+    width: calc(100% - 48px);
+
+    padding: 70px 0;
+  }
+
+  .gallery-hero-outline {
+    top: 45px;
+    left: -5px;
+
+    font-size: 80px;
+  }
+
+  .gallery-hero-content h1 {
+    font-size: 48px;
+
+    letter-spacing: -1px;
+  }
+
+  .gallery-hero-content p {
+    font-size: 17px;
+
+    margin-top: 22px;
+  }
+
+  .gallery-container {
+    width: calc(100% - 48px);
+  }
+
+  .gallery-breadcrumb {
+    padding-top: 30px;
+
+    font-size: 16px;
+  }
+
+  .gallery-heading {
+    margin-bottom: 40px;
+  }
+
+  .gallery-heading h2 {
+    font-size: 36px;
+  }
+
+  .gallery-heading p {
+    font-size: 17px;
+  }
+
+  .gallery-grid {
+    columns: 1;
+  }
+
+  .gallery-item {
+    margin-bottom: 22px;
+
+    border-radius: 16px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .gallery-hero {
+    min-height: 330px;
+  }
+
+  .gallery-hero-content {
+    width: calc(100% - 32px);
+  }
+
+  .gallery-hero-outline {
+    font-size: 65px;
+  }
+
+  .gallery-hero-content h1 {
+    font-size: 42px;
+  }
+
+  .gallery-hero-content p {
+    font-size: 16px;
+  }
+
+  .gallery-container {
+    width: calc(100% - 32px);
+  }
+
+  .gallery-heading h2 {
+    font-size: 32px;
+  }
+
+  .gallery-heading p {
+    font-size: 16px;
+  }
+}
 
 @keyframes shimmer {
   0% {

@@ -9,7 +9,7 @@ const teamMembers = [
     id: 1,
     name: "Mahesh Gote",
     designation: "Founder",
-    image: "/assets/image/about/maheshgote.jpeg",
+    image: "/assets/image/about/maheshgote-1.png",
     linkedin: "https://www.linkedin.com/in/mahesh-gote-106738228/",
   },
   {
@@ -23,28 +23,42 @@ const teamMembers = [
     id: 3,
     name: "Vishal Maske",
     designation: "Software Developer",
-    image: "/assets/image/about/vishalmaske.png",
+    image: "/assets/image/about/vishalmhaske-1.png",
     linkedin: "https://www.linkedin.com/in/vishalmaske-/",
   },
   {
     id: 4,
     name: "Adesh Borkute",
     designation: "UI / UX Designer",
-    image: "/assets/image/about/adeshborkute.png",
+    image: "/assets/image/about/adeshborkute-1.png",
     linkedin: "https://www.linkedin.com/in/adesh-borkute-5203811a1/",
   },
   {
     id: 6,
     name: "Vishal Pillai",
     designation: "Frontend Developer",
-    image: "/assets/image/about/vishal-pillai.png",
+    image: "/assets/image/about/vishalpillai-1.png",
     linkedin: "https://www.linkedin.com/in/vishalpillai21122004/",
   },
   {
     id: 8,
     name: "Ayush Ashtikar",
     designation: "Data Scientist ",
-    image: "/assets/image/about/ayushashtikar.jpeg",
+    image: "/assets/image/about/ayushashtikar-1.PNG",
+  },
+  {
+    id: 9,
+    name: "Kumari Supragya",
+    designation: "Founder Associative",
+    image: "/assets/image/about/kumarisupragya-1.png",
+    linkedin: "https://www.linkedin.com/in/kumari-supragya-a378a6286/",
+  },
+  {
+    id: 10,
+    name: "Pallavi Singh",
+    designation: "Crop Specialist",
+    image: "/assets/image/about/pallavisingh-1.png",
+    
   },
 ];
 

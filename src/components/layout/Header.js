@@ -19,6 +19,7 @@ export default function Navbar() {
     { name: "Sustainability", path: "/sustainability" },
     { name: "Projects", dropdown: true },
     { name: "Blog", path: "/blog" },
+    { name: "Gallery", path: "/gallery" },
   ];
 
   const projectDropdown = [
