@@ -16,7 +16,7 @@ const teamMembers = [
     id: 2,
     name: "Abhishek Sumatkar",
     designation: "Agronomist",
-    image: "/assets/image/about/abhisheksumatkar.png",
+    image: "/assets/image/about/abhisheksumatkar-1.png",
     linkedin: "https://www.linkedin.com/in/abhishek-sumatkar-997271252/",
   },
   {
@@ -49,7 +49,7 @@ const teamMembers = [
   {
     id: 9,
     name: "Kumari Supragya",
-    designation: "Founder Associative",
+    designation: "Agriculture & Founder Associative",
     image: "/assets/image/about/kumarisupragya-1.png",
     linkedin: "https://www.linkedin.com/in/kumari-supragya-a378a6286/",
   },
