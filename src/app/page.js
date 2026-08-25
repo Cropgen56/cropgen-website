@@ -7,6 +7,7 @@ import FeaturesSection from "@/components/home/FeaturesSection";
 import HeroSection from "@/components/home/HeroSection";
 import UserReviewsSection from "@/components/home/UserReviewSection";
 import ValuesSection from "@/components/home/ValueSection";
+import CollaborationBanner from "@/components/home/CollaborationBanner";
 
 export default function Home() {
 
@@ -132,7 +133,9 @@ export default function Home() {
       </Head>
 
       <HeroSection />
+            <CollaborationBanner />
       <AboutSection />
+
       <ValuesSection />
       <FeaturesSection />
       {/* <UserReviewsSection /> */}
