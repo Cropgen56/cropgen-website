@@ -45,7 +45,7 @@ export default async function sitemap() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog`, {
       headers: {
-        "x-api-key": "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",
+        "x-api-key": process.env.BLOG_API_KEY || "",
       },
       cache: "no-store",
     });

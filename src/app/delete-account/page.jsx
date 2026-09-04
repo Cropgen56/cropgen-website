@@ -36,14 +36,9 @@ const DeleteAccount = () => {
 
     setLoading(true);
     try {
-      const response = await axios.delete(
-        `https://server.cropgenapp.com/v1/api/auth/delete-user-by-email/${email}`,
-        {
-          headers: {
-            "x-api-key": "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",
-          },
-        }
-      );
+      const response = await axios.delete("/api/delete-account", {
+        data: { email },
+      });
 
       setLoading(false);
       setStatus(

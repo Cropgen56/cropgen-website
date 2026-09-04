@@ -8,19 +8,19 @@ const stats = [
   {
     id: 1,
     icon: "/assets/image/about/people.webp",
-    target: 500,
+    target: 5000,
     text: "Farmers join with our company",
   },
   {
     id: 2,
     icon: "/assets/image/about/map.webp",
-    target: 1000,
+    target: 8000,
     text: "Hector Are Mapped",
   },
   {
     id: 3,
     icon: "/assets/image/about/world.webp",
-    target: 4,
+    target: 12,
     text: `Available in Countries`,
   },
 ];
