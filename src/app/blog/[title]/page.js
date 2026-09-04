@@ -54,14 +54,7 @@ export default function BlogDetail() {
 
       try {
         setIsLoading(true);
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`,
-          {
-            headers: {
-              "x-api-key": "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",
-            },
-          }
-        );
+        const response = await axios.get(`/api/blog/${id}`);
 
         setBlog(response.data.data);
         setError(null);

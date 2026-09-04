@@ -16,14 +16,7 @@ export default function About() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/blog`,
-          {
-            headers: {
-              "x-api-key": "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",
-            },
-          }
-        );
+        const response = await axios.get("/api/blog");
         setBlogs(response.data);
       } catch (err) {
         setError(err.message);
