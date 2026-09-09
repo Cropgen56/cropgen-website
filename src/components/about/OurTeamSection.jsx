@@ -20,13 +20,6 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/abhishek-sumatkar-997271252/",
   },
   {
-    id: 3,
-    name: "Vishal Maske",
-    designation: "Software Developer",
-    image: "/assets/image/about/vishalmhaske-1.png",
-    linkedin: "https://www.linkedin.com/in/vishalmaske-/",
-  },
-  {
     id: 4,
     name: "Adesh Borkute",
     designation: "UI / UX Designer",
@@ -58,7 +51,6 @@ const teamMembers = [
     name: "Pallavi Singh",
     designation: "Crop Specialist",
     image: "/assets/image/about/pallavisingh-1.png",
-    
   },
 ];
 
