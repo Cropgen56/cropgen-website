@@ -204,7 +204,7 @@ const CollaborationBanner = () => {
             className="relative w-full bg-white"
           >
             <Image
-              src="/images/cropgen-collaboration.png"
+              src="/images/cropgen-collaboration.jpeg"
               alt="CropGen and AAT CropGen SA collaboration"
               width={1920}
               height={768}
