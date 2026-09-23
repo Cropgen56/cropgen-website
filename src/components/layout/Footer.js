@@ -15,7 +15,8 @@ export default function Footer() {
               <h3 className="text-md md:text-xl font-semibold">CropGen</h3>
               <ul className="mt-2 space-y-1">
                 <p className="mt-2 text-sm md:text-md text-gray-300">
-                  87/3b/1c, Shree Colony, Azad Nagar, Kothrud, Pune, Maharashtra 411038, India
+                  87/3b/1c, Shree Colony, Azad Nagar, Kothrud, Pune, Maharashtra
+                  411038, India
                 </p>
                 <p className="text-sm md:text-md text-gray-300">
                   info@cropgenapp.com
@@ -111,14 +112,14 @@ export default function Footer() {
                     FAQ
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a
                     href="/pricing"
                     className="text-gray-300 text-sm md:text-md hover:text-white"
                   >
                     Pricing
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

@@ -7,9 +7,9 @@ import FeaturesSection from "@/components/home/FeaturesSection";
 import HeroSection from "@/components/home/HeroSection";
 import UserReviewsSection from "@/components/home/UserReviewSection";
 import ValuesSection from "@/components/home/ValueSection";
+import CollaborationBanner from "@/components/home/CollaborationBanner";
 
 export default function Home() {
-
   // const faqSchema = {
   //   "@context": "https://schema.org",
   //   "@type": "FAQPage",
@@ -116,13 +116,12 @@ export default function Home() {
       "query-input": "required name=search_term_string",
     },
   };
-  
+  // FAQ schema
 
   return (
     <div className="relative">
       <Head>
-
-          {/* <script
+        {/* <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /> */}
         <script
@@ -132,7 +131,9 @@ export default function Home() {
       </Head>
 
       <HeroSection />
+      <CollaborationBanner />
       <AboutSection />
+
       <ValuesSection />
       <FeaturesSection />
       {/* <UserReviewsSection /> */}
